@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Handle API requests
+RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "\.(env|sql|log)$">
+    Require all denied
+</FilesMatch>
+
+# CORS headers are handled by PHP (helpers.php)
+# Do NOT set them here to avoid duplicates

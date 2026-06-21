@@ -1,0 +1,2424 @@
+[
+  {
+    "sku": "AO-ALE1600G",
+    "name": "BISELADORA AUTOMATICA",
+    "slug": "biseladora-automatica",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Automáticas",
+    "subcategory_slug": "biseladoras-automaticas",
+    "description": "BISELADORA AUTOMATICA",
+    "specs": {},
+    "barcode": "106801-11500-AT",
+    "reference": "ALE-1600G",
+    "image": "/images/products/AO-ALE1600G.jpg"
+  },
+  {
+    "sku": "AO-ALE1700G",
+    "name": "BISELADORA AUTOMATICA",
+    "slug": "biseladora-automatica-ale1700g",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Automáticas",
+    "subcategory_slug": "biseladoras-automaticas",
+    "description": "BISELADORA AUTOMATICA",
+    "specs": {},
+    "barcode": "101083-12500-AT",
+    "reference": "ALE-1700G",
+    "image": "/images/products/AO-ALE1700G.jpg"
+  },
+  {
+    "sku": "AO-ALE1000",
+    "name": "BISELADORA AUTOMATICA CON ESCANER",
+    "slug": "biseladora-automatica-con-escaner",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Automáticas",
+    "subcategory_slug": "biseladoras-automaticas",
+    "description": "BISELADORA AUTOMATICA CON ESCANER",
+    "specs": {
+      "peso": "60 kg 650 mm × 550 mm × 480 mm",
+      "potencia": "≤ 500W"
+    },
+    "barcode": "108247-5400-AT",
+    "reference": "ALE-1000",
+    "image": "/images/products/AO-ALE1000.jpg"
+  },
+  {
+    "sku": "AO-6ACP",
+    "name": "BISELADORA MANUAL DE TRES PIEDRAS",
+    "slug": "biseladora-manual-de-tres-piedras",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Manuales",
+    "subcategory_slug": "biseladoras-manuales",
+    "description": "BISELADORA MANUAL DE TRES PIEDRAS",
+    "specs": {
+      "peso": "6,7 kg 34 cm x 21 cm x 19 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "107580-260-AT",
+    "reference": "6A-CP",
+    "image": "/images/products/AO-6ACP.jpg"
+  },
+  {
+    "sku": "AO-CP11A35WV",
+    "name": "BISELADORA MANUAL DE UNA PIEDRA",
+    "slug": "biseladora-manual-de-una-piedra",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Manuales",
+    "subcategory_slug": "biseladoras-manuales",
+    "description": "BISELADORA MANUAL DE UNA PIEDRA",
+    "specs": {
+      "peso": "6,7 kg 35 X 22 X 28 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "107575/108259-145-AT",
+    "reference": "CP-11A-35WV",
+    "image": "/images/products/AO-CP11A35WV.jpg"
+  },
+  {
+    "sku": "AO-TC10A",
+    "name": "BISELADORA MANUAL DE UNA PIEDRA CON DISCO DE CORTE",
+    "slug": "biseladora-manual-de-una-piedra-con-disco-de-corte",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Manuales",
+    "subcategory_slug": "biseladoras-manuales",
+    "description": "BISELADORA MANUAL DE UNA PIEDRA CON DISCO DE CORTE",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108420-150-AT",
+    "reference": "TC-10A",
+    "image": "/images/products/AO-TC10A.jpg"
+  },
+  {
+    "sku": "AO-CP6A1",
+    "name": "NH-136 BISELADORA MANUAL DE TRES PIEDRAS",
+    "slug": "nh-136-biseladora-manual-de-tres-piedras",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Manuales",
+    "subcategory_slug": "biseladoras-manuales",
+    "description": "NH-136 BISELADORA MANUAL DE TRES PIEDRAS",
+    "specs": {},
+    "barcode": "",
+    "reference": "CP-6A-1/",
+    "image": "/images/products/AO-CP6A1.jpg"
+  },
+  {
+    "sku": "AO-LE420",
+    "name": "+ LY-2A* + CP-10C- BISELADORA SEMIAUTOMÁTICA",
+    "slug": "ly-2a-cp-10c-biseladora-semiautomatica",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Semiautomáticas",
+    "subcategory_slug": "biseladoras-semiautomaticas",
+    "description": "+ LY-2A* + CP-10C- BISELADORA SEMIAUTOMÁTICA",
+    "specs": {
+      "peso": "13.2 kg 53 cm x 55 cm x 62 cm"
+    },
+    "barcode": "101082/106800/108265-2700-AT",
+    "reference": "LE-420",
+    "image": "/images/products/AO-LE420.jpg"
+  },
+  {
+    "sku": "AO-SJG7100",
+    "name": "BISELADORA SEMIAUTOMÁTICA",
+    "slug": "biseladora-semiautomatica",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Biseladoras Semiautomáticas",
+    "subcategory_slug": "biseladoras-semiautomaticas",
+    "description": "BISELADORA SEMIAUTOMÁTICA",
+    "specs": {},
+    "barcode": "",
+    "reference": "SJG-7100",
+    "image": "/images/products/AO-SJG7100.jpg"
+  },
+  {
+    "sku": "AO-LY6C",
+    "name": "CALENTADOR DE MONTURA",
+    "slug": "calentador-de-montura",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Calentadores",
+    "subcategory_slug": "calentadores",
+    "description": "CALENTADOR DE MONTURA",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108422-40-AT",
+    "reference": "LY-6C",
+    "image": "/images/products/AO-LY6C.jpg"
+  },
+  {
+    "sku": "AO-LY6BT",
+    "name": "CALENTADOR DE MONTURA",
+    "slug": "calentador-de-montura-ly6bt",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Calentadores",
+    "subcategory_slug": "calentadores",
+    "description": "CALENTADOR DE MONTURA",
+    "specs": {
+      "peso": "2 kg 30 cm X 20 cm X 20 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101036-50-AT",
+    "reference": "LY-6BT",
+    "image": "/images/products/AO-LY6BT.jpg"
+  },
+  {
+    "sku": "AO-LY2A",
+    "name": "CENTRADORA CON BRAZO PARA PEGATINA Y MARCADOR",
+    "slug": "centradora-con-brazo-para-pegatina-y-marcador",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Centradoras",
+    "subcategory_slug": "centradoras",
+    "description": "CENTRADORA CON BRAZO PARA PEGATINA Y MARCADOR",
+    "specs": {
+      "peso": "3 kg 240 mm x 160 mm x 260 mm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "106800-75-AT",
+    "reference": "LY-2A*",
+    "image": "/images/products/AO-LY2A.jpg"
+  },
+  {
+    "sku": "AO-TM001",
+    "name": "ESFEROMETRO METALICO",
+    "slug": "esferometro-metalico",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Esferómetros",
+    "subcategory_slug": "esferometros",
+    "description": "ESFEROMETRO METALICO",
+    "specs": {
+      "material": "pc con metal"
+    },
+    "barcode": "101013-35-AT",
+    "reference": "TM-001",
+    "image": "/images/products/AO-TM001.jpg"
+  },
+  {
+    "sku": "AO-WZJP120",
+    "name": "LIMPIADOR DE LENTES ULTRASONICO",
+    "slug": "limpiador-de-lentes-ultrasonico",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Limpiadores Ultrasónicos",
+    "subcategory_slug": "limpiadores-ultrasonicos",
+    "description": "LIMPIADOR DE LENTES ULTRASONICO",
+    "specs": {
+      "peso": "2.5 kg 260 mm x 210 mm x 170 mm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101022-40-AT",
+    "reference": "WZ-JP120",
+    "image": "/images/products/AO-WZJP120.jpg"
+  },
+  {
+    "sku": "AO-CP008",
+    "name": "LIMPIADOR DE LENTES ULTRASONICO",
+    "slug": "limpiador-de-lentes-ultrasonico-cp008",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Limpiadores Ultrasónicos",
+    "subcategory_slug": "limpiadores-ultrasonicos",
+    "description": "LIMPIADOR DE LENTES ULTRASONICO",
+    "specs": {
+      "peso": "2.5 kg 260 mm x 210 mm x 170 mm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "105764-45-AT",
+    "reference": "CP-008",
+    "image": "/images/products/AO-CP008.jpg"
+  },
+  {
+    "sku": "AO-GB800",
+    "name": "WZ-JP121 LIMPIADOR ULTRASONICO MODERNO",
+    "slug": "wz-jp121-limpiador-ultrasonico-moderno",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Limpiadores Ultrasónicos",
+    "subcategory_slug": "limpiadores-ultrasonicos",
+    "description": "WZ-JP121 LIMPIADOR ULTRASONICO MODERNO",
+    "specs": {
+      "peso": "1 kg 28 cm x 20 cm x 17cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "106820/108261/17-38-AT",
+    "reference": "GB-800/",
+    "image": "/images/products/AO-GB800.jpg"
+  },
+  {
+    "sku": "AO-WZJP15A",
+    "name": "MEDIDOR DE ESPESOR",
+    "slug": "medidor-de-espesor",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Medidores de Espesor",
+    "subcategory_slug": "medidores-de-espesor",
+    "description": "MEDIDOR DE ESPESOR",
+    "specs": {
+      "material": "pc con metal"
+    },
+    "barcode": "101024-52-AT",
+    "reference": "WZ-JP15A",
+    "image": "/images/products/AO-WZJP15A.jpg"
+  },
+  {
+    "sku": "AO-WZJP15B",
+    "name": "MEDIDOR DE ESPESOR",
+    "slug": "medidor-de-espesor-wzjp15b",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Medidores de Espesor",
+    "subcategory_slug": "medidores-de-espesor",
+    "description": "MEDIDOR DE ESPESOR",
+    "specs": {
+      "material": "pc con metal"
+    },
+    "barcode": "101025-25-AT",
+    "reference": "WZ-JP15B",
+    "image": "/images/products/AO-WZJP15B.jpg"
+  },
+  {
+    "sku": "AO-NH3GS",
+    "name": "PERFORADORA AUTOMÁTICA PARA LENTES AL AIRE",
+    "slug": "perforadora-automatica-para-lentes-al-aire",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Perforadoras al Aire",
+    "subcategory_slug": "perforadoras-al-aire",
+    "description": "PERFORADORA AUTOMÁTICA PARA LENTES AL AIRE",
+    "specs": {
+      "peso": "7.5 kg 35 cm X 22 cm X 30 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "102918-1600-AT",
+    "reference": "NH-3GS",
+    "image": "/images/products/AO-NH3GS.jpg"
+  },
+  {
+    "sku": "AO-LY988C",
+    "name": "PERFORADORA PARA LENTES AL AIRE",
+    "slug": "perforadora-para-lentes-al-aire",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Perforadoras al Aire",
+    "subcategory_slug": "perforadoras-al-aire",
+    "description": "PERFORADORA PARA LENTES AL AIRE",
+    "specs": {
+      "peso": "3,5 kg 25,5 cm x 23 cm x 35 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108398-90-AT",
+    "reference": "LY988C",
+    "image": "/images/products/AO-LY988C.jpg"
+  },
+  {
+    "sku": "AO-CP10C",
+    "name": "PERFORADORA PARA PLANTILLA",
+    "slug": "perforadora-para-plantilla",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Perforadoras para Plantilla",
+    "subcategory_slug": "perforadoras-para-plantilla",
+    "description": "PERFORADORA PARA PLANTILLA",
+    "specs": {
+      "peso": "2 kg 22 cm x 20 cm x 27 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108265-68-AT",
+    "reference": "CP-10C-",
+    "image": "/images/products/AO-CP10C.jpg"
+  },
+  {
+    "sku": "AO-LY8384",
+    "name": "PROBADOR DE LENTES PHOTOCROMATICO",
+    "slug": "probador-de-lentes-photocromatico",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Probadores de Fotocromático",
+    "subcategory_slug": "probadores-de-fotocromatico",
+    "description": "PROBADOR DE LENTES PHOTOCROMATICO",
+    "specs": {
+      "peso": "0.50 kg 23 cm X 13 cm X9 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "106822-22-AT",
+    "reference": "LY-838-4",
+    "image": "/images/products/AO-LY8384.jpg"
+  },
+  {
+    "sku": "AO-WZJP17B",
+    "name": "PROBADOR DE LENTES PHOTOCROMATICO",
+    "slug": "probador-de-lentes-photocromatico-wzjp17b",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Probadores de Fotocromático",
+    "subcategory_slug": "probadores-de-fotocromatico",
+    "description": "PROBADOR DE LENTES PHOTOCROMATICO",
+    "specs": {
+      "peso": "0.50 kg 23 cm X 13 cm X9 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "29-18-AT",
+    "reference": "WZ-JP17B",
+    "image": "/images/products/AO-WZJP17B.jpg"
+  },
+  {
+    "sku": "AO-CP8A",
+    "name": "PULIDORA MANUAL",
+    "slug": "pulidora-manual",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Pulidoras Manuales",
+    "subcategory_slug": "pulidoras-manuales",
+    "description": "Pulido de la lente",
+    "specs": {
+      "potencia": "120W",
+      "material": "Metal Plástico"
+    },
+    "barcode": "101108-85-AT",
+    "reference": "CP-8A",
+    "image": "/images/products/AO-CP8A.jpg"
+  },
+  {
+    "sku": "AO-LY900",
+    "name": "PULIDORA SEMIAUTOMATICA",
+    "slug": "pulidora-semiautomatica",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Pulidoras Semiautomáticas",
+    "subcategory_slug": "pulidoras-semiautomaticas",
+    "description": "Pulido de la lente",
+    "specs": {
+      "peso": "7,1 kg 270 mm x 214 mm x 240 mm",
+      "potencia": "120W",
+      "material": "Metal Plástico"
+    },
+    "barcode": "108257-140-AT",
+    "reference": "LY-900",
+    "image": "/images/products/AO-LY900.jpg"
+  },
+  {
+    "sku": "AO-WZJP800C",
+    "name": "RANURADORA MANUAL",
+    "slug": "ranuradora-manual",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Ranuradoras Manuales",
+    "subcategory_slug": "ranuradoras-manuales",
+    "description": "RANURADORA MANUAL",
+    "specs": {
+      "peso": "2.2 kgs 167 mm x 210 mm x 150 mm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108258/101051-90-AT",
+    "reference": "WZ-JP800C",
+    "image": "/images/products/AO-WZJP800C.jpg"
+  },
+  {
+    "sku": "AO-LY12A",
+    "name": "RANURADORA MANUAL",
+    "slug": "ranuradora-manual-ly12a",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Ranuradoras Manuales",
+    "subcategory_slug": "ranuradoras-manuales",
+    "description": "RANURADORA MANUAL",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101078-180-AT",
+    "reference": "LY-12A",
+    "image": "/images/products/AO-LY12A.jpg"
+  },
+  {
+    "sku": "AO-WATERPUMP",
+    "name": "BOMBA PARA ALE1000 Y LE-420",
+    "slug": "bomba-para-ale1000-y-le-420",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Repuestos",
+    "subcategory_slug": "repuestos",
+    "description": "BOMBA PARA ALE1000 Y LE-420",
+    "specs": {},
+    "barcode": "101086/101087-135-AT",
+    "reference": "WATER PUMP",
+    "image": "/images/products/AO-WATERPUMP.jpg"
+  },
+  {
+    "sku": "AO-RNH316",
+    "name": "REPUESTO DE BISELADORA DE 3 PIEDRAS",
+    "slug": "repuesto-de-biseladora-de-3-piedras",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Repuestos",
+    "subcategory_slug": "repuestos",
+    "description": "REPUESTO DE BISELADORA DE 3 PIEDRAS",
+    "specs": {
+      "peso": "1 kg"
+    },
+    "barcode": "102925-135-AT",
+    "reference": "R-NH316",
+    "image": "/images/products/AO-RNH316.jpg"
+  },
+  {
+    "sku": "AO-BROC1",
+    "name": "REPUESTO DE BROCA PARA CORTADORA",
+    "slug": "repuesto-de-broca-para-cortadora",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Repuestos",
+    "subcategory_slug": "repuestos",
+    "description": "REPUESTO DE BROCA PARA CORTADORA",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)",
+      "material": "M42 (Cobalto 8%), M35 (Cobalto 5%), HSS M2, HSS"
+    },
+    "barcode": "103801-35-AT",
+    "reference": "BROC-1",
+    "image": "/images/products/AO-BROC1.jpg"
+  },
+  {
+    "sku": "AO-RM3",
+    "name": "PINZA PARA TINTURADO DE LUNAS OPTICAS",
+    "slug": "pinza-para-tinturado-de-lunas-opticas",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Tinturadoras",
+    "subcategory_slug": "tinturadoras",
+    "description": "PINZA PARA TINTURADO DE LUNAS OPTICAS",
+    "specs": {
+      "peso": "190 mm x 48 mm x 28 mm",
+      "material": "metal + plástico"
+    },
+    "barcode": "103800/13-3-AT",
+    "reference": "RM-3",
+    "image": "/images/products/AO-RM3.jpg"
+  },
+  {
+    "sku": "AO-TR6",
+    "name": "TINTURADORA",
+    "slug": "tinturadora",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Tinturadoras",
+    "subcategory_slug": "tinturadoras",
+    "description": "TINTURADORA",
+    "specs": {
+      "peso": "7.5 kg 54 cm x 38 cm x 23 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108260-180-AT",
+    "reference": "TR-6",
+    "image": "/images/products/AO-TR6.jpg"
+  },
+  {
+    "sku": "AO-CP18C",
+    "name": "UVEOMETRO",
+    "slug": "uveometro",
+    "category": "Equipos de Laboratorio",
+    "category_slug": "equipos-laboratorio",
+    "subcategory": "Uveómetros",
+    "subcategory_slug": "uveometros",
+    "description": "UVEOMETRO",
+    "specs": {
+      "peso": "0,65 kg 26 cm x 14 cm x 11cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "105761-80-AT",
+    "reference": "CP-18C+",
+    "image": "/images/products/AO-CP18C.jpg"
+  },
+  {
+    "sku": "AO-AT9000",
+    "name": "AT 9000 SISTEMA DE ANALISIS DE DATOS DE GAFAS CON INTELIGENCIA ARTIFICIAL",
+    "slug": "at-9000-sistema-de-analisis-de-datos-de-gafas-con-inteligencia-artificial",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "AT 9000 SISTEMA DE ANALISIS DE DATOS DE GAFAS CON INTELIGENCIA ARTIFICIAL",
+    "specs": {},
+    "barcode": "101085-9000-AT",
+    "reference": "AT-9000",
+    "image": "/images/products/AO-AT9000.jpg"
+  },
+  {
+    "sku": "AO-LM260",
+    "name": "AUTOLENSOMETRO DIGITAL",
+    "slug": "autolensometro-digital",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "Instrumento óptico para la determinación del centro óptico y medición de la potencia (dióptria) de una lente oftálmica, así como de la dirección del...",
+    "specs": {
+      "peso": "11 kg 41 cm x 41 cm x 63 cm"
+    },
+    "barcode": "101075-750-AT",
+    "reference": "LM-260",
+    "image": "/images/products/AO-LM260.jpg"
+  },
+  {
+    "sku": "AO-LM900",
+    "name": "AUTOLENSOMETRO DIGITAL",
+    "slug": "autolensometro-digital-lm900",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "Instrumento óptico para la determinación del centro óptico y medición de la potencia (dióptria) de una lente oftálmica, así como de la dirección del...",
+    "specs": {},
+    "barcode": "101076-755-AT",
+    "reference": "LM-900",
+    "image": "/images/products/AO-LM900.jpg"
+  },
+  {
+    "sku": "AO-JD26000D",
+    "name": "AUTOLENSOMETRO DIGITAL",
+    "slug": "autolensometro-digital-jd26000d",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "Instrumento óptico para la determinación del centro óptico y medición de la potencia (dióptria) de una lente oftálmica, así como de la dirección del...",
+    "specs": {
+      "peso": "11 kg 41 cm x 41 cm x 63 cm"
+    },
+    "barcode": "101088-880-AT",
+    "reference": "JD-26000D",
+    "image": "/images/products/AO-JD26000D.jpg"
+  },
+  {
+    "sku": "AO-LM300",
+    "name": "AUTOLENSOMETRO DIGITAL",
+    "slug": "autolensometro-digital-lm300",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "Instrumento óptico para la determinación del centro óptico y medición de la potencia (dióptria) de una lente oftálmica, así como de la dirección del...",
+    "specs": {
+      "peso": "6 kg 22.2 cm x 16.1 cm x 37.2 cm"
+    },
+    "barcode": "100000-850-AT",
+    "reference": "LM-300",
+    "image": "/images/products/AO-LM300.jpg"
+  },
+  {
+    "sku": "AO-LM800",
+    "name": "AUTOLENSOMETRO DIGITAL",
+    "slug": "autolensometro-digital-lm800",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "AUTOLENSOMETRO DIGITAL",
+    "specs": {},
+    "barcode": "101028-1250-AT",
+    "reference": "LM-800",
+    "image": "/images/products/AO-LM800.jpg"
+  },
+  {
+    "sku": "AO-D910",
+    "name": "AUTOLENSOMETRO DIGITAL",
+    "slug": "autolensometro-digital-d910",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "AUTOLENSOMETRO DIGITAL",
+    "specs": {
+      "peso": "12 kgs 41 cm x 41 cm x 63 cm"
+    },
+    "barcode": "10000-1300-AT",
+    "reference": "D-910",
+    "image": "/images/products/AO-D910.jpg"
+  },
+  {
+    "sku": "AO-D900",
+    "name": "LENSOMETRO DIGITAL",
+    "slug": "lensometro-digital",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "Mejor rendimiento y elección económica, Fácil manejo con cuatro botones Sin PD, medición UV y más estable",
+    "specs": {
+      "peso": "2,9 kg",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108267-580-AT",
+    "reference": "D-900",
+    "image": "/images/products/AO-D900.jpg"
+  },
+  {
+    "sku": "AO-NJC6",
+    "name": "LENSOMETRO MANUAL",
+    "slug": "lensometro-manual",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "LENSOMETRO MANUAL",
+    "specs": {},
+    "barcode": "",
+    "reference": "NJC-6",
+    "image": "/images/products/AO-NJC6.jpg"
+  },
+  {
+    "sku": "AO-CP1B",
+    "name": "LENSOMETRO PORTATIL",
+    "slug": "lensometro-portatil",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "Instrumento óptico para la determinación del centro óptico y medición de la potencia (dióptria) de una lente oftálmica, así como de la dirección del...",
+    "specs": {
+      "peso": "1 kg 260 mm x 180 mm x 90 mm"
+    },
+    "barcode": "105006/101074-140-AT",
+    "reference": "CP-1B-",
+    "image": "/images/products/AO-CP1B.jpg"
+  },
+  {
+    "sku": "AO-FA100KAP800CP60",
+    "name": "SET DE OPTOMETRIA",
+    "slug": "set-de-optometria",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "SET DE OPTOMETRIA",
+    "specs": {},
+    "barcode": "",
+    "reference": "FA-100K/AP-800/CP-60",
+    "image": "/images/products/AO-FA100KAP800CP60.jpg"
+  },
+  {
+    "sku": "AO-CM100AP800C330A",
+    "name": "SISTEMA DE REFRACCION AUTOMATICO CON MESA",
+    "slug": "sistema-de-refraccion-automatico-con-mesa",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Análisis de Gafas",
+    "subcategory_slug": "analisis-de-gafas",
+    "description": "SISTEMA DE REFRACCION AUTOMATICO CON MESA",
+    "specs": {
+      "peso": "450(W)* 555(H)* 470(D)MM"
+    },
+    "barcode": "101002/25-10600-AT",
+    "reference": "CM-100+AP800/C-330A",
+    "image": "/images/products/AO-CM100AP800C330A.jpg"
+  },
+  {
+    "sku": "AO-FA6000A",
+    "name": "AUTOREFRACTOMETRO",
+    "slug": "autorefractometro",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros",
+    "subcategory_slug": "auto-refractometros",
+    "description": "AUTOREFRACTOMETRO",
+    "specs": {
+      "peso": "28.8 kg 66 cm x 52 cm x 65 cm"
+    },
+    "barcode": "2-2100-AT",
+    "reference": "FA-6000A",
+    "image": "/images/products/AO-FA6000A.jpg"
+  },
+  {
+    "sku": "AO-IREF",
+    "name": "AUTOREFRACTOMETRO PORTATIL",
+    "slug": "autorefractometro-portatil",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros",
+    "subcategory_slug": "auto-refractometros",
+    "description": "AUTOREFRACTOMETRO PORTATIL",
+    "specs": {
+      "peso": "195 g 185 mm x 47 mm x 55 mm"
+    },
+    "barcode": "101052-290-AT",
+    "reference": "IREF",
+    "image": "/images/products/AO-IREF.jpg"
+  },
+  {
+    "sku": "AO-FA6100CK",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "slug": "autorefractometro-con-keratometro",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "specs": {
+      "peso": "20.6 kg 67 cm x 52 cm x 66 cm"
+    },
+    "barcode": "101004-2600-AT",
+    "reference": "FA-6100CK",
+    "image": "/images/products/AO-FA6100CK.jpg"
+  },
+  {
+    "sku": "AO-ARK7710",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "slug": "autorefractometro-con-keratometro-ark7710",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "specs": {},
+    "barcode": "101081-2760-AT",
+    "reference": "ARK-7710",
+    "image": "/images/products/AO-ARK7710.jpg"
+  },
+  {
+    "sku": "AO-FA6500K",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "slug": "autorefractometro-con-keratometro-fa6500k",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "specs": {
+      "peso": "20.6 kg 67 cm x 52 cm x 66 cm"
+    },
+    "barcode": "101080-2880-AT",
+    "reference": "FA-6500K-",
+    "image": "/images/products/AO-FA6500K.jpg"
+  },
+  {
+    "sku": "AO-FA8500K",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "slug": "autorefractometro-con-keratometro-fa8500k",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "specs": {
+      "peso": "20.6kg 69 x 52 x 66"
+    },
+    "barcode": "108424-2950-AT",
+    "reference": "FA-8500K",
+    "image": "/images/products/AO-FA8500K.jpg"
+  },
+  {
+    "sku": "AO-FA100",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "slug": "autorefractometro-con-keratometro-fa100",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "specs": {
+      "peso": "20kg(44lb) 478*268*472mm"
+    },
+    "barcode": "1-3900-AT",
+    "reference": "FA-100",
+    "image": "/images/products/AO-FA100.jpg"
+  },
+  {
+    "sku": "AO-FA300K",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "slug": "autorefractometro-con-keratometro-fa300k",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO",
+    "specs": {},
+    "barcode": "108397-5000-AT",
+    "reference": "FA-300K",
+    "image": "/images/products/AO-FA300K.jpg"
+  },
+  {
+    "sku": "AO-AL700PLUS",
+    "name": "AUTOREFRACTOMETRO CON KERATOMETRO Y BIOMETRIA",
+    "slug": "autorefractometro-con-keratometro-y-biometria",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Auto Refractómetros con Keratometro",
+    "subcategory_slug": "auto-refractometros-con-keratometro",
+    "description": "AUTOREFRACTOMETRO CON KERATOMETRO Y BIOMETRIA",
+    "specs": {},
+    "barcode": "108423-7500-AT",
+    "reference": "AL-700PLUS",
+    "image": "/images/products/AO-AL700PLUS.jpg"
+  },
+  {
+    "sku": "AO-PS22",
+    "name": "CAJA DE PRISMAS",
+    "slug": "caja-de-prismas",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cajas de Prisma",
+    "subcategory_slug": "cajas-de-prisma",
+    "description": "CAJA DE PRISMAS",
+    "specs": {
+      "peso": "37 mm × 37 mm",
+      "material": "carcasa de aluminio  cristal K9"
+    },
+    "barcode": "15-175-AT",
+    "reference": "PS-22",
+    "image": "/images/products/AO-PS22.jpg"
+  },
+  {
+    "sku": "AO-VB15HB16",
+    "name": "CAJA DE PRISMAS",
+    "slug": "caja-de-prismas-vb15hb16",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cajas de Prisma",
+    "subcategory_slug": "cajas-de-prisma",
+    "description": "CAJA DE PRISMAS",
+    "specs": {
+      "material": "carcasa de aluminio  cristal K9"
+    },
+    "barcode": "101071-190-AT",
+    "reference": "VB-15+HB-16",
+    "image": "/images/products/AO-VB15HB16.jpg"
+  },
+  {
+    "sku": "AO-104",
+    "name": "CAJA DE PRUEBA DE 104 LENTILLAS",
+    "slug": "caja-de-prueba-de-104-lentillas",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cajas de Prueba",
+    "subcategory_slug": "cajas-de-prueba",
+    "description": "CAJA DE PRUEBA DE 104 LENTILLAS",
+    "specs": {
+      "peso": "3 kg 22 cm x 12 cm x 41 cm",
+      "material": "vidrio óptico de alta calidad"
+    },
+    "barcode": "101046-125-AT",
+    "reference": "104*",
+    "image": "/images/products/AO-104.jpg"
+  },
+  {
+    "sku": "AO-JS158",
+    "name": "CAJA DE PRUEBA DE 158 LENTILLAS",
+    "slug": "caja-de-prueba-de-158-lentillas",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cajas de Prueba",
+    "subcategory_slug": "cajas-de-prueba",
+    "description": "CAJA DE PRUEBA DE 158 LENTILLAS",
+    "specs": {
+      "peso": "3 kg 22 cm x 12 cm x 41 cm",
+      "material": "vidrio óptico de alta calidad"
+    },
+    "barcode": "101047-136-AT",
+    "reference": "JS-158",
+    "image": "/images/products/AO-JS158.jpg"
+  },
+  {
+    "sku": "AO-JS22P",
+    "name": "CAJA DE PRUEBA PROGRESIVA",
+    "slug": "caja-de-prueba-progresiva",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cajas de Prueba",
+    "subcategory_slug": "cajas-de-prueba",
+    "description": "CAJA DE PRUEBA PROGRESIVA",
+    "specs": {
+      "peso": "27 mm × 27 mm"
+    },
+    "barcode": "108408-95-AT",
+    "reference": "JS-22P",
+    "image": "/images/products/AO-JS22P.jpg"
+  },
+  {
+    "sku": "AO-266JS",
+    "name": "GRIS CAJA DE PRUEBA DE 266 LENTILLAS",
+    "slug": "gris-caja-de-prueba-de-266-lentillas",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cajas de Prueba",
+    "subcategory_slug": "cajas-de-prueba",
+    "description": "GRIS CAJA DE PRUEBA DE 266 LENTILLAS",
+    "specs": {
+      "peso": "6 kg 43 cm x 12 cm x 59 cm",
+      "material": "vidrio óptico de alta calidad"
+    },
+    "barcode": "101048/108410-210-AT",
+    "reference": "266JS",
+    "image": "/images/products/AO-266JS.jpg"
+  },
+  {
+    "sku": "AO-RC3100",
+    "name": "CAMARA DE FONDO DE OJO AUTOMATICA",
+    "slug": "camara-de-fondo-de-ojo-automatica",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cámara de Fondo",
+    "subcategory_slug": "camara-de-fondo",
+    "description": "CAMARA DE FONDO DE OJO AUTOMATICA",
+    "specs": {
+      "peso": "10 KG 340 mm x 320 mm x 115 mm"
+    },
+    "barcode": "106824-22650-AT",
+    "reference": "RC-3100",
+    "image": "/images/products/AO-RC3100.jpg"
+  },
+  {
+    "sku": "AO-SK680A",
+    "name": "CAMARA DE FONDO DE OJO AUTOMATICA",
+    "slug": "camara-de-fondo-de-ojo-automatica-sk680a",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cámara de Fondo",
+    "subcategory_slug": "camara-de-fondo",
+    "description": "CAMARA DE FONDO DE OJO AUTOMATICA",
+    "specs": {},
+    "barcode": "101089-12000-AT",
+    "reference": "SK-680A",
+    "image": "/images/products/AO-SK680A.jpg"
+  },
+  {
+    "sku": "AO-WZ1300",
+    "name": "CAMARA DE FONDO DE OJO PORTATIL",
+    "slug": "camara-de-fondo-de-ojo-portatil",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cámara de Fondo",
+    "subcategory_slug": "camara-de-fondo",
+    "description": "CAMARA DE FONDO DE OJO PORTATIL",
+    "specs": {},
+    "barcode": "",
+    "reference": "WZ-1300",
+    "image": "/images/products/AO-WZ1300.jpg"
+  },
+  {
+    "sku": "AO-RETIWAVE1000",
+    "name": "ESCANER ULTRASONICO A-B",
+    "slug": "escaner-ultrasonico-a-b",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Cámara de Fondo",
+    "subcategory_slug": "camara-de-fondo",
+    "description": "ESCANER ULTRASONICO A-B",
+    "specs": {},
+    "barcode": "",
+    "reference": "RETIWAVE-1000",
+    "image": "/images/products/AO-RETIWAVE1000.jpg"
+  },
+  {
+    "sku": "AO-BIO1100",
+    "name": "EQUIPO DE PRUEBA DE CAMPO VISUAL",
+    "slug": "equipo-de-prueba-de-campo-visual",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Campo Visual",
+    "subcategory_slug": "campo-visual",
+    "description": "EQUIPO DE PRUEBA DE CAMPO VISUAL",
+    "specs": {
+      "peso": "17 kg 412 mm x 497 mm x 513 mm"
+    },
+    "barcode": "103802-12800-AT",
+    "reference": "BIO-1100",
+    "image": "/images/products/AO-BIO1100.jpg"
+  },
+  {
+    "sku": "AO-KJRDA2",
+    "name": "EQUIPO DE FISIOTERAPIA VISUAL",
+    "slug": "equipo-de-fisioterapia-visual",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Equipos de Fisioterapia",
+    "subcategory_slug": "equipos-de-fisioterapia",
+    "description": "Dispositivo portátil de fisioterapia visual / terapia ocular, diseñado para colocarse en la cabeza (tipo visor o banda), que utiliza electrodos y...",
+    "specs": {},
+    "barcode": "108425-280-AT",
+    "reference": "KJR-D-A2",
+    "image": "/images/products/AO-KJRDA2.jpg"
+  },
+  {
+    "sku": "AO-KJRDA3",
+    "name": "EQUIPO DE FISIOTERAPIA VISUAL",
+    "slug": "equipo-de-fisioterapia-visual-kjrda3",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Equipos de Fisioterapia",
+    "subcategory_slug": "equipos-de-fisioterapia",
+    "description": "Dispositivo portátil de fisioterapia visual / terapia ocular, diseñado para colocarse en la cabeza (tipo visor o banda), que utiliza electrodos y...",
+    "specs": {},
+    "barcode": "108426-340-AT",
+    "reference": "KJR-D-A3",
+    "image": "/images/products/AO-KJRDA3.jpg"
+  },
+  {
+    "sku": "AO-MD480",
+    "name": "PHACOEMULSIFICADOR",
+    "slug": "phacoemulsificador",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Facoemulsificador",
+    "subcategory_slug": "facoemulsificador",
+    "description": "PHACOEMULSIFICADOR",
+    "specs": {},
+    "barcode": "10000-18727-AT",
+    "reference": "MD-480",
+    "image": "/images/products/AO-MD480.jpg"
+  },
+  {
+    "sku": "AO-DPS700",
+    "name": "FOROPTERO DIGITAL",
+    "slug": "foroptero-digital",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Forópteros Digitales",
+    "subcategory_slug": "foropteros-digitales",
+    "description": "FOROPTERO DIGITAL",
+    "specs": {
+      "peso": "2 kg 31.8 cm x 9.6 cm x 29.3 cm"
+    },
+    "barcode": "108394-3570-AT",
+    "reference": "DPS-700",
+    "image": "/images/products/AO-DPS700.jpg"
+  },
+  {
+    "sku": "AO-AP800CP60",
+    "name": "FOROPTERO DIGITAL",
+    "slug": "foroptero-digital-ap800cp60",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Forópteros Digitales",
+    "subcategory_slug": "foropteros-digitales",
+    "description": "FOROPTERO DIGITAL",
+    "specs": {
+      "peso": "2 kg 31.8 cm x 9.6 cm x 29.3 cm"
+    },
+    "barcode": "101018-3500-AT",
+    "reference": "AP-800+CP60",
+    "image": "/images/products/AO-AP800CP60.jpg"
+  },
+  {
+    "sku": "AO-ML400-B",
+    "name": "BLANCO FOROPTERO",
+    "slug": "blanco-foroptero",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Forópteros Manuales",
+    "subcategory_slug": "foropteros-manuales",
+    "description": "BLANCO FOROPTERO",
+    "specs": {
+      "peso": "4.5 kg 31.8 cm x 9.6 cm x 29.3 cm"
+    },
+    "barcode": "108416-920-AT",
+    "reference": "ML-400",
+    "image": "/images/products/AO-ML400-B.jpg"
+  },
+  {
+    "sku": "AO-ML400",
+    "name": "NEGRO FOROPTERO",
+    "slug": "negro-foroptero",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Forópteros Manuales",
+    "subcategory_slug": "foropteros-manuales",
+    "description": "NEGRO FOROPTERO",
+    "specs": {
+      "peso": "4.5 kg 31.8 cm x 9.6 cm x 29.3 cm"
+    },
+    "barcode": "101054-920-AT",
+    "reference": "ML-400",
+    "image": "/images/products/AO-ML400.jpg"
+  },
+  {
+    "sku": "AO-CSE",
+    "name": "KIT 21 KIT INSTRUMENTAL 21 PCS",
+    "slug": "kit-21-kit-instrumental-21-pcs",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Kit Instrumental",
+    "subcategory_slug": "kit-instrumental",
+    "description": "KIT 21 KIT INSTRUMENTAL 21 PCS",
+    "specs": {},
+    "barcode": "108419-450-AT",
+    "reference": "CSE",
+    "image": "/images/products/AO-CSE.jpg"
+  },
+  {
+    "sku": "AO-WZ5S",
+    "name": "LAMPARA DE HENDIDURA CON SISTEMA DE ANÁLISIS",
+    "slug": "lampara-de-hendidura-con-sistema-de-analisis",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas de Hendidura",
+    "subcategory_slug": "lamparas-de-hendidura",
+    "description": "LAMPARA DE HENDIDURA CON SISTEMA DE ANÁLISIS",
+    "specs": {},
+    "barcode": "",
+    "reference": "WZ-5S",
+    "image": "/images/products/AO-WZ5S.jpg"
+  },
+  {
+    "sku": "AO-SM800",
+    "name": "LAMPARA DE HENEDIDURA PARA EXAMEN DE OJO SECO",
+    "slug": "lampara-de-henedidura-para-examen-de-ojo-seco",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas de Hendidura",
+    "subcategory_slug": "lamparas-de-hendidura",
+    "description": "LAMPARA DE HENEDIDURA PARA EXAMEN DE OJO SECO",
+    "specs": {
+      "peso": "17 kg 412 mm x 497 mm x 513 mm"
+    },
+    "barcode": "101034-15500-AT",
+    "reference": "SM-800",
+    "image": "/images/products/AO-SM800.jpg"
+  },
+  {
+    "sku": "AO-BL66B",
+    "name": "YZ-30RR LAMPARA DE HENDIDURA 2 MAGNIFICACIONES CON MESA Y TONOMETRO METALICO",
+    "slug": "yz-30rr-lampara-de-hendidura-2-magnificaciones-con-mesa-y-tonometro-metalico",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas de Hendidura",
+    "subcategory_slug": "lamparas-de-hendidura",
+    "description": "La lámpara de hendidura es un microscopio de bajo poder combinado con una fuente de luz de alta intensidad que puede enfocarse como un rayo delgado....",
+    "specs": {
+      "peso": "22.4 kg 46 cm x 46 cm x 71 cm"
+    },
+    "barcode": "10-2250-AT",
+    "reference": "BL-66B+",
+    "image": "/images/products/AO-BL66B.jpg"
+  },
+  {
+    "sku": "AO-BL88T",
+    "name": "YZ-30RR LAMPARA DE HENDIDURA 3 MAGNIFICACIONES CON MESA Y TONOMETRO METALICO",
+    "slug": "yz-30rr-lampara-de-hendidura-3-magnificaciones-con-mesa-y-tonometro-metalico",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas de Hendidura",
+    "subcategory_slug": "lamparas-de-hendidura",
+    "description": "La lámpara de hendidura es un microscopio de bajo poder combinado con una fuente de luz de alta intensidad que puede enfocarse como un rayo delgado....",
+    "specs": {
+      "peso": "16.8 kg 29 cm x 52 cm x 63 cm"
+    },
+    "barcode": "103799-3000-AT",
+    "reference": "BL-88T",
+    "image": "/images/products/AO-BL88T.jpg"
+  },
+  {
+    "sku": "AO-SJ350",
+    "name": "YZ-30RR LAMPARA DE HENDIDURA 5 MAGNIFICACIONES CON MESA TONOMETRO METALICO",
+    "slug": "yz-30rr-lampara-de-hendidura-5-magnificaciones-con-mesa-tonometro-metalico",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas de Hendidura",
+    "subcategory_slug": "lamparas-de-hendidura",
+    "description": "La lámpara de hendidura es un microscopio de bajo poder combinado con una fuente de luz de alta intensidad que puede enfocarse como un rayo delgado....",
+    "specs": {},
+    "barcode": "",
+    "reference": "S-J350",
+    "image": "/images/products/AO-SJ350.jpg"
+  },
+  {
+    "sku": "AO-ST150",
+    "name": "LAMPARA DE HENDIDURA PORTATIL",
+    "slug": "lampara-de-hendidura-portatil",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas Portátiles",
+    "subcategory_slug": "lamparas-portatiles",
+    "description": "LAMPARA DE HENDIDURA PORTATIL",
+    "specs": {
+      "peso": "120 g (sin pilas)"
+    },
+    "barcode": "108251-350-AT",
+    "reference": "ST-150",
+    "image": "/images/products/AO-ST150.jpg"
+  },
+  {
+    "sku": "AO-S150",
+    "name": "LAMPARA DE HENDIDURA PORTATIL",
+    "slug": "lampara-de-hendidura-portatil-s150",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas Portátiles",
+    "subcategory_slug": "lamparas-portatiles",
+    "description": "La lámpara de hendidura es un microscopio de bajo poder combinado con una fuente de luz de alta intensidad que puede enfocarse como un rayo delgado....",
+    "specs": {
+      "peso": "150 g"
+    },
+    "barcode": "108395-950-AT",
+    "reference": "S-150",
+    "image": "/images/products/AO-S150.jpg"
+  },
+  {
+    "sku": "AO-ML5S1",
+    "name": "LAMPARA DE HENDIDURA PORTATIL",
+    "slug": "lampara-de-hendidura-portatil-ml5s1",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas Portátiles",
+    "subcategory_slug": "lamparas-portatiles",
+    "description": "LAMPARA DE HENDIDURA PORTATIL",
+    "specs": {
+      "peso": "835g 320 mm x 310 mm x 205mm",
+      "potencia": "4 horas de funcionamiento  continuo aa, 15va"
+    },
+    "barcode": "108042-1350-AT",
+    "reference": "ML-5S1",
+    "image": "/images/products/AO-ML5S1.jpg"
+  },
+  {
+    "sku": "AO-HL004",
+    "name": "LAMPARA FRONTAL MEDICA",
+    "slug": "lampara-frontal-medica",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lámparas Portátiles",
+    "subcategory_slug": "lamparas-portatiles",
+    "description": "LAMPARA FRONTAL MEDICA",
+    "specs": {
+      "potencia": "3 W"
+    },
+    "barcode": "108400-350-AT",
+    "reference": "HL-004",
+    "image": "/images/products/AO-HL004.jpg"
+  },
+  {
+    "sku": "AO-YZ13",
+    "name": "LENTE DE 3 ESPEJOS",
+    "slug": "lente-de-3-espejos",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lente de 3 Espejos",
+    "subcategory_slug": "lente-de-3-espejos",
+    "description": "LENTE DE 3 ESPEJOS",
+    "specs": {},
+    "barcode": "101063-180-AT",
+    "reference": "YZ-13",
+    "image": "/images/products/AO-YZ13.jpg"
+  },
+  {
+    "sku": "AO-20D",
+    "name": "LENTE DE AUMENTO",
+    "slug": "lente-de-aumento",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lente de Aumento",
+    "subcategory_slug": "lente-de-aumento",
+    "description": "LENTE DE AUMENTO",
+    "specs": {},
+    "barcode": "101062-140-AT",
+    "reference": "20D",
+    "image": "/images/products/AO-20D.jpg"
+  },
+  {
+    "sku": "AO-78D",
+    "name": "LENTE DE AUMENTO",
+    "slug": "lente-de-aumento-78d",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lente de Aumento",
+    "subcategory_slug": "lente-de-aumento",
+    "description": "LENTE DE AUMENTO",
+    "specs": {},
+    "barcode": "101061-140-AT",
+    "reference": "78D",
+    "image": "/images/products/AO-78D.jpg"
+  },
+  {
+    "sku": "AO-90D",
+    "name": "LENTE DE AUMENTO",
+    "slug": "lente-de-aumento-90d",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lente de Aumento",
+    "subcategory_slug": "lente-de-aumento",
+    "description": "LENTE DE AUMENTO",
+    "specs": {},
+    "barcode": "101060-140-AT",
+    "reference": "90D",
+    "image": "/images/products/AO-90D.jpg"
+  },
+  {
+    "sku": "AO-SJ989",
+    "name": "LUPA BINOCULAR",
+    "slug": "lupa-binocular",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Lente de Aumento",
+    "subcategory_slug": "lente-de-aumento",
+    "description": "LUPA BINOCULAR",
+    "specs": {},
+    "barcode": "108401-150-AT",
+    "reference": "SJ-989",
+    "image": "/images/products/AO-SJ989.jpg"
+  },
+  {
+    "sku": "AO-YZ20T4",
+    "name": "MICROSCOPIO QUIRURJICO PARA OFATLMOLOGIA",
+    "slug": "microscopio-quirurjico-para-ofatlmologia",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Micropsio Quirúrgico",
+    "subcategory_slug": "micropsio-quirurgico",
+    "description": "MICROSCOPIO QUIRURJICO PARA OFATLMOLOGIA",
+    "specs": {},
+    "barcode": "10000-12421-AT",
+    "reference": "YZ-20T4",
+    "image": "/images/products/AO-YZ20T4.jpg"
+  },
+  {
+    "sku": "AO-GD1104",
+    "name": "MONTURA DE PRUEBA",
+    "slug": "montura-de-prueba",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Monturas de Prueba",
+    "subcategory_slug": "monturas-de-prueba",
+    "description": "MONTURA DE PRUEBA",
+    "specs": {
+      "material": "Pc con aluminio"
+    },
+    "barcode": "101032-9-AT x PIEZA",
+    "reference": "GD-1104",
+    "image": "/images/products/AO-GD1104.jpg"
+  },
+  {
+    "sku": "AO-TTF08",
+    "name": "MONTURA DE PRUEBA ALUMINIO",
+    "slug": "montura-de-prueba-aluminio",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Monturas de Prueba",
+    "subcategory_slug": "monturas-de-prueba",
+    "description": "MONTURA DE PRUEBA ALUMINIO",
+    "specs": {
+      "peso": "50g"
+    },
+    "barcode": "106817-34-AT",
+    "reference": "TTF-08",
+    "image": "/images/products/AO-TTF08.jpg"
+  },
+  {
+    "sku": "AO-TFC",
+    "name": "MONTURA DE PRUEBA PARA NIÑOS",
+    "slug": "montura-de-prueba-para-ninos",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Monturas de Prueba",
+    "subcategory_slug": "monturas-de-prueba",
+    "description": "MONTURA DE PRUEBA PARA NIÑOS",
+    "specs": {
+      "material": "Pc con aluminio"
+    },
+    "barcode": "102919-9-AT x PIEZA",
+    "reference": "TF-C",
+    "image": "/images/products/AO-TFC.jpg"
+  },
+  {
+    "sku": "AO-TF488A",
+    "name": "MONTURA DE PRUEBA PREMIUM",
+    "slug": "montura-de-prueba-premium",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Monturas de Prueba",
+    "subcategory_slug": "monturas-de-prueba",
+    "description": "MONTURA DE PRUEBA PREMIUM",
+    "specs": {
+      "peso": "0.2kg 6x12x19"
+    },
+    "barcode": "108421-83-AT",
+    "reference": "TF-488A",
+    "image": "/images/products/AO-TF488A.jpg"
+  },
+  {
+    "sku": "AO-TF5470",
+    "name": "MONTURA DE PRUEBA TITANIUM",
+    "slug": "montura-de-prueba-titanium",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Monturas de Prueba",
+    "subcategory_slug": "monturas-de-prueba",
+    "description": "MONTURA DE PRUEBA TITANIUM",
+    "specs": {
+      "peso": "50g"
+    },
+    "barcode": "102066-55-AT",
+    "reference": "TF5470",
+    "image": "/images/products/AO-TF5470.jpg"
+  },
+  {
+    "sku": "AO-OCT500",
+    "name": "TOMOGRAFO DE COHERENCIA OPTICA (OCT)",
+    "slug": "tomografo-de-coherencia-optica-oct",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "OCT",
+    "subcategory_slug": "oct",
+    "description": "TOMOGRAFO DE COHERENCIA OPTICA (OCT)",
+    "specs": {},
+    "barcode": "100000-30870-AT",
+    "reference": "OCT-500",
+    "image": "/images/products/AO-OCT500.jpg"
+  },
+  {
+    "sku": "AO-YZ25C",
+    "name": "OFTALMOSCOPIO INDIRECTO",
+    "slug": "oftalmoscopio-indirecto",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Oftalmoscopios",
+    "subcategory_slug": "oftalmoscopios",
+    "description": "OFTALMOSCOPIO INDIRECTO",
+    "specs": {},
+    "barcode": "101064/108406-1800-AT",
+    "reference": "YZ-25C",
+    "image": "/images/products/AO-YZ25C.jpg"
+  },
+  {
+    "sku": "AO-YZ11",
+    "name": "OFTALMOSCOPIO PORTATIL",
+    "slug": "oftalmoscopio-portatil",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Oftalmoscopios",
+    "subcategory_slug": "oftalmoscopios",
+    "description": "OFTALMOSCOPIO PORTATIL",
+    "specs": {
+      "potencia": "DC 3v (ac)6v/3w"
+    },
+    "barcode": "98537-68-AT",
+    "reference": "YZ-11",
+    "image": "/images/products/AO-YZ11.jpg"
+  },
+  {
+    "sku": "AO-YZ24BYZ11D",
+    "name": "RETINOSCOPIO CON OFTALMOSCOPIO",
+    "slug": "retinoscopio-con-oftalmoscopio",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Oftalmoscopios",
+    "subcategory_slug": "oftalmoscopios",
+    "description": "RETINOSCOPIO CON OFTALMOSCOPIO",
+    "specs": {
+      "potencia": "DC 3v (ac)6v/3w"
+    },
+    "barcode": "101073-480-AT",
+    "reference": "YZ-24B+YZ-11D*",
+    "image": "/images/products/AO-YZ24BYZ11D.jpg"
+  },
+  {
+    "sku": "AO-468E4310",
+    "name": "RETINOSCOPIO CON OFTALMOSCOPIO",
+    "slug": "retinoscopio-con-oftalmoscopio-468e4310",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Oftalmoscopios",
+    "subcategory_slug": "oftalmoscopios",
+    "description": "RETINOSCOPIO CON OFTALMOSCOPIO",
+    "specs": {
+      "peso": "3 kg",
+      "potencia": "DC 3v (ac)6v/3w"
+    },
+    "barcode": "12-680-AT",
+    "reference": "468E4310",
+    "image": "/images/products/AO-468E4310.jpg"
+  },
+  {
+    "sku": "AO-SW500",
+    "name": "PROBE PROBETA DESECHABLE",
+    "slug": "probe-probeta-desechable",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Probetas Desechables",
+    "subcategory_slug": "probetas-desechables",
+    "description": "Puntas de repuesto de un solo uso diseñadas para el tonómetro de rebote portátil",
+    "specs": {
+      "material": "Sondas metálicas de alta precisión"
+    },
+    "barcode": "111023-140-ATL",
+    "reference": "SW-500",
+    "image": "/images/products/AO-SW500.jpg"
+  },
+  {
+    "sku": "AO-LY9C",
+    "name": "PUPILOMETRO DIGITAL",
+    "slug": "pupilometro-digital",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Pupilómetros",
+    "subcategory_slug": "pupilometros",
+    "description": "PUPILOMETRO DIGITAL",
+    "specs": {
+      "peso": "0,7 kg 8.7 cm x 6.5 cm x 2.5 cm",
+      "potencia": "3V CC (2 pilas AA)"
+    },
+    "barcode": "101030/101056-95-AT",
+    "reference": "LY-9C",
+    "image": "/images/products/AO-LY9C.jpg"
+  },
+  {
+    "sku": "AO-CP30",
+    "name": "PUPILOMETRO MANUAL",
+    "slug": "pupilometro-manual",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Pupilómetros",
+    "subcategory_slug": "pupilometros",
+    "description": "PUPILOMETRO MANUAL",
+    "specs": {
+      "peso": "21.7 cm x 12.8 cm x 6.4 cm",
+      "potencia": "3V CC (2 pilas AA)"
+    },
+    "barcode": "103104/107579-50-AT",
+    "reference": "CP-30*",
+    "image": "/images/products/AO-CP30.jpg"
+  },
+  {
+    "sku": "AO-YZ24",
+    "name": "RETINOSCOPIO",
+    "slug": "retinoscopio",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Retinoscopios",
+    "subcategory_slug": "retinoscopios",
+    "description": "RETINOSCOPIO",
+    "specs": {
+      "peso": "1,8 kg",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "11-160-AT",
+    "reference": "YZ-24",
+    "image": "/images/products/AO-YZ24.jpg"
+  },
+  {
+    "sku": "AO-SK5500A",
+    "name": "TONOMETRO",
+    "slug": "tonometro",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Tonómetros de Contacto",
+    "subcategory_slug": "tonometros-de-contacto",
+    "description": "TONOMETRO",
+    "specs": {},
+    "barcode": "101090-4500-AT",
+    "reference": "SK-5500A",
+    "image": "/images/products/AO-SK5500A.jpg"
+  },
+  {
+    "sku": "AO-YZ30R",
+    "name": "TONOMETRO METALICO",
+    "slug": "tonometro-metalico",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Tonómetros de Contacto",
+    "subcategory_slug": "tonometros-de-contacto",
+    "description": "TONOMETRO METALICO",
+    "specs": {},
+    "barcode": "",
+    "reference": "YZ-30R",
+    "image": "/images/products/AO-YZ30R.jpg"
+  },
+  {
+    "sku": "AO-SW500-B",
+    "name": "TONOMETRO DE REBOTE PORTATIL",
+    "slug": "tonometro-de-rebote-portatil",
+    "category": "Equipos de Oftalmología y Óptica",
+    "category_slug": "equipos-oftalmologia-optica",
+    "subcategory": "Tonómetros de Rebote",
+    "subcategory_slug": "tonometros-de-rebote",
+    "description": "Es un examen para medir la presión dentro de los ojos. Este examen se utiliza para buscar glaucoma. También se utiliza para medir qué tan bien está...",
+    "specs": {
+      "peso": "520 mm x 390 mm x 170mm"
+    },
+    "barcode": "108396-2600-AT",
+    "reference": "SW-500",
+    "image": "/images/products/AO-SW500-B.jpg"
+  },
+  {
+    "sku": "AO-CT1000",
+    "name": "UNIDAD OFTALMICA AUTOMÁTICA CON SILLA",
+    "slug": "unidad-oftalmica-automatica-con-silla",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Automáticas",
+    "subcategory_slug": "automaticas",
+    "description": "Mesa que se abre en 90°, silla que sube y baja con elevador, se usa para poner el foroptero y el autorefractometro y los equipos de diagnóstico",
+    "specs": {
+      "peso": "127 x 97 x 109 cm"
+    },
+    "barcode": "20-4500-AT",
+    "reference": "CT-1000",
+    "image": "/images/products/AO-CT1000.jpg"
+  },
+  {
+    "sku": "AO-WZZN",
+    "name": "BRAZO PARA FOROPTERO DE PARED",
+    "slug": "brazo-para-foroptero-de-pared",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Brazos de Pared",
+    "subcategory_slug": "brazos-de-pared",
+    "description": "BRAZO PARA FOROPTERO DE PARED",
+    "specs": {
+      "peso": "14 kg 65x50x15 cm"
+    },
+    "barcode": "101021-380-AT",
+    "reference": "WZ-ZN",
+    "image": "/images/products/AO-WZZN.jpg"
+  },
+  {
+    "sku": "AO-CT1504",
+    "name": "BRAZO PARA FOROPTERO Y PROYECTOR DE PARED",
+    "slug": "brazo-para-foroptero-y-proyector-de-pared",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Brazos de Pared",
+    "subcategory_slug": "brazos-de-pared",
+    "description": "BRAZO PARA FOROPTERO Y PROYECTOR DE PARED",
+    "specs": {
+      "peso": "14 kg 65x50x15 cm"
+    },
+    "barcode": "101012-300-AT",
+    "reference": "CT-1504",
+    "image": "/images/products/AO-CT1504.jpg"
+  },
+  {
+    "sku": "AO-CS700AT",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "Mesa que se abre en 90°, silla que sube y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos de diagnostico",
+    "specs": {
+      "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+    },
+    "barcode": "101008-1500-AT",
+    "reference": "CS-700AT",
+    "image": "/images/products/AO-CS700AT.jpg"
+  },
+  {
+    "sku": "AO-CS700B",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion-cs700b",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "Mesa que se abre en 90°, silla que sube y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos de diagnostico",
+    "specs": {
+      "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+    },
+    "barcode": "101043-1500-AT",
+    "reference": "CS-700B",
+    "image": "/images/products/AO-CS700B.jpg"
+  },
+  {
+    "sku": "AO-CS700B2",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion-cs700b2",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "Mesa que se abre en 90°, silla que sube y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos de diagnostico",
+    "specs": {
+      "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+    },
+    "barcode": "101044-1500-AT",
+    "reference": "CS-700B-2",
+    "image": "/images/products/AO-CS700B2.jpg"
+  },
+  {
+    "sku": "AO-LY800A",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion-ly800a",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "Mesa que se abre en 90°, silla que sube y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos de diagnostico",
+    "specs": {
+      "peso": "46.8 kg 64 cm x 61 cm x 85 cm"
+    },
+    "barcode": "101009-1450-AT",
+    "reference": "LY-800A",
+    "image": "/images/products/AO-LY800A.jpg"
+  },
+  {
+    "sku": "AO-PK158",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion-pk158",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "Mesa que se abre en 90°, silla que sube y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos de diagnostico",
+    "specs": {
+      "peso": "46.8 kg 64 cm x 61 cm x 85 cm"
+    },
+    "barcode": "101041-1200-AT",
+    "reference": "PK-158",
+    "image": "/images/products/AO-PK158.jpg"
+  },
+  {
+    "sku": "AO-PK160",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion-pk160",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "specs": {},
+    "barcode": "",
+    "reference": "PK-160",
+    "image": "/images/products/AO-PK160.jpg"
+  },
+  {
+    "sku": "AO-C180A",
+    "name": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-de-elevacion-c180a",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+    "specs": {
+      "peso": "54.4 kg 117 cm x 26 cm x 69 cm"
+    },
+    "barcode": "101040/101010-750-AT",
+    "reference": "C-180A",
+    "image": "/images/products/AO-C180A.jpg"
+  },
+  {
+    "sku": "AO-CS518",
+    "name": "UNIDAD OFTALMICA CON SILLA ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-elevacion",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "UNIDAD OFTALMICA CON SILLA ELEVACION",
+    "specs": {
+      "peso": "870mm x 700mm x 1850 mm",
+      "potencia": "80W"
+    },
+    "barcode": "108268-3100-AT",
+    "reference": "CS-518",
+    "image": "/images/products/AO-CS518.jpg"
+  },
+  {
+    "sku": "AO-CS188",
+    "name": "UNIDAD OFTALMICA CON SILLA ELEVACION",
+    "slug": "unidad-oftalmica-con-silla-elevacion-cs188",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "UNIDAD OFTALMICA CON SILLA ELEVACION",
+    "specs": {
+      "peso": "240kg",
+      "potencia": "120VA"
+    },
+    "barcode": "21-2100-AT",
+    "reference": "CS-188",
+    "image": "/images/products/AO-CS188.jpg"
+  },
+  {
+    "sku": "AO-C180AB",
+    "name": "UNIDAD OFTALMICA CON SILLA ELEVACION Y PEDAL",
+    "slug": "unidad-oftalmica-con-silla-elevacion-y-pedal",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Elevación",
+    "subcategory_slug": "con-silla-elevacion",
+    "description": "UNIDAD OFTALMICA CON SILLA ELEVACION Y PEDAL",
+    "specs": {
+      "peso": "54.4 kg 117 cm x 26 cm x 69 cm"
+    },
+    "barcode": "108268 -700-AT",
+    "reference": "C-180A+B*",
+    "image": "/images/products/AO-C180AB.jpg"
+  },
+  {
+    "sku": "AO-S900B",
+    "name": "UNIDAD OFTALMICA CON SILLA RECLINABLE",
+    "slug": "unidad-oftalmica-con-silla-reclinable",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Reclinable",
+    "subcategory_slug": "con-silla-reclinable",
+    "description": "UNIDAD OFTALMICA CON SILLA RECLINABLE",
+    "specs": {},
+    "barcode": "101016-3300-AT",
+    "reference": "S-900B",
+    "image": "/images/products/AO-S900B.jpg"
+  },
+  {
+    "sku": "AO-S900C",
+    "name": "UNIDAD OFTALMICA CON SILLA RECLINABLE",
+    "slug": "unidad-oftalmica-con-silla-reclinable-s900c",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Reclinable",
+    "subcategory_slug": "con-silla-reclinable",
+    "description": "UNIDAD OFTALMICA CON SILLA RECLINABLE",
+    "specs": {
+      "peso": "1560 mm x 1000 mm x 2000 mm"
+    },
+    "barcode": "101017-2890-AT",
+    "reference": "S-900C",
+    "image": "/images/products/AO-S900C.jpg"
+  },
+  {
+    "sku": "AO-S900AT",
+    "name": "UNIDAD OFTALMICA CON SILLA RECLINABLE",
+    "slug": "unidad-oftalmica-con-silla-reclinable-s900at",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Con Silla Reclinable",
+    "subcategory_slug": "con-silla-reclinable",
+    "description": "UNIDAD OFTALMICA CON SILLA RECLINABLE",
+    "specs": {},
+    "barcode": "",
+    "reference": "S900AT",
+    "image": "/images/products/AO-S900AT.jpg"
+  },
+  {
+    "sku": "AO-WZ3A",
+    "name": "MESA DE ELEVACION",
+    "slug": "mesa-de-elevacion",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Mesas de Elevación",
+    "subcategory_slug": "mesas-de-elevacion",
+    "description": "Para subir o bajar a la altura necesaria manteniéndose a esa altura en el improbable caso de la falta del suministro eléctrico.",
+    "specs": {
+      "peso": "17 kg 26 cm x 52 cm x 62 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101037/108256-140-AT",
+    "reference": "WZ-3A",
+    "image": "/images/products/AO-WZ3A.jpg"
+  },
+  {
+    "sku": "AO-WB3AN",
+    "name": "MESA DE ELEVACION",
+    "slug": "mesa-de-elevacion-wb3an",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Mesas de Elevación",
+    "subcategory_slug": "mesas-de-elevacion",
+    "description": "Para subir o bajar a la altura necesaria manteniéndose a esa altura en el improbable caso de la falta del suministro eléctrico.",
+    "specs": {
+      "peso": "17 kg 26 cm x 52 cm x 62 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101038-140-AT",
+    "reference": "WB-3AN",
+    "image": "/images/products/AO-WB3AN.jpg"
+  },
+  {
+    "sku": "AO-WZ3AT",
+    "name": "TRIAL MESA DE ELEVACION CON BANDEJA",
+    "slug": "trial-mesa-de-elevacion-con-bandeja",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Mesas de Elevación",
+    "subcategory_slug": "mesas-de-elevacion",
+    "description": "Para subir o bajar a la altura necesaria manteniéndose a esa altura en el improbable caso de la falta del suministro eléctrico.",
+    "specs": {
+      "peso": "25 kg 26 cm x 52 cm x 62 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108255-190-AT",
+    "reference": "WZ-3AT",
+    "image": "/images/products/AO-WZ3AT.jpg"
+  },
+  {
+    "sku": "AO-C330A",
+    "name": "MESA DOBLE DE ELEVACIÓN",
+    "slug": "mesa-doble-de-elevacion",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Mesas Dobles",
+    "subcategory_slug": "mesas-dobles",
+    "description": "Para subir o bajar a la altura necesaria manteniéndose a esa altura en el improbable caso de la falta del suministro eléctrico.",
+    "specs": {
+      "peso": "70 kg 1020 X 1230 X 1580mm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "25-1120-AT",
+    "reference": "C-330A",
+    "image": "/images/products/AO-C330A.jpg"
+  },
+  {
+    "sku": "AO-C288AT-B",
+    "name": "MESA MULTIFUNCIONAL",
+    "slug": "mesa-multifuncional",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Mesas Multifuncional",
+    "subcategory_slug": "mesas-multifuncional",
+    "description": "MESA MULTIFUNCIONAL",
+    "specs": {},
+    "barcode": "24-1900-AT",
+    "reference": "C-288AT",
+    "image": "/images/products/AO-C288AT-B.jpg"
+  },
+  {
+    "sku": "AO-C288AT",
+    "name": "+ WZ-A UNIDAD OFTALMICA PARA PERSONAS CON MOVILIDAD REDUCIDA",
+    "slug": "wz-a-unidad-oftalmica-para-personas-con-movilidad-reducida",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Para Movilidad Reducida",
+    "subcategory_slug": "para-movilidad-reducida",
+    "description": "La columna de elevación con forma de eclipse ofrece espacio y potencia suficientes para levantar 3 instrumentos al mismo tiempo. Y ruedas que...",
+    "specs": {
+      "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+    },
+    "barcode": "24/19-2000-AT",
+    "reference": "C-288AT",
+    "image": "/images/products/AO-C288AT.jpg"
+  },
+  {
+    "sku": "AO-WZA",
+    "name": "SILLA CON PEDAL DE ELEVACION",
+    "slug": "silla-con-pedal-de-elevacion",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas con Pedal",
+    "subcategory_slug": "sillas-con-pedal",
+    "description": "SILLA CON PEDAL DE ELEVACION",
+    "specs": {
+      "peso": "100 cm x 80cm x 80 cm"
+    },
+    "barcode": "19/108402-350-AT",
+    "reference": "WZ-A",
+    "image": "/images/products/AO-WZA.jpg"
+  },
+  {
+    "sku": "AO-CT1955",
+    "name": "SILLA CON PEDAL DE ELEVACION",
+    "slug": "silla-con-pedal-de-elevacion-ct1955",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas con Pedal",
+    "subcategory_slug": "sillas-con-pedal",
+    "description": "SILLA CON PEDAL DE ELEVACION",
+    "specs": {
+      "peso": "100 cm x 80cm x 80 cm"
+    },
+    "barcode": "101011-300-AT",
+    "reference": "CT1955",
+    "image": "/images/products/AO-CT1955.jpg"
+  },
+  {
+    "sku": "AO-WZDT1A",
+    "name": "SILLA CON PEDAL DE ELEVACION Y RECLINACION",
+    "slug": "silla-con-pedal-de-elevacion-y-reclinacion",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas con Pedal",
+    "subcategory_slug": "sillas-con-pedal",
+    "description": "SILLA CON PEDAL DE ELEVACION Y RECLINACION",
+    "specs": {
+      "peso": "700mm × 900mm × 1400mm"
+    },
+    "barcode": "101026-750-AT",
+    "reference": "WZ-DT-1A",
+    "image": "/images/products/AO-WZDT1A.jpg"
+  },
+  {
+    "sku": "AO-WZY5B",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "108403-150-AT",
+    "reference": "WZ-Y5B",
+    "image": "/images/products/AO-WZY5B.jpg"
+  },
+  {
+    "sku": "AO-WZY5B-B",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica-wzy5b-b",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "108403-150-AT",
+    "reference": "WZ-Y5B*",
+    "image": "/images/products/AO-WZY5B-B.jpg"
+  },
+  {
+    "sku": "AO-WZ5AT",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica-wz5at",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "10000-80-AT",
+    "reference": "WZ-5AT",
+    "image": "/images/products/AO-WZ5AT.jpg"
+  },
+  {
+    "sku": "AO-WZY5A",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica-wzy5a",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "108414-90-AT",
+    "reference": "WZ-Y5A*",
+    "image": "/images/products/AO-WZY5A.jpg"
+  },
+  {
+    "sku": "AO-WZY5A-B",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica-wzy5a-b",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "108040/108404-80-AT",
+    "reference": "WZ-Y5A",
+    "image": "/images/products/AO-WZY5A-B.jpg"
+  },
+  {
+    "sku": "AO-WZY5C",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica-wzy5c",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "108415-55-AT",
+    "reference": "WZ-Y5C*",
+    "image": "/images/products/AO-WZY5C.jpg"
+  },
+  {
+    "sku": "AO-WZY5C-B",
+    "name": "SILLA PARA OPTICA",
+    "slug": "silla-para-optica-wzy5c-b",
+    "category": "Mobiliario",
+    "category_slug": "mobiliario",
+    "subcategory": "Sillas para Óptica",
+    "subcategory_slug": "sillas-para-optica",
+    "description": "SILLA PARA OPTICA",
+    "specs": {},
+    "barcode": "108405-50-AT",
+    "reference": "WZ-Y5C",
+    "image": "/images/products/AO-WZY5C-B.jpg"
+  },
+  {
+    "sku": "AO-WZ08",
+    "name": "CARTILLA DE EXAMEN VISUAL GRANDE",
+    "slug": "cartilla-de-examen-visual-grande",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Cartillas",
+    "subcategory_slug": "cartillas",
+    "description": "CARTILLA DE EXAMEN VISUAL GRANDE",
+    "specs": {
+      "peso": "0.50g 0.60 cm"
+    },
+    "barcode": "108951-6-AT",
+    "reference": "WZ-08",
+    "image": "/images/products/AO-WZ08.jpg"
+  },
+  {
+    "sku": "AO-WZ01",
+    "name": "CARTILLA DE LECTURA MANUAL PEQUEÑA",
+    "slug": "cartilla-de-lectura-manual-pequena",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Cartillas",
+    "subcategory_slug": "cartillas",
+    "description": "CARTILLA DE LECTURA MANUAL PEQUEÑA",
+    "specs": {
+      "peso": "0.50g 0.60 cm"
+    },
+    "barcode": "108950-3-AT",
+    "reference": "WZ-01",
+    "image": "/images/products/AO-WZ01.jpg"
+  },
+  {
+    "sku": "AO-LETRARO",
+    "name": "LETRAS CARTILLA VISUAL DIRECCIONAL",
+    "slug": "letras-cartilla-visual-direccional",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Cartillas",
+    "subcategory_slug": "cartillas",
+    "description": "LETRAS CARTILLA VISUAL DIRECCIONAL",
+    "specs": {
+      "peso": "0.50 g 0.60 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "103777-10.5-AT",
+    "reference": "LETRARO",
+    "image": "/images/products/AO-LETRARO.jpg"
+  },
+  {
+    "sku": "AO-VC1-B",
+    "name": "CONTROL R CONTROL PARA MONITOR Y PROYECTOR",
+    "slug": "control-r-control-para-monitor-y-proyector",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Controles",
+    "subcategory_slug": "controles",
+    "description": "CONTROL R CONTROL PARA MONITOR Y PROYECTOR",
+    "specs": {
+      "material": "Pasta y silicona"
+    },
+    "barcode": "103482-15-AT",
+    "reference": "VC-1",
+    "image": "/images/products/AO-VC1-B.jpg"
+  },
+  {
+    "sku": "AO-VC1",
+    "name": "MONITOR LCD",
+    "slug": "monitor-lcd",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Estándar",
+    "subcategory_slug": "monitores-estandar",
+    "description": "MONITOR LCD",
+    "specs": {
+      "peso": "5.8 kg 46 cm x 18 cm x 55 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101106-550-AT",
+    "reference": "VC-1",
+    "image": "/images/products/AO-VC1.jpg"
+  },
+  {
+    "sku": "AO-K215F",
+    "name": "MONITOR LCD 21.5",
+    "slug": "monitor-lcd-21-5",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Estándar",
+    "subcategory_slug": "monitores-estandar",
+    "description": "MONITOR LCD 21.5",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101105-350-AT",
+    "reference": "K215F",
+    "image": "/images/products/AO-K215F.jpg"
+  },
+  {
+    "sku": "AO-215D",
+    "name": "MONITOR LCD 23",
+    "slug": "monitor-lcd-23",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Estándar",
+    "subcategory_slug": "monitores-estandar",
+    "description": "MONITOR LCD 23",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101069-450-AT",
+    "reference": "215D",
+    "image": "/images/products/AO-215D.jpg"
+  },
+  {
+    "sku": "AO-230A",
+    "name": "MONITOR LCD 23",
+    "slug": "monitor-lcd-23-230a",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Estándar",
+    "subcategory_slug": "monitores-estandar",
+    "description": "MONITOR LCD 23",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101068-490-AT",
+    "reference": "230A",
+    "image": "/images/products/AO-230A.jpg"
+  },
+  {
+    "sku": "AO-SC800",
+    "name": "MONITOR LCD 23.8",
+    "slug": "monitor-lcd-23-8",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Estándar",
+    "subcategory_slug": "monitores-estandar",
+    "description": "MONITOR LCD 23.8",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101066-360-AT",
+    "reference": "SC-800",
+    "image": "/images/products/AO-SC800.jpg"
+  },
+  {
+    "sku": "AO-ACP300",
+    "name": "MONITOR LCD VISUAL 44 TEST 23.5",
+    "slug": "monitor-lcd-visual-44-test-23-5",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Estándar",
+    "subcategory_slug": "monitores-estandar",
+    "description": "MONITOR LCD VISUAL 44 TEST 23.5",
+    "specs": {
+      "peso": "5.2 kg 17 cm x 41 cm x 62 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101107-560-AT",
+    "reference": "ACP-300*",
+    "image": "/images/products/AO-ACP300.jpg"
+  },
+  {
+    "sku": "AO-CTS215",
+    "name": "MONITOR LCD VERTICAL",
+    "slug": "monitor-lcd-vertical",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Monitores Verticales",
+    "subcategory_slug": "monitores-verticales",
+    "description": "MONITOR LCD VERTICAL",
+    "specs": {
+      "peso": "5.2 kg 17 cm x 41 cm x 62 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101003-495-AT",
+    "reference": "CTS-215",
+    "image": "/images/products/AO-CTS215.jpg"
+  },
+  {
+    "sku": "AO-WZSLB12",
+    "name": "OPTOTIPO CON SOPORTE",
+    "slug": "optotipo-con-soporte",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Optotipos con Soporte",
+    "subcategory_slug": "optotipos-con-soporte",
+    "description": "OPTOTIPO CON SOPORTE",
+    "specs": {
+      "peso": "0.50g 0.60 cm"
+    },
+    "barcode": "101020-90-AT",
+    "reference": "WZ-SLB-12",
+    "image": "/images/products/AO-WZSLB12.jpg"
+  },
+  {
+    "sku": "AO-CB028",
+    "name": "OPTOTIPO ELECTRICO LUMINICO",
+    "slug": "optotipo-electrico-luminico",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Optotipos Eléctricos",
+    "subcategory_slug": "optotipos-electricos",
+    "description": "OPTOTIPO ELECTRICO LUMINICO",
+    "specs": {
+      "peso": "50g 100 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "108263-55-AT",
+    "reference": "CB-028",
+    "image": "/images/products/AO-CB028.jpg"
+  },
+  {
+    "sku": "AO-WZSLB8",
+    "name": "OPTOTIPO ELECTRICO LUMINICO",
+    "slug": "optotipo-electrico-luminico-wzslb8",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Optotipos Eléctricos",
+    "subcategory_slug": "optotipos-electricos",
+    "description": "OPTOTIPO ELECTRICO LUMINICO",
+    "specs": {
+      "peso": "50g 1m",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101055-30-AT",
+    "reference": "WZ-SLB-8",
+    "image": "/images/products/AO-WZSLB8.jpg"
+  },
+  {
+    "sku": "AO-WB1117A",
+    "name": "PROYECTOR GRAFICO DE MASCARAS",
+    "slug": "proyector-grafico-de-mascaras",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Proyectores Gráficos",
+    "subcategory_slug": "proyectores-graficos",
+    "description": "PROYECTOR GRAFICO DE MASCARAS",
+    "specs": {
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "101065-480-AT",
+    "reference": "WB-1117A",
+    "image": "/images/products/AO-WB1117A.jpg"
+  },
+  {
+    "sku": "AO-WZ3000B",
+    "name": "PROYECTOR GRAFICO DE MASCARAS",
+    "slug": "proyector-grafico-de-mascaras-wz3000b",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Proyectores Gráficos",
+    "subcategory_slug": "proyectores-graficos",
+    "description": "PROYECTOR GRAFICO DE MASCARAS",
+    "specs": {
+      "peso": "6.5 kg 32 cm x 44 cm x 45 cm",
+      "potencia": "110v/220v(60/50hz)"
+    },
+    "barcode": "106818-705-AT",
+    "reference": "WZ-3000B*",
+    "image": "/images/products/AO-WZ3000B.jpg"
+  },
+  {
+    "sku": "AO-WB1112H",
+    "name": "OPTOTIPO TABLET LCD",
+    "slug": "optotipo-tablet-lcd",
+    "category": "Monitores y Optotipos",
+    "category_slug": "monitores-optotipos",
+    "subcategory": "Tablet LCD",
+    "subcategory_slug": "tablet-lcd",
+    "description": "OPTOTIPO TABLET LCD",
+    "specs": {
+      "peso": "6kg 920 mm × 280 mm × 25 mm"
+    },
+    "barcode": "108264/23/101033-40-AT",
+    "reference": "WB-1112H",
+    "image": "/images/products/AO-WB1112H.jpg"
+  }
+]

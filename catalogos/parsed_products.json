@@ -1,0 +1,1200 @@
+{
+  "EQUIPOS DE OFTALMOLOGIA Y OPTICA": {
+    "AT 9000          SISTEMA DE ANALISIS DE DATOS DE GAFAS CON\nINTELIGENCIA ARTIFICIAL": {
+      "ref": "AT 9000          SISTEMA DE ANALISIS DE DATOS DE GAFAS CON\nINTELIGENCIA ARTIFICIAL",
+      "desc": "",
+      "barcode": "101085-9000-AT",
+      "specs": {}
+    },
+    "CM-100+AP800/C-330A SISTEMA DE REFRACCION AUTOMATICO CON MESA": {
+      "ref": "CM-100+AP800/C-330A SISTEMA DE REFRACCION AUTOMATICO CON MESA",
+      "desc": "",
+      "barcode": "101002/25-10600-AT",
+      "specs": {
+        "peso": "450(W)* 555(H)* 470(D)MM"
+      }
+    },
+    "DPS-700                                    FOROPTERO DIGITAL": {
+      "ref": "DPS-700                                    FOROPTERO DIGITAL",
+      "desc": "",
+      "barcode": "108394-3570-AT",
+      "specs": {
+        "peso": "2 kg 31.8 cm x 9.6 cm x 29.3 cm"
+      }
+    },
+    "AP-800+CP60                              FOROPTERO DIGITAL": {
+      "ref": "AP-800+CP60                              FOROPTERO DIGITAL",
+      "desc": "",
+      "barcode": "101018-3500-AT",
+      "specs": {
+        "peso": "2 kg 31.8 cm x 9.6 cm x 29.3 cm"
+      }
+    },
+    "ML-400 NEGRO                                 FOROPTERO": {
+      "ref": "ML-400 NEGRO                                 FOROPTERO",
+      "desc": "",
+      "barcode": "101054-920-AT",
+      "specs": {
+        "peso": "4.5 kg 31.8 cm x 9.6 cm x 29.3 cm"
+      }
+    },
+    "ML-400 BLANCO                               FOROPTERO": {
+      "ref": "ML-400 BLANCO                               FOROPTERO",
+      "desc": "",
+      "barcode": "108416-920-AT",
+      "specs": {
+        "peso": "4.5 kg 31.8 cm x 9.6 cm x 29.3 cm"
+      }
+    },
+    "MD-480                                  PHACOEMULSIFICADOR": {
+      "ref": "MD-480                                  PHACOEMULSIFICADOR",
+      "desc": "",
+      "barcode": "10000-18727-AT",
+      "specs": {}
+    },
+    "OCT-500             TOMOGRAFO DE COHERENCIA OPTICA (OCT)": {
+      "ref": "OCT-500             TOMOGRAFO DE COHERENCIA OPTICA (OCT)",
+      "desc": "",
+      "barcode": "100000-30870-AT",
+      "specs": {}
+    },
+    "YZ-20T4        MICROSCOPIO QUIRURJICO PARA OFATLMOLOGIA": {
+      "ref": "YZ-20T4        MICROSCOPIO QUIRURJICO PARA OFATLMOLOGIA",
+      "desc": "",
+      "barcode": "10000-12421-AT",
+      "specs": {}
+    },
+    "BIO-1100                      EQUIPO DE PRUEBA DE CAMPO VISUAL": {
+      "ref": "BIO-1100                      EQUIPO DE PRUEBA DE CAMPO VISUAL",
+      "desc": "",
+      "barcode": "103802-12800-AT",
+      "specs": {
+        "peso": "17 kg 412 mm x 497 mm x 513 mm"
+      }
+    },
+    "SJ-989                                         LUPA BINOCULAR": {
+      "ref": "SJ-989                                         LUPA BINOCULAR",
+      "desc": "",
+      "barcode": "108401-150-AT",
+      "specs": {}
+    },
+    "HL-004                            LAMPARA FRONTAL MEDICA": {
+      "ref": "HL-004                            LAMPARA FRONTAL MEDICA",
+      "desc": "",
+      "barcode": "108400-350-AT",
+      "specs": {
+        "potencia": "3 W"
+      }
+    },
+    "RC-3100                       CAMARA DE FONDO DE OJO AUTOMATICA": {
+      "ref": "RC-3100                       CAMARA DE FONDO DE OJO AUTOMATICA",
+      "desc": "",
+      "barcode": "106824-22650-AT",
+      "specs": {
+        "peso": "10 KG 340 mm x 320 mm x 115 mm"
+      }
+    },
+    "SK-680A             CAMARA DE FONDO DE OJO AUTOMATICA": {
+      "ref": "SK-680A             CAMARA DE FONDO DE OJO AUTOMATICA",
+      "desc": "",
+      "barcode": "101089-12000-AT",
+      "specs": {}
+    },
+    "WZ-1300                   CAMARA DE FONDO DE OJO PORTATIL": {
+      "ref": "WZ-1300                   CAMARA DE FONDO DE OJO PORTATIL",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "RETIWAVE-1000                    ESCANER ULTRASONICO A-B": {
+      "ref": "RETIWAVE-1000                    ESCANER ULTRASONICO A-B",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "IREF                              AUTOREFRACTOMETRO PORTATIL": {
+      "ref": "IREF                              AUTOREFRACTOMETRO PORTATIL",
+      "desc": "",
+      "barcode": "101052-290-AT",
+      "specs": {
+        "peso": "195 g 185 mm x 47 mm x 55 mm"
+      }
+    },
+    "FA-6000A                                        AUTOREFRACTOMETRO": {
+      "ref": "FA-6000A                                        AUTOREFRACTOMETRO",
+      "desc": "",
+      "barcode": "2-2100-AT",
+      "specs": {
+        "peso": "28.8 kg 66 cm x 52 cm x 65 cm"
+      }
+    },
+    "FA-6100CK          AUTOREFRACTOMETRO CON KERATOMETRO": {
+      "ref": "FA-6100CK          AUTOREFRACTOMETRO CON KERATOMETRO",
+      "desc": "",
+      "barcode": "101004-2600-AT",
+      "specs": {
+        "peso": "20.6 kg 67 cm x 52 cm x 66 cm"
+      }
+    },
+    "ARK-7710          AUTOREFRACTOMETRO CON KERATOMETRO": {
+      "ref": "ARK-7710          AUTOREFRACTOMETRO CON KERATOMETRO",
+      "desc": "",
+      "barcode": "101081-2760-AT",
+      "specs": {}
+    },
+    "FA-6500K-         AUTOREFRACTOMETRO CON KERATOMETRO": {
+      "ref": "FA-6500K-         AUTOREFRACTOMETRO CON KERATOMETRO",
+      "desc": "",
+      "barcode": "101080-2880-AT",
+      "specs": {
+        "peso": "20.6 kg 67 cm x 52 cm x 66 cm"
+      }
+    },
+    "FA-8500K             AUTOREFRACTOMETRO CON KERATOMETRO": {
+      "ref": "FA-8500K             AUTOREFRACTOMETRO CON KERATOMETRO",
+      "desc": "",
+      "barcode": "108424-2950-AT",
+      "specs": {
+        "peso": "20.6kg 69 x 52 x 66"
+      }
+    },
+    "FA-100             AUTOREFRACTOMETRO CON KERATOMETRO": {
+      "ref": "FA-100             AUTOREFRACTOMETRO CON KERATOMETRO",
+      "desc": "",
+      "barcode": "1-3900-AT",
+      "specs": {
+        "peso": "20kg(44lb) 478*268*472mm"
+      }
+    },
+    "FA-300K         AUTOREFRACTOMETRO CON KERATOMETRO": {
+      "ref": "FA-300K         AUTOREFRACTOMETRO CON KERATOMETRO",
+      "desc": "",
+      "barcode": "108397-5000-AT",
+      "specs": {}
+    },
+    "AL-700PLUS              AUTOREFRACTOMETRO CON KERATOMETRO Y BIOMETRIA": {
+      "ref": "AL-700PLUS              AUTOREFRACTOMETRO CON KERATOMETRO Y BIOMETRIA",
+      "desc": "",
+      "barcode": "108423-7500-AT",
+      "specs": {}
+    },
+    "CSE KIT 21                          KIT INSTRUMENTAL 21 PCS": {
+      "ref": "CSE KIT 21                          KIT INSTRUMENTAL 21 PCS",
+      "desc": "",
+      "barcode": "108419-450-AT",
+      "specs": {}
+    },
+    "FA-100K/AP-800/CP-60                    SET DE OPTOMETRIA": {
+      "ref": "FA-100K/AP-800/CP-60                    SET DE OPTOMETRIA",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "CP-1B- LENSOMETRO PORTATIL": {
+      "ref": "CP-1B- LENSOMETRO PORTATIL",
+      "desc": "Instrumento  óptico para la determinación  del centro óptico y medición de la potencia (dióptria)  de una lente oftálmica, así como de la dirección del cilindro.",
+      "barcode": "105006/101074-140-AT",
+      "specs": {
+        "peso": "1 kg 260 mm x 180 mm x 90 mm"
+      }
+    },
+    "NJC-6                             LENSOMETRO MANUAL": {
+      "ref": "NJC-6                             LENSOMETRO MANUAL",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "D-900                                 LENSOMETRO DIGITAL": {
+      "ref": "D-900                                 LENSOMETRO DIGITAL",
+      "desc": "Mejor rendimiento  y elección económica, Fácil manejo con cuatro botones Sin PD, medición UV y más estable",
+      "barcode": "108267-580-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "2,9 kg"
+      }
+    },
+    "LM-260                        AUTOLENSOMETRO DIGITAL": {
+      "ref": "LM-260                        AUTOLENSOMETRO DIGITAL",
+      "desc": "Instrumento  óptico para la determinación  del centro óptico y medición de la potencia (dióptria)  de una lente oftálmica, así como de la dirección del cilindro.",
+      "barcode": "101075-750-AT",
+      "specs": {
+        "peso": "11 kg 41 cm x 41 cm x 63 cm"
+      }
+    },
+    "LM-900                        AUTOLENSOMETRO DIGITAL": {
+      "ref": "LM-900                        AUTOLENSOMETRO DIGITAL",
+      "desc": "Instrumento  óptico para la determinación  del centro óptico y medición de la potencia (dióptria)  de una lente oftálmica, así como de la dirección del cilindro.",
+      "barcode": "101076-755-AT",
+      "specs": {}
+    },
+    "JD-26000D                        AUTOLENSOMETRO DIGITAL": {
+      "ref": "JD-26000D                        AUTOLENSOMETRO DIGITAL",
+      "desc": "Instrumento  óptico para la determinación  del centro óptico y medición de la potencia (dióptria)  de una lente oftálmica, así como de la dirección del cilindro.",
+      "barcode": "101088-880-AT",
+      "specs": {
+        "peso": "11 kg 41 cm x 41 cm x 63 cm"
+      }
+    },
+    "LM-300                              AUTOLENSOMETRO DIGITAL": {
+      "ref": "LM-300                              AUTOLENSOMETRO DIGITAL",
+      "desc": "Instrumento  óptico para la determinación  del centro óptico y medición de la potencia (dióptria)  de una lente oftálmica, así como de la dirección del cilindro.",
+      "barcode": "100000-850-AT",
+      "specs": {
+        "peso": "6 kg 22.2 cm x 16.1 cm x 37.2 cm"
+      }
+    },
+    "LM-800                                     AUTOLENSOMETRO DIGITAL": {
+      "ref": "LM-800                                     AUTOLENSOMETRO DIGITAL",
+      "desc": "",
+      "barcode": "101028-1250-AT",
+      "specs": {}
+    },
+    "D-910                                     AUTOLENSOMETRO DIGITAL": {
+      "ref": "D-910                                     AUTOLENSOMETRO DIGITAL",
+      "desc": "",
+      "barcode": "10000-1300-AT",
+      "specs": {
+        "peso": "12 kgs 41 cm x 41 cm x 63 cm"
+      }
+    },
+    "YZ-30R                                      TONOMETRO METALICO": {
+      "ref": "YZ-30R                                      TONOMETRO METALICO",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "SW-500 PROBE                     PROBETA DESECHABLE": {
+      "ref": "SW-500 PROBE                     PROBETA DESECHABLE",
+      "desc": "Puntas  de repuesto  de un solo uso diseñadas  para el tonómetro de rebote portátil",
+      "barcode": "111023-140-ATL",
+      "specs": {
+        "material": "Sondas metálicas de alta precisión"
+      }
+    },
+    "SK-5500A                                         TONOMETRO": {
+      "ref": "SK-5500A                                         TONOMETRO",
+      "desc": "",
+      "barcode": "101090-4500-AT",
+      "specs": {}
+    },
+    "SW-500                              TONOMETRO DE REBOTE PORTATIL": {
+      "ref": "SW-500                              TONOMETRO DE REBOTE PORTATIL",
+      "desc": "Es un examen para medir la presión dentro  de los ojos. Este examen se utiliza para buscar glaucoma. También se utiliza para medir qué  tan bien está funcionando  el\ntratamiento  para el glaucoma.",
+      "barcode": "108396-2600-AT",
+      "specs": {
+        "peso": "520 mm x 390 mm x 170mm"
+      }
+    },
+    "ST-150                  LAMPARA DE HENDIDURA PORTATIL": {
+      "ref": "ST-150                  LAMPARA DE HENDIDURA PORTATIL",
+      "desc": "",
+      "barcode": "108251-350-AT",
+      "specs": {
+        "peso": "120 g (sin pilas)"
+      }
+    },
+    "S-150                             LAMPARA DE HENDIDURA PORTATIL": {
+      "ref": "S-150                             LAMPARA DE HENDIDURA PORTATIL",
+      "desc": "La lámpara de hendidura  es un microscopio de bajo poder combinado  con una fuente de luz de alta intensidad  que puede  enfocarse como un rayo delgado. Usted se sienta  en una  silla con el instrumento  colocado frente a usted. Se le pide  apoyar la barbilla  y la frente sobre un soporte que  le mantiene  la cabeza inmóvil.",
+      "barcode": "108395-950-AT",
+      "specs": {
+        "peso": "150 g"
+      }
+    },
+    "ML-5S1                                LAMPARA DE HENDIDURA PORTATIL": {
+      "ref": "ML-5S1                                LAMPARA DE HENDIDURA PORTATIL",
+      "desc": "",
+      "barcode": "108042-1350-AT",
+      "specs": {
+        "potencia": "4 horas de funcionamiento  continuo aa, 15va",
+        "peso": "835g 320 mm x 310 mm x 205mm"
+      }
+    },
+    "20D                                        LENTE DE AUMENTO": {
+      "ref": "20D                                        LENTE DE AUMENTO",
+      "desc": "",
+      "barcode": "101062-140-AT",
+      "specs": {}
+    },
+    "78D                                          LENTE DE AUMENTO": {
+      "ref": "78D                                          LENTE DE AUMENTO",
+      "desc": "",
+      "barcode": "101061-140-AT",
+      "specs": {}
+    },
+    "90D                                          LENTE DE AUMENTO": {
+      "ref": "90D                                          LENTE DE AUMENTO",
+      "desc": "",
+      "barcode": "101060-140-AT",
+      "specs": {}
+    },
+    "YZ-13                                          LENTE DE 3 ESPEJOS": {
+      "ref": "YZ-13                                          LENTE DE 3 ESPEJOS",
+      "desc": "",
+      "barcode": "101063-180-AT",
+      "specs": {}
+    },
+    "BL-66B+ YZ-30RR LAMPARA DE HENDIDURA 2 MAGNIFICACIONES\nCON MESA Y TONOMETRO METALICO": {
+      "ref": "BL-66B+ YZ-30RR LAMPARA DE HENDIDURA 2 MAGNIFICACIONES\nCON MESA Y TONOMETRO METALICO",
+      "desc": "La lámpara de hendidura  es un microscopio de bajo poder combinado  con una fuente  de luz de alta intensidad  que  puede  enfocarse como un rayo delgado. Usted se sienta en una silla con el instrumento  colocado frente a usted. Se le pide  apoyar la barbilla  y la frente  sobre un soporte\nque  le mantiene  la cabeza inmóvil.",
+      "barcode": "10-2250-AT",
+      "specs": {
+        "peso": "22.4 kg 46 cm x 46 cm x 71 cm"
+      }
+    },
+    "BL-88T YZ-30RR   LAMPARA DE HENDIDURA 3 MAGNIFICACIONES CON        MESA Y TONOMETRO METALICO": {
+      "ref": "BL-88T YZ-30RR   LAMPARA DE HENDIDURA 3 MAGNIFICACIONES CON        MESA Y TONOMETRO METALICO",
+      "desc": "La lámpara de hendidura  es un microscopio de bajo poder combinado  con una fuente  de luz de alta intensidad  que  puede  enfocarse como un rayo delgado. Usted se sienta en una silla con el instrumento  colocado frente a usted. Se le pide  apoyar la barbilla  y la frente sobre un soporte que le mantiene  la cabeza inmóvil.",
+      "barcode": "103799-3000-AT",
+      "specs": {
+        "peso": "16.8 kg 29 cm x 52 cm x 63 cm"
+      }
+    },
+    "S-J350 YZ-30RR      LAMPARA DE HENDIDURA 5 MAGNIFICACIONES\nCON MESA TONOMETRO METALICO": {
+      "ref": "S-J350 YZ-30RR      LAMPARA DE HENDIDURA 5 MAGNIFICACIONES\nCON MESA TONOMETRO METALICO",
+      "desc": "La lámpara de hendidura  es un microscopio de bajo poder combinado  con una fuente  de luz de alta intensidad  que  puede  enfocarse como un rayo delgado. Usted se sienta en una silla con el instrumento  colocado frente a usted. Se le pide  apoyar la barbilla  y la frente sobre un soporte que le mantiene  la cabeza inmóvil.",
+      "barcode": "",
+      "specs": {}
+    },
+    "WZ-5S           LAMPARA DE HENDIDURA CON SISTEMA DE ANÁLISIS": {
+      "ref": "WZ-5S           LAMPARA DE HENDIDURA CON SISTEMA DE ANÁLISIS",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "SM-800        LAMPARA DE HENEDIDURA PARA EXAMEN DE OJO SECO": {
+      "ref": "SM-800        LAMPARA DE HENEDIDURA PARA EXAMEN DE OJO SECO",
+      "desc": "",
+      "barcode": "101034-15500-AT",
+      "specs": {
+        "peso": "17 kg 412 mm x 497 mm x 513 mm"
+      }
+    },
+    "KJR-D-A2                              EQUIPO DE FISIOTERAPIA VISUAL": {
+      "ref": "KJR-D-A2                              EQUIPO DE FISIOTERAPIA VISUAL",
+      "desc": "Dispositivo  portátil de fisioterapia visual / terapia ocular, diseñado  para colocarse en la\ncabeza (tipo  visor o banda), que  utiliza electrodos y estimulación eléctrica suave  para tratar o mejorar funciones  visuales",
+      "barcode": "108425-280-AT",
+      "specs": {}
+    },
+    "KJR-D-A3                              EQUIPO DE FISIOTERAPIA VISUAL": {
+      "ref": "KJR-D-A3                              EQUIPO DE FISIOTERAPIA VISUAL",
+      "desc": "Dispositivo  portátil de fisioterapia visual / terapia ocular, diseñado  para colocarse en la cabeza (tipo  visor o banda), que  utiliza electrodos y estimulación eléctrica suave  para tratar o mejorar funciones  visuales",
+      "barcode": "108426-340-AT",
+      "specs": {}
+    },
+    "YZ-11                                  OFTALMOSCOPIO PORTATIL": {
+      "ref": "YZ-11                                  OFTALMOSCOPIO PORTATIL",
+      "desc": "",
+      "barcode": "98537-68-AT",
+      "specs": {
+        "potencia": "DC 3v (ac)6v/3w"
+      }
+    },
+    "YZ-25C                      OFTALMOSCOPIO INDIRECTO": {
+      "ref": "YZ-25C                      OFTALMOSCOPIO INDIRECTO",
+      "desc": "",
+      "barcode": "101064/108406-1800-AT",
+      "specs": {}
+    },
+    "YZ-24                                                 RETINOSCOPIO": {
+      "ref": "YZ-24                                                 RETINOSCOPIO",
+      "desc": "",
+      "barcode": "11-160-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "1,8 kg"
+      }
+    },
+    "YZ-24B+YZ-11D*       RETINOSCOPIO CON OFTALMOSCOPIO": {
+      "ref": "YZ-24B+YZ-11D*       RETINOSCOPIO CON OFTALMOSCOPIO",
+      "desc": "",
+      "barcode": "101073-480-AT",
+      "specs": {
+        "potencia": "DC 3v (ac)6v/3w"
+      }
+    },
+    "468E4310                RETINOSCOPIO CON OFTALMOSCOPIO": {
+      "ref": "468E4310                RETINOSCOPIO CON OFTALMOSCOPIO",
+      "desc": "",
+      "barcode": "12-680-AT",
+      "specs": {
+        "potencia": "DC 3v (ac)6v/3w",
+        "peso": "3 kg"
+      }
+    },
+    "CP-30* PUPILOMETRO MANUAL": {
+      "ref": "CP-30* PUPILOMETRO MANUAL",
+      "desc": "",
+      "barcode": "103104/107579-50-AT",
+      "specs": {
+        "potencia": "3V CC (2 pilas AA)",
+        "peso": "21.7 cm x 12.8 cm x 6.4 cm"
+      }
+    },
+    "LY-9C                                    PUPILOMETRO DIGITAL": {
+      "ref": "LY-9C                                    PUPILOMETRO DIGITAL",
+      "desc": "",
+      "barcode": "101030/101056-95-AT",
+      "specs": {
+        "potencia": "3V CC (2 pilas AA)",
+        "peso": "0,7 kg 8.7 cm x 6.5 cm x 2.5 cm"
+      }
+    },
+    "PS-22                                                 CAJA DE PRISMAS": {
+      "ref": "PS-22                                                 CAJA DE PRISMAS",
+      "desc": "",
+      "barcode": "15-175-AT",
+      "specs": {
+        "material": "carcasa de aluminio  cristal K9",
+        "peso": "37 mm × 37 mm"
+      }
+    },
+    "VB-15+HB-16                                   CAJA DE PRISMAS": {
+      "ref": "VB-15+HB-16                                   CAJA DE PRISMAS",
+      "desc": "",
+      "barcode": "101071-190-AT",
+      "specs": {
+        "material": "carcasa de aluminio  cristal K9"
+      }
+    },
+    "JS-22P                                  CAJA DE PRUEBA PROGRESIVA": {
+      "ref": "JS-22P                                  CAJA DE PRUEBA PROGRESIVA",
+      "desc": "",
+      "barcode": "108408-95-AT",
+      "specs": {
+        "peso": "27 mm × 27 mm"
+      }
+    },
+    "104*                                  CAJA DE PRUEBA DE 104 LENTILLAS": {
+      "ref": "104*                                  CAJA DE PRUEBA DE 104 LENTILLAS",
+      "desc": "",
+      "barcode": "101046-125-AT",
+      "specs": {
+        "material": "vidrio óptico de alta calidad",
+        "peso": "3 kg 22 cm x 12 cm x 41 cm"
+      }
+    },
+    "JS-158                           CAJA DE PRUEBA DE 158 LENTILLAS": {
+      "ref": "JS-158                           CAJA DE PRUEBA DE 158 LENTILLAS",
+      "desc": "",
+      "barcode": "101047-136-AT",
+      "specs": {
+        "material": "vidrio óptico de alta calidad",
+        "peso": "3 kg 22 cm x 12 cm x 41 cm"
+      }
+    },
+    "266JS GRIS CAJA DE PRUEBA DE 266 LENTILLAS": {
+      "ref": "266JS GRIS CAJA DE PRUEBA DE 266 LENTILLAS",
+      "desc": "",
+      "barcode": "101048/108410-210-AT",
+      "specs": {
+        "material": "vidrio óptico de alta calidad",
+        "peso": "6 kg 43 cm x 12 cm x 59 cm"
+      }
+    },
+    "TF-C                                      MONTURA DE PRUEBA PARA NIÑOS": {
+      "ref": "TF-C                                      MONTURA DE PRUEBA PARA NIÑOS",
+      "desc": "",
+      "barcode": "102919-9-AT x PIEZA",
+      "specs": {
+        "material": "Pc con aluminio"
+      }
+    },
+    "GD-1104                                      MONTURA DE PRUEBA": {
+      "ref": "GD-1104                                      MONTURA DE PRUEBA",
+      "desc": "",
+      "barcode": "101032-9-AT x PIEZA",
+      "specs": {
+        "material": "Pc con aluminio"
+      }
+    },
+    "TTF-08                                MONTURA DE PRUEBA ALUMINIO": {
+      "ref": "TTF-08                                MONTURA DE PRUEBA ALUMINIO",
+      "desc": "",
+      "barcode": "106817-34-AT",
+      "specs": {
+        "peso": "50g"
+      }
+    },
+    "TF5470                    MONTURA DE PRUEBA TITANIUM": {
+      "ref": "TF5470                    MONTURA DE PRUEBA TITANIUM",
+      "desc": "",
+      "barcode": "102066-55-AT",
+      "specs": {
+        "peso": "50g"
+      }
+    },
+    "TF-488A                            MONTURA DE PRUEBA PREMIUM": {
+      "ref": "TF-488A                            MONTURA DE PRUEBA PREMIUM",
+      "desc": "",
+      "barcode": "108421-83-AT",
+      "specs": {
+        "peso": "0.2kg 6x12x19"
+      }
+    }
+  },
+  "EQUIPOS DE LABORATORIO": {
+    "CP-11A-35WV BISELADORA MANUAL DE UNA PIEDRA": {
+      "ref": "CP-11A-35WV BISELADORA MANUAL DE UNA PIEDRA",
+      "desc": "",
+      "barcode": "107575/108259-145-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "6,7 kg 35 X 22 X 28 cm"
+      }
+    },
+    "TC-10A BISELADORA MANUAL DE UNA PIEDRA CON DISCO DE CORTE": {
+      "ref": "TC-10A BISELADORA MANUAL DE UNA PIEDRA CON DISCO DE CORTE",
+      "desc": "",
+      "barcode": "108420-150-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "R-NH316                     REPUESTO DE BISELADORA DE 3 PIEDRAS": {
+      "ref": "R-NH316                     REPUESTO DE BISELADORA DE 3 PIEDRAS",
+      "desc": "",
+      "barcode": "102925-135-AT",
+      "specs": {
+        "peso": "1 kg"
+      }
+    },
+    "CP-6A-1/ NH-136          BISELADORA MANUAL DE TRES PIEDRAS": {
+      "ref": "CP-6A-1/ NH-136          BISELADORA MANUAL DE TRES PIEDRAS",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "6A-CP                           BISELADORA MANUAL DE TRES PIEDRAS": {
+      "ref": "6A-CP                           BISELADORA MANUAL DE TRES PIEDRAS",
+      "desc": "",
+      "barcode": "107580-260-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "6,7 kg 34 cm x 21 cm x 19 cm"
+      }
+    },
+    "SJG-7100                      BISELADORA SEMIAUTOMÁTICA": {
+      "ref": "SJG-7100                      BISELADORA SEMIAUTOMÁTICA",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "LE-420 + LY-2A* + CP-10C-     BISELADORA SEMIAUTOMÁTICA": {
+      "ref": "LE-420 + LY-2A* + CP-10C-     BISELADORA SEMIAUTOMÁTICA",
+      "desc": "",
+      "barcode": "101082/106800/108265-2700-AT",
+      "specs": {
+        "peso": "13.2 kg 53 cm x 55 cm x 62 cm"
+      }
+    },
+    "ALE-1000                    BISELADORA AUTOMATICA CON ESCANER": {
+      "ref": "ALE-1000                    BISELADORA AUTOMATICA CON ESCANER",
+      "desc": "",
+      "barcode": "108247-5400-AT",
+      "specs": {
+        "potencia": "≤ 500W",
+        "peso": "60 kg 650 mm × 550 mm × 480 mm"
+      }
+    },
+    "ALE-1600G                       BISELADORA AUTOMATICA": {
+      "ref": "ALE-1600G                       BISELADORA AUTOMATICA",
+      "desc": "",
+      "barcode": "106801-11500-AT",
+      "specs": {}
+    },
+    "ALE-1700G                            BISELADORA AUTOMATICA": {
+      "ref": "ALE-1700G                            BISELADORA AUTOMATICA",
+      "desc": "",
+      "barcode": "101083-12500-AT",
+      "specs": {}
+    },
+    "WATER PUMP                BOMBA PARA ALE1000 Y LE-420": {
+      "ref": "WATER PUMP                BOMBA PARA ALE1000 Y LE-420",
+      "desc": "",
+      "barcode": "101086/101087-135-AT",
+      "specs": {}
+    },
+    "CP-8A                                         PULIDORA MANUAL": {
+      "ref": "CP-8A                                         PULIDORA MANUAL",
+      "desc": "Pulido de la lente",
+      "barcode": "101108-85-AT",
+      "specs": {
+        "material": "Metal Plástico",
+        "potencia": "120W"
+      }
+    },
+    "LY-900                                     PULIDORA SEMIAUTOMATICA": {
+      "ref": "LY-900                                     PULIDORA SEMIAUTOMATICA",
+      "desc": "Pulido de la lente",
+      "barcode": "108257-140-AT",
+      "specs": {
+        "material": "Metal Plástico",
+        "potencia": "120W",
+        "peso": "7,1 kg 270 mm x 214 mm x 240 mm"
+      }
+    },
+    "BROC-1                        REPUESTO DE BROCA PARA CORTADORA": {
+      "ref": "BROC-1                        REPUESTO DE BROCA PARA CORTADORA",
+      "desc": "",
+      "barcode": "103801-35-AT",
+      "specs": {
+        "material": "M42 (Cobalto 8%), M35 (Cobalto 5%), HSS M2, HSS",
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "WZ-JP800C                                RANURADORA MANUAL": {
+      "ref": "WZ-JP800C                                RANURADORA MANUAL",
+      "desc": "",
+      "barcode": "108258/101051-90-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "2.2 kgs 167 mm x 210 mm x 150 mm"
+      }
+    },
+    "LY-12A                                 RANURADORA MANUAL": {
+      "ref": "LY-12A                                 RANURADORA MANUAL",
+      "desc": "",
+      "barcode": "101078-180-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "LY-2A*       CENTRADORA CON BRAZO PARA PEGATINA Y MARCADOR": {
+      "ref": "LY-2A*       CENTRADORA CON BRAZO PARA PEGATINA Y MARCADOR",
+      "desc": "",
+      "barcode": "106800-75-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "3 kg 240 mm x 160 mm x 260 mm"
+      }
+    },
+    "CP-10C-                         PERFORADORA PARA PLANTILLA": {
+      "ref": "CP-10C-                         PERFORADORA PARA PLANTILLA",
+      "desc": "",
+      "barcode": "108265-68-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "2 kg 22 cm x 20 cm x 27 cm"
+      }
+    },
+    "LY988C                       PERFORADORA PARA LENTES AL AIRE": {
+      "ref": "LY988C                       PERFORADORA PARA LENTES AL AIRE",
+      "desc": "",
+      "barcode": "108398-90-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "3,5 kg 25,5 cm x 23 cm x 35 cm"
+      }
+    },
+    "NH-3GS              PERFORADORA AUTOMÁTICA PARA LENTES AL AIRE": {
+      "ref": "NH-3GS              PERFORADORA AUTOMÁTICA PARA LENTES AL AIRE",
+      "desc": "",
+      "barcode": "102918-1600-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "7.5 kg 35 cm X 22 cm X 30 cm"
+      }
+    },
+    "LY-6C                             CALENTADOR DE MONTURA": {
+      "ref": "LY-6C                             CALENTADOR DE MONTURA",
+      "desc": "",
+      "barcode": "108422-40-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "LY-6BT                                   CALENTADOR DE MONTURA": {
+      "ref": "LY-6BT                                   CALENTADOR DE MONTURA",
+      "desc": "",
+      "barcode": "101036-50-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "2 kg 30 cm X 20 cm X 20 cm"
+      }
+    },
+    "RM-3                       PINZA PARA TINTURADO DE LUNAS OPTICAS": {
+      "ref": "RM-3                       PINZA PARA TINTURADO DE LUNAS OPTICAS",
+      "desc": "",
+      "barcode": "103800/13-3-AT",
+      "specs": {
+        "material": "metal + plástico",
+        "peso": "190 mm x 48 mm x 28 mm"
+      }
+    },
+    "TR-6                                        TINTURADORA": {
+      "ref": "TR-6                                        TINTURADORA",
+      "desc": "",
+      "barcode": "108260-180-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "7.5 kg 54 cm x 38 cm x 23 cm"
+      }
+    },
+    "GB-800/  WZ-JP121         LIMPIADOR ULTRASONICO MODERNO": {
+      "ref": "GB-800/  WZ-JP121         LIMPIADOR ULTRASONICO MODERNO",
+      "desc": "",
+      "barcode": "106820/108261/17-38-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "1 kg 28 cm x 20 cm x 17cm"
+      }
+    },
+    "WZ-JP120                      LIMPIADOR DE LENTES ULTRASONICO": {
+      "ref": "WZ-JP120                      LIMPIADOR DE LENTES ULTRASONICO",
+      "desc": "",
+      "barcode": "101022-40-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "2.5 kg 260 mm x 210 mm x 170 mm"
+      }
+    },
+    "CP-008                      LIMPIADOR DE LENTES ULTRASONICO": {
+      "ref": "CP-008                      LIMPIADOR DE LENTES ULTRASONICO",
+      "desc": "",
+      "barcode": "105764-45-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "2.5 kg 260 mm x 210 mm x 170 mm"
+      }
+    },
+    "LY-838-4                PROBADOR DE LENTES PHOTOCROMATICO": {
+      "ref": "LY-838-4                PROBADOR DE LENTES PHOTOCROMATICO",
+      "desc": "",
+      "barcode": "106822-22-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "0.50 kg 23 cm X 13 cm X9 cm"
+      }
+    },
+    "WZ-JP17B                PROBADOR DE LENTES PHOTOCROMATICO": {
+      "ref": "WZ-JP17B                PROBADOR DE LENTES PHOTOCROMATICO",
+      "desc": "",
+      "barcode": "29-18-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "0.50 kg 23 cm X 13 cm X9 cm"
+      }
+    },
+    "CP-18C+                                        UVEOMETRO": {
+      "ref": "CP-18C+                                        UVEOMETRO",
+      "desc": "",
+      "barcode": "105761-80-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "0,65 kg 26 cm x 14 cm x 11cm"
+      }
+    },
+    "TM-001                                           ESFEROMETRO METALICO": {
+      "ref": "TM-001                                           ESFEROMETRO METALICO",
+      "desc": "",
+      "barcode": "101013-35-AT",
+      "specs": {
+        "material": "pc con metal"
+      }
+    },
+    "WZ-JP15A                                    MEDIDOR DE ESPESOR": {
+      "ref": "WZ-JP15A                                    MEDIDOR DE ESPESOR",
+      "desc": "",
+      "barcode": "101024-52-AT",
+      "specs": {
+        "material": "pc con metal"
+      }
+    },
+    "WZ-JP15B                                     MEDIDOR DE ESPESOR": {
+      "ref": "WZ-JP15B                                     MEDIDOR DE ESPESOR",
+      "desc": "",
+      "barcode": "101025-25-AT",
+      "specs": {
+        "material": "pc con metal"
+      }
+    }
+  },
+  "MOBILIARIO": {
+    "CT-1000             UNIDAD OFTALMICA AUTOMÁTICA CON SILLA": {
+      "ref": "CT-1000             UNIDAD OFTALMICA AUTOMÁTICA CON SILLA",
+      "desc": "Mesa que se abre en 90°, silla que sube  y baja con elevador, se usa para poner el foroptero y el autorefractometro y los equipos  de diagnóstico",
+      "barcode": "20-4500-AT",
+      "specs": {
+        "peso": "127 x 97 x 109 cm"
+      }
+    },
+    "S-900B               UNIDAD OFTALMICA CON SILLA RECLINABLE": {
+      "ref": "S-900B               UNIDAD OFTALMICA CON SILLA RECLINABLE",
+      "desc": "",
+      "barcode": "101016-3300-AT",
+      "specs": {}
+    },
+    "S-900C          UNIDAD OFTALMICA CON SILLA RECLINABLE": {
+      "ref": "S-900C          UNIDAD OFTALMICA CON SILLA RECLINABLE",
+      "desc": "",
+      "barcode": "101017-2890-AT",
+      "specs": {
+        "peso": "1560 mm x 1000 mm x 2000 mm"
+      }
+    },
+    "CS-518             UNIDAD OFTALMICA CON SILLA ELEVACION": {
+      "ref": "CS-518             UNIDAD OFTALMICA CON SILLA ELEVACION",
+      "desc": "",
+      "barcode": "108268-3100-AT",
+      "specs": {
+        "potencia": "80W",
+        "peso": "870mm x 700mm x 1850 mm"
+      }
+    },
+    "S900AT             UNIDAD OFTALMICA CON SILLA RECLINABLE": {
+      "ref": "S900AT             UNIDAD OFTALMICA CON SILLA RECLINABLE",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "C-288AT + WZ-A      UNIDAD OFTALMICA PARA PERSONAS CON\nMOVILIDAD REDUCIDA": {
+      "ref": "C-288AT + WZ-A      UNIDAD OFTALMICA PARA PERSONAS CON\nMOVILIDAD REDUCIDA",
+      "desc": "La columna de elevación con forma de eclipse ofrece espacio y potencia suficientes  para levantar 3 instrumentos  al mismo tiempo. Y ruedas  que  permiten  poder moverse  por el\nespacio de trabajo dependiendo  de la situación, y la mesa eclipse es la mejor para acomodar a las personas  con silla de ruedas  que llevan una  vida sedentaria  todo el día.",
+      "barcode": "24/19-2000-AT",
+      "specs": {
+        "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+      }
+    },
+    "CS-188               UNIDAD OFTALMICA CON SILLA ELEVACION": {
+      "ref": "CS-188               UNIDAD OFTALMICA CON SILLA ELEVACION",
+      "desc": "",
+      "barcode": "21-2100-AT",
+      "specs": {
+        "potencia": "120VA",
+        "peso": "240kg"
+      }
+    },
+    "CS-700AT             UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "CS-700AT             UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "Mesa que se abre en 90°, silla que sube  y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos  de diagnostico",
+      "barcode": "101008-1500-AT",
+      "specs": {
+        "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+      }
+    },
+    "CS-700B              UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "CS-700B              UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "Mesa que se abre en 90°, silla que sube  y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos  de diagnostico",
+      "barcode": "101043-1500-AT",
+      "specs": {
+        "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+      }
+    },
+    "CS-700B-2             UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "CS-700B-2             UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "Mesa que se abre en 90°, silla que sube  y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos  de diagnostico",
+      "barcode": "101044-1500-AT",
+      "specs": {
+        "peso": "122.6 kg 110 cm x 54 cm x 96 cm"
+      }
+    },
+    "LY-800A              UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "LY-800A              UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "Mesa que se abre en 90°, silla que sube  y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos  de diagnostico",
+      "barcode": "101009-1450-AT",
+      "specs": {
+        "peso": "46.8 kg 64 cm x 61 cm x 85 cm"
+      }
+    },
+    "PK-158              UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "PK-158              UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "Mesa que se abre en 90°, silla que sube  y baja con elevador, se usa para poner el foropter y el autorefracto y los equipos  de diagnostico",
+      "barcode": "101041-1200-AT",
+      "specs": {
+        "peso": "46.8 kg 64 cm x 61 cm x 85 cm"
+      }
+    },
+    "PK-160              UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "PK-160              UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "",
+      "barcode": "",
+      "specs": {}
+    },
+    "C-180A UNIDAD OFTALMICA CON SILLA DE ELEVACION": {
+      "ref": "C-180A UNIDAD OFTALMICA CON SILLA DE ELEVACION",
+      "desc": "",
+      "barcode": "101040/101010-750-AT",
+      "specs": {
+        "peso": "54.4 kg 117 cm x 26 cm x 69 cm"
+      }
+    },
+    "C-180A+B*      UNIDAD OFTALMICA CON SILLA ELEVACION Y PEDAL": {
+      "ref": "C-180A+B*      UNIDAD OFTALMICA CON SILLA ELEVACION Y PEDAL",
+      "desc": "",
+      "barcode": "108268 -700-AT",
+      "specs": {
+        "peso": "54.4 kg 117 cm x 26 cm x 69 cm"
+      }
+    },
+    "WZ-DT-1A          SILLA CON PEDAL DE ELEVACION Y RECLINACION": {
+      "ref": "WZ-DT-1A          SILLA CON PEDAL DE ELEVACION Y RECLINACION",
+      "desc": "",
+      "barcode": "101026-750-AT",
+      "specs": {
+        "peso": "700mm × 900mm × 1400mm"
+      }
+    },
+    "WZ-A                                  SILLA CON PEDAL DE ELEVACION": {
+      "ref": "WZ-A                                  SILLA CON PEDAL DE ELEVACION",
+      "desc": "",
+      "barcode": "19/108402-350-AT",
+      "specs": {
+        "peso": "100 cm x 80cm x 80 cm"
+      }
+    },
+    "CT1955                              SILLA CON PEDAL DE ELEVACION": {
+      "ref": "CT1955                              SILLA CON PEDAL DE ELEVACION",
+      "desc": "",
+      "barcode": "101011-300-AT",
+      "specs": {
+        "peso": "100 cm x 80cm x 80 cm"
+      }
+    },
+    "WZ-ZN                              BRAZO PARA FOROPTERO DE PARED": {
+      "ref": "WZ-ZN                              BRAZO PARA FOROPTERO DE PARED",
+      "desc": "",
+      "barcode": "101021-380-AT",
+      "specs": {
+        "peso": "14 kg 65x50x15 cm"
+      }
+    },
+    "CT-1504          BRAZO PARA FOROPTERO Y PROYECTOR DE PARED": {
+      "ref": "CT-1504          BRAZO PARA FOROPTERO Y PROYECTOR DE PARED",
+      "desc": "",
+      "barcode": "101012-300-AT",
+      "specs": {
+        "peso": "14 kg 65x50x15 cm"
+      }
+    },
+    "WZ-3A                                            MESA DE ELEVACION": {
+      "ref": "WZ-3A                                            MESA DE ELEVACION",
+      "desc": "Para subir o bajar a la altura necesaria manteniéndose  a esa altura en el improbable caso de la falta del suministro  eléctrico.",
+      "barcode": "101037/108256-140-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "17 kg 26 cm x 52 cm x 62 cm"
+      }
+    },
+    "WB-3AN                                       MESA DE ELEVACION": {
+      "ref": "WB-3AN                                       MESA DE ELEVACION",
+      "desc": "Para subir o bajar a la altura necesaria manteniéndose  a esa altura en el improbable caso de la falta del suministro  eléctrico.",
+      "barcode": "101038-140-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "17 kg 26 cm x 52 cm x 62 cm"
+      }
+    },
+    "WZ-3AT TRIAL                     MESA DE ELEVACION CON BANDEJA": {
+      "ref": "WZ-3AT TRIAL                     MESA DE ELEVACION CON BANDEJA",
+      "desc": "Para subir o bajar a la altura necesaria manteniéndose  a esa altura en el improbable caso de la falta del suministro  eléctrico.",
+      "barcode": "108255-190-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "25 kg 26 cm x 52 cm x 62 cm"
+      }
+    },
+    "C-330A                                        MESA DOBLE DE ELEVACIÓN": {
+      "ref": "C-330A                                        MESA DOBLE DE ELEVACIÓN",
+      "desc": "Para subir o bajar a la altura necesaria manteniéndose  a esa altura en el improbable caso de la falta del suministro  eléctrico.",
+      "barcode": "25-1120-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "70 kg 1020 X 1230 X 1580mm"
+      }
+    },
+    "C-288AT                                 MESA MULTIFUNCIONAL": {
+      "ref": "C-288AT                                 MESA MULTIFUNCIONAL",
+      "desc": "",
+      "barcode": "24-1900-AT",
+      "specs": {}
+    },
+    "WZ-Y5B                                SILLA PARA OPTICA": {
+      "ref": "WZ-Y5B                                SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "108403-150-AT",
+      "specs": {}
+    },
+    "WZ-Y5B*                                SILLA PARA OPTICA": {
+      "ref": "WZ-Y5B*                                SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "108403-150-AT",
+      "specs": {}
+    },
+    "WZ-5AT                                   SILLA PARA OPTICA": {
+      "ref": "WZ-5AT                                   SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "10000-80-AT",
+      "specs": {}
+    },
+    "WZ-Y5A*                                  SILLA PARA OPTICA": {
+      "ref": "WZ-Y5A*                                  SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "108414-90-AT",
+      "specs": {}
+    },
+    "WZ-Y5A                                  SILLA PARA OPTICA": {
+      "ref": "WZ-Y5A                                  SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "108040/108404-80-AT",
+      "specs": {}
+    },
+    "WZ-Y5C*                                    SILLA PARA OPTICA": {
+      "ref": "WZ-Y5C*                                    SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "108415-55-AT",
+      "specs": {}
+    },
+    "WZ-Y5C                                    SILLA PARA OPTICA": {
+      "ref": "WZ-Y5C                                    SILLA PARA OPTICA",
+      "desc": "",
+      "barcode": "108405-50-AT",
+      "specs": {}
+    }
+  },
+  "MONITORES Y OPTOTIPOS": {
+    "SC-800                                              MONITOR LCD 23.8": {
+      "ref": "SC-800                                              MONITOR LCD 23.8",
+      "desc": "",
+      "barcode": "101066-360-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "K215F                                            MONITOR LCD 21.5": {
+      "ref": "K215F                                            MONITOR LCD 21.5",
+      "desc": "",
+      "barcode": "101105-350-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "215D                                           MONITOR LCD 23": {
+      "ref": "215D                                           MONITOR LCD 23",
+      "desc": "",
+      "barcode": "101069-450-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "230A                                           MONITOR LCD 23": {
+      "ref": "230A                                           MONITOR LCD 23",
+      "desc": "",
+      "barcode": "101068-490-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "CTS-215                                       MONITOR LCD VERTICAL": {
+      "ref": "CTS-215                                       MONITOR LCD VERTICAL",
+      "desc": "",
+      "barcode": "101003-495-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "5.2 kg 17 cm x 41 cm x 62 cm"
+      }
+    },
+    "VC-1                                            MONITOR LCD": {
+      "ref": "VC-1                                            MONITOR LCD",
+      "desc": "",
+      "barcode": "101106-550-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "5.8 kg 46 cm x 18 cm x 55 cm"
+      }
+    },
+    "ACP-300*                         MONITOR LCD VISUAL 44 TEST 23.5": {
+      "ref": "ACP-300*                         MONITOR LCD VISUAL 44 TEST 23.5",
+      "desc": "",
+      "barcode": "101107-560-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "5.2 kg 17 cm x 41 cm x 62 cm"
+      }
+    },
+    "VC-1 CONTROL R           CONTROL PARA MONITOR Y PROYECTOR": {
+      "ref": "VC-1 CONTROL R           CONTROL PARA MONITOR Y PROYECTOR",
+      "desc": "",
+      "barcode": "103482-15-AT",
+      "specs": {
+        "material": "Pasta y silicona"
+      }
+    },
+    "WB-1117A                 PROYECTOR GRAFICO DE MASCARAS": {
+      "ref": "WB-1117A                 PROYECTOR GRAFICO DE MASCARAS",
+      "desc": "",
+      "barcode": "101065-480-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)"
+      }
+    },
+    "WZ-3000B*                 PROYECTOR GRAFICO DE MASCARAS": {
+      "ref": "WZ-3000B*                 PROYECTOR GRAFICO DE MASCARAS",
+      "desc": "",
+      "barcode": "106818-705-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "6.5 kg 32 cm x 44 cm x 45 cm"
+      }
+    },
+    "WZ-01                       CARTILLA DE LECTURA MANUAL PEQUEÑA": {
+      "ref": "WZ-01                       CARTILLA DE LECTURA MANUAL PEQUEÑA",
+      "desc": "",
+      "barcode": "108950-3-AT",
+      "specs": {
+        "peso": "0.50g 0.60 cm"
+      }
+    },
+    "WZ-08                      CARTILLA DE EXAMEN VISUAL GRANDE": {
+      "ref": "WZ-08                      CARTILLA DE EXAMEN VISUAL GRANDE",
+      "desc": "",
+      "barcode": "108951-6-AT",
+      "specs": {
+        "peso": "0.50g 0.60 cm"
+      }
+    },
+    "WB-1112H                       OPTOTIPO TABLET LCD": {
+      "ref": "WB-1112H                       OPTOTIPO TABLET LCD",
+      "desc": "",
+      "barcode": "108264/23/101033-40-AT",
+      "specs": {
+        "peso": "6kg 920 mm × 280 mm × 25 mm"
+      }
+    },
+    "LETRARO LETRAS            CARTILLA VISUAL DIRECCIONAL": {
+      "ref": "LETRARO LETRAS            CARTILLA VISUAL DIRECCIONAL",
+      "desc": "",
+      "barcode": "103777-10.5-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "0.50 g 0.60 cm"
+      }
+    },
+    "CB-028                            OPTOTIPO ELECTRICO LUMINICO": {
+      "ref": "CB-028                            OPTOTIPO ELECTRICO LUMINICO",
+      "desc": "",
+      "barcode": "108263-55-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "50g 100 cm"
+      }
+    },
+    "WZ-SLB-8                      OPTOTIPO ELECTRICO LUMINICO": {
+      "ref": "WZ-SLB-8                      OPTOTIPO ELECTRICO LUMINICO",
+      "desc": "",
+      "barcode": "101055-30-AT",
+      "specs": {
+        "potencia": "110v/220v(60/50hz)",
+        "peso": "50g 1m"
+      }
+    },
+    "WZ-SLB-12                             OPTOTIPO CON SOPORTE": {
+      "ref": "WZ-SLB-12                             OPTOTIPO CON SOPORTE",
+      "desc": "",
+      "barcode": "101020-90-AT",
+      "specs": {
+        "peso": "0.50g 0.60 cm"
+      }
+    }
+  }
+}
