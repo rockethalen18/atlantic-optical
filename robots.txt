@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Sitemap: https://rockethalen18.github.io/atlantic-optical/sitemap.xml
