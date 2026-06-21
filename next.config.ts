@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  basePath: "/atlantic-optical",
+  assetPrefix: "/atlantic-optical/",
   trailingSlash: true,
   turbopack: {},
 };
