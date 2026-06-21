@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Sitemap: https://atlanticoptical.com.mx/sitemap.xml
+Sitemap: https://rockethalen18.github.io/atlantic-optical/sitemap.xml
