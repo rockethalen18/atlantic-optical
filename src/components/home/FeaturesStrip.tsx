@@ -32,8 +32,8 @@ export default function FeaturesStrip() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`feat-item group flex items-center gap-4 py-6 px-5 transition-colors hover:bg-[var(--bg-alt)] ${
-                i < 3 ? 'border-r border-[var(--border-light)]' : ''
+              className={`feat-item group flex items-center gap-3 sm:gap-4 py-5 sm:py-6 px-4 sm:px-5 transition-colors hover:bg-[var(--bg-alt)] ${
+                i % 2 === 0 ? 'border-r border-[var(--border-light)]' : ''
               } ${i < 2 ? 'border-b md:border-b-0 border-[var(--border-light)]' : ''} ${i === 2 ? 'border-b md:border-b-0 border-[var(--border-light)]' : ''}`}
             >
               <div className="w-10 h-10 bg-[var(--bg-alt)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--green-light)] transition-colors duration-300">

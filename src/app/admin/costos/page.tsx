@@ -83,9 +83,9 @@ export default function AdminCosts() {
             <h3 className="font-bold mb-2">Fórmula de Cálculo</h3>
             <div className="text-sm space-y-1 opacity-90">
               <p>Precio = (Costo × Margen + Envío/kg × Peso) × Tipo de Cambio × (1 + IVA)</p>
-              <p className="text-[var(--blue)] font-medium mt-3">Ejemplo con ARK-7000:</p>
+              <p className="text-[#93c5fd] font-medium mt-3">Ejemplo con ARK-7000:</p>
               <p>= ($2,800 × 2.2 + $4.50 × 12) × 17.50 × 1.16</p>
-              <p className="text-lg font-bold text-[var(--blue)]">= {formatMXN((exampleCost * exampleMargin + 4.50 * exampleWeight) * exchangeRate * (1 + taxRate/100))}</p>
+              <p className="text-lg font-bold text-white">= {formatMXN((exampleCost * exampleMargin + 4.50 * exampleWeight) * exchangeRate * (1 + taxRate/100))}</p>
             </div>
           </div>
         </div>

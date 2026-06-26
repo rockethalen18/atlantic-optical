@@ -21,18 +21,18 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Atlantic Optical — Equipamiento Óptico Profesional",
-  description: "Tu proveedor de confianza en equipo oftálmico y optométrico. Envío directo desde China a México con costos transparentes.",
-  keywords: "foróptero, lentómetro, equipo oftálmico, auto refractómetro, lámpara de hendidura, egter, tonómetro, equipo optométrico, China, México",
+  title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
+  description: "Atlantic Optical Internacional S.A. — Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a México.",
+  keywords: "foróptero, lentómetro, equipo oftálmico, auto refractómetro, lámpara de hendidura, tonómetro, equipo optométrico, monturas, lentes de sol, Atlantic Optical, Panamá, México",
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://atlanticoptical.com.mx' },
-  icons: { icon: '/favicon.ico' },
+  icons: { icon: '/images/logo-atlantic-retina.png' },
   openGraph: {
-    title: "Atlantic Optical — Equipamiento Óptico Profesional",
-    description: "Envío directo desde China con costos variables en tiempo real.",
+    title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
+    description: "Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias.",
     type: "website",
     locale: "es_MX",
-    siteName: "Atlantic Optical",
+    siteName: "Atlantic Optical Internacional S.A.",
   },
 };
 

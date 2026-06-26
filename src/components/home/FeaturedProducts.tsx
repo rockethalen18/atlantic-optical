@@ -7,8 +7,8 @@ import Icons from '@/components/ui/Icons';
 import productsData from '../../../catalogos/products.json';
 
 const featuredSkus = [
-  'AO-ARK7710', 'AO-FA6100CK', 'AO-DPS700',
-  'AO-BL66B', 'AO-ALE1600G', 'AO-CT1000',
+  'AO-ARK7710', 'AO-ACP300', 'AO-ALE1600G',
+  'AO-CT1955', 'AO-104', 'AO-C288AT',
 ];
 
 export default function FeaturedProducts() {
@@ -66,7 +66,7 @@ export default function FeaturedProducts() {
                 />
 
                 {/* Badge */}
-                <div className="absolute top-4 left-4 bg-[var(--green)] text-white text-[8px] font-bold px-2.5 py-1 uppercase tracking-[0.12em]">
+                <div className="absolute top-3 left-3 bg-[var(--green)] text-white text-[9px] sm:text-[10px] font-bold px-2.5 py-1 uppercase tracking-[0.12em]">
                   Destacado
                 </div>
 

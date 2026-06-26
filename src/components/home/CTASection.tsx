@@ -21,7 +21,7 @@ export default function CTASection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-[var(--green)] relative overflow-hidden">
+    <section ref={sectionRef} className="py-14 sm:py-20 md:py-32 bg-[var(--green)] relative overflow-hidden">
       {/* Subtle decorative elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--blue)] opacity-[0.1] rounded-full blur-[150px] -translate-y-1/4 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-white opacity-[0.03] rounded-full blur-[120px] translate-y-1/4 -translate-x-1/4" />
@@ -45,11 +45,11 @@ export default function CTASection() {
           </p>
         </div>
         <div className="cta-item flex flex-col sm:flex-row gap-3 justify-center">
-          <Link href="/contacto" className="group inline-flex items-center justify-center gap-3 bg-white text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.1em] px-10 py-4 hover:bg-white/95 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
+          <Link href="/contacto" className="group inline-flex items-center justify-center gap-3 bg-white text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.1em] px-8 sm:px-10 py-4 w-full sm:w-auto hover:bg-white/95 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)]">
             Solicitar Cotización
             <Icons.ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link href="/productos" className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/25 font-bold text-[12px] uppercase tracking-[0.1em] px-10 py-4 hover:bg-white/20 transition-all duration-300">
+          <Link href="/productos" className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/25 font-bold text-[12px] uppercase tracking-[0.1em] px-8 sm:px-10 py-4 w-full sm:w-auto hover:bg-white/20 transition-all duration-300">
             Ver Catálogo
           </Link>
         </div>

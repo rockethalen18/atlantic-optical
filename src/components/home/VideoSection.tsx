@@ -58,7 +58,7 @@ export default function VideoSection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-white">
+    <section ref={sectionRef} className="py-14 sm:py-20 md:py-32 bg-white">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: features */}
@@ -94,30 +94,30 @@ export default function VideoSection() {
 
           {/* Right: stats card */}
           <div className="vid-right">
-            <div className="bg-[var(--bg-alt)] border border-[var(--border)] p-10 md:p-12">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center">
+            <div className="bg-[var(--bg-alt)] border border-[var(--border)] p-6 sm:p-8 md:p-10 lg:p-12">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
+                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center shrink-0">
                   <Icons.Eye size={18} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical</div>
-                  <div className="text-[14px] font-bold text-[var(--text)]">Proveedor desde 2011</div>
+                  <div className="text-[10px] sm:text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical</div>
+                  <div className="text-[13px] sm:text-[14px] font-bold text-[var(--text)]">Proveedor desde 2011</div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-6 md:mb-8">
                 {stats.map((s, i) => (
                   <div key={i} className="text-center">
-                    <div className="text-[32px] md:text-[38px] font-black text-[var(--green)] leading-none" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
-                    <div className="text-[9px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.14em] mt-2">{s.label}</div>
+                    <div className="text-[22px] sm:text-[32px] md:text-[38px] font-black text-[var(--green)] leading-none" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
+                    <div className="text-[8px] sm:text-[9px] md:text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.1em] sm:tracking-[0.14em] mt-1.5 sm:mt-2 leading-tight">{s.label}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-6 border-t border-[var(--border)]">
-                <div className="flex items-center gap-2 text-[var(--text-muted)] text-[12px]">
-                  <Icons.ShieldCheck size={14} className="text-[var(--green)]" />
-                  <span>Certificaciones ISO 13485 · CE · FDA</span>
+              <div className="pt-5 sm:pt-6 border-t border-[var(--border)]">
+                <div className="flex items-center gap-2 text-[var(--text-muted)] text-[11px] sm:text-[12px]">
+                  <Icons.ShieldCheck size={14} className="text-[var(--green)] shrink-0" />
+                  <span className="leading-tight">Certificaciones ISO 13485 · CE · FDA</span>
                 </div>
               </div>
             </div>

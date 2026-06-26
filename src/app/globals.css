@@ -235,6 +235,17 @@ img { transition: opacity 0.3s ease; }
 }
 
 /* ============================================
+   HEADER — FORCED WHITE TEXT
+   ============================================ */
+header, header *, header a, header button, header span, header nav, header nav a, header nav span, header nav svg, header svg {
+  color: #ffffff !important;
+}
+
+header nav a:hover {
+  color: #ffffff !important;
+}
+
+/* ============================================
    PRODUCT IMAGE BACKGROUNDS
    ============================================ */
 .product-image-bg {
