@@ -21,7 +21,7 @@ switch ($action) {
         $stmt->execute([$data['email']]);
         $user = $stmt->fetch();
 
-        if (!$user || !password_verify($data['password'], $user['password_hash'])) {
+        if (!$user || !password_verify($data['password'], $user['password'])) {
             jsonError('Invalid credentials', 401);
         }
 
@@ -57,7 +57,7 @@ switch ($action) {
             jsonError('Not authenticated', 401);
         }
 
-        $stmt = $db->prepare("SELECT id, name, email, role, avatar, created_at FROM users WHERE id = ?");
+        $stmt = $db->prepare("SELECT id, name, email, role, created_at FROM users WHERE id = ?");
         $stmt->execute([$_SESSION['user_id']]);
         $user = $stmt->fetch();
 

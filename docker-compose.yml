@@ -1,0 +1,42 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: atlantic-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass123
+      MYSQL_DATABASE: atlantic_optical
+      MYSQL_USER: atlantic_user
+      MYSQL_PASSWORD: atlantic_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/banahosting_import.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  php-api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: atlantic-php
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./backend:/var/www/html
+    environment:
+      DB_HOST: mysql
+      DB_NAME: atlantic_optical
+      DB_USER: atlantic_user
+      DB_PASS: atlantic_pass
+
+volumes:
+  mysql_data:

@@ -112,7 +112,7 @@ export default function ProductsPage() {
                 {filtered.map(product => (
                   <Link
                     key={product.sku}
-                    href={`/productos?category=${product.category_slug}`}
+                    href={`/productos/${product.slug}/`}
                     className="group bg-white border border-[var(--border)] hover:border-[var(--green)]/30 transition-all overflow-hidden"
                   >
                     <div className="relative h-[160px] bg-[var(--bg-alt)] overflow-hidden">

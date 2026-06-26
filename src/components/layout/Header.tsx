@@ -4,59 +4,55 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { gsap } from '@/lib/gsap';
 import Icons from '@/components/ui/Icons';
+import productsData from '../../../catalogos/products.json';
+
+const allProducts = productsData as Array<{
+  sku: string; name: string; slug: string; category: string; category_slug: string;
+  subcategory: string; subcategory_slug: string; image: string;
+}>;
 
 const navItems = [
   {
     label: 'Equipos Oftálmicos',
-    href: '/productos?category=equipos-oftalmologia',
+    href: '/productos?category=equipos-oftalmologia-optica',
     mega: {
       type: 'products' as const,
-      viewAllBg: '#006535',
       categories: [
-        { name: 'Auto Refractómetros', slug: 'auto-refractometros', href: '/productos?category=auto-refractometros' },
-        { name: 'Auto Refractómetros con Keratómetro', slug: 'auto-refractometros-keratometro', href: '/productos?category=auto-refractometros-keratometro' },
-        { name: 'Tonómetros', slug: 'tonometros', href: '/productos?category=tonometros' },
-        { name: 'Lámparas de Hendidura', slug: 'lamparas-de-hendidura', href: '/productos?category=lamparas-de-hendidura' },
-        { name: 'Forópteros', slug: 'foropteros', href: '/productos?category=foropteros' },
-        { name: 'Lentes de Prueba', slug: 'lentes-de-prueba', href: '/productos?category=lentes-de-prueba' },
-        { name: 'Equipos de Diagnóstico', slug: 'equipos-diagnostico', href: '/productos?category=equipos-diagnostico' },
-        { name: 'Equipos Especiales', slug: 'equipos-especiales', href: '/productos?category=equipos-especiales' },
-        { name: 'Accesorios Ópticos', slug: 'accesorios-opticos', href: '/productos?category=accesorios-opticos' },
+        { name: 'Auto Refractómetros', slug: 'auto-refractometros-con-keratometro' },
+        { name: 'Forópteros', slug: 'foropteros-manuales' },
+        { name: 'Lámparas de Hendidura', slug: 'lamparas-de-hendidura' },
+        { name: 'Tonómetros', slug: 'tonometros-de-contacto' },
+        { name: 'Cámaras de Fondo', slug: 'camara-de-fondo' },
+        { name: 'Oftalmoscopios', slug: 'oftalmoscopios' },
+        { name: 'Retinoscopios', slug: 'retinoscopios' },
+        { name: 'Pupilómetros', slug: 'pupilometros' },
+        { name: 'OCT', slug: 'oct' },
       ],
-      products: [
-        { name: 'Auto Refractómetro ARK-7710', slug: 'ark-7710', sku: 'AO-ARK7710', cat: 'Auto Refractómetros con Keratómetro', img: '/images/products/AO-ARK7710.jpg' },
-        { name: 'Foróptero Digital FP-800', slug: 'fp-800', sku: 'AO-FP800', cat: 'Forópteros Digitales', img: '/images/products/AO-FP800.jpg' },
-        { name: 'Lámpara de Hendidura BL-66B', slug: 'bl-66b', sku: 'AO-BL66B', cat: 'Lámparas de Hendidura', img: '/images/products/AO-BL66B.jpg' },
-        { name: 'Tonómetro SK-5500A', slug: 'sk-5500a', sku: 'AO-SK5500A', cat: 'Tonómetros', img: '/images/products/AO-SK5500A.jpg' },
-        { name: 'Caja de Prueba 266 Lentes', slug: '266js', sku: 'AO-266JS', cat: 'Cajas de Prueba', img: '/images/products/AO-266JS.jpg' },
-        { name: 'Cámara de Fondo RC-3100', slug: 'rc-3100', sku: 'AO-RC3100', cat: 'Cámara de Fondo', img: '/images/products/AO-RC3100.jpg' },
-      ],
+      get products() {
+        return allProducts.filter(p => p.category_slug === 'equipos-oftalmologia-optica').slice(0, 6);
+      },
     },
   },
   {
     label: 'Instrumentos',
-    href: '/productos?category=instrumentos',
+    href: '/productos?category=equipos-oftalmologia-optica',
     mega: {
       type: 'products' as const,
-      viewAllBg: '#006535',
       categories: [
-        { name: 'Oftalmoscopios', slug: 'oftalmoscopios', href: '/productos?category=oftalmoscopios' },
-        { name: 'Retinoscopios', slug: 'retinoscopios', href: '/productos?category=retinoscopios' },
-        { name: 'Pupilómetros', slug: 'pupilometros', href: '/productos?category=pupilometros' },
-        { name: 'Lentes de Aumento', slug: 'lentes-de-aumento', href: '/productos?category=lentes-de-aumento' },
-        { name: 'Lente de 3 Espejos', slug: 'lente-3-espejos', href: '/productos?category=lente-3-espejos' },
-        { name: 'Monturas de Prueba', slug: 'monturas-de-prueba', href: '/productos?category=monturas-de-prueba' },
-        { name: 'Fisioterapia Visual', slug: 'fisioterapia-visual', href: '/productos?category=fisioterapia-visual' },
-        { name: 'Cajas de Prisma', slug: 'cajas-de-prisma', href: '/productos?category=cajas-de-prisma' },
+        { name: 'Lentes de Aumento', slug: 'lente-de-aumento' },
+        { name: 'Lente de 3 Espejos', slug: 'lente-de-3-espejos' },
+        { name: 'Monturas de Prueba', slug: 'monturas-de-prueba' },
+        { name: 'Cajas de Prisma', slug: 'cajas-de-prisma' },
+        { name: 'Cajas de Prueba', slug: 'cajas-de-prueba' },
+        { name: 'Fisioterapia Visual', slug: 'equipos-de-fisioterapia' },
+        { name: 'Microscopio Quirúrgico', slug: 'microscopio-quirurgico' },
+        { name: 'Facoemulsificador', slug: 'facoemulsificador' },
       ],
-      products: [
-        { name: 'Oftalmoscopio YZ-11', slug: 'yz-11', sku: 'AO-YZ11', cat: 'Oftalmoscopios', img: '/images/products/AO-YZ11.jpg' },
-        { name: 'Retinoscopio YZ-24', slug: 'yz-24', sku: 'AO-YZ24', cat: 'Retinoscopios', img: '/images/products/AO-YZ24.jpg' },
-        { name: 'Pupilómetro Digital LY-9C', slug: 'ly-9c', sku: 'AO-LY9C', cat: 'Pupilómetros', img: '/images/products/AO-LY9C.jpg' },
-        { name: 'Montura de Prueba TTF-08', slug: 'ttf-08', sku: 'AO-TTF08', cat: 'Monturas de Prueba', img: '/images/products/AO-TTF08.jpg' },
-        { name: 'Caja de Prisma PS-22', slug: 'ps-22', sku: 'AO-PS22', cat: 'Cajas de Prisma', img: '/images/products/AO-PS22.jpg' },
-        { name: 'Fisioterapia Visual KJR-D-A3', slug: 'kjr-d-a3', sku: 'AO-KJRDA3', cat: 'Fisioterapia Visual', img: '/images/products/AO-KJRDA3.jpg' },
-      ],
+      get products() {
+        return allProducts.filter(p =>
+          ['lente-de-aumento', 'monturas-de-prueba', 'pupilometros', 'oftalmoscopios'].includes(p.subcategory_slug)
+        ).slice(0, 6);
+      },
     },
   },
   {
@@ -64,24 +60,19 @@ const navItems = [
     href: '/productos?category=equipos-laboratorio',
     mega: {
       type: 'products' as const,
-      viewAllBg: '#006535',
       categories: [
-        { name: 'Biseladoras', slug: 'biseladoras', href: '/productos?category=biseladoras' },
-        { name: 'Pulidoras', slug: 'pulidoras', href: '/productos?category=pulidoras' },
-        { name: 'Ranuradoras', slug: 'ranuradoras', href: '/productos?category=ranuradoras' },
-        { name: 'Perforadoras', slug: 'perforadoras', href: '/productos?category=perforadoras' },
-        { name: 'Limpiadores Ultrasónicos', slug: 'limpiadores', href: '/productos?category=limpiadores' },
-        { name: 'Tinturadoras', slug: 'tinturadoras', href: '/productos?category=tinturadoras' },
-        { name: 'Medición', slug: 'medicion', href: '/productos?category=medicion' },
+        { name: 'Biseladoras Automáticas', slug: 'biseladoras-automaticas' },
+        { name: 'Biseladoras Manuales', slug: 'biseladoras-manuales' },
+        { name: 'Pulidoras', slug: 'pulidoras-manuales' },
+        { name: 'Limpiadores Ultrasónicos', slug: 'limpiadores-ultrasonicos' },
+        { name: 'Ranuradoras', slug: 'ranuradoras-manuales' },
+        { name: 'Perforadoras', slug: 'perforadoras-al-aire' },
+        { name: 'Tinturadoras', slug: 'tinturadoras' },
+        { name: 'Esferómetros', slug: 'esferometros' },
       ],
-      products: [
-        { name: 'Biseladora Automática ALE-1600G', slug: 'ale-1600g', sku: 'AO-ALE1600G', cat: 'Biseladoras Automáticas', img: '/images/products/AO-ALE1600G.jpg' },
-        { name: 'Biseladora Semiautomática SJG-7100', slug: 'sjg-7100', sku: 'AO-SJG7100', cat: 'Biseladoras Semiautomáticas', img: '/images/products/AO-SJG7100.jpg' },
-        { name: 'Pulidora Semiautomática LY-900', slug: 'ly-900', sku: 'AO-LY900', cat: 'Pulidoras', img: '/images/products/AO-LY900.jpg' },
-        { name: 'Limpiador Ultrasónico GB-800', slug: 'gb-800', sku: 'AO-GB800', cat: 'Limpiadores Ultrasónicos', img: '/images/products/AO-GB800.jpg' },
-        { name: 'Ranuradora Manual LY-12A', slug: 'ly-12a', sku: 'AO-LY12A', cat: 'Ranuradoras', img: '/images/products/AO-LY12A.jpg' },
-        { name: 'Esferómetro TM-001', slug: 'tm-001', sku: 'AO-TM001', cat: 'Medición', img: '/images/products/AO-TM001.jpg' },
-      ],
+      get products() {
+        return allProducts.filter(p => p.category_slug === 'equipos-laboratorio').slice(0, 6);
+      },
     },
   },
   {
@@ -89,21 +80,16 @@ const navItems = [
     href: '/productos?category=mobiliario',
     mega: {
       type: 'products' as const,
-      viewAllBg: '#006535',
       categories: [
-        { name: 'Unidades Oftálmicas', slug: 'unidades-oftalmicas', href: '/productos?category=unidades-oftalmicas' },
-        { name: 'Sillas', slug: 'sillas', href: '/productos?category=sillas' },
-        { name: 'Mesas', slug: 'mesas', href: '/productos?category=mesas' },
-        { name: 'Brazos de Pared', slug: 'brazos-de-pared', href: '/productos?category=brazos-de-pared' },
+        { name: 'Sillas con Pedal', slug: 'sillas-con-pedal' },
+        { name: 'Sillas para Óptica', slug: 'sillas-para-optica' },
+        { name: 'Mesas de Elevación', slug: 'mesas-de-elevacion' },
+        { name: 'Mesas Dobles', slug: 'mesas-dobles' },
+        { name: 'Mesas Multifuncional', slug: 'mesas-multifuncional' },
       ],
-      products: [
-        { name: 'Unidad Oftálmica CT-1000', slug: 'ct-1000', sku: 'AO-CT1000', cat: 'Automáticas', img: '/images/products/AO-CT1000.jpg' },
-        { name: 'Unidad Oftálmica S-900B', slug: 's-900b', sku: 'AO-S900B', cat: 'Con Silla Reclinable', img: '/images/products/AO-S900B.jpg' },
-        { name: 'Unidad Oftálmica CS-518', slug: 'cs-518', sku: 'AO-CS518', cat: 'Con Silla Elevación', img: '/images/products/AO-CS518.jpg' },
-        { name: 'Silla con Pedal WZ-DT-1A', slug: 'wz-dt-1a', sku: 'AO-WZDT1A', cat: 'Sillas con Pedal', img: '/images/products/AO-WZDT1A.jpg' },
-        { name: 'Mesa de Elevación WZ-3A', slug: 'wz-3a', sku: 'AO-WZ3A', cat: 'Mesas de Elevación', img: '/images/products/AO-WZ3A.jpg' },
-        { name: 'Brazo de Pared WZ-ZN', slug: 'wz-zn', sku: 'AO-WZZN', cat: 'Brazos de Pared', img: '/images/products/AO-WZZN.jpg' },
-      ],
+      get products() {
+        return allProducts.filter(p => p.category_slug === 'mobiliario').slice(0, 6);
+      },
     },
   },
 ];
@@ -118,30 +104,22 @@ const rightNavItems = [
         {
           title: 'Monitores LCD',
           links: [
-            { label: 'Monitor LCD 23.8" SC-800', href: '/productos?category=monitores-lcd' },
-            { label: 'Monitor LCD 21.5" K215F', href: '/productos?category=monitores-lcd' },
-            { label: 'Monitor LCD 23" 215D', href: '/productos?category=monitores-lcd' },
-            { label: 'Monitor LCD Vertical CTS-215', href: '/productos?category=monitores-lcd' },
-            { label: 'Monitor Visual 44 Test ACP-300', href: '/productos?category=monitores-lcd' },
+            { label: 'Monitor LCD 23.8"', href: '/productos?subcategory=monitores-estandar' },
+            { label: 'Monitor LCD Vertical', href: '/productos?subcategory=monitores-verticales' },
+            { label: 'Monitor Visual 44 Test', href: '/productos?subcategory=monitores-estandar' },
           ],
         },
         {
           title: 'Proyectores y Optotipos',
           links: [
-            { label: 'Proyector Gráfico WB-1117A', href: '/productos?category=proyectores' },
-            { label: 'Proyector Gráfico WZ-3000B', href: '/productos?category=proyectores' },
-            { label: 'Optotipo Tablet LCD WB-1112H', href: '/productos?category=optotipos' },
-            { label: 'Cartilla Examen Visual WZ-08', href: '/productos?category=optotipos' },
-            { label: 'Optotipo Eléctrico CB-028', href: '/productos?category=optotipos' },
+            { label: 'Proyectores Gráficos', href: '/productos?subcategory=proyectores-graficos' },
+            { label: 'Optotipos Eléctricos', href: '/productos?subcategory=optotipos-electricos' },
+            { label: 'Optotipos con Soporte', href: '/productos?subcategory=optotipos-con-soporte' },
+            { label: 'Tablet LCD', href: '/productos?subcategory tablet-lcd' },
+            { label: 'Cartillas', href: '/productos?subcategory=cartillas' },
           ],
         },
       ],
-      promo: {
-        title: 'Monitores LCD',
-        subtitle: 'Pantallas de alta resolución para exámenes visuales',
-        href: '/productos?category=monitores-optotipos',
-        img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80',
-      },
     },
   },
   {
@@ -183,8 +161,12 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [activeCat, setActiveCat] = useState<string | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<typeof allProducts>([]);
   const headerRef = useRef<HTMLElement>(null);
   const megaTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 50);
@@ -201,6 +183,26 @@ export default function Header() {
       duration: 0.28,
     });
   }, [scrolled]);
+
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [searchOpen]);
+
+  useEffect(() => {
+    if (searchQuery.length < 2) {
+      setSearchResults([]);
+      return;
+    }
+    const term = searchQuery.toLowerCase();
+    const results = allProducts.filter(p =>
+      p.name.toLowerCase().includes(term) ||
+      p.sku.toLowerCase().includes(term) ||
+      p.subcategory.toLowerCase().includes(term)
+    ).slice(0, 8);
+    setSearchResults(results);
+  }, [searchQuery]);
 
   const openMega = useCallback((label: string) => {
     if (megaTimerRef.current) clearTimeout(megaTimerRef.current);
@@ -231,7 +233,7 @@ export default function Header() {
     <>
       <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[60px]">
-          <button className="lg:hidden p-2 -ml-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menú">
+          <button className="lg:hidden p-2 -ml-2" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
             {mobileOpen ? <Icons.X size={20} className="text-[var(--text)]" /> : <Icons.Menu size={20} className="text-[var(--text)]" />}
           </button>
 
@@ -248,6 +250,13 @@ export default function Header() {
           <div className="flex-1" />
 
           <div className="flex items-center gap-1">
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="p-2.5 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors rounded-lg hover:bg-black/5"
+              aria-label="Buscar"
+            >
+              <Icons.Search size={18} />
+            </button>
             <Link href="/admin" className="p-2.5 text-[var(--text-muted)] hover:text-[var(--text)] transition-colors hidden sm:flex rounded-lg hover:bg-black/5">
               <Icons.User size={18} />
             </Link>
@@ -258,39 +267,74 @@ export default function Header() {
           </div>
         </div>
 
+        {/* Search Overlay */}
+        {searchOpen && (
+          <div className="absolute top-[60px] left-0 right-0 bg-white border-b border-[var(--border)] shadow-lg z-50">
+            <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-4">
+              <div className="relative max-w-2xl mx-auto">
+                <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />
+                <input
+                  ref={searchInputRef}
+                  type="text"
+                  placeholder="Buscar productos por nombre, SKU o categoría..."
+                  value={searchQuery}
+                  onChange={e => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-12 py-3.5 bg-[var(--bg-alt)] border border-[var(--border)] text-[15px] text-[var(--text)] focus:outline-none focus:border-[var(--green)] transition-colors"
+                />
+                <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-soft)] hover:text-[var(--text)]">
+                  <Icons.X size={18} />
+                </button>
+              </div>
+              {searchResults.length > 0 && (
+                <div className="max-w-2xl mx-auto mt-3 border border-[var(--border)] bg-white shadow-lg max-h-[400px] overflow-y-auto">
+                  {searchResults.map(p => (
+                    <Link
+                      key={p.sku}
+                      href={`/productos/${p.slug}/`}
+                      onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
+                      className="flex items-center gap-4 px-4 py-3 hover:bg-[var(--bg-alt)] transition-colors border-b border-[var(--border-light)] last:border-0"
+                    >
+                      <div className="w-12 h-12 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden">
+                        <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-[13px] font-bold text-[var(--text)] truncate">{p.name}</div>
+                        <div className="text-[11px] text-[var(--text-muted)]">{p.sku} · {p.subcategory}</div>
+                      </div>
+                      <Icons.ArrowRight size={14} className="text-[var(--text-soft)] flex-shrink-0" />
+                    </Link>
+                  ))}
+                </div>
+              )}
+              {searchQuery.length >= 2 && searchResults.length === 0 && (
+                <div className="max-w-2xl mx-auto mt-3 p-6 text-center text-[var(--text-muted)] text-[14px]">
+                  No se encontraron productos para &ldquo;{searchQuery}&rdquo;
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
         {/* Desktop Navigation Row */}
         <nav className="hidden lg:block border-t border-black/10">
           <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center h-[46px]">
             <div className="flex items-center gap-0 flex-1">
-              {navItems.map((item) => (
+              {[...navItems, ...rightNavItems].map((item) => (
                 <div
                   key={item.label}
-                  className="relative h-full flex items-center"
+                  className="relative"
                   onMouseEnter={() => openMega(item.label)}
                   onMouseLeave={closeMega}
                 >
-                  <Link href={item.href} className="px-4 h-full text-[14px] text-[var(--text-secondary)] hover:text-[var(--text)] transition-colors flex items-center gap-1 relative" style={{ fontFamily: 'var(--font-display)' }}>
+                  <Link
+                    href={item.href}
+                    className={`flex items-center gap-1 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] transition-colors hover:text-[var(--green)] ${
+                      activeMega === item.label ? 'text-[var(--green)]' : 'text-[var(--text-muted)]'
+                    }`}
+                  >
                     {item.label}
                     <Icons.ChevronDown size={12} className={`transition-transform duration-200 ${activeMega === item.label ? 'rotate-180' : ''}`} />
-                    <span className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[var(--green)] transition-all duration-400 ${activeMega === item.label ? 'scale-x-100' : 'scale-x-0'}`} />
                   </Link>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex items-center gap-0">
-              {rightNavItems.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative h-full flex items-center"
-                  onMouseEnter={() => openMega(item.label)}
-                  onMouseLeave={closeMega}
-                >
-                  <button className="px-4 h-full text-[14px] text-[var(--text-secondary)] hover:text-[var(--text)] transition-colors flex items-center gap-1" style={{ fontFamily: 'var(--font-display)' }}>
-                    {item.label}
-                    <Icons.ChevronDown size={12} className={`transition-transform duration-200 ${activeMega === item.label ? 'rotate-180' : ''}`} />
-                    <span className={`absolute bottom-0 left-4 right-4 h-[2px] bg-[var(--green)] transition-all duration-400 ${activeMega === item.label ? 'scale-x-100' : 'scale-x-0'}`} />
-                  </button>
                 </div>
               ))}
             </div>
@@ -298,178 +342,123 @@ export default function Header() {
         </nav>
 
         {/* Mega Menu Panels */}
-        {allNavItems.map((item) => {
-          if (!item.mega || activeMega !== item.label) return null;
-          const mega = item.mega;
-
-          if (mega.type === 'products') {
-            const activeCatData = mega.categories.find(c => c.slug === activeCat) || mega.categories[0];
-            return (
-              <div
-                key={item.label}
-                className="hidden lg:block absolute top-full left-0 right-0 border-t border-black/10 bg-white z-50"
-                onMouseEnter={keepMegaOpen}
-                onMouseLeave={closeMega}
-                style={{ boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}
-              >
-                <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex" style={{ minHeight: '420px' }}>
-                  {/* Left: Category List */}
-                  <div className="w-[260px] flex-shrink-0 flex flex-col justify-between py-6 border-r border-[var(--border-light)]">
-                    <div>
-                      {mega.categories.map((cat) => (
-                        <button
+        {allNavItems.map((item) => (
+          <div
+            key={item.label}
+            className={`hidden lg:block absolute top-full left-0 right-0 bg-white border-t border-[var(--border)] shadow-xl transition-all duration-300 ${
+              activeMega === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
+            }`}
+            onMouseEnter={keepMegaOpen}
+            onMouseLeave={closeMega}
+          >
+            <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
+              {item.mega.type === 'products' && (
+                <div className="flex gap-10">
+                  <div className="w-[240px] flex-shrink-0">
+                    <h4 className="text-[11px] font-bold text-[var(--text)] uppercase tracking-[0.12em] mb-4">Categorías</h4>
+                    <div className="space-y-1">
+                      {item.mega.categories.map((cat) => (
+                        <Link
                           key={cat.slug}
-                          onMouseEnter={() => setActiveCat(cat.slug)}
-                          onClick={() => { closeMega(); window.location.href = cat.href; }}
-                          className={`w-full text-left px-4 py-[10px] text-[14px] transition-colors ${activeCat === cat.slug ? 'bg-[var(--bg-alt)] font-bold text-[var(--text)]' : 'text-[var(--text-secondary)] hover:bg-[var(--bg-alt)] hover:text-[var(--text)]'}`}
+                          href={`/productos?subcategory=${cat.slug}`}
+                          className={`block px-3 py-2 text-[13px] transition-colors ${
+                            activeCat === cat.slug
+                              ? 'bg-[var(--green)] text-white font-medium'
+                              : 'text-[var(--text-muted)] hover:bg-[var(--bg-alt)] hover:text-[var(--text)]'
+                          }`}
+                          onClick={() => setActiveCat(cat.slug)}
                         >
                           {cat.name}
-                        </button>
+                        </Link>
                       ))}
                     </div>
                     <Link
                       href={item.href}
-                      onClick={() => closeMega()}
-                      className="block text-center py-3 text-white text-[13px] font-bold transition-colors"
-                      style={{ background: mega.viewAllBg }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = '#01582c'}
-                      onMouseLeave={(e) => e.currentTarget.style.background = mega.viewAllBg}
+                      className="mt-4 flex items-center gap-1.5 text-[11px] font-bold text-[var(--green)] uppercase tracking-[0.08em] hover:gap-2.5 transition-all"
                     >
-                      Ver Todo {item.label}
+                      Ver Todo <Icons.ArrowRight size={11} />
                     </Link>
                   </div>
-
-                  {/* Right: Product Grid */}
-                  <div className="flex-1 p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-[14px] font-bold text-[var(--text)]">{activeCatData?.name}</span>
-                      <Link href={activeCatData?.href || '#'} className="text-[12px] text-[var(--green)] font-semibold hover:underline">
-                        Ver Todos &gt;&gt;
-                      </Link>
-                    </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      {mega.products
-                        .filter(p => {
-                          if (!activeCat) return true;
-                          const catSlug = activeCat;
-                          return p.cat.toLowerCase().includes(catSlug.replace(/-/g, ''));
-                        })
-                        .slice(0, 6)
-                        .map((p) => (
-                        <Link key={p.sku} href={`/productos?category=${p.cat.toLowerCase().replace(/\s+/g, '-')}`} className="group flex gap-3 p-3 bg-[var(--bg-alt)] hover:bg-white hover:shadow-sm transition-all">
-                          <div className="w-[100px] h-[100px] flex-shrink-0 bg-white flex items-center justify-center overflow-hidden">
-                            <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="flex-1">
+                    <h4 className="text-[11px] font-bold text-[var(--text)] uppercase tracking-[0.12em] mb-4">Productos Destacados</h4>
+                    <div className="grid grid-cols-3 gap-3">
+                      {item.mega.products.map((p) => (
+                        <Link
+                          key={p.sku}
+                          href={`/productos/${p.slug}/`}
+                          className="group flex items-center gap-3 p-3 hover:bg-[var(--bg-alt)] transition-colors"
+                        >
+                          <div className="w-14 h-14 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden border border-[var(--border-light)]">
+                            <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <span className="text-[11px] text-[var(--text-muted)] block mb-1">{p.cat}</span>
-                            <h4 className="text-[13px] font-bold text-[var(--text)] group-hover:text-[var(--green)] transition-colors leading-tight line-clamp-2">{p.name}</h4>
+                            <div className="text-[12px] font-bold text-[var(--text)] truncate group-hover:text-[var(--green)] transition-colors">{p.name}</div>
+                            <div className="text-[10px] text-[var(--text-muted)] truncate">{p.subcategory}</div>
                           </div>
                         </Link>
                       ))}
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          }
-
-          if (mega.type === 'links') {
-            return (
-              <div
-                key={item.label}
-                className="hidden lg:block absolute top-full right-0 bg-white border-t border-black/10 z-50"
-                style={{ left: '50%', transform: 'translateX(-50%)', width: '100vw', maxWidth: '100vw', boxShadow: '0 10px 30px rgba(0,0,0,0.08)' }}
-                onMouseEnter={keepMegaOpen}
-                onMouseLeave={closeMega}
-              >
-                <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
-                  <div className="grid grid-cols-12 gap-6">
-                    <div className={`col-span-${mega.promo ? '9' : '12'}`}>
-                      <div className="grid grid-cols-3 gap-12">
-                        {mega.columns.map((col) => (
-                          <div key={col.title}>
-                            <h4 className="text-[14px] text-[var(--text)] mb-4" style={{ fontFamily: 'var(--font-display)' }}>{col.title}</h4>
-                            <ul className="space-y-3">
-                              {col.links.map((link) => (
-                                <li key={link.label}>
-                                  <Link href={link.href} onClick={() => closeMega()} className="text-[13px] text-[var(--text-muted)] hover:text-[var(--green)] transition-colors">
-                                    {link.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+              )}
+              {item.mega.type === 'links' && (
+                <div className="flex gap-12">
+                  {item.mega.columns.map((col) => (
+                    <div key={col.title}>
+                      <h4 className="text-[11px] font-bold text-[var(--text)] uppercase tracking-[0.12em] mb-4">{col.title}</h4>
+                      <div className="space-y-2.5">
+                        {col.links.map((link) => (
+                          <Link key={link.label} href={link.href} className="block text-[13px] text-[var(--text-muted)] hover:text-[var(--green)] transition-colors">
+                            {link.label}
+                          </Link>
                         ))}
                       </div>
                     </div>
-                    {mega.promo && (
-                      <div className="col-span-3">
-                        <Link href={mega.promo.href} onClick={() => closeMega()} className="group block overflow-hidden">
-                          <div className="aspect-[4/3] overflow-hidden bg-[var(--bg-alt)]">
-                            <img src={mega.promo.img} alt={mega.promo.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                          </div>
-                          <div className="pt-3">
-                            <h5 className="text-[14px] font-bold text-[var(--text)] group-hover:text-[var(--green)] transition-colors">{mega.promo.title}</h5>
-                            <p className="text-[12px] text-[var(--text-muted)]">{mega.promo.subtitle}</p>
-                          </div>
-                        </Link>
-                      </div>
-                    )}
-                  </div>
+                  ))}
                 </div>
-              </div>
-            );
-          }
-
-          return null;
-        })}
+              )}
+            </div>
+          </div>
+        ))}
       </header>
 
-      <div className="h-[106px] lg:h-[106px]" />
-
+      {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-[60] lg:hidden">
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute left-0 top-0 h-full w-[300px] bg-white shadow-2xl overflow-y-auto">
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
+          <div className="absolute top-0 left-0 w-[320px] max-w-[85vw] h-full bg-white overflow-y-auto shadow-2xl">
             <div className="p-6">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.12em]">Menú</span>
-                <button onClick={() => setMobileOpen(false)} aria-label="Cerrar menú">
-                  <Icons.X size={18} className="text-[var(--text)]" />
-                </button>
+              <div className="flex items-center gap-2.5 mb-8">
+                <div className="w-8 h-8 bg-[var(--green)] flex items-center justify-center rounded-lg">
+                  <Icons.Eye size={15} className="text-white" strokeWidth={2.5} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[14px] font-extrabold text-[var(--text)] tracking-[0.02em] leading-none">ATLANTIC</span>
+                  <span className="text-[7px] font-semibold tracking-[0.35em] text-[var(--green)] uppercase leading-none mt-[2px]">OPTICAL</span>
+                </div>
               </div>
+
+              <div className="relative mb-6">
+                <Icons.Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />
+                <input
+                  type="text"
+                  placeholder="Buscar productos..."
+                  className="w-full pl-10 pr-4 py-2.5 bg-[var(--bg-alt)] border border-[var(--border)] text-[14px] focus:outline-none focus:border-[var(--green)]"
+                />
+              </div>
+
               {[...navItems, ...rightNavItems].map((item) => (
-                <div key={item.label} className="mb-4">
-                  <Link href={item.href} className="block py-2 text-[14px] font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>
+                <div key={item.label} className="mb-2">
+                  <Link href={item.href} className="block py-2.5 text-[14px] font-bold text-[var(--text)]" onClick={() => setMobileOpen(false)}>
                     {item.label}
                   </Link>
-                  {item.mega?.type === 'products' && (
-                    <div className="pl-3 space-y-1">
-                      {item.mega.categories.map((cat) => (
-                        <Link key={cat.slug} href={cat.href} className="block py-1.5 text-[13px] text-[var(--text-muted)] hover:text-[var(--green)] transition-colors" onClick={() => setMobileOpen(false)}>
-                          {cat.name}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                  {item.mega?.type === 'links' && (
-                    <div className="pl-3 space-y-1">
-                      {item.mega.columns.map((col) => (
-                        <div key={col.title}>
-                          <span className="block py-1 text-[11px] font-semibold text-[var(--text-soft)] uppercase tracking-wider">{col.title}</span>
-                          {col.links.map((link) => (
-                            <Link key={link.label} href={link.href} className="block py-1 text-[13px] text-[var(--text-muted)] hover:text-[var(--green)] transition-colors" onClick={() => setMobileOpen(false)}>
-                              {link.label}
-                            </Link>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
-              <div className="mt-6 pt-5 border-t border-[var(--border)]">
-                <Link href="/admin" className="block py-2 text-[13px] text-[var(--text-secondary)] hover:text-[var(--text)] font-medium" onClick={() => setMobileOpen(false)}>Panel de Administración</Link>
+
+              <div className="mt-6 pt-6 border-t border-[var(--border)]">
+                <Link href="/contacto" className="block py-2.5 text-[14px] text-[var(--text-muted)]" onClick={() => setMobileOpen(false)}>Contacto</Link>
+                <Link href="/faq" className="block py-2.5 text-[14px] text-[var(--text-muted)]" onClick={() => setMobileOpen(false)}>FAQ</Link>
+                <Link href="/admin" className="block py-2.5 text-[14px] text-[var(--text-muted)]" onClick={() => setMobileOpen(false)}>Admin</Link>
               </div>
             </div>
           </div>

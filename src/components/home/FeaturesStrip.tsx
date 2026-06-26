@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef, useEffect } from 'react';
+import { gsap } from '@/lib/gsap';
 import Icons from '@/components/ui/Icons';
 
 const features = [
@@ -10,15 +12,33 @@ const features = [
 ];
 
 export default function FeaturesStrip() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const els = ref.current.querySelectorAll<HTMLElement>('.feat-item');
+    gsap.set(els, { opacity: 0, y: 15 });
+    gsap.to(els, {
+      scrollTrigger: { trigger: ref.current, start: 'top 90%', once: true },
+      opacity: 1, y: 0,
+      duration: 0.5, stagger: 0.08, ease: 'power3.out',
+    });
+  }, []);
+
   return (
     <section className="bg-[var(--bg-alt)] border-y border-[var(--border-light)]">
-      <div className="max-w-[1680px] mx-auto px-6 md:px-10">
+      <div ref={ref} className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-2 md:grid-cols-4">
           {features.map((f, i) => (
-            <div key={i} className={`wow-fadeUp flex items-center gap-3 py-5 px-4 md:py-6 md:px-6 ${i < 3 ? 'border-r border-[var(--border-light)]' : ''} ${i < 2 ? 'border-b md:border-b-0 border-[var(--border-light)]' : ''} ${i === 2 ? 'border-b md:border-b-0 border-[var(--border-light)]' : ''}`}
-            style={{ transitionDelay: `${0.08 * i}s` }}
+            <div
+              key={i}
+              className={`feat-item group flex items-center gap-3.5 py-5 px-4 md:py-6 md:px-6 transition-colors hover:bg-[var(--green-light)]/50 ${
+                i < 3 ? 'border-r border-[var(--border-light)]' : ''
+              } ${i < 2 ? 'border-b md:border-b-0 border-[var(--border-light)]' : ''} ${i === 2 ? 'border-b md:border-b-0 border-[var(--border-light)]' : ''}`}
             >
-              <f.icon size={18} className="text-[var(--green)]" />
+              <div className="w-9 h-9 bg-[var(--green)]/8 flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--green)]/15 transition-colors">
+                <f.icon size={16} className="text-[var(--green)]" />
+              </div>
               <div>
                 <div className="text-[12px] font-bold text-[var(--text)]">{f.title}</div>
                 <div className="text-[11px] text-[var(--text-soft)]">{f.desc}</div>
