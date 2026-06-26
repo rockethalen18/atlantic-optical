@@ -1,2 +1,2 @@
-:HL["/atlantic-optical/_next/static/chunks/1jaw482a3xad5.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"SUUH9dL749CyEl2N2zjBN"}
+:HL["/atlantic-optical/_next/static/chunks/2mlfuncp07--r.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"w-a8hq_US_WkTQ_qi46fj"}
