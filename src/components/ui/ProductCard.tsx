@@ -24,10 +24,10 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/productos/${product.slug}/`}
-      className="group relative block bg-white border border-[var(--border)] hover:border-[var(--green)]/30 overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,101,53,0.08)] hover:-translate-y-1"
+      className="group relative block bg-white border border-[var(--border)] overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-1"
     >
       {/* Image */}
-      <div className="relative aspect-square bg-[var(--bg-alt)] overflow-hidden">
+      <div className="relative aspect-square bg-[var(--bg-alt)] overflow-hidden flex items-center justify-center p-5">
         <Image
           src={product.image}
           alt={product.name}
@@ -35,20 +35,18 @@ export default function ProductCard({ product }: ProductCardProps) {
           className="object-contain p-5 transition-transform duration-700 group-hover:scale-110"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         {/* Hover icon */}
-        <div className="absolute bottom-3 right-3 w-8 h-8 bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+        <div className="absolute bottom-3 right-3 w-8 h-8 bg-white border border-[var(--border)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-[var(--shadow)]">
           <Icons.ArrowUpRight size={13} className="text-[var(--green)]" />
         </div>
       </div>
 
       {/* Content */}
       <div className="p-4">
-        <span className="text-[9px] font-bold tracking-[0.14em] uppercase text-[var(--green)] bg-[var(--green-light)] px-2 py-0.5 inline-block mb-2">
+        <span className="text-[9px] font-semibold tracking-[0.12em] uppercase text-[var(--blue)]">
           {product.subcategory}
         </span>
-        <h3 className="font-bold text-[var(--text)] text-[13px] leading-snug mb-1.5 line-clamp-2 group-hover:text-[var(--green)] transition-colors">
+        <h3 className="font-bold text-[var(--text)] text-[13px] leading-snug mt-1 mb-1.5 line-clamp-2 group-hover:text-[var(--green)] transition-colors">
           {product.name}
         </h3>
         <p className="text-[11px] text-[var(--text-muted)] mb-3 line-clamp-2 leading-relaxed">

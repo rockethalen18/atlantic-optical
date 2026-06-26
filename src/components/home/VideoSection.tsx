@@ -11,21 +11,18 @@ const features = [
     title: 'Fábricas Certificadas ISO',
     desc: 'Todos nuestros proveedores cuentan con certificaciones ISO 13485 y CE para equipos médicos de alta precisión.',
     color: '#1e3a5f',
-    bg: 'rgba(0,101,53,0.08)',
   },
   {
     Icon: Icons.ShieldCheck,
     title: 'Control de Calidad Riguroso',
     desc: 'Inspección antes del envío. Cada equipo pasa por nuestro equipo de calidad con protocolo de 47 puntos.',
-    color: '#f59e0b',
-    bg: 'rgba(245,158,11,0.08)',
+    color: '#2563eb',
   },
   {
     Icon: Icons.Truck,
     title: 'Envío Puerta a Puerta México',
     desc: 'Coordinación completa del envío desde la fábrica en China hasta tu consultorio en México.',
     color: '#0f2340',
-    bg: 'rgba(15,52,96,0.08)',
   },
 ];
 
@@ -61,26 +58,23 @@ export default function VideoSection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-28 bg-[var(--bg-alt)] relative overflow-hidden beam-left beam-right">
-      {/* Decorative */}
-      <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-[var(--green)] opacity-[0.03] rounded-full blur-[100px] -translate-y-1/2" />
-
-      <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <section ref={sectionRef} className="py-20 md:py-32 bg-white">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: features */}
           <div>
-            <span className="text-[10px] font-bold text-[var(--green)] uppercase tracking-[0.2em]">Nuestros Socios</span>
-            <h2 className="text-[32px] md:text-[42px] font-black text-[var(--text)] tracking-[-0.04em] mt-1 mb-10" style={{ fontFamily: 'var(--font-display)' }}>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-[2px] bg-[var(--blue)]" />
+              <span className="text-[11px] font-semibold text-[var(--blue)] uppercase tracking-[0.18em]">Nuestros Socios</span>
+            </div>
+            <h2 className="text-[32px] md:text-[42px] font-black text-[var(--text)] tracking-[-0.04em] mb-12" style={{ fontFamily: 'var(--font-display)' }}>
               Las Mejores Fábricas del Mundo
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               {features.map((f, i) => (
                 <div key={i} className="vid-item group flex gap-5">
-                  <div
-                    className="w-12 h-12 flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
-                    style={{ background: f.bg }}
-                  >
+                  <div className="w-12 h-12 bg-[var(--bg-alt)] flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--green-light)] transition-colors duration-300">
                     <span style={{ color: f.color }}><f.Icon size={20} /></span>
                   </div>
                   <div>
@@ -91,53 +85,39 @@ export default function VideoSection() {
               ))}
             </div>
 
-            <div className="mt-10">
-              <Link href="/nosotros" className="inline-flex items-center gap-2 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 hover:bg-[var(--green-hover)] transition-all hover:shadow-[0_16px_40px_rgba(0,101,53,0.2)]">
+            <div className="mt-12">
+              <Link href="/nosotros" className="inline-flex items-center gap-2 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 hover:bg-[var(--green-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]">
                 Conocer Más <Icons.ArrowRight size={13} />
               </Link>
             </div>
           </div>
 
-          {/* Right: visual card */}
-          <div className="vid-right relative">
-            {/* Gradient card with stats */}
-            <div className="relative bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[var(--blue)] p-10 md:p-12 overflow-hidden">
-              {/* Grid pattern */}
-              <div className="absolute inset-0 opacity-[0.08]" style={{
-                backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
-                backgroundSize: '30px 30px',
-              }} />
-
-              {/* Floating orbs */}
-              <div className="absolute w-[200px] h-[200px] bg-white opacity-10 rounded-full blur-[60px] -top-10 -right-10" />
-              <div className="absolute w-[150px] h-[150px] bg-white opacity-10 rounded-full blur-[50px] -bottom-8 -left-8" />
-
-              {/* Content */}
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-10 h-10 bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                    <Icons.Eye size={18} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-bold text-white/70 uppercase tracking-[0.16em]">Atlantic Optical</div>
-                    <div className="text-[14px] font-bold text-white">Proveedor desde 2011</div>
-                  </div>
+          {/* Right: stats card */}
+          <div className="vid-right">
+            <div className="bg-[var(--bg-alt)] border border-[var(--border)] p-10 md:p-12">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center">
+                  <Icons.Eye size={18} className="text-white" />
                 </div>
-
-                <div className="grid grid-cols-3 gap-6">
-                  {stats.map((s, i) => (
-                    <div key={i} className="text-center">
-                      <div className="text-[32px] md:text-[40px] font-black text-white leading-none" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
-                      <div className="text-[9px] font-semibold text-white/60 uppercase tracking-[0.14em] mt-2">{s.label}</div>
-                    </div>
-                  ))}
+                <div>
+                  <div className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical</div>
+                  <div className="text-[14px] font-bold text-[var(--text)]">Proveedor desde 2011</div>
                 </div>
+              </div>
 
-                <div className="mt-8 pt-6 border-t border-white/20">
-                  <div className="flex items-center gap-2 text-white/70 text-[12px]">
-                    <Icons.ShieldCheck size={14} className="text-white" />
-                    <span>Certificaciones ISO 13485 · CE · FDA</span>
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                {stats.map((s, i) => (
+                  <div key={i} className="text-center">
+                    <div className="text-[32px] md:text-[38px] font-black text-[var(--green)] leading-none" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
+                    <div className="text-[9px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.14em] mt-2">{s.label}</div>
                   </div>
+                ))}
+              </div>
+
+              <div className="pt-6 border-t border-[var(--border)]">
+                <div className="flex items-center gap-2 text-[var(--text-muted)] text-[12px]">
+                  <Icons.ShieldCheck size={14} className="text-[var(--green)]" />
+                  <span>Certificaciones ISO 13485 · CE · FDA</span>
                 </div>
               </div>
             </div>

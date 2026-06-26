@@ -7,50 +7,33 @@ import Icons from '@/components/ui/Icons';
 
 const slides = [
   {
-    gradient: 'linear-gradient(135deg, #0f2340 0%, #1e3a5f 35%, #2563eb 70%, #60a5fa 100%)',
-    tag: 'Líder en Equipamiento',
-    titleWords: ['Tu', 'proveedor', 'de', 'confianza', 'en', 'equipo', 'oftálmico'],
-    desc: 'Cubrimos las necesidades de profesionales de la salud visual con equipo de las mejores fábricas del mundo.',
-    primaryCta: { label: 'Explorar Productos', href: '/productos' },
-    secondaryCta: { label: 'Contactar Ahora', href: '/contacto' },
-    accent: '#60a5fa',
-  },
-  {
-    gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 35%, #3b82f6 70%, #60a5fa 100%)',
-    tag: 'Innovación Constante',
-    titleWords: ['Equipamiento', 'de', 'última', 'generación', 'para', 'tu', 'consultorio'],
-    desc: 'Las mejores fábricas certificadas ISO 13485. Envío directo a México con costos 100% transparentes.',
-    primaryCta: { label: 'Ver Catálogo', href: '/productos' },
+    tag: 'Líder en Equipamiento Oftálmico',
+    title: 'Equipo profesional para tu consultorio',
+    desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a México con costos transparentes.',
+    primaryCta: { label: 'Explorar Catálogo', href: '/productos' },
     secondaryCta: { label: 'Solicitar Cotización', href: '/contacto' },
-    accent: '#3b82f6',
+    productImage: '/images/products/AO-ARK7710.jpg',
+    productSku: 'AO-ARK7710',
   },
   {
-    gradient: 'linear-gradient(135deg, #0f2340 0%, #1e3a5f 35%, #2563eb 70%, #3b82f6 100%)',
-    tag: 'Envío México',
-    titleWords: ['Costos', 'de', 'envío', 'variables', 'en', 'tiempo', 'real'],
-    desc: 'Transporte marítimo y aéreo con cotización instantánea. China a tu consultorio en México.',
+    tag: 'Innovación Constante',
+    title: 'Equipamiento de última generación',
+    desc: 'Fábricas certificadas ISO 13485 con tecnología de vanguardia. Más de 116 productos disponibles.',
+    primaryCta: { label: 'Ver Productos', href: '/productos' },
+    secondaryCta: { label: 'Contactar', href: '/contacto' },
+    productImage: '/images/products/AO-DPS700.jpg',
+    productSku: 'AO-DPS700',
+  },
+  {
+    tag: 'Envío a Todo México',
+    title: 'Costos de envío en tiempo real',
+    desc: 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización instantánea según destino y peso.',
     primaryCta: { label: 'Calcular Envío', href: '/contacto' },
-    secondaryCta: { label: 'Ver Productos', href: '/productos' },
-    accent: '#2563eb',
+    secondaryCta: { label: 'Ver Catálogo', href: '/productos' },
+    productImage: '/images/products/AO-BL66B.jpg',
+    productSku: 'AO-BL66B',
   },
 ];
-
-function FloatingOrb({ delay, x, y, size, color }: { delay: number; x: number; y: number; size: number; color: string }) {
-  return (
-    <div
-      className="absolute rounded-full opacity-20 animate-float"
-      style={{
-        left: `${x}%`,
-        top: `${y}%`,
-        width: size,
-        height: size,
-        background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
-        animationDelay: `${delay}s`,
-        animationDuration: `${6 + delay}s`,
-      }}
-    />
-  );
-}
 
 export default function HeroCarousel() {
   const [i, setI] = useState(0);
@@ -60,131 +43,143 @@ export default function HeroCarousel() {
     if (animating || next === i) return;
     setA(true);
     setI(next);
-    setTimeout(() => setA(false), 900);
+    setTimeout(() => setA(false), 700);
   }, [animating, i]);
 
   useEffect(() => {
     const t = setInterval(() => {
       if (!animating) goTo((i + 1) % slides.length);
-    }, 7000);
+    }, 6000);
     return () => clearInterval(t);
   }, [i, animating, goTo]);
 
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>('.hero-title-word');
-    if (!els.length) return;
-    gsap.set(els, { opacity: 0, y: 40, skewY: 4 });
-    gsap.to(els, {
-      opacity: 1, y: 0, skewY: 0,
-      duration: 0.6,
-      stagger: 0.05,
-      ease: 'power4.out',
-      delay: 0.4,
-    });
+    const tl = gsap.timeline();
+    tl.fromTo('.hero-tag', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' });
+    tl.fromTo('.hero-title', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out' }, '-=0.2');
+    tl.fromTo('.hero-desc', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }, '-=0.3');
+    tl.fromTo('.hero-cta', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power3.out' }, '-=0.2');
+    tl.fromTo('.hero-product-img', { opacity: 0, scale: 0.95, x: 20 }, { opacity: 1, scale: 1, x: 0, duration: 0.6, ease: 'power3.out' }, '-=0.5');
   }, [i]);
-
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>('.hero-fade');
-    if (!els.length) return;
-    gsap.set(els, { opacity: 0, y: 20 });
-    gsap.to(els, {
-      opacity: 1, y: 0,
-      duration: 0.7,
-      stagger: 0.1,
-      ease: 'power3.out',
-      delay: 0.8,
-    });
-  }, [i]);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const hero = document.getElementById('hero');
-      if (!hero) return;
-      const y = window.scrollY;
-      gsap.set(hero, { y: y * 0.15 });
-      gsap.to('.hero-content-inner', { opacity: 1 - y / 700, duration: 0 });
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const s = slides[i];
 
   return (
-    <section id="hero" className="relative min-h-[100vh] overflow-hidden flex items-center">
-      <div className="absolute inset-0 transition-all duration-1000" style={{ background: s.gradient }} />
+    <section className="relative min-h-[90vh] bg-[var(--bg)] overflow-hidden">
+      {/* Subtle decorative elements */}
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--blue)] opacity-[0.03] rounded-full blur-[150px] -translate-y-1/4 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[var(--green)] opacity-[0.02] rounded-full blur-[120px] translate-y-1/4 -translate-x-1/4" />
 
-      {/* Floating orbs */}
-      <FloatingOrb delay={0} x={75} y={20} size={300} color={s.accent} />
-      <FloatingOrb delay={2} x={85} y={60} size={200} color={s.accent} />
-      <FloatingOrb delay={4} x={60} y={70} size={250} color={s.accent} />
-      <FloatingOrb delay={1} x={20} y={30} size={180} color="rgba(255,255,255,0.3)" />
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center min-h-[90vh] py-20">
+          {/* Left — Text content */}
+          <div className="relative z-10 max-w-[600px]">
+            <div key={`tag-${i}`} className="hero-tag inline-flex items-center gap-2.5 mb-6">
+              <div className="w-8 h-[2px] bg-[var(--blue)]" />
+              <span className="text-[11px] font-semibold text-[var(--blue)] uppercase tracking-[0.18em]">{s.tag}</span>
+            </div>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.04]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-        backgroundSize: '60px 60px',
-      }} />
+            <h1 key={`title-${i}`} className="hero-title text-[40px] md:text-[56px] lg:text-[64px] font-black text-[var(--text)] leading-[1.05] tracking-[-0.03em] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+              {s.title}
+            </h1>
 
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 60%, transparent 100%)' }} />
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%)' }} />
+            <p key={`desc-${i}`} className="hero-desc text-[16px] md:text-[18px] text-[var(--text-muted)] leading-[1.7] mb-10 max-w-[480px]">
+              {s.desc}
+            </p>
 
-      <div className="relative z-10 w-full max-w-[1680px] mx-auto px-6 md:px-10 pt-24 md:pt-32 pb-16">
-        <div className="hero-content-inner max-w-[640px]">
-          <div key={`tag-${i}`} className="hero-fade inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 mb-6 border border-white/15">
-            <span className="w-1.5 h-1.5 bg-current rounded-full animate-pulse" style={{ color: s.accent }} />
-            <span className="text-[10px] font-bold text-white uppercase tracking-[0.18em]">{s.tag}</span>
+            <div className="hero-cta flex flex-col sm:flex-row gap-3">
+              <Link href={s.primaryCta.href} className="hero-cta group inline-flex items-center justify-center gap-3 bg-[var(--green)] text-white font-bold text-[13px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-[var(--green-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]">
+                {s.primaryCta.label}
+                <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link href={s.secondaryCta.href} className="hero-cta group inline-flex items-center justify-center gap-2 text-[var(--text)] font-bold text-[13px] uppercase tracking-[0.08em] px-8 py-4 border border-[var(--border)] hover:border-[var(--text-muted)] transition-all duration-300">
+                {s.secondaryCta.label}
+              </Link>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="hero-cta flex items-center gap-8 mt-12 pt-8 border-t border-[var(--border-light)]">
+              <div className="flex items-center gap-2.5">
+                <Icons.ShieldCheck size={16} className="text-[var(--green)]" />
+                <div>
+                  <div className="text-[12px] font-bold text-[var(--text)]">Garantía 12 meses</div>
+                  <div className="text-[10px] text-[var(--text-soft)]">Soporte incluido</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Icons.Truck size={16} className="text-[var(--blue)]" />
+                <div>
+                  <div className="text-[12px] font-bold text-[var(--text)]">Envío directo</div>
+                  <div className="text-[10px] text-[var(--text-soft)]">China → México</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Icons.Tag size={16} className="text-[var(--amber)]" />
+                <div>
+                  <div className="text-[12px] font-bold text-[var(--text)]">Mejor precio</div>
+                  <div className="text-[10px] text-[var(--text-soft)]">Directo de fábrica</div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <h1 key={`title-${i}`} className="text-[42px] md:text-[60px] font-black leading-[0.95] tracking-[-0.04em] mb-6 text-white" style={{ fontFamily: 'var(--font-display)' }}>
-            {s.titleWords.map((w, wi) => (
-              <span key={wi} className="hero-title-word inline-block mr-[0.28em]">{w}</span>
-            ))}
-          </h1>
+          {/* Right — Product showcase */}
+          <div className="relative hidden lg:flex items-center justify-center">
+            <div key={`product-${i}`} className="hero-product-img relative w-full max-w-[520px]">
+              {/* Subtle background circle */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[400px] h-[400px] rounded-full border border-[var(--border-light)]" />
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[300px] h-[300px] rounded-full border border-[var(--border-light)] opacity-50" />
+              </div>
 
-          <p key={`desc-${i}`} className="hero-fade text-[15px] md:text-[17px] text-white/70 leading-[1.7] mb-10 max-w-[480px]">
-            {s.desc}
-          </p>
+              {/* Product image */}
+              <div className="relative z-10 aspect-square flex items-center justify-center p-8">
+                <img
+                  src={s.productImage}
+                  alt=""
+                  className="w-full h-full object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.08)]"
+                />
+              </div>
 
-          <div className="hero-fade flex flex-col sm:flex-row gap-3">
-            <Link href={s.primaryCta.href} className="group inline-flex items-center justify-center gap-3 bg-white text-[var(--text)] font-bold text-[13px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-white/90 transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
-              {s.primaryCta.label}
-              <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link href={s.secondaryCta.href} className="inline-flex items-center justify-center gap-2 bg-white/10 text-white border border-white/20 font-bold text-[13px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-white/20 backdrop-blur transition-all">
-              {s.secondaryCta.label}
-            </Link>
+              {/* Floating info card */}
+              <div className="absolute -bottom-4 -left-4 bg-white border border-[var(--border)] p-4 shadow-[var(--shadow-lg)] z-20">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[var(--green-light)] flex items-center justify-center">
+                    <Icons.CheckCircle size={18} className="text-[var(--green)]" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold text-[var(--text)]">Stock Disponible</div>
+                    <div className="text-[10px] text-[var(--text-soft)]">Envío inmediato</div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Slide indicators */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
-        <div className="flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 border border-white/10">
-          {slides.map((_, idx) => (
-            <button key={idx} onClick={() => goTo(idx)} className="relative h-[3px] rounded-full transition-all duration-500 overflow-hidden" style={{ width: idx === i ? 32 : 12, background: idx === i ? 'white' : 'rgba(255,255,255,0.3)' }}>
-              {idx === i && (
-                <div className="absolute inset-0 bg-white/50" style={{ animation: 'progressBar 7s linear' }} />
-              )}
-            </button>
-          ))}
-        </div>
-        <div key={`scroll-${i}`} className="text-white/40 text-[9px] font-semibold tracking-[0.22em] uppercase mt-1 animate-bounce">
-          Scroll
-        </div>
+      {/* Bottom navigation dots */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-3">
+        {slides.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => goTo(idx)}
+            className="relative h-[3px] transition-all duration-500 overflow-hidden"
+            style={{ width: idx === i ? 40 : 16, background: idx === i ? 'var(--green)' : 'var(--border)' }}
+          >
+            {idx === i && (
+              <div className="absolute inset-0 bg-[var(--green)]/50" style={{ animation: 'progressBar 6s linear' }} />
+            )}
+          </button>
+        ))}
       </div>
 
       <style jsx>{`
         @keyframes progressBar {
           from { transform: scaleX(0); transform-origin: left; }
           to { transform: scaleX(1); transform-origin: left; }
-        }
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) scale(1); }
-          50% { transform: translateY(-20px) scale(1.05); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
         }
       `}</style>
     </section>
