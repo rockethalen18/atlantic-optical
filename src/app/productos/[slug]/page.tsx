@@ -175,9 +175,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { method: 'Maritimo', time: '20-40 dias', price: '$4.50 USD/kg', icon: Icons.Shipping, color: '#16a34a' },
-              { method: 'Aereo', time: '5-10 dias', price: '$12.00 USD/kg', icon: Icons.Truck, color: '#f59e0b' },
-              { method: 'Express', time: '3-7 dias', price: '$20.00 USD/kg', icon: Icons.Package, color: '#0f3460' },
+              { method: 'Maritimo', time: '20-40 dias', price: '$4.50 USD/kg', icon: Icons.Shipping, color: '#1e3a5f' },
+              { method: 'Aereo', time: '5-10 dias', price: '$12.00 USD/kg', icon: Icons.Truck, color: '#2563eb' },
+              { method: 'Express', time: '3-7 dias', price: '$20.00 USD/kg', icon: Icons.Package, color: '#0f2340' },
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-4 p-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
                 <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ background: `${s.color}10` }}>

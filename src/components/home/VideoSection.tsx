@@ -10,7 +10,7 @@ const features = [
     Icon: Icons.Factory,
     title: 'Fábricas Certificadas ISO',
     desc: 'Todos nuestros proveedores cuentan con certificaciones ISO 13485 y CE para equipos médicos de alta precisión.',
-    color: '#006535',
+    color: '#1e3a5f',
     bg: 'rgba(0,101,53,0.08)',
   },
   {
@@ -24,7 +24,7 @@ const features = [
     Icon: Icons.Truck,
     title: 'Envío Puerta a Puerta México',
     desc: 'Coordinación completa del envío desde la fábrica en China hasta tu consultorio en México.',
-    color: '#0f3460',
+    color: '#0f2340',
     bg: 'rgba(15,52,96,0.08)',
   },
 ];
@@ -101,7 +101,7 @@ export default function VideoSection() {
           {/* Right: visual card */}
           <div className="vid-right relative">
             {/* Gradient card with stats */}
-            <div className="relative bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[#00a86b] p-10 md:p-12 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[var(--blue)] p-10 md:p-12 overflow-hidden">
               {/* Grid pattern */}
               <div className="absolute inset-0 opacity-[0.08]" style={{
                 backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',

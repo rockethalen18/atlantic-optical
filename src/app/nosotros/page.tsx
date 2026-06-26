@@ -3,10 +3,10 @@
 import Icons from '@/components/ui/Icons';
 
 const values = [
-  { icon: Icons.Award, title: 'Experiencia', desc: 'Mas de 15 años distribuyendo equipo oftalmico de alta calidad a clinicas y consultorios.', color: '#006535' },
-  { icon: Icons.Truck, title: 'Logistica Global', desc: 'Envio directo desde China con costos transparentes por kg. Maritimo, aereo y express.', color: '#7c3aed' },
+  { icon: Icons.Award, title: 'Experiencia', desc: 'Mas de 15 años distribuyendo equipo oftalmico de alta calidad a clinicas y consultorios.', color: '#1e3a5f' },
+  { icon: Icons.Truck, title: 'Logistica Global', desc: 'Envio directo desde China con costos transparentes por kg. Maritimo, aereo y express.', color: '#2563eb' },
   { icon: Icons.ShieldCheck, title: 'Garantia', desc: 'Todos nuestros equipos incluyen 12 meses de garantia contra defectos de fabricacion.', color: '#f59e0b' },
-  { icon: Icons.Headphones, title: 'Soporte Tecnico', desc: 'Equipo de soporte disponible 24/7 para asistencia tecnica y post-venta.', color: '#0f3460' },
+  { icon: Icons.Headphones, title: 'Soporte Tecnico', desc: 'Equipo de soporte disponible 24/7 para asistencia tecnica y post-venta.', color: '#0f2340' },
 ];
 
 const stats = [
@@ -58,7 +58,7 @@ export default function NosotrosPage() {
             </div>
           </div>
           {/* Stats card */}
-          <div className="bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[#00a86b] p-8 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[var(--blue)] p-8 relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.08]" style={{
               backgroundImage: 'linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)',
               backgroundSize: '30px 30px',

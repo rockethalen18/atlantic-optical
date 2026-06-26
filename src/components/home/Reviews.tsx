@@ -12,7 +12,7 @@ const reviews = [
     text: 'Excelente calidad en todos los equipos. El soporte post-venta es excepcional. Ya realizamos 3 compras con Atlantic Optical y cada una superó expectativas.',
     rating: 5,
     initial: 'CM',
-    color: '#006535',
+    color: '#1e3a5f',
   },
   {
     name: 'Dra. María García',
@@ -21,7 +21,7 @@ const reviews = [
     text: 'El auto-refractometro ARK-7710 superó nuestras expectativas. Precisión clínica y diseño profesional. El envío fue rápido y bien coordinado.',
     rating: 5,
     initial: 'MG',
-    color: '#7c3aed',
+    color: '#2563eb',
   },
   {
     name: 'Ing. Roberto Sánchez',
@@ -30,7 +30,7 @@ const reviews = [
     text: 'Los costos variables de envío son muy transparentes y justos. El equipo llegó en perfecto estado. Totalmente recomendados como proveedor.',
     rating: 5,
     initial: 'RS',
-    color: '#0f3460',
+    color: '#0f2340',
   },
 ];
 

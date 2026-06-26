@@ -21,7 +21,7 @@ export default function CTASection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-28 bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[#00a86b] relative overflow-hidden animate-gradient">
+    <section ref={sectionRef} className="py-16 md:py-28 bg-gradient-to-br from-[var(--green-dark)] via-[var(--green)] to-[var(--blue)] relative overflow-hidden animate-gradient">
       {/* Grid pattern */}
       <div className="absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)',

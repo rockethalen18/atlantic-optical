@@ -7,31 +7,31 @@ import Icons from '@/components/ui/Icons';
 
 const slides = [
   {
-    gradient: 'linear-gradient(135deg, #01582c 0%, #006535 35%, #00804a 70%, #00a86b 100%)',
+    gradient: 'linear-gradient(135deg, #0f2340 0%, #1e3a5f 35%, #2563eb 70%, #60a5fa 100%)',
     tag: 'Líder en Equipamiento',
     titleWords: ['Tu', 'proveedor', 'de', 'confianza', 'en', 'equipo', 'oftálmico'],
     desc: 'Cubrimos las necesidades de profesionales de la salud visual con equipo de las mejores fábricas del mundo.',
     primaryCta: { label: 'Explorar Productos', href: '/productos' },
     secondaryCta: { label: 'Contactar Ahora', href: '/contacto' },
-    accent: '#00a86b',
+    accent: '#60a5fa',
   },
   {
-    gradient: 'linear-gradient(135deg, #0d0d0e 0%, #1a1a2e 35%, #16213e 70%, #0f3460 100%)',
+    gradient: 'linear-gradient(135deg, #1e3a5f 0%, #2563eb 35%, #3b82f6 70%, #60a5fa 100%)',
     tag: 'Innovación Constante',
     titleWords: ['Equipamiento', 'de', 'última', 'generación', 'para', 'tu', 'consultorio'],
     desc: 'Las mejores fábricas certificadas ISO 13485. Envío directo a México con costos 100% transparentes.',
     primaryCta: { label: 'Ver Catálogo', href: '/productos' },
     secondaryCta: { label: 'Solicitar Cotización', href: '/contacto' },
-    accent: '#4facfe',
+    accent: '#3b82f6',
   },
   {
-    gradient: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 35%, #0f3460 70%, #533483 100%)',
+    gradient: 'linear-gradient(135deg, #0f2340 0%, #1e3a5f 35%, #2563eb 70%, #3b82f6 100%)',
     tag: 'Envío México',
     titleWords: ['Costos', 'de', 'envío', 'variables', 'en', 'tiempo', 'real'],
     desc: 'Transporte marítimo y aéreo con cotización instantánea. China a tu consultorio en México.',
     primaryCta: { label: 'Calcular Envío', href: '/contacto' },
     secondaryCta: { label: 'Ver Productos', href: '/productos' },
-    accent: '#a855f7',
+    accent: '#2563eb',
   },
 ];
 

@@ -39,7 +39,7 @@ const methods = [
     name: 'Marítimo',
     price: 4.50,
     time: '30-45 días',
-    color: '#16a34a',
+    color: '#2563eb',
     desc: 'Ideal para equipos grandes y pesados. Opción más económica.',
   },
   {
@@ -55,7 +55,7 @@ const methods = [
     name: 'Express',
     price: 20.00,
     time: '3-7 días',
-    color: '#ffffff',
+    color: '#60a5fa',
     desc: 'Máxima urgencia. Para equipos críticos y repuestos.',
   },
 ];

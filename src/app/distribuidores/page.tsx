@@ -1,10 +1,10 @@
 import Icons from '@/components/ui/Icons';
 
 const benefits = [
-  { icon: Icons.DollarSign, title: 'Precios Especiales', desc: 'Descuentos exclusivos para distribuidores autorizados con margenes preferenciales.', color: '#006535' },
-  { icon: Icons.Truck, title: 'Soporte Logistico', desc: 'Ayuda completa con envios, documentacion de importacion y seguimiento.', color: '#7c3aed' },
+  { icon: Icons.DollarSign, title: 'Precios Especiales', desc: 'Descuentos exclusivos para distribuidores autorizados con margenes preferenciales.', color: '#1e3a5f' },
+  { icon: Icons.Truck, title: 'Soporte Logistico', desc: 'Ayuda completa con envios, documentacion de importacion y seguimiento.', color: '#2563eb' },
   { icon: Icons.Headphones, title: 'Capacitacion', desc: 'Entrenamiento tecnico sobre todos nuestros productos y soporte continuo.', color: '#f59e0b' },
-  { icon: Icons.ShieldCheck, title: 'Garantia Extendida', desc: 'Garantia extendida para distribuidores y acceso prioritario a soporte.', color: '#0f3460' },
+  { icon: Icons.ShieldCheck, title: 'Garantia Extendida', desc: 'Garantia extendida para distribuidores y acceso prioritario a soporte.', color: '#0f2340' },
 ];
 
 const steps = [

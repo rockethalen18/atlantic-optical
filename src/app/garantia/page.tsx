@@ -1,10 +1,10 @@
 import Icons from '@/components/ui/Icons';
 
 const steps = [
-  { icon: Icons.Phone, title: 'Contacto', desc: 'Reporta el problema con tu equipo por telefono, email o WhatsApp.', color: '#006535' },
-  { icon: Icons.CheckCircle, title: 'Diagnostico', desc: 'Nuestro equipo tecnico evalua la situacion y determina la accion correctiva.', color: '#7c3aed' },
+  { icon: Icons.Phone, title: 'Contacto', desc: 'Reporta el problema con tu equipo por telefono, email o WhatsApp.', color: '#1e3a5f' },
+  { icon: Icons.CheckCircle, title: 'Diagnostico', desc: 'Nuestro equipo tecnico evalua la situacion y determina la accion correctiva.', color: '#2563eb' },
   { icon: Icons.Wrench, title: 'Reparacion', desc: 'Reparacion o reemplazo gratuito durante el periodo de garantia de 12 meses.', color: '#f59e0b' },
-  { icon: Icons.Package, title: 'Devolucion', desc: 'Envio del equipo reparado o nuevo a tu ubicacion sin costo adicional.', color: '#0f3460' },
+  { icon: Icons.Package, title: 'Devolucion', desc: 'Envio del equipo reparado o nuevo a tu ubicacion sin costo adicional.', color: '#0f2340' },
 ];
 
 const coverage = [
