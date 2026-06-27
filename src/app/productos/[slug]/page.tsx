@@ -85,7 +85,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
               <div className="flex gap-2 mt-3">
                 {[product.image].map((img, i) => (
                   <div key={i} className="w-16 h-16 bg-[var(--bg-alt)] border-2 border-[var(--green)] overflow-hidden cursor-pointer">
-                    <img src={img} alt="" className="w-full h-full object-contain p-1" />
+                    <img src={img} alt={`Miniatura de ${product.name}`} className="w-full h-full object-contain p-1" />
                   </div>
                 ))}
               </div>
@@ -113,7 +113,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <Icons.ShoppingCart size={14} />
                 Solicitar Cotización
               </Link>
-              <a href={`https://wa.me/525512345678?text=Hola, me interesa el producto: ${product.name} (${product.sku})`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--green-light)] text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-[var(--green)]/15 transition-all">
+              <a href={`https://wa.me/5215512345678?text=Hola, me interesa el producto: ${product.name} (${product.sku})`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--green-light)] text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-[var(--green)]/15 transition-all">
                 WhatsApp
               </a>
             </div>
@@ -171,13 +171,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <div className="w-8 h-8 bg-[var(--green)]/10 flex items-center justify-center">
               <Icons.Truck size={16} className="text-[var(--green)]" />
             </div>
-            <h2 className="text-[16px] font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Envio desde China a Mexico</h2>
+            <h2 className="text-[16px] font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Envío desde China a México</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
-              { method: 'Maritimo', time: '20-40 dias', price: '$4.50 USD/kg', icon: Icons.Shipping, color: '#1e3a5f' },
-              { method: 'Aereo', time: '5-10 dias', price: '$12.00 USD/kg', icon: Icons.Truck, color: '#2563eb' },
-              { method: 'Express', time: '3-7 dias', price: '$20.00 USD/kg', icon: Icons.Package, color: '#0f2340' },
+              { method: 'Marítimo', time: '20-40 días', price: '$4.50 USD/kg', icon: Icons.Shipping, color: 'var(--green)' },
+              { method: 'Aéreo', time: '5-10 días', price: '$12.00 USD/kg', icon: Icons.Truck, color: 'var(--blue)' },
+              { method: 'Express', time: '3-7 días', price: '$20.00 USD/kg', icon: Icons.Package, color: 'var(--green-dark)' },
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-4 p-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
                 <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ background: `${s.color}10` }}>

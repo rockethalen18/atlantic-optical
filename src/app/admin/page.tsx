@@ -35,12 +35,12 @@ export default function AdminPage() {
   return (
     <div className="bg-[var(--bg-alt)] min-h-screen" ref={containerRef}>
       <div className="bg-white border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-6">
           <h1 className="text-2xl font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Panel de Administración</h1>
           <p className="text-[var(--text-muted)] text-sm">Gestiona tu ecommerce Atlantic Optical</p>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {stats.map((stat, i) => (
             <div key={i} className="admin-card bg-white p-6 shadow-sm border border-[var(--border)]">

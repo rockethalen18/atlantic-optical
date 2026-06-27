@@ -10,19 +10,19 @@ const features = [
     Icon: Icons.Factory,
     title: 'Fábricas Certificadas ISO',
     desc: 'Todos nuestros proveedores cuentan con certificaciones ISO 13485 y CE para equipos médicos de alta precisión.',
-    color: '#1e3a5f',
+    color: 'var(--green)',
   },
   {
     Icon: Icons.ShieldCheck,
     title: 'Control de Calidad Riguroso',
     desc: 'Inspección antes del envío. Cada equipo pasa por nuestro equipo de calidad con protocolo de 47 puntos.',
-    color: '#2563eb',
+    color: 'var(--blue)',
   },
   {
     Icon: Icons.Truck,
     title: 'Envío Puerta a Puerta México',
     desc: 'Coordinación completa del envío desde la fábrica en China hasta tu consultorio en México.',
-    color: '#0f2340',
+    color: 'var(--green-dark)',
   },
 ];
 

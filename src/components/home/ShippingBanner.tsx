@@ -39,7 +39,7 @@ const methods = [
     name: 'Marítimo',
     price: 4.50,
     time: '30-45 días',
-    color: '#2563eb',
+    color: 'var(--blue)',
     desc: 'Ideal para equipos grandes y pesados. Opción más económica.',
   },
   {
@@ -47,7 +47,7 @@ const methods = [
     name: 'Aéreo',
     price: 12.00,
     time: '7-15 días',
-    color: '#f59e0b',
+    color: 'var(--amber)',
     desc: 'Equilibrio entre velocidad y costo. Para pedidos medianos.',
   },
   {
@@ -77,7 +77,7 @@ export default function ShippingBanner() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-28 bg-[#0a1628] relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 md:py-28 bg-[var(--dark-bg)] relative overflow-hidden">
       {/* Grid pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
@@ -88,11 +88,11 @@ export default function ShippingBanner() {
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10">
         <div className="text-center mb-12">
-          <span className="text-[10px] font-bold text-[var(--green-status)] uppercase tracking-[0.2em]">Envío Directo</span>
+          <span className="text-[10px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Envío Directo</span>
           <h2 className="text-[32px] md:text-[42px] font-black text-white tracking-[-0.04em] mt-1" style={{ fontFamily: 'var(--font-display)' }}>
             Costos de Envío Variables
           </h2>
-          <p className="text-[14px] text-white/50 mt-3 max-w-[400px] mx-auto">China → México con cotización en tiempo real</p>
+          <p className="text-[14px] text-white/70 mt-3 max-w-[400px] mx-auto">China → México con cotización en tiempo real</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[1000px] mx-auto">
@@ -110,20 +110,20 @@ export default function ShippingBanner() {
               <div className="text-[32px] font-black leading-none mb-1" style={{ color: m.color, fontFamily: 'var(--font-display)' }}>
                 ${mounted ? <AnimatedNumber target={m.price} /> : '0.00'}
               </div>
-              <span className="text-[10px] text-white/40 uppercase tracking-wider">por kg</span>
+              <span className="text-[10px] text-white/60 uppercase tracking-wider">por kg</span>
 
               {/* Divider */}
               <div className="w-8 h-px bg-white/10 mx-auto my-5" />
 
               {/* Time */}
-              <div className="text-[11px] font-semibold text-white/70 mb-1">{m.time}</div>
-              <p className="text-[11px] text-white/40 leading-relaxed">{m.desc}</p>
+              <div className="text-[11px] font-semibold text-white/80 mb-1">{m.time}</div>
+              <p className="text-[11px] text-white/60 leading-relaxed">{m.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-8">
-          <p className="text-[12px] text-white/30">Costos calculados en tiempo real según destino y peso. IVA incluido.</p>
+          <p className="text-[12px] text-white/60">Costos calculados en tiempo real según destino y peso. IVA incluido.</p>
         </div>
       </div>
     </section>

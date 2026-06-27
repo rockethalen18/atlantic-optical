@@ -146,11 +146,11 @@ export default function HeroCarousel() {
             key={idx}
             onClick={() => goTo(idx)}
             className="relative h-2.5 sm:h-[3px] transition-all duration-500 overflow-hidden flex items-center justify-center"
-            style={{ width: idx === i ? 32 : 12, background: idx === i ? 'var(--green)' : 'rgba(255,255,255,0.3)' }}
+            style={{ width: idx === i ? 32 : 12, background: idx === i ? 'var(--blue)' : 'rgba(255,255,255,0.3)' }}
             aria-label={`Slide ${idx + 1}`}
           >
             {idx === i && (
-              <div className="absolute inset-0 bg-[var(--green)]/50" style={{ animation: 'progressBar 6s linear' }} />
+              <div className="absolute inset-0 bg-[var(--blue)]/50" style={{ animation: 'progressBar 6s linear' }} />
             )}
           </button>
         ))}

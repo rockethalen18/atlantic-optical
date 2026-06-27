@@ -44,13 +44,13 @@ export default function CartPage() {
   return (
     <div className="bg-[var(--bg-alt)] min-h-screen">
       <div className="bg-white border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <h1 className="text-3xl font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Carrito de Compras</h1>
-          <p className="text-[var(--text-muted)] text-sm">{items.length} productos en tu carrito</p>
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
+          <h1 className="text-[28px] md:text-[34px] font-black text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Carrito de Compras</h1>
+          <p className="text-[var(--text-muted)] text-[13px]">{items.length} productos en tu carrito</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
         {items.length === 0 ? (
           <div className="bg-white p-16 text-center border border-[var(--border)] shadow-sm">
             <div className="w-20 h-20 bg-[var(--bg-alt)] flex items-center justify-center mx-auto mb-5">

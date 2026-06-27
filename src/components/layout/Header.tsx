@@ -124,7 +124,7 @@ const rightNavItems = [
   },
   {
     label: 'Soporte',
-    href: '#',
+    href: '/contacto',
     mega: {
       type: 'links' as const,
       columns: [
@@ -353,7 +353,7 @@ export default function Header() {
               {item.mega.type === 'products' && (
                 <div className="flex gap-10">
                   <div className="w-[240px] flex-shrink-0">
-                    <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-[0.12em] mb-4">Categorías</h4>
+                    <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-[0.12em] mb-4">Categorías</h4>
                     <div className="space-y-1">
                       {item.mega.categories.map((cat) => (
                         <Link
@@ -378,7 +378,7 @@ export default function Header() {
                     </Link>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-[0.12em] mb-4">Productos Destacados</h4>
+                    <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-[0.12em] mb-4">Productos Destacados</h4>
                     <div className="grid grid-cols-3 gap-3">
                       {item.mega.products.map((p) => (
                         <Link
@@ -403,7 +403,7 @@ export default function Header() {
                 <div className="flex gap-12">
                   {item.mega.columns.map((col) => (
                     <div key={col.title}>
-                      <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-[0.12em] mb-4">{col.title}</h4>
+                      <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-[0.12em] mb-4">{col.title}</h4>
                       <div className="space-y-2.5">
                         {col.links.map((link) => (
                           <Link key={link.label} href={link.href} className="block text-[13px] text-white/60 hover:text-white transition-colors">

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Plus, Edit, Trash2 } from 'lucide-react';
 import Icons from '@/components/ui/Icons';
 import productsData from '../../../../catalogos/products.json';
 
@@ -56,33 +55,57 @@ export default function AdminProducts() {
   return (
     <div className="bg-[var(--bg-alt)] min-h-screen">
       <div className="bg-white border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Gestionar Productos</h1>
             <p className="text-[var(--text-muted)] text-sm">{products.length} productos en el catálogo</p>
           </div>
           <button onClick={() => { setShowForm(true); setEditing(null); }} className="flex items-center gap-2 px-4 py-2 bg-[var(--green)] text-white hover:bg-[var(--green-hover)] transition-colors text-sm font-medium">
-            <Plus size={16} /> Nuevo Producto
+            <Icons.Plus size={16} /> Nuevo Producto
           </button>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
         {showForm && (
           <div className="bg-white p-6 shadow-sm mb-6 border border-[var(--border)]">
             <h2 className="font-bold text-lg mb-4 text-[var(--text)]">{editing ? 'Editar Producto' : 'Nuevo Producto'}</h2>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <input placeholder="Nombre" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" required />
-              <input placeholder="SKU" value={form.sku} onChange={e => setForm({ ...form, sku: e.target.value })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" required />
-              <input placeholder="Costo Base USD" type="number" step="0.01" value={form.base_cost_usd} onChange={e => setForm({ ...form, base_cost_usd: parseFloat(e.target.value) })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
-              <input placeholder="Peso (kg)" type="number" step="0.01" value={form.weight_kg} onChange={e => setForm({ ...form, weight_kg: parseFloat(e.target.value) })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
-              <input placeholder="Margen" type="number" step="0.1" value={form.margin} onChange={e => setForm({ ...form, margin: parseFloat(e.target.value) })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
-              <input placeholder="Stock" type="number" value={form.stock} onChange={e => setForm({ ...form, stock: parseInt(e.target.value) })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
-              <input placeholder="Categoría" value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
-              <select value={form.status} onChange={e => setForm({ ...form, status: e.target.value })} className="px-3 py-2 border border-[var(--border)] text-sm focus:outline-none">
-                <option value="draft">Borrador</option>
-                <option value="published">Publicado</option>
-              </select>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Nombre *</label>
+                <input placeholder="Nombre" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" required />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">SKU *</label>
+                <input placeholder="SKU" value={form.sku} onChange={e => setForm({ ...form, sku: e.target.value })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" required />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Costo Base USD</label>
+                <input placeholder="Costo Base USD" type="number" step="0.01" value={form.base_cost_usd} onChange={e => setForm({ ...form, base_cost_usd: parseFloat(e.target.value) })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Peso (kg)</label>
+                <input placeholder="Peso (kg)" type="number" step="0.01" value={form.weight_kg} onChange={e => setForm({ ...form, weight_kg: parseFloat(e.target.value) })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Margen</label>
+                <input placeholder="Margen" type="number" step="0.1" value={form.margin} onChange={e => setForm({ ...form, margin: parseFloat(e.target.value) })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Stock</label>
+                <input placeholder="Stock" type="number" value={form.stock} onChange={e => setForm({ ...form, stock: parseInt(e.target.value) })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Categoría</label>
+                <input placeholder="Categoría" value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none focus:border-[var(--green)]" />
+              </div>
+              <div>
+                <label className="text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-[0.14em] mb-1 block">Estado</label>
+                <select value={form.status} onChange={e => setForm({ ...form, status: e.target.value })} className="w-full px-3 py-2 border border-[var(--border)] text-sm focus:outline-none">
+                  <option value="draft">Borrador</option>
+                  <option value="published">Publicado</option>
+                </select>
+              </div>
               <div className="md:col-span-2 lg:col-span-4 flex gap-2">
                 <button type="submit" className="px-4 py-2 bg-[var(--green)] text-white text-sm">{editing ? 'Actualizar' : 'Crear'}</button>
                 <button type="button" onClick={() => { setShowForm(false); setEditing(null); }} className="px-4 py-2 border border-[var(--border)] text-sm">Cancelar</button>
@@ -101,7 +124,7 @@ export default function AdminProducts() {
               Aún no hay productos en el catálogo. Importa productos desde Excel o créalos manualmente.
             </p>
             <button onClick={() => setShowForm(true)} className="inline-flex items-center gap-2 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-6 py-3 hover:bg-[var(--green-hover)] transition-colors">
-              <Plus size={14} /> Crear Primer Producto
+              <Icons.Plus size={14} /> Crear Primer Producto
             </button>
           </div>
         ) : (
@@ -143,8 +166,8 @@ export default function AdminProducts() {
                       </td>
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-1">
-                          <button onClick={() => { setEditing(p); setForm(p); setShowForm(true); }} className="p-1.5 hover:bg-[var(--bg-alt)] rounded"><Edit size={14} /></button>
-                          <button onClick={() => setProducts(products.filter(x => x.id !== p.id))} className="p-1.5 hover:bg-red-50 text-red-500 rounded"><Trash2 size={14} /></button>
+                          <button onClick={() => { setEditing(p); setForm(p); setShowForm(true); }} className="p-1.5 hover:bg-[var(--bg-alt)] rounded" aria-label="Editar producto"><Icons.Pencil size={14} /></button>
+                          <button onClick={() => setProducts(products.filter(x => x.id !== p.id))} className="p-1.5 hover:bg-red-50 text-red-500 rounded" aria-label="Eliminar producto"><Icons.Trash size={14} /></button>
                         </div>
                       </td>
                     </tr>

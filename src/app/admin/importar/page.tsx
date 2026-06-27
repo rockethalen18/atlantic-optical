@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { Upload, Download, FileSpreadsheet, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import Icons from '@/components/ui/Icons';
 
 interface ImportResult {
   total: number;
@@ -40,18 +40,18 @@ export default function AdminImport() {
   return (
     <div className="bg-[var(--bg-alt)] min-h-screen">
       <div className="bg-white border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-6">
           <h1 className="text-2xl font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Importar / Exportar Productos</h1>
           <p className="text-[var(--text-muted)] text-sm">Importa productos masivamente desde Excel o exporta tu catálogo</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white p-6 shadow-sm border border-[var(--border)]">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-blue-500 flex items-center justify-center">
-                <Upload size={20} className="text-white" />
+              <div className="w-10 h-10 bg-[var(--blue)] flex items-center justify-center">
+                <Icons.Upload size={20} className="text-white" />
               </div>
               <div>
                 <h2 className="font-bold text-[var(--text)]">Importar Productos</h2>
@@ -72,13 +72,13 @@ export default function AdminImport() {
               <input ref={fileRef} type="file" accept=".csv,.xlsx,.xls" onChange={e => setFile(e.target.files?.[0] || null)} className="hidden" />
               {file ? (
                 <>
-                  <FileSpreadsheet size={32} className="text-[var(--green)] mx-auto mb-2" />
+                  <Icons.FileSpreadsheet size={32} className="text-[var(--green)] mx-auto mb-2" />
                   <p className="font-medium text-[var(--text)]">{file.name}</p>
                   <p className="text-sm text-[var(--text-muted)]">{(file.size / 1024).toFixed(1)} KB</p>
                 </>
               ) : (
                 <>
-                  <Upload size={32} className="text-[var(--text-soft)] mx-auto mb-2" />
+                  <Icons.Upload size={32} className="text-[var(--text-soft)] mx-auto mb-2" />
                   <p className="font-medium text-[var(--text-secondary)]">Arrastra un archivo o haz clic para seleccionar</p>
                   <p className="text-sm text-[var(--text-muted)]">CSV, XLSX o XLS (máx. 5MB)</p>
                 </>
@@ -92,7 +92,7 @@ export default function AdminImport() {
             {result && (
               <div className="mt-4 p-4 bg-[var(--bg-alt)]">
                 <div className="flex items-center gap-2 mb-2">
-                  <CheckCircle size={16} className="text-[var(--green-status)]" />
+                  <Icons.CheckCircle size={16} className="text-[var(--green-status)]" />
                   <span className="font-medium text-sm text-[var(--text)]">Importación completada</span>
                 </div>
                 <div className="text-sm text-[var(--text-muted)] space-y-1">
@@ -107,7 +107,7 @@ export default function AdminImport() {
           <div className="bg-white p-6 shadow-sm border border-[var(--border)]">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center">
-                <Download size={20} className="text-white" />
+                <Icons.Download size={20} className="text-white" />
               </div>
               <div>
                 <h2 className="font-bold text-[var(--text)]">Exportar Catálogo</h2>
@@ -130,17 +130,17 @@ export default function AdminImport() {
 
               <div className="flex flex-col gap-2">
                 <button onClick={downloadTemplate} className="flex items-center justify-center gap-2 px-4 py-3 border-2 border-[var(--green)] text-[var(--green)] font-medium hover:bg-[var(--green-light)] transition-colors">
-                  <FileSpreadsheet size={16} />
+                  <Icons.FileSpreadsheet size={16} />
                   Descargar Plantilla CSV
                 </button>
-                <button onClick={() => window.open('/api/export?format=csv', '_blank')} className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--text)] text-white font-medium hover:bg-[var(--text-secondary)] transition-colors">
-                  <Download size={16} />
+                <button className="flex items-center justify-center gap-2 px-4 py-3 bg-[var(--text)] text-white font-medium hover:bg-[var(--text-secondary)] transition-colors">
+                  <Icons.Download size={16} />
                   Exportar Catálogo Completo (CSV)
                 </button>
               </div>
 
               <div className="flex items-start gap-2 p-3 bg-amber-50">
-                <AlertTriangle size={16} className="text-amber-600 mt-0.5 flex-shrink-0" />
+                <Icons.AlertTriangle size={16} className="text-amber-600 mt-0.5 flex-shrink-0" />
                 <p className="text-xs text-amber-700">
                   La exportación incluye los precios calculados con el tipo de cambio y costos de envío actuales.
                 </p>

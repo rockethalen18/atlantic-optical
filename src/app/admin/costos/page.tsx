@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { formatMXN } from '@/lib/utils';
-import { Save, DollarSign, Truck } from 'lucide-react';
+import Icons from '@/components/ui/Icons';
 
 const defaultRates = [
   { id: 1, method: 'maritimo', method_label: 'Envío Marítimo', price_per_kg_usd: 4.50, min_days: 20, max_days: 40 },
@@ -32,24 +32,24 @@ export default function AdminCosts() {
   return (
     <div className="bg-[var(--bg-alt)] min-h-screen">
       <div className="bg-white border-b border-[var(--border)]">
-        <div className="max-w-7xl mx-auto px-4 py-6 flex items-center justify-between">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-6 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Costos Variables y Envío</h1>
             <p className="text-[var(--text-muted)] text-sm">Configura los costos de envío desde China y tipo de cambio</p>
           </div>
-          <button onClick={handleSave} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${saved ? 'bg-[var(--green-status)] text-white' : 'bg-[var(--green)] text-white hover:bg-[var(--green-hover)]'}`}>
-            <Save size={16} />
-            {saved ? 'Guardado ✓' : 'Guardar Cambios'}
+          <button onClick={handleSave} className={`flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors ${saved ? 'bg-emerald-500 text-white' : 'bg-[var(--green)] text-white hover:bg-[var(--green-hover)]'}`}>
+            <Icons.CheckCircle size={16} />
+            {saved ? 'Guardado' : 'Guardar Cambios'}
           </button>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8">
           <div className="bg-white p-6 shadow-sm border border-[var(--border)]">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-blue-500 flex items-center justify-center">
-                <DollarSign size={20} className="text-white" />
+              <div className="w-10 h-10 bg-[var(--blue)] flex items-center justify-center">
+                <Icons.DollarSign size={20} className="text-white" />
               </div>
               <div>
                 <h3 className="font-bold text-[var(--text)]">Tipo de Cambio</h3>
@@ -65,7 +65,7 @@ export default function AdminCosts() {
 
           <div className="bg-white p-6 shadow-sm border border-[var(--border)]">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-purple-500 flex items-center justify-center">
+              <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center">
                 <span className="text-white font-bold text-sm">%</span>
               </div>
               <div>
@@ -83,7 +83,7 @@ export default function AdminCosts() {
             <h3 className="font-bold mb-2">Fórmula de Cálculo</h3>
             <div className="text-sm space-y-1 opacity-90">
               <p>Precio = (Costo × Margen + Envío/kg × Peso) × Tipo de Cambio × (1 + IVA)</p>
-              <p className="text-[#93c5fd] font-medium mt-3">Ejemplo con ARK-7000:</p>
+              <p className="text-blue-200 font-medium mt-3">Ejemplo con ARK-7000:</p>
               <p>= ($2,800 × 2.2 + $4.50 × 12) × 17.50 × 1.16</p>
               <p className="text-lg font-bold text-white">= {formatMXN((exampleCost * exampleMargin + 4.50 * exampleWeight) * exchangeRate * (1 + taxRate/100))}</p>
             </div>
@@ -94,7 +94,7 @@ export default function AdminCosts() {
           <div className="p-6 border-b border-[var(--border)]">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center">
-                <Truck size={20} className="text-white" />
+                <Icons.Truck size={20} className="text-white" />
               </div>
               <div>
                 <h2 className="font-bold text-[var(--text)]">Métodos de Envío (China → México)</h2>

@@ -15,7 +15,7 @@ export default function ContactoPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <div className="bg-[var(--text)] relative overflow-hidden">
+      <div className="bg-[var(--dark-bg)] relative overflow-hidden">
         <div className="absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
           backgroundSize: '50px 50px',
@@ -59,7 +59,7 @@ export default function ContactoPage() {
             </div>
             <div className="p-6 bg-[var(--green)] text-center">
               <p className="text-[13px] font-bold text-white mb-2">¿Necesitas ayuda urgente?</p>
-              <a href="https://wa.me/525512345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[11px] uppercase tracking-[0.08em] px-6 py-2.5 hover:bg-white/90 transition-colors">
+              <a href="https://wa.me/5215512345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[11px] uppercase tracking-[0.08em] px-6 py-2.5 hover:bg-white/90 transition-colors">
                 WhatsApp <Icons.ArrowRight size={10} />
               </a>
             </div>

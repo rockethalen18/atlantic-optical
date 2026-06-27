@@ -9,7 +9,7 @@ export default function SeguimientoPage() {
   return (
     <div className="min-h-screen bg-white">
       <section className="py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10">
           <div className="max-w-xl mx-auto text-center mb-12">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold text-[var(--green)] uppercase tracking-[0.2em] mb-4">
               <span className="w-6 h-[2px] bg-[var(--green)]" />Seguimiento<span className="w-6 h-[2px] bg-[var(--green)]" />

@@ -29,9 +29,9 @@ const companyLinks = [
 
 const social = [
   { icon: Icons.Facebook, href: 'https://www.facebook.com/atlantic.optics', label: 'Facebook' },
-  { icon: Icons.Instagram, href: '#', label: 'Instagram' },
-  { icon: Icons.Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Icons.Youtube, href: '#', label: 'YouTube' },
+  { icon: Icons.Instagram, href: 'https://www.instagram.com/atlanticoptical', label: 'Instagram' },
+  { icon: Icons.Linkedin, href: 'https://www.linkedin.com/company/atlantic-optical', label: 'LinkedIn' },
+  { icon: Icons.Youtube, href: 'https://www.youtube.com/@atlanticoptical', label: 'YouTube' },
 ];
 
 export default function Footer() {
@@ -63,7 +63,7 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={ref} className="bg-[#0a1628] relative overflow-hidden">
+    <footer ref={ref} className="bg-[var(--dark-bg)] relative overflow-hidden">
       {/* Decorative gradient */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.5\'/%3E%3C/svg%3E")' }} />
 
@@ -73,10 +73,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
               <h3 className="text-[18px] font-bold text-white mb-1">Mantente Actualizado</h3>
-              <p className="text-[13px] text-white/50">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
+              <p className="text-[13px] text-white/70">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
             </div>
             {subscribed ? (
-              <div className="flex items-center gap-2 text-[var(--green-status)]">
+              <div className="flex items-center gap-2 text-emerald-400">
                 <Icons.CheckCircle size={18} />
                 <span className="text-[14px] font-medium">¡Suscrito! Gracias.</span>
               </div>
@@ -88,9 +88,9 @@ export default function Footer() {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-white/10 border border-white/20 text-white text-[14px] placeholder-white/40 focus:outline-none focus:border-[var(--green-status)] transition-colors"
+                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-white/10 border border-white/20 text-white text-[14px] placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
                 />
-                <button type="submit" className="px-6 py-3 bg-[var(--green)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--green-hover)] transition-colors whitespace-nowrap">
+                <button type="submit" className="px-6 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
                   Suscribir
                 </button>
               </form>
@@ -107,12 +107,12 @@ export default function Footer() {
                 className="h-[48px] w-auto object-contain brightness-0 invert"
               />
             </Link>
-            <p className="text-[13px] text-white/50 leading-[1.7] max-w-[300px] mb-5">
+            <p className="text-[13px] text-white/70 leading-[1.7] max-w-[300px] mb-5">
               Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China.
             </p>
             <div className="flex gap-3">
               {social.map((s) => (
-                <a key={s.label} href={s.href} aria-label={s.label} className="w-10 h-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-[var(--green)] transition-colors">
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-10 h-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-[var(--blue)] transition-colors">
                   <s.icon size={15} className="text-white" />
                 </a>
               ))}
@@ -124,7 +124,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {shopLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/50 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -135,7 +135,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {helpLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/50 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -146,7 +146,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {companyLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/50 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -155,19 +155,19 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[11px] text-white/30">
+            <p className="text-[11px] text-white/60">
               &copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-white/30">
+              <div className="flex items-center gap-2 text-white/60">
                 <Icons.CreditCard size={14} />
                 <span className="text-[11px]">Pago Seguro</span>
               </div>
-              <div className="flex items-center gap-2 text-white/30">
+              <div className="flex items-center gap-2 text-white/60">
                 <Icons.Truck size={14} />
                 <span className="text-[11px]">Envío Internacional</span>
               </div>
-              <div className="flex items-center gap-2 text-white/30">
+              <div className="flex items-center gap-2 text-white/60">
                 <Icons.ShieldCheck size={14} />
                 <span className="text-[11px]">Garantía 12 Meses</span>
               </div>
