@@ -1,22 +1,10 @@
 <?php
-/**
- * Atlantic Optical - Database Configuration
- * Banahosting - equipos.atlanticopticalgroup.com
- */
-
 class Database {
-    private $host;
-    private $db_name;
-    private $username;
-    private $password;
+    private $host = "localhost";
+    private $db_name = "aznjnpitoj_atlantic";
+    private $username = "aznjnpitoj_user";
+    private $password = "nyvfuc-cizwe4-watfoK";
     private $conn;
-
-    public function __construct() {
-        $this->host = 'localhost';
-        $this->db_name = 'aznjnpitoj_atlantic';
-        $this->username = 'aznjnpitoj_user';
-        $this->password = 'nyvfuc-cizwe4-watfoK';
-    }
 
     public function connect() {
         $this->conn = null;
@@ -31,9 +19,9 @@ class Database {
                     PDO::ATTR_EMULATE_PREPARES => false
                 ]
             );
-        } catch (PDOException $exception) {
+        } catch (PDOException $e) {
             http_response_code(500);
-            echo json_encode(['error' => 'Database connection failed: ' . $exception->getMessage()]);
+            echo json_encode(["error" => $e->getMessage()]);
             exit;
         }
         return $this->conn;
