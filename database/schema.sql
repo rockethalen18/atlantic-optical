@@ -207,9 +207,9 @@ CREATE TABLE import_logs (
 -- INITIAL DATA
 -- ============================================
 
--- Default admin user (password: admin123 - change in production!)
+-- Default admin user (password: admin123 - CHANGE IN PRODUCTION!)
 INSERT INTO users (name, email, password_hash, role) VALUES
-('Admin', 'admin@atlanticoptical.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+('Admin', 'admin@atlanticoptical.com', '$2y$10$8K1p/a0dL1LXMIgoEDFrOOemGp4hSxlZjKfJiVROJFH2rVf4z7Kze', 'admin');
 
 -- Default shipping rates
 INSERT INTO shipping_rates (method, method_label, price_per_kg_usd, min_days, max_days) VALUES

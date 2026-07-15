@@ -50,7 +50,6 @@ echo ""
 deploy_frontend() {
     echo -e "${YELLOW}📦 Construyendo frontend...${NC}"
     npm run build
-    npx next build
     
     if [ $? -ne 0 ]; then
         echo -e "${RED}❌ Error al construir el frontend${NC}"
@@ -62,7 +61,8 @@ deploy_frontend() {
     
     echo -e "${YELLOW}🚀 Subiendo frontend a Banahosting...${NC}"
     lftp -c "
-        set ftp:ssl-allow no;
+        set ftp:ssl-allow yes;
+        set ftp:ssl-protect-data yes;
         set mirror:parallel-transfer-count 5;
         open ftp://${FTP_USER}:${FTP_PASS}@${FTP_HOST};
         cd ${FTP_DIR};
@@ -77,7 +77,8 @@ deploy_frontend() {
 deploy_backend() {
     echo -e "${YELLOW}🚀 Subiendo backend a Banahosting...${NC}"
     lftp -c "
-        set ftp:ssl-allow no;
+        set ftp:ssl-allow yes;
+        set ftp:ssl-protect-data yes;
         set mirror:parallel-transfer-count 5;
         open ftp://${FTP_USER}:${FTP_PASS}@${FTP_HOST};
         cd ${FTP_DIR};

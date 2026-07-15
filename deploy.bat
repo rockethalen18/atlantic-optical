@@ -35,7 +35,6 @@ if "%1"=="backend" goto :backend
 echo.
 echo [1/2] Construyendo frontend...
 call npm run build
-call npx next build
 
 if %errorlevel% neq 0 (
     echo ERROR: Error al construir el frontend
@@ -57,7 +56,6 @@ goto :end
 :frontend
 echo Construyendo frontend...
 call npm run build
-call npx next build
 echo Frontend construido en la carpeta 'out\'
 explorer "out"
 goto :end

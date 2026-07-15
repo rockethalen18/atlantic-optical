@@ -3,6 +3,7 @@ node_modules/
 out/
 .env
 .env.local
+.env.deploy
 *.log
 .DS_Store
 Thumbs.db

@@ -300,8 +300,8 @@ INSERT INTO products (sku, name, slug, reference, description, image, barcode, s
 INSERT INTO products (sku, name, slug, reference, description, image, barcode, specs, category_id, subcategory_id, is_active) VALUES ('AO-YZ25C', 'OFTALMOSCOPIO INDIRECTO', 'oftalmoscopio-indirecto', 'YZ-25C', 'OFTALMOSCOPIO INDIRECTO', '/images/products/AO-YZ25C.jpg', '', '{}', 2, 34, 1);
 INSERT INTO products (sku, name, slug, reference, description, image, barcode, specs, category_id, subcategory_id, is_active) VALUES ('AO-YZ30R', 'TONOMETRO METALICO', 'tonometro-metalico', 'YZ-30R', 'TONOMETRO METALICO', '/images/products/AO-YZ30R.jpg', '', '{}', 2, 39, 1);
 
--- Admin user (password: admin123)
-INSERT INTO users (id, name, email, password, role, is_active) VALUES (1, 'Administrador', 'admin@atlanticoptical.com', '\\\.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin', 1);
+-- Admin user (password: admin123 - CHANGE IN PRODUCTION!)
+INSERT INTO users (id, name, email, password, role, is_active) VALUES (1, 'Administrador', 'admin@atlanticoptical.com', '$2y$10$8K1p/a0dL1LXMIgoEDFrOOemGp4hSxlZjKfJiVROJFH2rVf4z7Kze', 'admin', 1);
 
 -- Shipping rates
 INSERT INTO shipping_rates (method, cost_per_kg, description, estimated_days) VALUES
