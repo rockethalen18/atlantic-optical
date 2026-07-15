@@ -99,27 +99,19 @@ const rightNavItems = [
     label: 'Monitores y Optotipos',
     href: '/productos?category=monitores-optotipos',
     mega: {
-      type: 'links' as const,
-      columns: [
-        {
-          title: 'Monitores LCD',
-          links: [
-            { label: 'Monitor LCD 23.8"', href: '/productos?subcategory=monitores-estandar' },
-            { label: 'Monitor LCD Vertical', href: '/productos?subcategory=monitores-verticales' },
-            { label: 'Monitor Visual 44 Test', href: '/productos?subcategory=monitores-estandar' },
-          ],
-        },
-        {
-          title: 'Proyectores y Optotipos',
-          links: [
-            { label: 'Proyectores Gráficos', href: '/productos?subcategory=proyectores-graficos' },
-            { label: 'Optotipos Eléctricos', href: '/productos?subcategory=optotipos-electricos' },
-            { label: 'Optotipos con Soporte', href: '/productos?subcategory=optotipos-con-soporte' },
-            { label: 'Tablet LCD', href: '/productos?subcategory=tablet-lcd' },
-            { label: 'Cartillas', href: '/productos?subcategory=cartillas' },
-          ],
-        },
+      type: 'products' as const,
+      categories: [
+        { name: 'Monitores LCD', slug: 'monitores-estandar' },
+        { name: 'Monitores Verticales', slug: 'monitores-verticales' },
+        { name: 'Proyectores Gráficos', slug: 'proyectores-graficos' },
+        { name: 'Optotipos Eléctricos', slug: 'optotipos-electricos' },
+        { name: 'Optotipos con Soporte', slug: 'optotipos-con-soporte' },
+        { name: 'Tablet LCD', slug: 'tablet-lcd' },
+        { name: 'Cartillas', slug: 'cartillas' },
       ],
+      get products() {
+        return allProducts.filter(p => p.category_slug === 'monitores-optotipos').slice(0, 6);
+      },
     },
   },
   {
