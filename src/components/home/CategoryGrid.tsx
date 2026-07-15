@@ -12,7 +12,7 @@ const categories = [
     desc: 'Diagnóstico y tratamiento visual profesional',
     Icon: Icons.EyeRefractometer,
     count: 55,
-    image: '/images/hero-5.jpg',
+    image: '/images/hero-optical-equipment.jpg',
   },
   {
     name: 'Equipos de Laboratorio',
@@ -20,7 +20,7 @@ const categories = [
     desc: 'Maquinaria de laboratorio óptico',
     Icon: Icons.Edger,
     count: 34,
-    image: '/images/hero-2.jpg',
+    image: '/images/hero-optician-work.jpg',
   },
   {
     name: 'Mobiliario',
@@ -28,7 +28,7 @@ const categories = [
     desc: 'Unidades y sillas oftálmicas',
     Icon: Icons.Phoropter,
     count: 12,
-    image: '/images/hero-4.jpg',
+    image: '/images/hero-optical-store.jpg',
   },
   {
     name: 'Monitores y Optotipos',
@@ -36,7 +36,7 @@ const categories = [
     desc: 'Monitores LCD y proyectores',
     Icon: Icons.Eye,
     count: 15,
-    image: '/images/hero-3.jpg',
+    image: '/images/hero-glasses-display.jpg',
   },
 ];
 
@@ -88,7 +88,7 @@ export default function CategoryGrid() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-8 h-8 bg-white/15 backdrop-blur-sm flex items-center justify-center">
                       <c.Icon size={14} className="text-white" />
