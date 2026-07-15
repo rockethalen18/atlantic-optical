@@ -241,6 +241,14 @@ img { transition: opacity 0.3s ease; }
 /* ============================================
    DARK SECTIONS — FORCED WHITE TEXT
    ============================================ */
+.bg-\[\#0a1628\],
+.bg-\[\#0f2340\],
+section[class*="bg-[var(--text)]"],
+section[class*="bg-[var(--dark-bg)]"],
+div[class*="bg-[var(--text)]"],
+div[class*="bg-[var(--dark-bg)]"] {
+  color: white;
+}
 .bg-\[\#0a1628\] *,
 .bg-\[\#0f2340\] * {
   color: inherit;

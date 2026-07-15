@@ -84,17 +84,18 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/85 via-[#0a1628]/50 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-black/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/70 to-[#0a1628]/30" />
+      <div className="absolute inset-0 bg-[#0a1628]/40" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#0a1628] to-transparent" />
 
-      <div className="relative z-10 max-w-[1680px] mx-auto px-5 sm:px-6 md:px-10 h-full flex items-center pt-[60px] lg:pt-[106px]">
+      <div className="relative z-10 max-w-[1680px] mx-auto px-5 sm:px-6 md:px-10 h-full flex items-center pt-[60px] lg:pt-[106px] text-white">
         <div className="max-w-[600px]">
           <div key={`tag-${i}`} className="hero-tag inline-flex items-center gap-2 sm:gap-2.5 mb-4 sm:mb-6">
             <div className="w-6 sm:w-8 h-[2px] bg-[#60a5fa]" />
             <span className="text-[10px] sm:text-[11px] font-semibold text-[#60a5fa] uppercase tracking-[0.18em]">{s.tag}</span>
           </div>
 
-          <h1 key={`title-${i}`} className="hero-title text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-black text-white leading-[1.08] tracking-[-0.02em] mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1 key={`title-${i}`} className="hero-title text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-black text-white leading-[1.08] tracking-[-0.02em] mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
             {s.title}
           </h1>
 
