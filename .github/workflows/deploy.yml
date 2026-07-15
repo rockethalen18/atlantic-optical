@@ -26,7 +26,7 @@ jobs:
       - name: List build output
         run: ls -la out/
 
-      - name: Deploy frontend via FTP
+      - name: Deploy frontend via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -34,5 +34,5 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           local-dir: ./out/
           server-dir: ./
-          protocol: ftp
-          port: 21
+          protocol: sftp
+          port: 22
