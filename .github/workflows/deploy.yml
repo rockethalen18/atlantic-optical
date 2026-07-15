@@ -28,7 +28,7 @@ jobs:
 
       - name: Deploy via lftp
         run: |
-          lftp -e "set ssl:verify-certificate no; mirror -R --delete --verbose ./out/ /; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; mirror -R --delete --verbose ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
