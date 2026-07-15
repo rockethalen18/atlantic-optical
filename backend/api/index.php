@@ -10,11 +10,12 @@ require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/helpers.php';
 
 $requestUri = $_SERVER['REQUEST_URI'];
-$basePath = '/api';
 
-// Remove query string and base path
+// Remove query string
 $path = parse_url($requestUri, PHP_URL_PATH);
-$path = preg_replace('#^' . preg_quote($basePath) . '#', '', $path);
+
+// Strip everything up to /api/ (works for /api/products, /backend/api/products, etc.)
+$path = preg_replace('#^.*/api#', '', $path);
 $path = '/' . trim($path, '/');
 
 $method = $_SERVER['REQUEST_METHOD'];
