@@ -88,11 +88,11 @@ export default function ProductsPage() {
           backgroundSize: '50px 50px',
         }} />
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-10 md:py-14 relative z-10">
-          <span className="text-[10px] font-bold text-[var(--green-status)] uppercase tracking-[0.2em]">Catalogo</span>
+          <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.2em]">Catalogo</span>
           <h1 className="text-[32px] md:text-[42px] font-black text-white tracking-[-0.04em] mt-1" style={{ fontFamily: 'var(--font-display)' }}>
             Productos
           </h1>
-          <p className="text-[14px] text-white/50 mt-2">{filtered.length} productos disponibles</p>
+          <p className="text-[14px] text-white/60 mt-2">{filtered.length} productos disponibles</p>
         </div>
       </div>
 

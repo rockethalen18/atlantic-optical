@@ -30,7 +30,7 @@ export default function CTASection() {
         <div className="cta-item mb-4">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="w-8 h-[2px] bg-white/40" />
-            <span className="text-[11px] font-semibold text-white/60 uppercase tracking-[0.18em]">Contáctanos</span>
+            <span className="text-[11px] font-semibold text-white/70 uppercase tracking-[0.18em]">Contáctanos</span>
             <div className="w-8 h-[2px] bg-white/40" />
           </div>
         </div>

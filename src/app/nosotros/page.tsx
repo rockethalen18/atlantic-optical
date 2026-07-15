@@ -26,11 +26,11 @@ export default function NosotrosPage() {
           backgroundSize: '50px 50px',
         }} />
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-14 md:py-20 relative z-10 text-center">
-          <span className="text-[10px] font-bold text-[var(--green-status)] uppercase tracking-[0.2em]">Nuestra Historia</span>
+          <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.2em]">Nuestra Historia</span>
           <h1 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
             Sobre Nosotros
           </h1>
-          <p className="text-[14px] text-white/50 mt-3 max-w-[500px] mx-auto">Lideres en distribucion de equipo oftalmico profesional en Latinoamerica.</p>
+          <p className="text-[14px] text-white/60 mt-3 max-w-[500px] mx-auto">Lideres en distribucion de equipo oftalmico profesional en Latinoamerica.</p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ export default function NosotrosPage() {
               {stats.map((s, i) => (
                 <div key={i} className="text-center">
                   <div className="text-[28px] md:text-[34px] font-black text-white leading-none" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
-                  <div className="text-[9px] font-semibold text-white/60 uppercase tracking-[0.14em] mt-2">{s.label}</div>
+                  <div className="text-[9px] font-semibold text-white/80 uppercase tracking-[0.14em] mt-2">{s.label}</div>
                 </div>
               ))}
             </div>

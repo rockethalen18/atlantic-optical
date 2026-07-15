@@ -96,7 +96,7 @@ export default function CategoryGrid() {
                     <span className="text-[10px] font-bold text-white/70 uppercase tracking-[0.1em]">{c.count} productos</span>
                   </div>
                   <h3 className="text-[18px] font-bold text-white mb-1">{c.name}</h3>
-                  <p className="text-[12px] text-white/60 leading-relaxed">{c.desc}</p>
+                  <p className="text-[12px] text-white/70 leading-relaxed">{c.desc}</p>
                 </div>
               </div>
 

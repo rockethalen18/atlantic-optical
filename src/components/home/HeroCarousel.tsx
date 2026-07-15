@@ -118,21 +118,21 @@ export default function HeroCarousel() {
               <Icons.ShieldCheck size={15} className="text-[#60a5fa] shrink-0" />
               <div>
                 <div className="text-[11px] sm:text-[12px] font-bold text-white">Garantía 12 meses</div>
-                <div className="text-[9px] sm:text-[10px] text-white/50">Soporte incluido</div>
+                <div className="text-[9px] sm:text-[10px] text-white/70">Soporte incluido</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Icons.Truck size={15} className="text-[#60a5fa] shrink-0" />
               <div>
                 <div className="text-[11px] sm:text-[12px] font-bold text-white">Envío directo</div>
-                <div className="text-[9px] sm:text-[10px] text-white/50">China → México</div>
+                <div className="text-[9px] sm:text-[10px] text-white/70">China → México</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Icons.Tag size={15} className="text-[#d4a843] shrink-0" />
               <div>
                 <div className="text-[11px] sm:text-[12px] font-bold text-white">Mejor precio</div>
-                <div className="text-[9px] sm:text-[10px] text-white/50">Directo de fábrica</div>
+                <div className="text-[9px] sm:text-[10px] text-white/70">Directo de fábrica</div>
               </div>
             </div>
           </div>

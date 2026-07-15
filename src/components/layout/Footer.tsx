@@ -155,19 +155,19 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[11px] text-white/60">
+            <p className="text-[11px] text-white/70">
               &copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white/70">
                 <Icons.CreditCard size={14} />
                 <span className="text-[11px]">Pago Seguro</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white/70">
                 <Icons.Truck size={14} />
                 <span className="text-[11px]">Envío Internacional</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white/70">
                 <Icons.ShieldCheck size={14} />
                 <span className="text-[11px]">Garantía 12 Meses</span>
               </div>

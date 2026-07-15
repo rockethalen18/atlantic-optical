@@ -270,16 +270,16 @@ export default function Header() {
           <div className="absolute top-[60px] left-0 right-0 bg-[#0f2340] border-b border-white/10 shadow-2xl z-50">
             <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-4">
               <div className="relative max-w-2xl mx-auto">
-                <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
+                <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60" />
                 <input
                   ref={searchInputRef}
                   type="text"
                   placeholder="Buscar productos por nombre, SKU o categoría..."
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-12 py-3.5 bg-white/10 border border-white/20 text-[15px] text-white placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
+                  className="w-full pl-12 pr-12 py-3.5 bg-white/10 border border-white/20 text-[15px] text-white placeholder-white/50 focus:outline-none focus:border-[var(--blue)] transition-colors"
                 />
-                <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white">
+                <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white">
                   <Icons.X size={18} />
                 </button>
               </div>
@@ -297,15 +297,15 @@ export default function Header() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="text-[13px] font-bold text-white truncate">{p.name}</div>
-                        <div className="text-[11px] text-white/40">{p.sku} · {p.subcategory}</div>
+                        <div className="text-[11px] text-white/60">{p.sku} · {p.subcategory}</div>
                       </div>
-                      <Icons.ArrowRight size={14} className="text-white/30 flex-shrink-0" />
+                      <Icons.ArrowRight size={14} className="text-white/60 flex-shrink-0" />
                     </Link>
                   ))}
                 </div>
               )}
               {searchQuery.length >= 2 && searchResults.length === 0 && (
-                <div className="max-w-2xl mx-auto mt-3 p-6 text-center text-white/40 text-[14px]">
+                <div className="max-w-2xl mx-auto mt-3 p-6 text-center text-white/60 text-[14px]">
                   No se encontraron productos para &ldquo;{searchQuery}&rdquo;
                 </div>
               )}
@@ -391,7 +391,7 @@ export default function Header() {
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="text-[12px] font-bold text-white truncate group-hover:text-[#60a5fa] transition-colors">{p.name}</div>
-                            <div className="text-[10px] text-white/40 truncate">{p.subcategory}</div>
+                            <div className="text-[10px] text-white/60 truncate">{p.subcategory}</div>
                           </div>
                         </Link>
                       ))}
@@ -435,11 +435,11 @@ export default function Header() {
               </div>
 
               <div className="relative mb-6">
-                <Icons.Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40" />
+                <Icons.Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/60" />
                 <input
                   type="text"
                   placeholder="Buscar productos..."
-                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/10 border border-white/20 text-[14px] text-white placeholder-white/40 focus:outline-none focus:border-[var(--blue)]"
+                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/10 border border-white/20 text-[14px] text-white placeholder-white/50 focus:outline-none focus:border-[var(--blue)]"
                 />
               </div>
 

@@ -20,11 +20,11 @@ export default function OEMODMPage() {
           backgroundSize: '50px 50px',
         }} />
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-14 md:py-20 relative z-10 text-center">
-          <span className="text-[10px] font-bold text-[var(--green-status)] uppercase tracking-[0.2em]">Manufactura</span>
+          <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.2em]">Manufactura</span>
           <h1 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
             OEM / ODM
           </h1>
-          <p className="text-[14px] text-white/50 mt-3 max-w-[400px] mx-auto">Disenamos y fabricamos equipo oftalmico con tu marca.</p>
+          <p className="text-[14px] text-white/60 mt-3 max-w-[400px] mx-auto">Disenamos y fabricamos equipo oftalmico con tu marca.</p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ export default function OEMODMPage() {
               <div className="space-y-2.5">
                 {odmFeatures.map((f, i) => (
                   <div key={i} className="flex items-center gap-2.5">
-                    <Icons.CheckCircle size={14} className="text-[var(--green-status)] flex-shrink-0" />
+                    <Icons.CheckCircle size={14} className="text-[#60a5fa] flex-shrink-0" />
                     <span className="text-[13px] text-white/80">{f}</span>
                   </div>
                 ))}

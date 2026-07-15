@@ -19,11 +19,11 @@ export default function FAQPage() {
           backgroundSize: '50px 50px',
         }} />
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-14 md:py-20 relative z-10 text-center">
-          <span className="text-[10px] font-bold text-[var(--green-status)] uppercase tracking-[0.2em]">Ayuda</span>
+          <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.2em]">Ayuda</span>
           <h1 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
             Preguntas Frecuentes
           </h1>
-          <p className="text-[14px] text-white/50 mt-3 max-w-[400px] mx-auto">Resolvemos tus dudas sobre productos, envios y garantias.</p>
+          <p className="text-[14px] text-white/60 mt-3 max-w-[400px] mx-auto">Resolvemos tus dudas sobre productos, envios y garantias.</p>
         </div>
       </div>
 
@@ -50,7 +50,7 @@ export default function FAQPage() {
         {/* CTA */}
         <div className="mt-12 p-8 bg-[var(--green)] text-center">
           <h3 className="text-[18px] font-bold text-white mb-2" style={{ fontFamily: 'var(--font-display)' }}>¿No encontraste tu respuesta?</h3>
-          <p className="text-[13px] text-white/60 mb-5">Contacta a nuestro equipo de soporte tecnico.</p>
+          <p className="text-[13px] text-white/70 mb-5">Contacta a nuestro equipo de soporte tecnico.</p>
           <a href="/contacto" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.08em] px-8 py-3.5 hover:bg-white/90 transition-colors">
             Contactar <Icons.ArrowRight size={12} />
           </a>

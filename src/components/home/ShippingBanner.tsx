@@ -110,20 +110,20 @@ export default function ShippingBanner() {
               <div className="text-[32px] font-black leading-none mb-1" style={{ color: m.color, fontFamily: 'var(--font-display)' }}>
                 ${mounted ? <AnimatedNumber target={m.price} /> : '0.00'}
               </div>
-              <span className="text-[10px] text-white/60 uppercase tracking-wider">por kg</span>
+              <span className="text-[10px] text-white/70 uppercase tracking-wider">por kg</span>
 
               {/* Divider */}
               <div className="w-8 h-px bg-white/10 mx-auto my-5" />
 
               {/* Time */}
               <div className="text-[11px] font-semibold text-white/80 mb-1">{m.time}</div>
-              <p className="text-[11px] text-white/60 leading-relaxed">{m.desc}</p>
+              <p className="text-[11px] text-white/70 leading-relaxed">{m.desc}</p>
             </div>
           ))}
         </div>
 
         <div className="text-center mt-8">
-          <p className="text-[12px] text-white/60">Costos calculados en tiempo real según destino y peso. IVA incluido.</p>
+          <p className="text-[12px] text-white/70">Costos calculados en tiempo real según destino y peso. IVA incluido.</p>
         </div>
       </div>
     </section>
