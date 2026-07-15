@@ -3,10 +3,13 @@
  * Atlantic Optical - Database Configuration
  * Adapted for Banahosting (MySQL)
  *
- * INSTRUCCIONES:
- * 1. Crear base de datos en cPanel > MySQL Databases
- * 2. Crear usuario MySQL y asignarlo a la base de datos
- * 3. Reemplaza los valores de abajo con tus credenciales reales
+ * INSTRUCCIONES BANAHOSTING:
+ * 1. Ve a cPanel > MySQL Databases
+ * 2. Crea una base de datos (ej: aznjnpitoj_atlantic)
+ * 3. Crea un usuario MySQL con contraseña fuerte
+ * 4. Asigna el usuario a la base de datos con todos los privilegios
+ * 5. Reemplaza los valores de abajo con tus credenciales reales
+ * 6. Importa el schema SQL en phpMyAdmin o MySQL Databases
  */
 
 class Database {
@@ -18,12 +21,13 @@ class Database {
 
     public function __construct() {
         // ==========================================
-        // CONFIGURACION - Docker environment or manual
+        // CONFIGURACION BANAHOSTING
+        // Reemplaza estas credenciales con las tuyas
         // ==========================================
-        $this->host = getenv('DB_HOST') ?: 'localhost';
-        $this->db_name = getenv('DB_NAME') ?: 'atlantic_optical';
-        $this->username = getenv('DB_USER') ?: 'atlantic_user';
-        $this->password = getenv('DB_PASS') ?: 'atlantic_pass';
+        $this->host = 'localhost';
+        $this->db_name = 'aznjnpitoj_atlantic';   // <-- Tu base de datos
+        $this->username = 'aznjnpitoj_usuario';    // <-- Tu usuario MySQL
+        $this->password = 'TU_CONTRASENA_AQUI';    // <-- Tu contraseña MySQL
     }
 
     public function connect() {

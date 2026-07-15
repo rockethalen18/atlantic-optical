@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /api/
-Sitemap: https://atlanticoptical.com.mx/sitemap.xml
+Sitemap: https://equipos.atlanticopticalgroup.com/sitemap.xml

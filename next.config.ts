@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? "/atlantic-optical" : undefined,
-  assetPrefix: isProd ? "/atlantic-optical/" : undefined,
   trailingSlash: true,
   turbopack: {},
 };

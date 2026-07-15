@@ -21,12 +21,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://atlanticoptical.com.mx'),
+  metadataBase: new URL('https://equipos.atlanticopticalgroup.com'),
   title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
   description: "Atlantic Optical Internacional S.A. — Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a México.",
   keywords: "foróptero, lentómetro, equipo oftálmico, auto refractómetro, lámpara de hendidura, tonómetro, equipo optométrico, monturas, lentes de sol, Atlantic Optical, Panamá, México",
   robots: { index: true, follow: true },
-  alternates: { canonical: 'https://atlanticoptical.com.mx' },
+  alternates: { canonical: 'https://equipos.atlanticopticalgroup.com' },
   icons: { icon: '/images/logo-atlantic-retina.png' },
   openGraph: {
     title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
