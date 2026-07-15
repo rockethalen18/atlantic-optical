@@ -26,11 +26,13 @@ jobs:
       - name: List build output
         run: ls -la out/
 
-      - name: Test FTP login
+      - name: Install lftp
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+
+      - name: Test FTP connection
         run: |
-          apt-get update && apt-get install -y ftp lftp
-          echo "USER $FTP_USER" | timeout 10 curl -s "ftp://$FTP_HOST:21" --user "$FTP_USER:$FTP_PASS" --ftp-create-dirs -T /dev/null 2>&1 || true
-          lftp -e "set ssl:verify-certificate no; ls; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST" 2>&1 || true
+          echo "=== Testing connection ==="
+          lftp -e "set ssl:verify-certificate no; set net:timeout 10; ls; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST" 2>&1
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -38,7 +40,7 @@ jobs:
 
       - name: Deploy via lftp
         run: |
-          lftp -e "set ssl:verify-certificate no; mirror -R --delete --verbose ./out/ /; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; mirror -R --verbose --only-newer ./out/ /; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
