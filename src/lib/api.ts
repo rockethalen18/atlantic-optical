@@ -17,7 +17,13 @@ async function fetchAPI<T>(endpoint: string, options: RequestInit = {}): Promise
     credentials: 'include',
   });
 
-  const data = await res.json();
+  const text = await res.text();
+  let data: any;
+  try {
+    data = JSON.parse(text);
+  } catch {
+    throw new Error(`API error: ${res.status} ${res.statusText}`);
+  }
   
   if (!res.ok) {
     throw new Error(data.error || 'API request failed');
