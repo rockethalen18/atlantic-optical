@@ -6,10 +6,11 @@ import ShippingBanner from '@/components/home/ShippingBanner';
 import VideoSection from '@/components/home/VideoSection';
 import Reviews from '@/components/home/Reviews';
 import CTASection from '@/components/home/CTASection';
+import SiteLayout from '@/components/layout/SiteLayout';
 
 export default function Home() {
   return (
-    <>
+    <SiteLayout>
       <HeroCarousel />
       <FeaturesStrip />
       <CategoryGrid />
@@ -18,6 +19,6 @@ export default function Home() {
       <VideoSection />
       <Reviews />
       <CTASection />
-    </>
+    </SiteLayout>
   );
 }
