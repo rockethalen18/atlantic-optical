@@ -2,9 +2,12 @@
 function get_exchange_rates() {
     $rates = [];
     try {
-        $stmt = db()->query('SELECT currency_to, rate FROM exchange_rates WHERE currency_from = "USD" AND rate > 0 ORDER BY currency_to');
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $rates[$row['currency_to']] = floatval($row['rate']);
+        $row = db()->query('SELECT usd_to_mxn, usd_to_cop, usd_to_cny, usd_to_eur FROM exchange_rates WHERE usd_to_mxn > 0 ORDER BY updated_at DESC LIMIT 1')->fetch(PDO::FETCH_ASSOC);
+        if ($row) {
+            if (floatval($row['usd_to_mxn'] ?? 0) > 0) $rates['MXN'] = floatval($row['usd_to_mxn']);
+            if (floatval($row['usd_to_cop'] ?? 0) > 0) $rates['COP'] = floatval($row['usd_to_cop']);
+            if (floatval($row['usd_to_cny'] ?? 0) > 0) $rates['CNY'] = floatval($row['usd_to_cny']);
+            if (floatval($row['usd_to_eur'] ?? 0) > 0) $rates['EUR'] = floatval($row['usd_to_eur']);
         }
     } catch (Exception $e) {}
     return $rates;

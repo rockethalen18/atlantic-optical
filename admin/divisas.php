@@ -13,38 +13,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
     if ($action === 'refresh') {
+        $saved = 0;
         $apiUrl = 'https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR';
         $response = @file_get_contents($apiUrl);
-        $saved = 0;
 
         if ($response) {
             $data = json_decode($response, true);
             if (isset($data['rates'])) {
-                foreach ($data['rates'] as $cur => $rate) {
-                    $rate = floatval($rate);
-                    db()->prepare('DELETE FROM exchange_rates WHERE currency_from = ? AND currency_to = ?')->execute(['USD', $cur]);
-                    db()->prepare('INSERT INTO exchange_rates (currency_from, currency_to, rate, usd_to_mxn, usd_mxn, source) VALUES (?, ?, ?, ?, ?, ?)')
-                        ->execute(['USD', $cur, $rate, $cur === 'MXN' ? $rate : 0, $cur === 'MXN' ? $rate : 0, 'frankfurter-api']);
-                    $saved++;
-                }
+                $mxn = floatval($data['rates']['MXN'] ?? 0);
+                $cop = floatval($data['rates']['COP'] ?? 0);
+                $cny = floatval($data['rates']['CNY'] ?? 0);
+                $eur = floatval($data['rates']['EUR'] ?? 0);
+                db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
+                    ->execute([$mxn, $mxn, $cop, $cny, $eur, 'frankfurter-api']);
+                $saved = ($mxn > 0) ? 1 : 0;
             }
         }
 
         if ($saved === 0) {
-            // Fallback API
             $response2 = @file_get_contents('https://open.er-api.com/v6/latest/USD');
             if ($response2) {
                 $data2 = json_decode($response2, true);
                 if (isset($data2['rates'])) {
-                    foreach (['MXN', 'COP', 'CNY', 'EUR'] as $cur) {
-                        if (isset($data2['rates'][$cur])) {
-                            $rate = floatval($data2['rates'][$cur]);
-                            db()->prepare('DELETE FROM exchange_rates WHERE currency_from = ? AND currency_to = ?')->execute(['USD', $cur]);
-                            db()->prepare('INSERT INTO exchange_rates (currency_from, currency_to, rate, usd_to_mxn, usd_mxn, source) VALUES (?, ?, ?, ?, ?, ?)')
-                                ->execute(['USD', $cur, $rate, $cur === 'MXN' ? $rate : 0, $cur === 'MXN' ? $rate : 0, 'er-api']);
-                            $saved++;
-                        }
-                    }
+                    $mxn = floatval($data2['rates']['MXN'] ?? 0);
+                    $cop = floatval($data2['rates']['COP'] ?? 0);
+                    $cny = floatval($data2['rates']['CNY'] ?? 0);
+                    $eur = floatval($data2['rates']['EUR'] ?? 0);
+                    db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
+                        ->execute([$mxn, $mxn, $cop, $cny, $eur, 'er-api']);
+                    $saved = ($mxn > 0) ? 1 : 0;
                 }
             }
         }
@@ -56,33 +53,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'save_rate') {
         $currency = strtoupper(trim($_POST['currency'] ?? ''));
         $rate = sanitize_float($_POST['rate'] ?? 0);
-        $allowed = ['MXN', 'COP', 'CNY', 'EUR'];
-
-        if (in_array($currency, $allowed) && $rate > 0) {
-            db()->prepare('DELETE FROM exchange_rates WHERE currency_from = ? AND currency_to = ?')->execute(['USD', $currency]);
-            db()->prepare('INSERT INTO exchange_rates (currency_from, currency_to, rate, usd_to_mxn, usd_mxn, source) VALUES (?, ?, ?, ?, ?, ?)')
-                ->execute(['USD', $currency, $rate, $currency === 'MXN' ? $rate : 0, $currency === 'MXN' ? $rate : 0, 'manual']);
+        if ($rate > 0 && in_array($currency, ['MXN', 'COP', 'CNY', 'EUR'])) {
+            $col = 'usd_to_' . strtolower($currency);
+            $existing = db()->query('SELECT id FROM exchange_rates ORDER BY id DESC LIMIT 1')->fetch();
+            if ($existing) {
+                db()->prepare("UPDATE exchange_rates SET $col = ?, source = 'manual' WHERE id = ?")->execute([$rate, $existing['id']]);
+            } else {
+                db()->prepare("INSERT INTO exchange_rates ($col, source) VALUES (?, 'manual')")->execute([$rate]);
+            }
         }
         header('Location: /admin/divisas?saved=1');
         exit;
     }
 }
 
-$rates = [];
-try {
-    $stmt = db()->query('SELECT currency_to, rate, source, updated_at FROM exchange_rates WHERE currency_from = "USD" AND rate > 0 ORDER BY currency_to');
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $rates[$row['currency_to']] = $row;
-    }
-} catch (Exception $e) {}
-
-$history = db()->query('SELECT * FROM exchange_rates WHERE currency_from = "USD" ORDER BY updated_at DESC LIMIT 20')->fetchAll();
+$latest = db()->query('SELECT * FROM exchange_rates ORDER BY updated_at DESC LIMIT 1')->fetch();
+$history = db()->query('SELECT * FROM exchange_rates ORDER BY updated_at DESC LIMIT 20')->fetchAll();
 
 $currencies = [
-    'MXN' => ['name' => 'Peso Mexicano', 'flag' => '🇲🇽'],
-    'COP' => ['name' => 'Peso Colombiano', 'flag' => '🇨🇴'],
-    'CNY' => ['name' => 'Yuan Chino', 'flag' => '🇨🇳'],
-    'EUR' => ['name' => 'Euro', 'flag' => '🇪🇺'],
+    'MXN' => ['name' => 'Peso Mexicano', 'flag' => '🇲🇽', 'col' => 'usd_to_mxn'],
+    'COP' => ['name' => 'Peso Colombiano', 'flag' => '🇨🇴', 'col' => 'usd_to_cop'],
+    'CNY' => ['name' => 'Yuan Chino', 'flag' => '🇨🇳', 'col' => 'usd_to_cny'],
+    'EUR' => ['name' => 'Euro', 'flag' => '🇪🇺', 'col' => 'usd_to_eur'],
 ];
 ?>
 <!DOCTYPE html>
@@ -102,7 +94,6 @@ $currencies = [
         .rate-value .amount { color: #60a5fa; font-size: 28px; font-weight: 700; }
         .rate-value .per { color: #6b7280; font-size: 12px; }
         .rate-value .source { color: #6b7280; font-size: 11px; margin-top: 4px; }
-        .rate-value .updated { color: #6b7280; font-size: 11px; }
         .rates-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
         .edit-inline { display: flex; gap: 8px; align-items: flex-end; }
         .edit-inline input { width: 160px; }
@@ -118,7 +109,7 @@ $currencies = [
                     <form method="POST" style="display:inline">
                         <?php echo csrf_field(); ?>
                         <input type="hidden" name="action" value="refresh">
-                        <button type="submit" class="btn-primary"><?php echo crm_icon('refresh'); ?> Actualizar desde API</button>
+                        <button type="submit" class="btn-primary"><?php echo crm_icon('refresh'); ?> Sincronizar con API</button>
                     </form>
                 </div>
             </header>
@@ -143,12 +134,14 @@ $currencies = [
                             <div class="name"><?php echo $info['name']; ?></div>
                         </div>
                         <div class="rate-value">
-                            <?php if (isset($rates[$cur])): ?>
-                            <div class="amount"><?php echo currency_symbol($cur); ?><?php echo format_rate($rates[$cur]['rate'], $cur); ?></div>
-                            <div class="per">1 USD = <?php echo format_rate($rates[$cur]['rate'], $cur); ?> <?php echo $cur; ?></div>
-                            <div class="source">Fuente: <?php echo htmlspecialchars($rates[$cur]['source'] ?? 'api'); ?></div>
+                            <?php if ($latest && floatval($latest[$info['col']] ?? 0) > 0): ?>
+                            <div class="amount"><?php echo currency_symbol($cur); ?><?php echo format_rate($latest[$info['col']], $cur); ?></div>
+                            <div class="per">1 USD = <?php echo format_rate($latest[$info['col']], $cur); ?> <?php echo $cur; ?></div>
                             <?php else: ?>
                             <div class="amount" style="color:#6b7280">Sin datos</div>
+                            <?php endif; ?>
+                            <?php if ($latest): ?>
+                            <div class="source">Fuente: <?php echo htmlspecialchars($latest['source'] ?? 'api'); ?></div>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -186,12 +179,14 @@ $currencies = [
                     <?php if (!empty($history)): ?>
                     <div class="crm-table-wrap">
                         <table class="crm-table">
-                            <thead><tr><th>Par</th><th>Tasa</th><th>Fuente</th><th>Fecha</th></tr></thead>
+                            <thead><tr><th>MXN</th><th>COP</th><th>CNY</th><th>EUR</th><th>Fuente</th><th>Fecha</th></tr></thead>
                             <tbody>
                                 <?php foreach ($history as $h): ?>
                                 <tr>
-                                    <td><strong><?php echo htmlspecialchars($h['currency_from'] . '/' . $h['currency_to']); ?></strong></td>
-                                    <td><?php echo format_rate($h['rate'], $h['currency_to']); ?></td>
+                                    <td>$<?php echo format_rate($h['usd_to_mxn'] ?? 0, 'MXN'); ?></td>
+                                    <td>$<?php echo format_rate($h['usd_to_cop'] ?? 0, 'COP'); ?></td>
+                                    <td>¥<?php echo format_rate($h['usd_to_cny'] ?? 0, 'CNY'); ?></td>
+                                    <td>€<?php echo format_rate($h['usd_to_eur'] ?? 0, 'EUR'); ?></td>
                                     <td><?php echo htmlspecialchars($h['source'] ?? '-'); ?></td>
                                     <td><?php echo date('d/m/Y H:i', strtotime($h['updated_at'])); ?></td>
                                 </tr>
@@ -200,7 +195,7 @@ $currencies = [
                         </table>
                     </div>
                     <?php else: ?>
-                    <div class="crm-card-body text-center text-muted">No hay historial de tasas</div>
+                    <div class="crm-card-body text-center text-muted">No hay historial de tasas. Haz clic en "Sincronizar con API" para cargar las tasas actuales.</div>
                     <?php endif; ?>
                 </div>
             </div>

@@ -364,7 +364,7 @@ $totalPages = max(1, ceil($total / $perPage));
                             <div class="photo-grid">
                                 <?php if (!empty($product['image'])): ?>
                                 <div class="photo-item">
-                                    <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="Principal">
+                                    <img src="https://atlanticopticalgroup.com<?php echo htmlspecialchars($product['image']); ?>" alt="Principal">
                                     <span class="photo-badge">Principal</span>
                                 </div>
                                 <?php endif; ?>
@@ -461,7 +461,7 @@ $totalPages = max(1, ceil($total / $perPage));
                                 <tr>
                                     <td>
                                         <?php if (!empty($p['image'])): ?>
-                                        <img src="<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                        <img src="https://atlanticopticalgroup.com<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                                         <div class="product-thumb-placeholder" style="display:none"><?php echo crm_icon('box'); ?></div>
                                         <?php else: ?>
                                         <div class="product-thumb-placeholder"><?php echo crm_icon('box'); ?></div>
