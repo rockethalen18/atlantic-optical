@@ -1,18 +1,8 @@
 <?php
-$sessionDir = __DIR__ . '/sessions';
-if (!is_dir($sessionDir)) {
-    mkdir($sessionDir, 0733, true);
-}
-ini_set('session.save_path', $sessionDir);
-ini_set('session.cookie_httponly', 1);
-ini_set('session.use_strict_mode', 1);
-ini_set('session.gc_maxlifetime', 1800);
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once __DIR__ . '/security.php';
 
 function require_login() {
+    init_session();
     if (!isset($_SESSION['admin_id'])) {
         header('Location: /admin/login');
         exit;
@@ -28,6 +18,7 @@ function require_login() {
 }
 
 function is_logged_in() {
+    init_session();
     return isset($_SESSION['admin_id']);
 }
 

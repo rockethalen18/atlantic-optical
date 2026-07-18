@@ -1,15 +1,9 @@
 <?php
-$sessionDir = __DIR__ . '/includes/sessions';
-if (!is_dir($sessionDir)) {
-    mkdir($sessionDir, 0733, true);
-}
-ini_set('session.save_path', $sessionDir);
-ini_set('session.cookie_httponly', 1);
-ini_set('session.use_strict_mode', 1);
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/icons.php';
+require_once __DIR__ . '/includes/security.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+init_session();
 
 if (isset($_SESSION['admin_id'])) {
     header('Location: /admin/');
@@ -77,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-box">
         <div class="login-logo">
-            <h1><?php echo crm_icon('eye', 'login-icon'); ?> Atlantic Optical</h1>
+            <h1><?php echo crm_icon('eye'); ?> Atlantic Optical</h1>
             <p>Panel de Administracion</p>
         </div>
 

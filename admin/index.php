@@ -25,7 +25,7 @@ $totalOrders = db()->query('SELECT COUNT(*) FROM orders')->fetchColumn();
 $totalCategories = db()->query('SELECT COUNT(*) FROM categories')->fetchColumn();
 $totalUsers = db()->query('SELECT COUNT(*) FROM users')->fetchColumn();
 $pendingOrders = db()->query("SELECT COUNT(*) FROM orders WHERE status = 'pending'")->fetchColumn();
-$recentOrders = db()->query('SELECT id, customer_name, total, status, created_at FROM orders ORDER BY created_at DESC LIMIT 5')->fetchAll();
+$recentOrders = db()->query('SELECT o.id, o.total, o.status, o.created_at, u.name AS customer_name FROM orders o LEFT JOIN users u ON o.user_id = u.id ORDER BY o.created_at DESC LIMIT 5')->fetchAll();
 
 $statusColors = [
     'pending' => 'status-pending',

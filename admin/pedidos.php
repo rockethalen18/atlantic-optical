@@ -26,14 +26,14 @@ $perPage = 15;
 $offset = ($page - 1) * $perPage;
 
 if ($search !== '') {
-    $countStmt = db()->prepare('SELECT COUNT(*) FROM orders WHERE customer_name LIKE ? OR id LIKE ?');
-    $countStmt->execute(["%$search%", "%$search%"]);
+    $countStmt = db()->prepare('SELECT COUNT(*) FROM orders o LEFT JOIN users u ON o.user_id = u.id WHERE u.name LIKE ? OR o.id LIKE ? OR o.order_number LIKE ?');
+    $countStmt->execute(["%$search%", "%$search%", "%$search%"]);
     $total = $countStmt->fetchColumn();
-    $stmt = db()->prepare('SELECT * FROM orders WHERE customer_name LIKE ? OR id LIKE ? ORDER BY created_at DESC LIMIT ? OFFSET ?');
-    $stmt->execute(["%$search%", "%$search%", $perPage, $offset]);
+    $stmt = db()->prepare('SELECT o.*, u.name AS customer_name, u.email AS customer_email FROM orders o LEFT JOIN users u ON o.user_id = u.id WHERE u.name LIKE ? OR o.id LIKE ? OR o.order_number LIKE ? ORDER BY o.created_at DESC LIMIT ? OFFSET ?');
+    $stmt->execute(["%$search%", "%$search%", "%$search%", $perPage, $offset]);
 } else {
     $total = db()->query('SELECT COUNT(*) FROM orders')->fetchColumn();
-    $stmt = db()->prepare('SELECT * FROM orders ORDER BY created_at DESC LIMIT ? OFFSET ?');
+    $stmt = db()->prepare('SELECT o.*, u.name AS customer_name, u.email AS customer_email FROM orders o LEFT JOIN users u ON o.user_id = u.id ORDER BY o.created_at DESC LIMIT ? OFFSET ?');
     $stmt->execute([$perPage, $offset]);
 }
 $orders = $stmt->fetchAll();
@@ -46,7 +46,7 @@ $viewId = isset($_GET['view']) ? intval($_GET['view']) : 0;
 $order = null;
 $items = [];
 if ($viewId > 0) {
-    $stmt3 = db()->prepare('SELECT * FROM orders WHERE id = ?');
+    $stmt3 = db()->prepare('SELECT o.*, u.name AS customer_name, u.email AS customer_email, u.phone AS customer_phone FROM orders o LEFT JOIN users u ON o.user_id = u.id WHERE o.id = ?');
     $stmt3->execute([$viewId]);
     $order = $stmt3->fetch();
     if (!$order) {
@@ -91,7 +91,7 @@ if ($viewId > 0) {
                 <div class="crm-card">
                     <div class="order-detail">
                         <div class="order-info-grid">
-                            <div><label>Cliente</label><p><?php echo htmlspecialchars($order['customer_name']); ?></p></div>
+                            <div><label>Cliente</label><p><?php echo htmlspecialchars($order['customer_name'] ?? 'N/A'); ?></p></div>
                             <div><label>Email</label><p><?php echo htmlspecialchars($order['customer_email'] ?? ''); ?></p></div>
                             <div><label>Telefono</label><p><?php echo htmlspecialchars($order['customer_phone'] ?? ''); ?></p></div>
                             <div>
@@ -125,8 +125,8 @@ if ($viewId > 0) {
                                 <tr>
                                     <td><?php echo htmlspecialchars($item['product_name'] ?? $item['product_id']); ?></td>
                                     <td><?php echo intval($item['quantity']); ?></td>
-                                    <td>$<?php echo number_format($item['price'], 2); ?></td>
-                                    <td>$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></td>
+                                    <td>$<?php echo number_format($item['unit_price'], 2); ?></td>
+                                    <td>$<?php echo number_format($item['total_price'], 2); ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -147,7 +147,7 @@ if ($viewId > 0) {
                                 <?php foreach ($orders as $o): ?>
                                 <tr>
                                     <td>#<?php echo intval($o['id']); ?></td>
-                                    <td><?php echo htmlspecialchars($o['customer_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($o['customer_name'] ?? 'N/A'); ?></td>
                                     <td>$<?php echo number_format($o['total'], 2); ?></td>
                                     <td>
                                         <form method="POST" style="display:inline">

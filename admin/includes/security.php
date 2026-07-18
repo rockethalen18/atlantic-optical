@@ -1,4 +1,19 @@
 <?php
+function init_session() {
+    if (session_status() === PHP_SESSION_ACTIVE) return;
+
+    $sessionDir = __DIR__ . '/sessions';
+    if (!is_dir($sessionDir)) {
+        @mkdir($sessionDir, 0733, true);
+    }
+    ini_set('session.save_path', $sessionDir);
+    ini_set('session.cookie_httponly', 1);
+    ini_set('session.use_strict_mode', 1);
+    ini_set('session.gc_maxlifetime', 1800);
+
+    session_start();
+}
+
 function csrf_token() {
     if (empty($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
@@ -24,7 +39,6 @@ function security_headers() {
     header('X-XSS-Protection: 1; mode=block');
     header('Referrer-Policy: strict-origin-when-cross-origin');
     header('Permissions-Policy: camera=(), microphone=(), geolocation=()');
-    header("Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:;");
 }
 
 function sanitize_int($val) {
@@ -33,8 +47,4 @@ function sanitize_int($val) {
 
 function sanitize_float($val) {
     return floatval($val);
-}
-
-function sanitize_table_name($val, $allowed) {
-    return in_array($val, $allowed) ? $val : null;
 }
