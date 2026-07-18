@@ -1,5 +1,16 @@
 <?php
-session_start();
+$sessionDir = __DIR__ . '/sessions';
+if (!is_dir($sessionDir)) {
+    mkdir($sessionDir, 0733, true);
+}
+ini_set('session.save_path', $sessionDir);
+ini_set('session.cookie_httponly', 1);
+ini_set('session.use_strict_mode', 1);
+ini_set('session.gc_maxlifetime', 1800);
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 function require_login() {
     if (!isset($_SESSION['admin_id'])) {

@@ -1,4 +1,11 @@
 <?php
+$sessionDir = __DIR__ . '/includes/sessions';
+if (!is_dir($sessionDir)) {
+    mkdir($sessionDir, 0733, true);
+}
+ini_set('session.save_path', $sessionDir);
+session_start();
+
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
 

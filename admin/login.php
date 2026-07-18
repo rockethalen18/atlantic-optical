@@ -1,7 +1,11 @@
 <?php
-require_once __DIR__ . '/includes/db.php';
-require_once __DIR__ . '/includes/icons.php';
-require_once __DIR__ . '/includes/security.php';
+$sessionDir = __DIR__ . '/includes/sessions';
+if (!is_dir($sessionDir)) {
+    mkdir($sessionDir, 0733, true);
+}
+ini_set('session.save_path', $sessionDir);
+ini_set('session.cookie_httponly', 1);
+ini_set('session.use_strict_mode', 1);
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
