@@ -1,15 +1,21 @@
 <?php
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
+require_once __DIR__ . '/includes/security.php';
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 if (isset($_SESSION['admin_id'])) {
-    header('Location: index.php');
+    header('Location: /admin/');
     exit;
 }
 
 $error = '';
+if (isset($_GET['timeout'])) {
+    $error = 'Sesion expirada. Inicia sesion de nuevo.';
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
@@ -24,10 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $stmt->fetch();
 
             if ($user && password_verify($password, $user['password'])) {
+                session_regenerate_id(true);
                 $_SESSION['admin_id'] = $user['id'];
                 $_SESSION['admin_name'] = $user['name'];
                 $_SESSION['admin_email'] = $user['email'];
-                header('Location: index.php');
+                $_SESSION['last_activity'] = time();
+                header('Location: /admin/');
                 exit;
             } else {
                 $error = 'Email o contrasena incorrectos';
@@ -44,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlantic Optical - Admin Login</title>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -73,13 +82,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <form method="POST" action="">
+            <?php echo csrf_field(); ?>
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="admin@atlanticopticalgroup.com" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
             </div>
             <div class="form-group">
                 <label>Contrasena</label>
-                <input type="password" name="password" placeholder="Tu contrasena" required>
+                <input type="password" name="password" placeholder="Tu contrasena" required autocomplete="current-password">
             </div>
             <button type="submit" class="btn-login">Iniciar Sesion</button>
         </form>

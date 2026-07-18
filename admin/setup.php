@@ -13,7 +13,7 @@ try {
 }
 
 if ($adminCount > 0) {
-    header('Location: login.php');
+    header('Location: /admin/login');
     exit;
 }
 
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt2 = db()->prepare('INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)');
                     $stmt2->execute([$name, $email, $hash, 'admin']);
                     $message = 'Usuario creado. Redirigiendo al login...';
-                    header('Refresh: 2; url=login.php');
+                    header('Refresh: 2; url=/admin/login');
                 }
             } catch (PDOException $e) {
                 $error = 'Error: ' . $e->getMessage();
@@ -129,7 +129,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php else: ?>
 
         <div class="alert alert-success">
-            Ya existe un admin. <a href="login.php" style="color:#6ee7b7;">Ir al Login</a>
+            Ya existe un admin. <a href="/admin/login" style="color:#6ee7b7;">Ir al Login</a>
         </div>
 
         <?php endif; ?>

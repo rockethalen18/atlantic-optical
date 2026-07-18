@@ -3,9 +3,17 @@ session_start();
 
 function require_login() {
     if (!isset($_SESSION['admin_id'])) {
-        header('Location: login.php');
+        header('Location: /admin/login');
         exit;
     }
+    $inactivity = time() - ($_SESSION['last_activity'] ?? 0);
+    if ($inactivity > 1800) {
+        session_unset();
+        session_destroy();
+        header('Location: /admin/login?timeout=1');
+        exit;
+    }
+    $_SESSION['last_activity'] = time();
 }
 
 function is_logged_in() {

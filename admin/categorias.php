@@ -3,7 +3,23 @@ define('CURRENT_PAGE', 'categorias');
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/security.php';
 require_login();
+security_headers();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    verify_csrf();
+    $action = $_POST['action'] ?? '';
+    if ($action === 'delete') {
+        $delId = sanitize_int($_POST['id'] ?? 0);
+        if ($delId > 0) {
+            $stmt = db()->prepare('DELETE FROM categories WHERE id = ?');
+            $stmt->execute([$delId]);
+        }
+    }
+    header('Location: /admin/categorias');
+    exit;
+}
 
 $search = trim($_GET['q'] ?? '');
 $page = max(1, intval($_GET['page'] ?? 1));
@@ -23,14 +39,6 @@ if ($search !== '') {
 }
 $categories = $stmt->fetchAll();
 $totalPages = max(1, ceil($total / $perPage));
-
-$delId = $_GET['del'] ?? null;
-if ($delId) {
-    $stmt3 = db()->prepare('DELETE FROM categories WHERE id = ?');
-    $stmt3->execute([$delId]);
-    header('Location: categorias.php');
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -51,39 +59,34 @@ if ($delId) {
                         <?php echo crm_icon('search'); ?>
                         <input type="text" name="q" placeholder="Buscar categoria..." value="<?php echo htmlspecialchars($search); ?>">
                         <?php if ($search): ?>
-                        <a href="categorias.php" class="btn-clear"><?php echo crm_icon('x'); ?></a>
+                        <a href="/admin/categorias" class="btn-clear"><?php echo crm_icon('x'); ?></a>
                         <?php endif; ?>
                     </form>
                 </div>
             </header>
             <div class="crm-content">
                 <div class="crm-card">
-                    <div class="crm-card-header">
-                        <h2><?php echo $total; ?> categoria(s)</h2>
-                    </div>
+                    <div class="crm-card-header"><h2><?php echo $total; ?> categoria(s)</h2></div>
                     <div class="crm-table-wrap">
                         <table class="crm-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Slug</th>
-                                    <th>Orden</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>ID</th><th>Nombre</th><th>Slug</th><th>Orden</th><th>Acciones</th></tr></thead>
                             <tbody>
                                 <?php if (empty($categories)): ?>
                                 <tr><td colspan="5" class="text-center text-muted">No se encontraron categorias</td></tr>
                                 <?php else: ?>
                                 <?php foreach ($categories as $c): ?>
                                 <tr>
-                                    <td><?php echo $c['id']; ?></td>
+                                    <td><?php echo intval($c['id']); ?></td>
                                     <td><?php echo htmlspecialchars($c['name']); ?></td>
                                     <td><code><?php echo htmlspecialchars($c['slug']); ?></code></td>
-                                    <td><?php echo $c['sort_order']; ?></td>
+                                    <td><?php echo intval($c['sort_order']); ?></td>
                                     <td class="actions-cell">
-                                        <a href="categorias.php?del=<?php echo $c['id']; ?>" class="btn-sm btn-danger" onclick="return confirm('Eliminar esta categoria?')"><?php echo crm_icon('trash'); ?></a>
+                                        <form method="POST" style="display:inline">
+                                            <?php echo csrf_field(); ?>
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="id" value="<?php echo intval($c['id']); ?>">
+                                            <button type="submit" class="btn-sm btn-danger" onclick="return confirm('Eliminar esta categoria?')"><?php echo crm_icon('trash'); ?></button>
+                                        </form>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -94,13 +97,13 @@ if ($delId) {
                     <?php if ($totalPages > 1): ?>
                     <div class="pagination">
                         <?php if ($page > 1): ?>
-                        <a href="categorias.php?page=<?php echo $page - 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&laquo;</a>
+                        <a href="/admin/categorias?page=<?php echo $page - 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&laquo;</a>
                         <?php endif; ?>
                         <?php for ($i = max(1, $page - 3); $i <= min($totalPages, $page + 3); $i++): ?>
-                        <a href="categorias.php?page=<?php echo $i; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page <?php if ($i === $page) echo 'active'; ?>"><?php echo $i; ?></a>
+                        <a href="/admin/categorias?page=<?php echo $i; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page <?php if ($i === $page) echo 'active'; ?>"><?php echo $i; ?></a>
                         <?php endfor; ?>
                         <?php if ($page < $totalPages): ?>
-                        <a href="categorias.php?page=<?php echo $page + 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&raquo;</a>
+                        <a href="/admin/categorias?page=<?php echo $page + 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&raquo;</a>
                         <?php endif; ?>
                     </div>
                     <?php endif; ?>

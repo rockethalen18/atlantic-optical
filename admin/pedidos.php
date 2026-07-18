@@ -3,7 +3,22 @@ define('CURRENT_PAGE', 'pedidos');
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
 require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/security.php';
 require_login();
+security_headers();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    verify_csrf();
+    $setStatus = $_POST['set_status'] ?? null;
+    $setId = sanitize_int($_POST['set_id'] ?? 0);
+    $allowed = ['pending','processing','shipped','delivered','cancelled'];
+    if ($setStatus && $setId > 0 && in_array($setStatus, $allowed)) {
+        $stmt = db()->prepare('UPDATE orders SET status = ? WHERE id = ?');
+        $stmt->execute([$setStatus, $setId]);
+    }
+    header('Location: /admin/pedidos');
+    exit;
+}
 
 $search = trim($_GET['q'] ?? '');
 $page = max(1, intval($_GET['page'] ?? 1));
@@ -24,41 +39,18 @@ if ($search !== '') {
 $orders = $stmt->fetchAll();
 $totalPages = max(1, ceil($total / $perPage));
 
-$statusLabels = [
-    'pending' => 'Pendiente',
-    'processing' => 'Procesando',
-    'shipped' => 'Enviado',
-    'delivered' => 'Entregado',
-    'cancelled' => 'Cancelado',
-];
+$statusLabels = ['pending'=>'Pendiente','processing'=>'Procesando','shipped'=>'Enviado','delivered'=>'Entregado','cancelled'=>'Cancelado'];
+$statusColors = ['pending'=>'status-pending','processing'=>'status-processing','shipped'=>'status-shipped','delivered'=>'status-delivered','cancelled'=>'status-cancelled'];
 
-$statusColors = [
-    'pending' => 'status-pending',
-    'processing' => 'status-processing',
-    'shipped' => 'status-shipped',
-    'delivered' => 'status-delivered',
-    'cancelled' => 'status-cancelled',
-];
-
-$setStatus = $_GET['set_status'] ?? null;
-$setId = $_GET['set_id'] ?? null;
-if ($setStatus && $setId) {
-    $allowed = array_keys($statusLabels);
-    if (in_array($setStatus, $allowed)) {
-        $stmt2 = db()->prepare('UPDATE orders SET status = ? WHERE id = ?');
-        $stmt2->execute([$setStatus, $setId]);
-        header('Location: pedidos.php');
-        exit;
-    }
-}
-
-$viewId = $_GET['view'] ?? null;
-if ($viewId) {
+$viewId = isset($_GET['view']) ? intval($_GET['view']) : 0;
+$order = null;
+$items = [];
+if ($viewId > 0) {
     $stmt3 = db()->prepare('SELECT * FROM orders WHERE id = ?');
     $stmt3->execute([$viewId]);
     $order = $stmt3->fetch();
     if (!$order) {
-        header('Location: pedidos.php');
+        header('Location: /admin/pedidos');
         exit;
     }
     $stmt4 = db()->prepare('SELECT * FROM order_items WHERE order_id = ?');
@@ -79,62 +71,46 @@ if ($viewId) {
         <?php require_once __DIR__ . '/includes/sidebar.php'; ?>
         <main class="crm-main">
             <header class="crm-header">
-                <h1><?php echo $viewId && $order ? 'Pedido #' . $order['id'] : 'Pedidos'; ?></h1>
+                <h1><?php echo $order ? 'Pedido #' . intval($order['id']) : 'Pedidos'; ?></h1>
                 <div class="crm-header-actions">
-                    <?php if ($viewId && $order): ?>
-                    <a href="pedidos.php" class="btn-secondary"><?php echo crm_icon('refresh'); ?> Volver</a>
+                    <?php if ($order): ?>
+                    <a href="/admin/pedidos" class="btn-secondary"><?php echo crm_icon('refresh'); ?> Volver</a>
                     <?php else: ?>
                     <form method="GET" class="search-form">
                         <?php echo crm_icon('search'); ?>
                         <input type="text" name="q" placeholder="Buscar por cliente o ID..." value="<?php echo htmlspecialchars($search); ?>">
                         <?php if ($search): ?>
-                        <a href="pedidos.php" class="btn-clear"><?php echo crm_icon('x'); ?></a>
+                        <a href="/admin/pedidos" class="btn-clear"><?php echo crm_icon('x'); ?></a>
                         <?php endif; ?>
                     </form>
                     <?php endif; ?>
                 </div>
             </header>
             <div class="crm-content">
-                <?php if ($viewId && $order): ?>
+                <?php if ($order): ?>
                 <div class="crm-card">
                     <div class="order-detail">
                         <div class="order-info-grid">
-                            <div>
-                                <label>Cliente</label>
-                                <p><?php echo htmlspecialchars($order['customer_name']); ?></p>
-                            </div>
-                            <div>
-                                <label>Email</label>
-                                <p><?php echo htmlspecialchars($order['customer_email'] ?? ''); ?></p>
-                            </div>
-                            <div>
-                                <label>Telefono</label>
-                                <p><?php echo htmlspecialchars($order['customer_phone'] ?? ''); ?></p>
-                            </div>
+                            <div><label>Cliente</label><p><?php echo htmlspecialchars($order['customer_name']); ?></p></div>
+                            <div><label>Email</label><p><?php echo htmlspecialchars($order['customer_email'] ?? ''); ?></p></div>
+                            <div><label>Telefono</label><p><?php echo htmlspecialchars($order['customer_phone'] ?? ''); ?></p></div>
                             <div>
                                 <label>Estado</label>
-                                <p>
-                                    <select class="status-select <?php echo $statusColors[$order['status']] ?? ''; ?>" onchange="changeStatus(<?php echo $order['id']; ?>, this.value)">
+                                <form method="POST" style="display:inline">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="set_id" value="<?php echo intval($order['id']); ?>">
+                                    <select name="set_status" class="status-select <?php echo $statusColors[$order['status']] ?? ''; ?>" onchange="this.form.submit()">
                                         <?php foreach ($statusLabels as $val => $lbl): ?>
                                         <option value="<?php echo $val; ?>" <?php if ($order['status'] === $val) echo 'selected'; ?>><?php echo $lbl; ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                </p>
+                                </form>
                             </div>
-                            <div>
-                                <label>Total</label>
-                                <p class="text-lg">$<?php echo number_format($order['total'], 2); ?></p>
-                            </div>
-                            <div>
-                                <label>Fecha</label>
-                                <p><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></p>
-                            </div>
+                            <div><label>Total</label><p class="text-lg">$<?php echo number_format($order['total'], 2); ?></p></div>
+                            <div><label>Fecha</label><p><?php echo date('d/m/Y H:i', strtotime($order['created_at'])); ?></p></div>
                         </div>
                         <?php if (!empty($order['shipping_address'])): ?>
-                        <div class="order-address">
-                            <label>Direccion de envio</label>
-                            <p><?php echo nl2br(htmlspecialchars($order['shipping_address'])); ?></p>
-                        </div>
+                        <div class="order-address"><label>Direccion de envio</label><p><?php echo nl2br(htmlspecialchars($order['shipping_address'])); ?></p></div>
                         <?php endif; ?>
                     </div>
                 </div>
@@ -143,19 +119,12 @@ if ($viewId) {
                     <div class="crm-card-header"><h2>Items</h2></div>
                     <div class="crm-table-wrap">
                         <table class="crm-table">
-                            <thead>
-                                <tr>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Precio</th>
-                                    <th>Subtotal</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>Producto</th><th>Cantidad</th><th>Precio</th><th>Subtotal</th></tr></thead>
                             <tbody>
                                 <?php foreach ($items as $item): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($item['product_name'] ?? $item['product_id']); ?></td>
-                                    <td><?php echo $item['quantity']; ?></td>
+                                    <td><?php echo intval($item['quantity']); ?></td>
                                     <td>$<?php echo number_format($item['price'], 2); ?></td>
                                     <td>$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></td>
                                 </tr>
@@ -167,41 +136,32 @@ if ($viewId) {
                 <?php endif; ?>
                 <?php else: ?>
                 <div class="crm-card">
-                    <div class="crm-card-header">
-                        <h2><?php echo $total; ?> pedido(s)</h2>
-                    </div>
+                    <div class="crm-card-header"><h2><?php echo $total; ?> pedido(s)</h2></div>
                     <div class="crm-table-wrap">
                         <table class="crm-table">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Cliente</th>
-                                    <th>Total</th>
-                                    <th>Estado</th>
-                                    <th>Fecha</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
+                            <thead><tr><th>ID</th><th>Cliente</th><th>Total</th><th>Estado</th><th>Fecha</th><th>Acciones</th></tr></thead>
                             <tbody>
                                 <?php if (empty($orders)): ?>
                                 <tr><td colspan="6" class="text-center text-muted">No se encontraron pedidos</td></tr>
                                 <?php else: ?>
                                 <?php foreach ($orders as $o): ?>
                                 <tr>
-                                    <td>#<?php echo $o['id']; ?></td>
+                                    <td>#<?php echo intval($o['id']); ?></td>
                                     <td><?php echo htmlspecialchars($o['customer_name']); ?></td>
                                     <td>$<?php echo number_format($o['total'], 2); ?></td>
                                     <td>
-                                        <select class="status-select <?php echo $statusColors[$o['status']] ?? ''; ?>" onchange="changeStatus(<?php echo $o['id']; ?>, this.value)">
-                                            <?php foreach ($statusLabels as $val => $lbl): ?>
-                                            <option value="<?php echo $val; ?>" <?php if ($o['status'] === $val) echo 'selected'; ?>><?php echo $lbl; ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <form method="POST" style="display:inline">
+                                            <?php echo csrf_field(); ?>
+                                            <input type="hidden" name="set_id" value="<?php echo intval($o['id']); ?>">
+                                            <select name="set_status" class="status-select <?php echo $statusColors[$o['status']] ?? ''; ?>" onchange="this.form.submit()">
+                                                <?php foreach ($statusLabels as $val => $lbl): ?>
+                                                <option value="<?php echo $val; ?>" <?php if ($o['status'] === $val) echo 'selected'; ?>><?php echo $lbl; ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </form>
                                     </td>
                                     <td><?php echo date('d/m/Y', strtotime($o['created_at'])); ?></td>
-                                    <td class="actions-cell">
-                                        <a href="pedidos.php?view=<?php echo $o['id']; ?>" class="btn-sm"><?php echo crm_icon('eye'); ?></a>
-                                    </td>
+                                    <td class="actions-cell"><a href="/admin/pedidos?view=<?php echo intval($o['id']); ?>" class="btn-sm"><?php echo crm_icon('eye'); ?></a></td>
                                 </tr>
                                 <?php endforeach; ?>
                                 <?php endif; ?>
@@ -211,13 +171,13 @@ if ($viewId) {
                     <?php if ($totalPages > 1): ?>
                     <div class="pagination">
                         <?php if ($page > 1): ?>
-                        <a href="pedidos.php?page=<?php echo $page - 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&laquo;</a>
+                        <a href="/admin/pedidos?page=<?php echo $page - 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&laquo;</a>
                         <?php endif; ?>
                         <?php for ($i = max(1, $page - 3); $i <= min($totalPages, $page + 3); $i++): ?>
-                        <a href="pedidos.php?page=<?php echo $i; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page <?php if ($i === $page) echo 'active'; ?>"><?php echo $i; ?></a>
+                        <a href="/admin/pedidos?page=<?php echo $i; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page <?php if ($i === $page) echo 'active'; ?>"><?php echo $i; ?></a>
                         <?php endfor; ?>
                         <?php if ($page < $totalPages): ?>
-                        <a href="pedidos.php?page=<?php echo $page + 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&raquo;</a>
+                        <a href="/admin/pedidos?page=<?php echo $page + 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&raquo;</a>
                         <?php endif; ?>
                     </div>
                     <?php endif; ?>
@@ -226,10 +186,5 @@ if ($viewId) {
             </div>
         </main>
     </div>
-    <script>
-    function changeStatus(id, status) {
-        window.location.href = 'pedidos.php?set_id=' + id + '&set_status=' + status;
-    }
-    </script>
 </body>
 </html>

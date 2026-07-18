@@ -5,7 +5,7 @@ if (!defined('CURRENT_PAGE')) {
 
 function sidebar_item($page, $icon, $label) {
     $active = (CURRENT_PAGE === $page) ? ' class="active"' : '';
-    return '<a href="' . $page . '.php"' . $active . '>' . crm_icon($icon) . '<span>' . $label . '</span></a>';
+    return '<a href="/admin/' . $page . '"' . $active . '>' . crm_icon($icon) . '<span>' . $label . '</span></a>';
 }
 ?>
 <aside class="sidebar">
@@ -28,6 +28,6 @@ function sidebar_item($page, $icon, $label) {
     </nav>
     <div class="sidebar-footer">
         <a href="https://equipos.atlanticopticalgroup.com" target="_blank"><?php echo crm_icon('globe'); ?><span>Ver Sitio</span></a>
-        <a href="logout.php"><?php echo crm_icon('log-out'); ?><span>Cerrar Sesion</span></a>
+        <a href="/admin/logout"><?php echo crm_icon('log-out'); ?><span>Cerrar Sesion</span></a>
     </div>
 </aside>
