@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
+
 
 export default function ContactoPage() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', company: '', message: '' });
@@ -14,8 +14,7 @@ export default function ContactoPage() {
   };
 
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* Hero */}
         <div className="bg-[var(--dark-bg)] relative overflow-hidden text-white">
           <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -115,6 +114,5 @@ export default function ContactoPage() {
           </div>
         </section>
       </div>
-    </SiteLayout>
   );
 }

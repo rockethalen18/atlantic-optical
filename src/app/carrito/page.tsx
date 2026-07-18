@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { formatMXN } from '@/lib/utils';
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
 
 interface CartItem {
   id: number;
@@ -43,8 +42,7 @@ export default function CartPage() {
   const total = subtotal + shippingCost + tax;
 
   return (
-    <SiteLayout>
-      <div className="bg-[var(--bg-alt)] min-h-screen">
+    <div className="bg-[var(--bg-alt)] min-h-screen">
         <div className="bg-white border-b border-[var(--border)]">
           <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
             <h1 className="text-[28px] md:text-[34px] font-black text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Carrito de Compras</h1>
@@ -150,6 +148,5 @@ export default function CartPage() {
           )}
         </div>
       </div>
-    </SiteLayout>
   );
 }

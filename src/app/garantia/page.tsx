@@ -1,5 +1,4 @@
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
 
 const steps = [
   { icon: Icons.Phone, title: 'Contacto', desc: 'Reporta el problema con tu equipo por telefono, email o WhatsApp.', color: '#1e3a5f' },
@@ -24,8 +23,7 @@ const exclusions = [
 
 export default function GarantiaPage() {
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* Hero */}
         <div className="bg-[var(--text)] relative overflow-hidden text-white">
           <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -125,6 +123,5 @@ export default function GarantiaPage() {
           </div>
         </section>
       </div>
-    </SiteLayout>
   );
 }

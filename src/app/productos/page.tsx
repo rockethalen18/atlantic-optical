@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Icons from '@/components/ui/Icons';
 import productsData from '../../../catalogos/products.json';
-import SiteLayout from '@/components/layout/SiteLayout';
+
 
 const categories = [
   { name: 'Todos', slug: '', count: 116 },
@@ -81,8 +81,7 @@ export default function ProductsPage() {
   }, [products, selectedCategory, searchTerm, sortBy]);
 
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-[var(--bg-alt)]">
+    <div className="min-h-screen bg-[var(--bg-alt)]">
         {/* Hero header */}
         <div className="bg-[var(--text)] relative overflow-hidden text-white">
           <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -230,6 +229,5 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
-    </SiteLayout>
   );
 }

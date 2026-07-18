@@ -1,9 +1,8 @@
-import SiteLayout from '@/components/layout/SiteLayout';
+
 
 export default function TerminosPage() {
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         <section className="py-20 md:py-28">
           <div className="max-w-[1680px] mx-auto px-6 md:px-10">
             <div className="max-w-3xl mx-auto">
@@ -30,6 +29,5 @@ export default function TerminosPage() {
           </div>
         </section>
       </div>
-    </SiteLayout>
   );
 }

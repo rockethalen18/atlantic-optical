@@ -1,5 +1,4 @@
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
 
 const faqs = [
   { q: '¿Cómo se calcula el precio final?', a: 'El precio se calcula con la fórmula: (Costo Base x Margen + Envio/kg x Peso) x Tipo de Cambio x (1 + IVA). Puedes ver el desglose en tiempo real en cada producto cuando el backend este conectado.', icon: Icons.Tag },
@@ -12,8 +11,7 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* Hero */}
         <div className="bg-[var(--text)] relative overflow-hidden text-white">
           <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -59,6 +57,5 @@ export default function FAQPage() {
           </div>
         </section>
       </div>
-    </SiteLayout>
   );
 }

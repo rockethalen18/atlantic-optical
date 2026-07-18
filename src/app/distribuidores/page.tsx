@@ -1,5 +1,4 @@
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
 
 const benefits = [
   { icon: Icons.DollarSign, title: 'Precios Especiales', desc: 'Descuentos exclusivos para distribuidores autorizados con margenes preferenciales.', color: '#1e3a5f' },
@@ -17,8 +16,7 @@ const steps = [
 
 export default function DistribuidoresPage() {
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* Hero */}
         <div className="bg-[var(--text)] relative overflow-hidden text-white">
           <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -83,6 +81,5 @@ export default function DistribuidoresPage() {
           </div>
         </section>
       </div>
-    </SiteLayout>
   );
 }

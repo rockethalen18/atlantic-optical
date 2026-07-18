@@ -47,7 +47,9 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col antialiased">
         <ScrollRevealProvider>
           <ScrollProgress />
-          {children}
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
         </ScrollRevealProvider>
       </body>
     </html>

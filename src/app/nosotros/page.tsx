@@ -1,7 +1,6 @@
 'use client';
 
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
 
 const values = [
   { icon: Icons.Award, title: 'Experiencia', desc: 'Mas de 15 años distribuyendo equipo oftalmico de alta calidad a clinicas y consultorios.', color: '#1e3a5f' },
@@ -19,8 +18,7 @@ const stats = [
 
 export default function NosotrosPage() {
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* Hero */}
         <div className="bg-[var(--text)] relative overflow-hidden text-white">
           <div className="absolute inset-0 opacity-[0.04]" style={{
@@ -109,6 +107,5 @@ export default function NosotrosPage() {
           </p>
         </section>
       </div>
-    </SiteLayout>
   );
 }

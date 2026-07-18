@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import products from '../../../../catalogos/products.json';
 import { Icons } from '@/components/ui/Icons';
 import ProductCard from '@/components/ui/ProductCard';
-import SiteLayout from '@/components/layout/SiteLayout';
+
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -45,8 +45,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const hasSpecs = product.specs && Object.keys(product.specs).length > 0;
 
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         {/* Breadcrumb */}
       <div className="bg-[var(--bg-alt)] border-b border-[var(--border)]">
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-3">
@@ -207,6 +206,5 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         </section>
       )}
       </div>
-    </SiteLayout>
   );
 }

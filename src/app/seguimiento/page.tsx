@@ -2,14 +2,12 @@
 
 import { useState } from 'react';
 import Icons from '@/components/ui/Icons';
-import SiteLayout from '@/components/layout/SiteLayout';
 
 export default function SeguimientoPage() {
   const [orderNum, setOrderNum] = useState('');
 
   return (
-    <SiteLayout>
-      <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
         <section className="py-20 md:py-28">
           <div className="max-w-[1680px] mx-auto px-6 md:px-10">
             <div className="max-w-xl mx-auto text-center mb-12">
@@ -39,6 +37,5 @@ export default function SeguimientoPage() {
           </div>
         </section>
       </div>
-    </SiteLayout>
   );
 }
