@@ -8,14 +8,25 @@ require_once __DIR__ . '/includes/exchange.php';
 require_login();
 security_headers();
 
+function api_fetch($url) {
+    if (function_exists('curl_init')) {
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_FOLLOWLOCATION => true, CURLOPT_TIMEOUT => 15, CURLOPT_SSL_VERIFYPEER => false]);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        return $result;
+    }
+    return @file_get_contents($url);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     verify_csrf();
     $action = $_POST['action'] ?? '';
 
     if ($action === 'refresh') {
         $saved = 0;
-        $apiUrl = 'https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR';
-        $response = @file_get_contents($apiUrl);
+        $response = api_fetch('https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR');
+        $source = 'frankfurter-api';
 
         if ($response) {
             $data = json_decode($response, true);
@@ -25,13 +36,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $cny = floatval($data['rates']['CNY'] ?? 0);
                 $eur = floatval($data['rates']['EUR'] ?? 0);
                 db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
-                    ->execute([$mxn, $mxn, $cop, $cny, $eur, 'frankfurter-api']);
+                    ->execute([$mxn, $mxn, $cop, $cny, $eur, $source]);
                 $saved = ($mxn > 0) ? 1 : 0;
             }
         }
 
         if ($saved === 0) {
-            $response2 = @file_get_contents('https://open.er-api.com/v6/latest/USD');
+            $response2 = api_fetch('https://open.er-api.com/v6/latest/USD');
             if ($response2) {
                 $data2 = json_decode($response2, true);
                 if (isset($data2['rates'])) {
