@@ -250,6 +250,9 @@ $totalPages = max(1, ceil($total / $perPage));
         .photo-upload-form { background: #0f1629; border-radius: 8px; padding: 16px; margin-top: 12px; }
         .form-group textarea { width: 100%; padding: 10px 12px; background: #1f2937; border: 1px solid #374151; border-radius: 6px; color: #fff; font-size: 14px; box-sizing: border-box; resize: vertical; }
         .form-group textarea:focus { outline: none; border-color: #3b82f6; }
+        .product-thumb { width: 48px; height: 48px; border-radius: 6px; object-fit: cover; background: #1f2937; border: 1px solid #374151; }
+        .product-thumb-placeholder { width: 48px; height: 48px; border-radius: 6px; background: #1f2937; border: 1px solid #374151; display: flex; align-items: center; justify-content: center; color: #6b7280; }
+        .product-thumb-placeholder .crm-icon { width: 20px; height: 20px; }
     </style>
 </head>
 <body>
@@ -449,13 +452,21 @@ $totalPages = max(1, ceil($total / $perPage));
                     <div class="crm-card-header"><h2><?php echo $total; ?> producto(s)</h2></div>
                     <div class="crm-table-wrap">
                         <table class="crm-table">
-                            <thead><tr><th>SKU</th><th>Nombre</th><th>Categoria</th><th>Precio</th><th>Stock</th><th>SEO</th><th>Estado</th><th>Acciones</th></tr></thead>
+                            <thead><tr><th></th><th>SKU</th><th>Nombre</th><th>Categoria</th><th>Precio</th><th>Stock</th><th>SEO</th><th>Estado</th><th>Acciones</th></tr></thead>
                             <tbody>
                                 <?php if (empty($products)): ?>
-                                <tr><td colspan="8" class="text-center text-muted">No se encontraron productos</td></tr>
+                                <tr><td colspan="9" class="text-center text-muted">No se encontraron productos</td></tr>
                                 <?php else: ?>
                                 <?php foreach ($products as $p): ?>
                                 <tr>
+                                    <td>
+                                        <?php if (!empty($p['image'])): ?>
+                                        <img src="<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                        <div class="product-thumb-placeholder" style="display:none"><?php echo crm_icon('box'); ?></div>
+                                        <?php else: ?>
+                                        <div class="product-thumb-placeholder"><?php echo crm_icon('box'); ?></div>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><code><?php echo htmlspecialchars($p['sku']); ?></code></td>
                                     <td><?php echo htmlspecialchars($p['name']); ?></td>
                                     <td><?php echo htmlspecialchars($p['category_name'] ?? '-'); ?></td>
