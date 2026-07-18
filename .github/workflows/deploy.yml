@@ -28,9 +28,25 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      - name: Deploy via lftp
+      - name: Deploy frontend
         run: |
-          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./out/ /; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+
+      - name: Deploy backend
+        run: |
+          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./backend/ /backend/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+
+      - name: Deploy admin
+        run: |
+          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./admin/ /admin/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
