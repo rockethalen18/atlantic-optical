@@ -67,6 +67,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_FILES['main_image']['name'])) {
             $uploaded = do_upload_image($_FILES['main_image'], $uploadDir);
             if ($uploaded) db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute(["uploads/$uploaded", $id]);
+        } elseif (!empty($_POST['image_url'])) {
+            $imgUrl = trim($_POST['image_url']);
+            db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute([$imgUrl, $id]);
         }
 
         header('Location: /admin/productos?edit=' . intval($id));
@@ -372,6 +375,36 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                         </div>
                     </div>
 
+                    <div class="crm-card">
+                        <div class="crm-card-header"><h2>Imagen Principal</h2></div>
+                        <div class="crm-card-body">
+                            <div style="display:flex;gap:20px;align-items:flex-start">
+                                <div>
+                                    <?php if (!empty($product['image'])): ?>
+                                    <div style="width:180px;height:180px;background:#1f2937;border:2px solid #374151;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center">
+                                        <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="" style="max-width:100%;max-height:100%;object-fit:contain">
+                                    </div>
+                                    <?php else: ?>
+                                    <div style="width:180px;height:180px;background:#1f2937;border:2px dashed #374151;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:13px;text-align:center;padding:16px">
+                                        Sin imagen
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div style="flex:1">
+                                    <div class="form-group">
+                                        <label>Subir imagen (JPG, PNG, WebP, GIF - max 5MB)</label>
+                                        <input type="file" name="main_image" accept="image/*" style="color:#d1d5db;font-size:13px">
+                                    </div>
+                                    <div class="form-group" style="margin-top:12px">
+                                        <label>O URL de imagen</label>
+                                        <input type="text" name="image_url" placeholder="/images/products/AO-XXX.jpg" value="<?php echo htmlspecialchars($product['image'] ?? ''); ?>" style="background:#1f2937;border:1px solid #374151;border-radius:6px;color:#d1d5db;padding:7px 10px;font-size:13px;width:100%">
+                                    </div>
+                                    <p style="color:#6b7280;font-size:11px;margin-top:8px">La imagen se guardar&aacute; en la ruta indicada. Use rutas relativas como <code>/images/products/AO-XXX.jpg</code></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div style="display:flex;gap:12px;margin-top:16px">
                         <button type="submit" class="btn-primary"><?php echo crm_icon('check'); ?> Guardar</button>
                         <a href="/admin/productos" class="btn-secondary">Cancelar</a>
@@ -501,7 +534,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                     <td>
                                         <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
                                         <?php if (!empty($p['image'])): ?>
-                                        <img src="https://atlanticopticalgroup.com<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                        <img src="<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                                         <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
                                         <?php else: ?>
                                         <div class="product-thumb-placeholder"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
