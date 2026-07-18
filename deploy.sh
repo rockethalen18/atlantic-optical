@@ -89,6 +89,22 @@ deploy_backend() {
     echo -e "${GREEN}✅ Backend desplegado exitosamente${NC}"
 }
 
+# Función para deploy del admin
+deploy_admin() {
+    echo -e "${YELLOW}🚀 Subiendo admin a Banahosting...${NC}"
+    lftp -c "
+        set ftp:ssl-allow yes;
+        set ftp:ssl-protect-data yes;
+        set mirror:parallel-transfer-count 5;
+        open ftp://${FTP_USER}:${FTP_PASS}@${FTP_HOST};
+        cd ${FTP_DIR};
+        mirror -R --verbose admin/ admin/;
+        quit;
+    "
+    
+    echo -e "${GREEN}✅ Admin desplegado exitosamente${NC}"
+}
+
 # Ejecutar según argumento
 case "${1:-all}" in
     frontend)
@@ -97,12 +113,16 @@ case "${1:-all}" in
     backend)
         deploy_backend
         ;;
+    admin)
+        deploy_admin
+        ;;
     all)
         deploy_frontend
         deploy_backend
+        deploy_admin
         ;;
     *)
-        echo -e "${RED}Uso: bash deploy.sh [frontend|backend|all]${NC}"
+        echo -e "${RED}Uso: bash deploy.sh [frontend|backend|admin|all]${NC}"
         exit 1
         ;;
 esac

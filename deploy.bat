@@ -31,6 +31,7 @@ for /f "usebackq tokens=1,* delims==" %%A in (".env.deploy") do (
 REM Construir frontend
 if "%1"=="frontend" goto :frontend
 if "%1"=="backend" goto :backend
+if "%1"=="admin" goto :admin
 
 echo.
 echo [1/2] Construyendo frontend...
@@ -47,6 +48,7 @@ echo NOTA: Para subir archivos usa File Manager de cPanel o un cliente FTP como 
 echo.
 echo Frontend: Sube el contenido de la carpeta 'out\' a /public_html/
 echo Backend:  Sube la carpeta 'backend\' a /public_html/backend/
+echo Admin:    Sube la carpeta 'admin\' a /public_html/admin/
 echo.
 echo Presiona cualquier tecla para abrir la carpeta de salida...
 pause > nul
@@ -63,6 +65,11 @@ goto :end
 :backend
 echo Backend listo en la carpeta 'backend\'
 explorer "backend"
+goto :end
+
+:admin
+echo Admin listo en la carpeta 'admin\'
+explorer "admin"
 goto :end
 
 :end
