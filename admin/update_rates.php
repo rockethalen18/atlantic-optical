@@ -21,39 +21,46 @@ function fetch_url($url) {
     return @file_get_contents($url);
 }
 
-function fetch_rates($url) {
-    $response = fetch_url($url);
-    if ($response) {
-        $data = json_decode($response, true);
-        if (isset($data['rates'])) {
-            return $data['rates'];
-        }
+// er-api.com supports ALL currencies including COP
+$response = fetch_url('https://open.er-api.com/v6/latest/USD');
+$source = 'er-api';
+
+if ($response) {
+    $data = json_decode($response, true);
+    if (isset($data['rates'])) {
+        $rates = $data['rates'];
+        $mxn = floatval($rates['MXN'] ?? 0);
+        $cop = floatval($rates['COP'] ?? 0);
+        $cny = floatval($rates['CNY'] ?? 0);
+        $eur = floatval($rates['EUR'] ?? 0);
+        
+        echo "MXN: $mxn\nCOP: $cop\nCNY: $cny\nEUR: $eur\nSource: $source\n\n";
+        
+        db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
+            ->execute([$mxn, $mxn, $cop, $cny, $eur, $source]);
+        echo "Saved!\n";
+        exit(0);
     }
-    return null;
 }
 
-$rates = fetch_rates('https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR');
-$source = 'frankfurter-api';
-
-if (!$rates) {
-    echo "Primary API failed, trying fallback...\n";
-    $rates = fetch_rates('https://open.er-api.com/v6/latest/USD');
-    $source = 'er-api';
+echo "Primary API failed, trying frankfurter...\n";
+$response2 = fetch_url('https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR');
+if ($response2) {
+    $data2 = json_decode($response2, true);
+    if (isset($data2['rates'])) {
+        $mxn = floatval($data2['rates']['MXN'] ?? 0);
+        $cop = floatval($data2['rates']['COP'] ?? 0);
+        $cny = floatval($data2['rates']['CNY'] ?? 0);
+        $eur = floatval($data2['rates']['EUR'] ?? 0);
+        
+        echo "MXN: $mxn\nCOP: $cop\nCNY: $cny\nEUR: $eur\nSource: frankfurter-api\n\n";
+        
+        db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
+            ->execute([$mxn, $mxn, $cop, $cny, $eur, 'frankfurter-api']);
+        echo "Saved!\n";
+        exit(0);
+    }
 }
 
-if (!$rates) {
-    echo "ERROR: Both APIs failed\n";
-    exit(1);
-}
-
-$mxn = floatval($rates['MXN'] ?? 0);
-$cop = floatval($rates['COP'] ?? 0);
-$cny = floatval($rates['CNY'] ?? 0);
-$eur = floatval($rates['EUR'] ?? 0);
-
-echo "MXN: $mxn\nCOP: $cop\nCNY: $cny\nEUR: $eur\nSource: $source\n\n";
-
-db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
-    ->execute([$mxn, $mxn, $cop, $cny, $eur, $source]);
-
-echo "Saved!\n";
+echo "ERROR: Both APIs failed\n";
+exit(1);

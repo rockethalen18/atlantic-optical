@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($action === 'refresh') {
         $saved = 0;
-        $response = api_fetch('https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR');
-        $source = 'frankfurter-api';
+        $response = api_fetch('https://open.er-api.com/v6/latest/USD');
+        $source = 'er-api';
 
         if ($response) {
             $data = json_decode($response, true);
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if ($saved === 0) {
-            $response2 = api_fetch('https://open.er-api.com/v6/latest/USD');
+            $response2 = api_fetch('https://api.frankfurter.app/latest?from=USD&to=MXN,COP,CNY,EUR');
             if ($response2) {
                 $data2 = json_decode($response2, true);
                 if (isset($data2['rates'])) {
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $cny = floatval($data2['rates']['CNY'] ?? 0);
                     $eur = floatval($data2['rates']['EUR'] ?? 0);
                     db()->prepare('INSERT INTO exchange_rates (usd_to_mxn, usd_mxn, usd_to_cop, usd_to_cny, usd_to_eur, source) VALUES (?, ?, ?, ?, ?, ?)')
-                        ->execute([$mxn, $mxn, $cop, $cny, $eur, 'er-api']);
+                        ->execute([$mxn, $mxn, $cop, $cny, $eur, 'frankfurter-api']);
                     $saved = ($mxn > 0) ? 1 : 0;
                 }
             }
