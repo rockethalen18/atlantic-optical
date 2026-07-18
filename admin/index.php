@@ -1,124 +1,143 @@
-<?php require_once 'includes/auth.php';
-$activePage = 'dashboard';
+<?php
+define('CURRENT_PAGE', 'index');
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/icons.php';
+require_once __DIR__ . '/includes/auth.php';
+require_login();
 
-$totalProducts = $pdo->query("SELECT COUNT(*) FROM products")->fetchColumn();
-$publishedProducts = $pdo->query("SELECT COUNT(*) FROM products WHERE status='published'")->fetchColumn();
-$totalCategories = $pdo->query("SELECT COUNT(*) FROM categories")->fetchColumn();
-$totalOrders = $pdo->query("SELECT COUNT(*) FROM orders")->fetchColumn();
-$pendingOrders = $pdo->query("SELECT COUNT(*) FROM orders WHERE status='pending'")->fetchColumn();
+$totalProducts = db()->query('SELECT COUNT(*) FROM products')->fetchColumn();
+$totalOrders = db()->query('SELECT COUNT(*) FROM orders')->fetchColumn();
+$totalCategories = db()->query('SELECT COUNT(*) FROM categories')->fetchColumn();
+$totalUsers = db()->query('SELECT COUNT(*) FROM users')->fetchColumn();
 
-$recentOrders = $pdo->query("SELECT id, order_number, status, total_usd, created_at FROM orders ORDER BY created_at DESC LIMIT 10")->fetchAll();
-$recentProducts = $pdo->query("SELECT id, name, sku, category, status FROM products ORDER BY id DESC LIMIT 8")->fetchAll();
+$pendingOrders = db()->query("SELECT COUNT(*) FROM orders WHERE status = 'pending'")->fetchColumn();
+$recentOrders = db()->query('SELECT id, customer_name, total, status, created_at FROM orders ORDER BY created_at DESC LIMIT 5')->fetchAll();
+
+$statusColors = [
+    'pending' => 'status-pending',
+    'processing' => 'status-processing',
+    'shipped' => 'status-shipped',
+    'delivered' => 'status-delivered',
+    'cancelled' => 'status-cancelled',
+];
+
+$setStatus = $_GET['set_status'] ?? null;
+$setId = $_GET['set_id'] ?? null;
+if ($setStatus && $setId) {
+    $allowed = ['pending','processing','shipped','delivered','cancelled'];
+    if (in_array($setStatus, $allowed)) {
+        $stmt = db()->prepare('UPDATE orders SET status = ? WHERE id = ?');
+        $stmt->execute([$setStatus, $setId]);
+        header('Location: index.php');
+        exit;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard — Atlantic Optical Admin</title>
+    <title>Dashboard - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
 </head>
 <body>
-<?php include 'includes/sidebar.php'; ?>
-
-<main class="main-content">
-    <header class="page-header">
-        <div style="display:flex; align-items:center; gap:12px;">
-            <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active')">&#9776;</button>
-            <h1>Dashboard</h1>
-        </div>
-        <div class="header-actions">
-            <div class="user-info">
-                <span><?php echo htmlspecialchars($current_user['name']); ?></span>
-                <div class="user-avatar"><?php echo strtoupper(substr($current_user['name'],0,1)); ?></div>
-            </div>
-        </div>
-    </header>
-
-    <div class="page-body">
-        <div class="stats-grid fade-in">
-            <div class="stat-card">
-                <div class="stat-glow cyan"></div>
-                <div class="stat-icon cyan">&#9733;</div>
-                <div class="stat-value"><?php echo $totalProducts; ?></div>
-                <div class="stat-label">Total Productos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-glow green" style="background:var(--green)"></div>
-                <div class="stat-icon green">&#10003;</div>
-                <div class="stat-value"><?php echo $publishedProducts; ?></div>
-                <div class="stat-label">Publicados</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-glow orange"></div>
-                <div class="stat-icon orange">&#9993;</div>
-                <div class="stat-value"><?php echo $totalOrders; ?></div>
-                <div class="stat-label">Total Pedidos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-glow purple"></div>
-                <div class="stat-icon purple">&#9654;</div>
-                <div class="stat-value"><?php echo $totalCategories; ?></div>
-                <div class="stat-label">Categorías</div>
-            </div>
-        </div>
-
-        <div class="grid-2">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Productos Recientes</h3>
-                    <a href="productos.php" class="btn btn-sm btn-secondary">Ver todos</a>
+    <div class="crm-layout">
+        <?php require_once __DIR__ . '/includes/sidebar.php'; ?>
+        <main class="crm-main">
+            <header class="crm-header">
+                <h1>Dashboard</h1>
+                <span class="crm-header-user"><?php echo htmlspecialchars(admin_name()); ?></span>
+            </header>
+            <div class="crm-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon blue"><?php echo crm_icon('box'); ?></div>
+                        <div class="stat-info">
+                            <span class="stat-number"><?php echo $totalProducts; ?></span>
+                            <span class="stat-label">Productos</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon yellow"><?php echo crm_icon('shopping-cart'); ?></div>
+                        <div class="stat-info">
+                            <span class="stat-number"><?php echo $totalOrders; ?></span>
+                            <span class="stat-label">Pedidos</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon green"><?php echo crm_icon('tag'); ?></div>
+                        <div class="stat-info">
+                            <span class="stat-number"><?php echo $totalCategories; ?></span>
+                            <span class="stat-label">Categorias</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon red"><?php echo crm_icon('users'); ?></div>
+                        <div class="stat-info">
+                            <span class="stat-number"><?php echo $totalUsers; ?></span>
+                            <span class="stat-label">Usuarios</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr><th>Producto</th><th>SKU</th><th>Categoría</th><th>Estado</th></tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($recentProducts as $p): ?>
-                            <tr>
-                                <td style="font-weight:500;"><?php echo htmlspecialchars($p['name']); ?></td>
-                                <td style="font-family:monospace;font-size:12px;"><?php echo htmlspecialchars($p['sku']); ?></td>
-                                <td><?php echo htmlspecialchars($p['category'] ?: '—'); ?></td>
-                                <td><span class="badge badge-<?php echo $p['status']==='published'?'green':'gray'; ?>"><?php echo $p['status']; ?></span></td>
-                            </tr>
-                            <?php endforeach; ?>
-                            <?php if (empty($recentProducts)): ?>
-                            <tr><td colspan="4" style="text-align:center; color:var(--text-muted);">No hay productos aún</td></tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3>Pedidos Recientes</h3>
-                    <a href="pedidos.php" class="btn btn-sm btn-secondary">Ver todos</a>
+                <?php if ($pendingOrders > 0): ?>
+                <div class="alert alert-warning">
+                    <?php echo crm_icon('refresh'); ?>
+                    <span>Tienes <?php echo $pendingOrders; ?> pedido(s) pendiente(s)</span>
                 </div>
-                <div class="table-wrapper">
-                    <table>
-                        <thead>
-                            <tr><th>Pedido</th><th>Total</th><th>Estado</th><th>Fecha</th></tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($recentOrders as $o): ?>
-                            <tr>
-                                <td style="font-weight:500;font-family:monospace;font-size:12px;"><?php echo htmlspecialchars($o['order_number']); ?></td>
-                                <td>$<?php echo number_format($o['total_usd'], 2); ?></td>
-                                <td><span class="badge badge-<?php echo $o['status']==='delivered'?'green':($o['status']==='pending'?'orange':($o['status']==='shipped'?'blue':'gray')); ?>"><?php echo $o['status']; ?></span></td>
-                                <td><?php echo date('d/m/Y', strtotime($o['created_at'])); ?></td>
-                            </tr>
-                            <?php endforeach; ?>
-                            <?php if (empty($recentOrders)): ?>
-                            <tr><td colspan="4" style="text-align:center; color:var(--text-muted);">No hay pedidos aún</td></tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
+                <?php endif; ?>
+
+                <div class="crm-card">
+                    <div class="crm-card-header">
+                        <h2>Pedidos Recientes</h2>
+                    </div>
+                    <div class="crm-table-wrap">
+                        <table class="crm-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cliente</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if (empty($recentOrders)): ?>
+                                <tr><td colspan="6" class="text-center text-muted">No hay pedidos aun</td></tr>
+                                <?php else: ?>
+                                <?php foreach ($recentOrders as $order): ?>
+                                <tr>
+                                    <td>#<?php echo $order['id']; ?></td>
+                                    <td><?php echo htmlspecialchars($order['customer_name']); ?></td>
+                                    <td>$<?php echo number_format($order['total'], 2); ?></td>
+                                    <td>
+                                        <select class="status-select <?php echo $statusColors[$order['status']] ?? ''; ?>" onchange="changeStatus(<?php echo $order['id']; ?>, this.value)">
+                                            <?php foreach ($statusColors as $val => $cls): ?>
+                                            <option value="<?php echo $val; ?>" <?php if ($order['status'] === $val) echo 'selected'; ?>><?php echo ucfirst($val); ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </td>
+                                    <td><?php echo date('d/m/Y', strtotime($order['created_at'])); ?></td>
+                                    <td>
+                                        <a href="pedidos.php?view=<?php echo $order['id']; ?>" class="btn-sm"><?php echo crm_icon('eye'); ?></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
-</main>
+    <script>
+    function changeStatus(id, status) {
+        window.location.href = 'index.php?set_id=' + id + '&set_status=' + status;
+    }
+    </script>
 </body>
 </html>

@@ -1,28 +1,33 @@
 <?php
-if (!isset($activePage)) $activePage = '';
+if (!defined('CURRENT_PAGE')) {
+    define('CURRENT_PAGE', '');
+}
+
+function sidebar_item($page, $icon, $label) {
+    $active = (CURRENT_PAGE === $page) ? ' class="active"' : '';
+    return '<a href="' . $page . '.php"' . $active . '>' . crm_icon($icon) . '<span>' . $label . '</span></a>';
+}
 ?>
-<div class="sidebar-overlay" onclick="document.querySelector('.sidebar').classList.remove('open');this.classList.remove('active')"></div>
-<nav class="sidebar">
-    <div class="sidebar-brand">
-        <div class="brand-icon">AO</div>
-        <div>
-            <div class="brand-text">Atlantic Optical</div>
-            <div class="brand-sub">Admin Panel</div>
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-logo">
+            <?php echo crm_icon('eye'); ?>
+            <div>
+                <strong>Atlantic Optical</strong>
+                <small>Admin Panel</small>
+            </div>
         </div>
     </div>
-    <div class="sidebar-nav">
-        <div class="nav-section">Principal</div>
-        <a href="index.php" <?php echo $activePage==='dashboard'?'class="active':''; ?>><span class="nav-icon">&#9632;</span> Dashboard</a>
-        <a href="productos.php" <?php echo $activePage==='productos'?'class="active':''; ?>><span class="nav-icon">&#9733;</span> Productos</a>
-        <a href="categorias.php" <?php echo $activePage==='categorias'?'class="active':''; ?>><span class="nav-icon">&#9654;</span> Categorías</a>
-        <div class="nav-section">Ventas</div>
-        <a href="pedidos.php" <?php echo $activePage==='pedidos'?'class="active':''; ?>><span class="nav-icon">&#9993;</span> Pedidos</a>
-        <div class="nav-section">Configuración</div>
-        <a href="costos.php" <?php echo $activePage==='costos'?'class="active':''; ?>><span class="nav-icon">&#36;</span> Costos y Envío</a>
-        <a href="usuarios.php" <?php echo $activePage==='usuarios'?'class="active':''; ?>><span class="nav-icon">&#9787;</span> Usuarios</a>
-    </div>
+    <nav class="sidebar-nav">
+        <?php echo sidebar_item('index', 'dashboard', 'Dashboard'); ?>
+        <?php echo sidebar_item('productos', 'box', 'Productos'); ?>
+        <?php echo sidebar_item('categorias', 'tag', 'Categorias'); ?>
+        <?php echo sidebar_item('pedidos', 'shopping-cart', 'Pedidos'); ?>
+        <?php echo sidebar_item('costos', 'dollar-sign', 'Costos'); ?>
+        <?php echo sidebar_item('usuarios', 'users', 'Usuarios'); ?>
+    </nav>
     <div class="sidebar-footer">
-        <a href="/"><span class="nav-icon">&#8592;</span> Volver al Sitio</a>
-        <a href="logout.php"><span class="nav-icon">&#10550;</span> Cerrar Sesión</a>
+        <a href="https://equipos.atlanticopticalgroup.com" target="_blank"><?php echo crm_icon('globe'); ?><span>Ver Sitio</span></a>
+        <a href="logout.php"><?php echo crm_icon('log-out'); ?><span>Cerrar Sesion</span></a>
     </div>
-</nav>
+</aside>

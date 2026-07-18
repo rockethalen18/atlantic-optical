@@ -1,89 +1,131 @@
-<?php require_once 'includes/auth.php';
-$activePage = 'productos';
+<?php
+define('CURRENT_PAGE', 'productos');
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/icons.php';
+require_once __DIR__ . '/includes/auth.php';
+require_login();
 
-$search = $_GET['search'] ?? '';
+$search = trim($_GET['q'] ?? '');
 $page = max(1, intval($_GET['page'] ?? 1));
-$perPage = 20;
+$perPage = 15;
 $offset = ($page - 1) * $perPage;
 
-$where = '';
-$params = [];
-if ($search) {
-    $where = "WHERE name LIKE :search OR sku LIKE :search";
-    $params[':search'] = "%$search%";
+if ($search !== '') {
+    $countStmt = db()->prepare('SELECT COUNT(*) FROM products WHERE name LIKE ? OR sku LIKE ?');
+    $countStmt->execute(["%$search%", "%$search%"]);
+    $total = $countStmt->fetchColumn();
+    $stmt = db()->prepare('SELECT * FROM products WHERE name LIKE ? OR sku LIKE ? ORDER BY created_at DESC LIMIT ? OFFSET ?');
+    $stmt->execute(["%$search%", "%$search%", $perPage, $offset]);
+} else {
+    $total = db()->query('SELECT COUNT(*) FROM products')->fetchColumn();
+    $stmt = db()->prepare('SELECT * FROM products ORDER BY created_at DESC LIMIT ? OFFSET ?');
+    $stmt->execute([$perPage, $offset]);
+}
+$products = $stmt->fetchAll();
+$totalPages = max(1, ceil($total / $perPage));
+
+$setStatus = $_GET['set'] ?? null;
+$setVal = $_GET['val'] ?? null;
+$setId = $_GET['sid'] ?? null;
+if ($setStatus && $setId) {
+    $allowed = ['active','inactive'];
+    if (in_array($setVal, $allowed)) {
+        $stmt2 = db()->prepare("UPDATE products SET status = ? WHERE id = ?");
+        $stmt2->execute([$setVal, $setId]);
+        header('Location: productos.php');
+        exit;
+    }
 }
 
-$total = $pdo->prepare("SELECT COUNT(*) FROM products $where");
-$total->execute($params);
-$totalProducts = $total->fetchColumn();
-
-$stmt = $pdo->prepare("SELECT * FROM products $where ORDER BY id DESC LIMIT $perPage OFFSET $offset");
-$stmt->execute($params);
-$products = $stmt->fetchAll();
-
-$totalPages = ceil($totalProducts / $perPage);
+$delId = $_GET['del'] ?? null;
+if ($delId) {
+    $stmt3 = db()->prepare('DELETE FROM products WHERE id = ?');
+    $stmt3->execute([$delId]);
+    header('Location: productos.php');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos — Atlantic Optical Admin</title>
+    <title>Productos - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
 </head>
 <body>
-<?php include 'includes/sidebar.php'; ?>
-
-<main class="main-content">
-    <header class="page-header">
-        <div style="display:flex; align-items:center; gap:12px;">
-            <button class="mobile-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open');document.querySelector('.sidebar-overlay').classList.toggle('active')">&#9776;</button>
-            <h1>Productos</h1>
-        </div>
-        <div class="header-actions">
-            <span style="font-size:13px;color:var(--text-muted);"><?php echo $totalProducts; ?> productos</span>
-        </div>
-    </header>
-
-    <div class="page-body">
-        <div class="toolbar">
-            <form method="GET" class="search-box" style="flex:1;">
-                <input type="text" name="search" placeholder="Buscar por nombre o SKU..." value="<?php echo htmlspecialchars($search); ?>">
-            </form>
-        </div>
-
-        <div class="card">
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr><th>Producto</th><th>SKU</th><th>Categoría</th><th>Peso (kg)</th><th>Estado</th></tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($products as $p): ?>
-                        <tr>
-                            <td style="font-weight:500;"><?php echo htmlspecialchars($p['name']); ?></td>
-                            <td style="font-family:monospace;font-size:12px;"><?php echo htmlspecialchars($p['sku']); ?></td>
-                            <td><?php echo htmlspecialchars($p['category'] ?: '—'); ?></td>
-                            <td><?php echo $p['weight_kg'] ?: '—'; ?></td>
-                            <td><span class="badge badge-<?php echo $p['status']==='published'?'green':'gray'; ?>"><?php echo $p['status']; ?></span></td>
-                        </tr>
-                        <?php endforeach; ?>
-                        <?php if (empty($products)): ?>
-                        <tr><td colspan="5" style="text-align:center; color:var(--text-muted); padding:40px;">No se encontraron productos</td></tr>
+    <div class="crm-layout">
+        <?php require_once __DIR__ . '/includes/sidebar.php'; ?>
+        <main class="crm-main">
+            <header class="crm-header">
+                <h1>Productos</h1>
+                <div class="crm-header-actions">
+                    <form method="GET" class="search-form">
+                        <?php echo crm_icon('search'); ?>
+                        <input type="text" name="q" placeholder="Buscar por nombre o SKU..." value="<?php echo htmlspecialchars($search); ?>">
+                        <?php if ($search): ?>
+                        <a href="productos.php" class="btn-clear"><?php echo crm_icon('x'); ?></a>
                         <?php endif; ?>
-                    </tbody>
-                </table>
+                    </form>
+                </div>
+            </header>
+            <div class="crm-content">
+                <div class="crm-card">
+                    <div class="crm-card-header">
+                        <h2><?php echo $total; ?> producto(s)</h2>
+                    </div>
+                    <div class="crm-table-wrap">
+                        <table class="crm-table">
+                            <thead>
+                                <tr>
+                                    <th>SKU</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php if (empty($products)): ?>
+                                <tr><td colspan="6" class="text-center text-muted">No se encontraron productos</td></tr>
+                                <?php else: ?>
+                                <?php foreach ($products as $p): ?>
+                                <tr>
+                                    <td><code><?php echo htmlspecialchars($p['sku']); ?></code></td>
+                                    <td><?php echo htmlspecialchars($p['name']); ?></td>
+                                    <td>$<?php echo number_format($p['price'], 2); ?></td>
+                                    <td><?php echo $p['stock']; ?></td>
+                                    <td>
+                                        <a href="productos.php?set=status&val=<?php echo $p['status'] === 'active' ? 'inactive' : 'active'; ?>&sid=<?php echo $p['id']; ?>" class="status-badge <?php echo $p['status'] === 'active' ? 'status-active' : 'status-inactive'; ?>">
+                                            <?php echo $p['status'] === 'active' ? 'Activo' : 'Inactivo'; ?>
+                                        </a>
+                                    </td>
+                                    <td class="actions-cell">
+                                        <a href="productos.php?del=<?php echo $p['id']; ?>" class="btn-sm btn-danger" onclick="return confirm('Eliminar este producto?')"><?php echo crm_icon('trash'); ?></a>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                                <?php endif; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php if ($totalPages > 1): ?>
+                    <div class="pagination">
+                        <?php if ($page > 1): ?>
+                        <a href="productos.php?page=<?php echo $page - 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&laquo;</a>
+                        <?php endif; ?>
+                        <?php for ($i = max(1, $page - 3); $i <= min($totalPages, $page + 3); $i++): ?>
+                        <a href="productos.php?page=<?php echo $i; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page <?php if ($i === $page) echo 'active'; ?>"><?php echo $i; ?></a>
+                        <?php endfor; ?>
+                        <?php if ($page < $totalPages): ?>
+                        <a href="productos.php?page=<?php echo $page + 1; ?><?php if ($search) echo '&q=' . urlencode($search); ?>" class="btn-page">&raquo;</a>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
-
-        <?php if ($totalPages > 1): ?>
-        <div class="pagination">
-            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-            <a href="?page=<?php echo $i; ?>&search=<?php echo urlencode($search); ?>" class="<?php echo $i === $page ? 'active' : ''; ?>"><?php echo $i; ?></a>
-            <?php endfor; ?>
-        </div>
-        <?php endif; ?>
+        </main>
     </div>
-</main>
 </body>
 </html>

@@ -1,39 +1,39 @@
 <?php
+require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/icons.php';
+
 session_start();
-if (isset($_SESSION['user_id'])) {
+
+if (isset($_SESSION['admin_id'])) {
     header('Location: index.php');
     exit;
 }
-require_once 'includes/db.php';
 
 $error = '';
-$email = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
     if ($email === '' || $password === '') {
-        $error = 'Completa todos los campos.';
+        $error = 'Completa todos los campos';
     } else {
         try {
-            $stmt = $pdo->prepare('SELECT id, name, email, password_hash, role FROM users WHERE email = :email');
-            $stmt->execute([':email' => $email]);
+            $stmt = db()->prepare('SELECT id, name, email, password FROM users WHERE email = ? LIMIT 1');
+            $stmt->execute([$email]);
             $user = $stmt->fetch();
 
-            if ($user && password_verify($password, $user['password_hash'])) {
-                session_regenerate_id(true);
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['user_role'] = $user['role'];
-                $_SESSION['user_name'] = $user['name'];
+            if ($user && password_verify($password, $user['password'])) {
+                $_SESSION['admin_id'] = $user['id'];
+                $_SESSION['admin_name'] = $user['name'];
+                $_SESSION['admin_email'] = $user['email'];
                 header('Location: index.php');
                 exit;
             } else {
-                $error = 'Credenciales incorrectas.';
+                $error = 'Email o contrasena incorrectos';
             }
         } catch (PDOException $e) {
-            error_log('Login error: ' . $e->getMessage());
-            $error = 'Error al procesar la solicitud.';
+            $error = 'Error de conexion';
         }
     }
 }
@@ -43,35 +43,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login — Atlantic Optical Admin</title>
+    <title>Atlantic Optical - Admin Login</title>
     <link rel="stylesheet" href="assets/css/crm.css">
+    <style>
+        body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .login-box { background: #111827; border-radius: 12px; padding: 40px; width: 100%; max-width: 400px; border: 1px solid #1f2937; }
+        .login-logo { text-align: center; margin-bottom: 32px; }
+        .login-logo h1 { color: #fff; font-size: 22px; margin: 0 0 6px; }
+        .login-logo p { color: #6b7280; font-size: 14px; margin: 0; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: #9ca3af; font-size: 13px; margin-bottom: 6px; font-weight: 500; }
+        .form-group input { width: 100%; padding: 12px 14px; background: #1f2937; border: 1px solid #374151; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus { border-color: #3b82f6; }
+        .form-group input::placeholder { color: #6b7280; }
+        .btn-login { width: 100%; padding: 12px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .btn-login:hover { background: #1d4ed8; }
+        .error-msg { background: #7f1d1d; color: #fca5a5; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 20px; text-align: center; }
+    </style>
 </head>
 <body>
-<div class="login-wrapper">
-    <div class="login-card">
-        <div class="login-brand">
-            <div class="logo">AO</div>
-            <h1>Atlantic Optical</h1>
-            <p>Panel de Administración</p>
+    <div class="login-box">
+        <div class="login-logo">
+            <h1><?php echo crm_icon('eye', 'login-icon'); ?> Atlantic Optical</h1>
+            <p>Panel de Administracion</p>
         </div>
+
         <?php if ($error): ?>
-            <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
+            <div class="error-msg"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
-        <form method="POST" action="login.php">
+
+        <form method="POST" action="">
             <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="admin@atlanticopticalgroup.com" required value="<?php echo htmlspecialchars($email); ?>">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="admin@atlanticopticalgroup.com" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
             </div>
             <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="••••••••" required>
+                <label>Contrasena</label>
+                <input type="password" name="password" placeholder="Tu contrasena" required>
             </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit" class="btn-login">Iniciar Sesion</button>
         </form>
-        <div class="login-footer">
-            <a href="/">← Volver al sitio principal</a>
-        </div>
     </div>
-</div>
 </body>
 </html>
