@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $error = 'Ya existe un usuario con ese email';
                 } else {
                     $hash = password_hash($password, PASSWORD_DEFAULT);
-                    $stmt2 = db()->prepare('INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)');
+                    $stmt2 = db()->prepare('INSERT INTO users (name, email, password_hash, role) VALUES (?, ?, ?, ?)');
                     $stmt2->execute([$name, $email, $hash, 'admin']);
                     $message = 'Usuario creado. Redirigiendo al login...';
                     header('Refresh: 2; url=/admin/login');
