@@ -37,7 +37,7 @@ fi
 FTP_HOST=${FTP_HOST:-"ftp.atlanticoptical.com"}
 FTP_USER=${FTP_USER:-"atlantic@atlanticoptical.com"}
 FTP_PASS=${FTP_PASS:-""}
-FTP_DIR=${FTP_DIR:-"/public_html"}
+FTP_DIR=${FTP_DIR:-"/equipos.atlanticopticalgroup.com"}
 BUILD_DIR="out"
 BACKEND_DIR="backend"
 
