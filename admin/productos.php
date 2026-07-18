@@ -173,20 +173,76 @@ $search = trim($_GET['q'] ?? '');
 $page = max(1, intval($_GET['page'] ?? 1));
 $perPage = 15;
 $offset = ($page - 1) * $perPage;
+$fCategory = intval($_GET['cat'] ?? 0);
+$fStatus = $_GET['status'] ?? '';
+$fPriceMin = isset($_GET['price_min']) ? floatval($_GET['price_min']) : '';
+$fPriceMax = isset($_GET['price_max']) ? floatval($_GET['price_max']) : '';
+$fStock = $_GET['stock'] ?? '';
+$fSeo = $_GET['seo'] ?? '';
+
+$conditions = [];
+$params = [];
 
 if ($search !== '') {
-    $cntS = db()->prepare('SELECT COUNT(*) FROM products WHERE name LIKE ? OR sku LIKE ?');
-    $cntS->execute(["%$search%", "%$search%"]);
-    $total = $cntS->fetchColumn();
-    $stmt = db()->prepare('SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON p.category_id = c.id WHERE p.name LIKE ? OR p.sku LIKE ? ORDER BY p.created_at DESC LIMIT ? OFFSET ?');
-    $stmt->execute(["%$search%", "%$search%", $perPage, $offset]);
-} else {
-    $total = db()->query('SELECT COUNT(*) FROM products')->fetchColumn();
-    $stmt = db()->prepare('SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON p.category_id = c.id ORDER BY p.created_at DESC LIMIT ? OFFSET ?');
-    $stmt->execute([$perPage, $offset]);
+    $conditions[] = '(p.name LIKE ? OR p.sku LIKE ? OR p.reference LIKE ?)';
+    $params[] = "%$search%";
+    $params[] = "%$search%";
+    $params[] = "%$search%";
 }
+if ($fCategory > 0) {
+    $conditions[] = 'p.category_id = ?';
+    $params[] = $fCategory;
+}
+if ($fStatus !== '' && in_array($fStatus, ['active', 'inactive'])) {
+    $conditions[] = 'p.status = ?';
+    $params[] = $fStatus;
+}
+if ($fPriceMin !== '') {
+    $conditions[] = 'p.price_mxn >= ?';
+    $params[] = $fPriceMin;
+}
+if ($fPriceMax !== '') {
+    $conditions[] = 'p.price_mxn <= ?';
+    $params[] = $fPriceMax;
+}
+if ($fStock === 'out') {
+    $conditions[] = 'p.stock <= 0';
+} elseif ($fStock === 'low') {
+    $conditions[] = 'p.stock > 0 AND p.stock <= 5';
+} elseif ($fStock === 'ok') {
+    $conditions[] = 'p.stock > 5';
+}
+if ($fSeo === 'yes') {
+    $conditions[] = "p.seo_title != ''";
+} elseif ($fSeo === 'no') {
+    $conditions[] = "(p.seo_title IS NULL OR p.seo_title = '')";
+}
+
+$where = $conditions ? 'WHERE ' . implode(' AND ', $conditions) : '';
+
+$cntS = db()->prepare("SELECT COUNT(*) FROM products p $where");
+$cntS->execute($params);
+$total = $cntS->fetchColumn();
+
+$stmt = db()->prepare("SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON p.category_id = c.id $where ORDER BY p.created_at DESC LIMIT ? OFFSET ?");
+$allParams = array_merge($params, [$perPage, $offset]);
+$stmt->execute($allParams);
 $products = $stmt->fetchAll();
 $totalPages = max(1, ceil($total / $perPage));
+
+function build_filter_url($overrides = []) {
+    $base = '/admin/productos';
+    $params = [];
+    foreach (['q', 'cat', 'status', 'price_min', 'price_max', 'stock', 'seo', 'page'] as $key) {
+        $val = $overrides[$key] ?? ($_GET[$key] ?? '');
+        if ($val !== '' && $val !== null && $val !== 0) {
+            $params[] = $key . '=' . urlencode($val);
+        }
+    }
+    return $base . ($params ? '?' . implode('&', $params) : '');
+}
+
+$hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin !== '' || $fPriceMax !== '' || $fStock !== '' || $fSeo !== '');
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -205,8 +261,14 @@ $totalPages = max(1, ceil($total / $perPage));
         .photo-item .photo-badge { position: absolute; bottom: 4px; left: 4px; background: #2563eb; color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; }
         .photo-upload-form { background: #0f1629; border-radius: 8px; padding: 16px; margin-top: 12px; }
         .product-thumb { width: 48px; height: 48px; border-radius: 6px; object-fit: cover; background: #1f2937; border: 1px solid #374151; }
-        .product-thumb-placeholder { width: 48px; height: 48px; border-radius: 6px; background: #1f2937; border: 1px solid #374151; display: flex; align-items: center; justify-content: center; color: #6b7280; }
-        .product-thumb-placeholder .crm-icon { width: 20px; height: 20px; }
+        .product-thumb-placeholder { width: 48px; height: 48px; border-radius: 6px; background: #1e3a5f; border: 1px solid #374151; display: flex; align-items: center; justify-content: center; color: #60a5fa; font-size: 13px; font-weight: 700; }
+        .product-thumb-container.has-img .product-thumb { border-color: #2563eb; }
+        .filter-form { display: block; }
+        .filter-row { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+        .filter-group { display: flex; flex-direction: column; gap: 4px; }
+        .filter-group label { color: #6b7280; font-size: 11px; font-weight: 500; text-transform: uppercase; }
+        .filter-group input, .filter-group select { background: #1f2937; border: 1px solid #374151; border-radius: 6px; color: #d1d5db; padding: 7px 10px; font-size: 13px; min-width: 100px; }
+        .filter-group input:focus, .filter-group select:focus { outline: none; border-color: #3b82f6; }
     </style>
 </head>
 <body>
@@ -361,6 +423,70 @@ $totalPages = max(1, ceil($total / $perPage));
                 </div>
                 <?php endif; ?>
                 <?php else: ?>
+                <div class="crm-card" style="margin-bottom:16px">
+                    <div class="crm-card-body" style="padding:12px 16px">
+                        <form method="GET" class="filter-form">
+                            <div class="filter-row">
+                                <div class="filter-group">
+                                    <label>Buscar</label>
+                                    <input type="text" name="q" placeholder="Nombre, SKU..." value="<?php echo htmlspecialchars($search); ?>">
+                                </div>
+                                <div class="filter-group">
+                                    <label>Categoria</label>
+                                    <select name="cat">
+                                        <option value="">Todas</option>
+                                        <?php foreach ($categories as $c): ?>
+                                        <?php if ($c['parent_id'] == null): ?>
+                                        <optgroup label="<?php echo htmlspecialchars($c['name']); ?>">
+                                        <?php else: ?>
+                                        <option value="<?php echo intval($c['id']); ?>" <?php if ($fCategory === intval($c['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($c['name']); ?></option>
+                                        <?php endif; endforeach; ?>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Estado</label>
+                                    <select name="status">
+                                        <option value="">Todos</option>
+                                        <option value="active" <?php if ($fStatus === 'active') echo 'selected'; ?>>Activo</option>
+                                        <option value="inactive" <?php if ($fStatus === 'inactive') echo 'selected'; ?>>Inactivo</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Precio Min</label>
+                                    <input type="number" name="price_min" step="0.01" min="0" placeholder="$0" value="<?php echo htmlspecialchars($fPriceMin); ?>">
+                                </div>
+                                <div class="filter-group">
+                                    <label>Precio Max</label>
+                                    <input type="number" name="price_max" step="0.01" min="0" placeholder="$9999" value="<?php echo htmlspecialchars($fPriceMax); ?>">
+                                </div>
+                                <div class="filter-group">
+                                    <label>Stock</label>
+                                    <select name="stock">
+                                        <option value="">Todos</option>
+                                        <option value="out" <?php if ($fStock === 'out') echo 'selected'; ?>>Agotado</option>
+                                        <option value="low" <?php if ($fStock === 'low') echo 'selected'; ?>>Bajo (1-5)</option>
+                                        <option value="ok" <?php if ($fStock === 'ok') echo 'selected'; ?>>Suficiente (6+)</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>SEO</label>
+                                    <select name="seo">
+                                        <option value="">Todos</option>
+                                        <option value="yes" <?php if ($fSeo === 'yes') echo 'selected'; ?>>Con SEO</option>
+                                        <option value="no" <?php if ($fSeo === 'no') echo 'selected'; ?>>Sin SEO</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group" style="align-self:flex-end">
+                                    <button type="submit" class="btn-primary"><?php echo crm_icon('search'); ?> Filtrar</button>
+                                    <?php if ($hasFilters): ?>
+                                    <a href="/admin/productos" class="btn-secondary" style="margin-left:4px">Limpiar</a>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
                 <div class="crm-card">
                     <div class="crm-card-header"><h2><?php echo $total; ?> producto(s)</h2></div>
                     <div class="crm-table-wrap">
@@ -373,12 +499,14 @@ $totalPages = max(1, ceil($total / $perPage));
                                 <?php foreach ($products as $p): ?>
                                 <tr>
                                     <td>
+                                        <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
                                         <?php if (!empty($p['image'])): ?>
-                                        <img src="https://atlanticopticalgroup.com<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                                        <div class="product-thumb-placeholder" style="display:none"><?php echo crm_icon('box'); ?></div>
+                                        <img src="https://atlanticopticalgroup.com<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                        <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
                                         <?php else: ?>
-                                        <div class="product-thumb-placeholder"><?php echo crm_icon('box'); ?></div>
+                                        <div class="product-thumb-placeholder"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
                                         <?php endif; ?>
+                                        </div>
                                     </td>
                                     <td><code><?php echo htmlspecialchars($p['sku']); ?></code></td>
                                     <td><?php echo htmlspecialchars($p['name']); ?></td>
@@ -412,11 +540,11 @@ $totalPages = max(1, ceil($total / $perPage));
                     </div>
                     <?php if ($totalPages > 1): ?>
                     <div class="pagination">
-                        <?php if ($page > 1): ?><a href="/admin/productos?page=<?php echo $page-1; ?><?php if ($search) echo '&q='.urlencode($search); ?>" class="btn-page">&laquo;</a><?php endif; ?>
+                        <?php if ($page > 1): ?><a href="<?php echo build_filter_url(['page' => $page - 1]); ?>" class="btn-page">&laquo;</a><?php endif; ?>
                         <?php for ($i = max(1,$page-3); $i <= min($totalPages,$page+3); $i++): ?>
-                        <a href="/admin/productos?page=<?php echo $i; ?><?php if ($search) echo '&q='.urlencode($search); ?>" class="btn-page <?php if ($i===$page) echo 'active'; ?>"><?php echo $i; ?></a>
+                        <a href="<?php echo build_filter_url(['page' => $i]); ?>" class="btn-page <?php if ($i===$page) echo 'active'; ?>"><?php echo $i; ?></a>
                         <?php endfor; ?>
-                        <?php if ($page < $totalPages): ?><a href="/admin/productos?page=<?php echo $page+1; ?><?php if ($search) echo '&q='.urlencode($search); ?>" class="btn-page">&raquo;</a><?php endif; ?>
+                        <?php if ($page < $totalPages): ?><a href="<?php echo build_filter_url(['page' => $page + 1]); ?>" class="btn-page">&raquo;</a><?php endif; ?>
                     </div>
                     <?php endif; ?>
                 </div>
