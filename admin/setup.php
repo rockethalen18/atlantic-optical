@@ -5,6 +5,18 @@ require_once __DIR__ . '/includes/icons.php';
 $message = '';
 $error = '';
 
+$adminCount = 0;
+try {
+    $adminCount = db()->query("SELECT COUNT(*) FROM users WHERE role = 'admin'")->fetchColumn();
+} catch (PDOException $e) {
+    // Table might not exist yet
+}
+
+if ($adminCount > 0) {
+    header('Location: login.php');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
 
@@ -27,7 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $hash = password_hash($password, PASSWORD_DEFAULT);
                     $stmt2 = db()->prepare('INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)');
                     $stmt2->execute([$name, $email, $hash, 'admin']);
-                    $message = 'Usuario creado: ' . htmlspecialchars($email);
+                    $message = 'Usuario creado. Redirigiendo al login...';
+                    header('Refresh: 2; url=login.php');
                 }
             } catch (PDOException $e) {
                 $error = 'Error: ' . $e->getMessage();
@@ -49,8 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
-$users = db()->query('SELECT id, name, email, role FROM users ORDER BY id')->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -58,6 +69,7 @@ $users = db()->query('SELECT id, name, email, role FROM users ORDER BY id')->fet
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Setup - Atlantic Optical Admin</title>
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -71,22 +83,17 @@ $users = db()->query('SELECT id, name, email, role FROM users ORDER BY id')->fet
         .form-group label { display: block; color: #9ca3af; font-size: 13px; margin-bottom: 4px; }
         .form-group input { width: 100%; padding: 10px 12px; background: #1f2937; border: 1px solid #374151; border-radius: 6px; color: #fff; font-size: 14px; box-sizing: border-box; }
         .form-group input:focus { outline: none; border-color: #3b82f6; }
-        .btn { padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; }
+        .btn { padding: 10px 20px; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; box-sizing: border-box; }
         .btn-primary { background: #2563eb; color: #fff; }
         .btn-primary:hover { background: #1d4ed8; }
-        .btn-secondary { background: #374151; color: #fff; margin-top: 16px; display: inline-block; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-size: 14px; }
-        .users-list { margin-top: 24px; }
-        .users-list h3 { color: #d1d5db; font-size: 14px; margin: 0 0 8px; }
-        .user-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: #1f2937; border-radius: 6px; margin-bottom: 4px; }
-        .user-item .name { color: #fff; font-size: 14px; }
-        .user-item .email { color: #6b7280; font-size: 12px; }
-        .user-item .role { color: #9ca3af; font-size: 12px; }
+        .btn-green { background: #065f46; color: #fff; }
+        .btn-green:hover { background: #047857; }
     </style>
 </head>
 <body>
     <div class="setup-box">
         <h1><?php echo crm_icon('eye'); ?> Atlantic Optical</h1>
-        <p class="subtitle">Configuracion inicial del admin panel</p>
+        <p class="subtitle">Configuracion inicial — solo accesible una vez</p>
 
         <?php if ($message): ?>
             <div class="alert alert-success"><?php echo $message; ?></div>
@@ -95,7 +102,14 @@ $users = db()->query('SELECT id, name, email, role FROM users ORDER BY id')->fet
             <div class="alert alert-error"><?php echo $error; ?></div>
         <?php endif; ?>
 
+        <?php if ($adminCount === 0): ?>
+
         <form method="POST">
+            <input type="hidden" name="action" value="create_tables">
+            <button type="submit" class="btn btn-green">1. Crear Tablas en MySQL</button>
+        </form>
+
+        <form method="POST" style="margin-top: 16px;">
             <input type="hidden" name="action" value="create_user">
             <div class="form-group">
                 <label>Nombre</label>
@@ -109,30 +123,16 @@ $users = db()->query('SELECT id, name, email, role FROM users ORDER BY id')->fet
                 <label>Contrasena (minimo 8 caracteres)</label>
                 <input type="password" name="password" placeholder="Minimo 8 caracteres" required minlength="8">
             </div>
-            <button type="submit" class="btn btn-primary">Crear Usuario Admin</button>
+            <button type="submit" class="btn btn-primary">2. Crear Usuario Admin</button>
         </form>
 
-        <form method="POST" style="margin-top: 16px;">
-            <input type="hidden" name="action" value="create_tables">
-            <button type="submit" class="btn btn-secondary" style="background: #065f46; width: 100%; text-align: center;">Crear/Actualizar Tablas en MySQL</button>
-        </form>
+        <?php else: ?>
 
-        <?php if (!empty($users)): ?>
-        <div class="users-list">
-            <h3>Usuarios existentes:</h3>
-            <?php foreach ($users as $u): ?>
-            <div class="user-item">
-                <div>
-                    <div class="name"><?php echo htmlspecialchars($u['name']); ?></div>
-                    <div class="email"><?php echo htmlspecialchars($u['email']); ?></div>
-                </div>
-                <div class="role"><?php echo $u['role']; ?></div>
-            </div>
-            <?php endforeach; ?>
+        <div class="alert alert-success">
+            Ya existe un admin. <a href="login.php" style="color:#6ee7b7;">Ir al Login</a>
         </div>
-        <?php endif; ?>
 
-        <a href="login.php" class="btn-secondary">Ir al Login &rarr;</a>
+        <?php endif; ?>
     </div>
 </body>
 </html>
