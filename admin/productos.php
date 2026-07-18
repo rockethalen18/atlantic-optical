@@ -380,15 +380,10 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                         <div class="crm-card-body">
                             <div style="display:flex;gap:20px;align-items:flex-start">
                                 <div>
-                                    <?php if (!empty($product['image'])): ?>
+                                    <?php $editImg = !empty($product['image']) ? $product['image'] : '/images/products/' . $product['sku'] . '.jpg'; ?>
                                     <div style="width:180px;height:180px;background:#1f2937;border:2px solid #374151;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center">
-                                        <img src="<?php echo htmlspecialchars($product['image']); ?>" alt="" style="max-width:100%;max-height:100%;object-fit:contain">
+                                        <img src="<?php echo htmlspecialchars($editImg); ?>" alt="" style="max-width:100%;max-height:100%;object-fit:contain" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;color:#6b7280;font-size:13px;text-align:center;padding:16px&quot;>Sin imagen</div>'">
                                     </div>
-                                    <?php else: ?>
-                                    <div style="width:180px;height:180px;background:#1f2937;border:2px dashed #374151;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:13px;text-align:center;padding:16px">
-                                        Sin imagen
-                                    </div>
-                                    <?php endif; ?>
                                 </div>
                                 <div style="flex:1">
                                     <div class="form-group">
@@ -399,7 +394,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                         <label>O URL de imagen</label>
                                         <input type="text" name="image_url" placeholder="/images/products/AO-XXX.jpg" value="<?php echo htmlspecialchars($product['image'] ?? ''); ?>" style="background:#1f2937;border:1px solid #374151;border-radius:6px;color:#d1d5db;padding:7px 10px;font-size:13px;width:100%">
                                     </div>
-                                    <p style="color:#6b7280;font-size:11px;margin-top:8px">La imagen se guardar&aacute; en la ruta indicada. Use rutas relativas como <code>/images/products/AO-XXX.jpg</code></p>
+                                    <p style="color:#6b7280;font-size:11px;margin-top:8px">Ruta autom&aacute;tica: <code>/images/products/{SKU}.jpg</code> (si el campo est&aacute; vac&iacute;o)</p>
                                 </div>
                             </div>
                         </div>
@@ -532,13 +527,10 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 <?php foreach ($products as $p): ?>
                                 <tr>
                                     <td>
+                                        <?php $imgSrc = !empty($p['image']) ? $p['image'] : '/images/products/' . htmlspecialchars($p['sku']) . '.jpg'; ?>
                                         <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
-                                        <?php if (!empty($p['image'])): ?>
-                                        <img src="<?php echo htmlspecialchars($p['image']); ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                        <img src="<?php echo $imgSrc; ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                                         <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
-                                        <?php else: ?>
-                                        <div class="product-thumb-placeholder"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
-                                        <?php endif; ?>
                                         </div>
                                     </td>
                                     <td><code><?php echo htmlspecialchars($p['sku']); ?></code></td>
