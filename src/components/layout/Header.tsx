@@ -247,9 +247,6 @@ export default function Header() {
             >
               <Icons.Search size={18} />
             </button>
-            <Link href="/admin" className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors hidden sm:flex rounded-lg hover:bg-white/10">
-              <Icons.User size={18} />
-            </Link>
             <Link href="/carrito" className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors relative rounded-lg hover:bg-white/10">
               <Icons.ShoppingCart size={18} />
               <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-[var(--blue)] text-[8px] font-bold text-white rounded-full flex items-center justify-center">0</span>
@@ -448,7 +445,6 @@ export default function Header() {
               <div className="mt-4 pt-4 border-t border-white/10">
                 <Link href="/contacto" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Contacto</Link>
                 <Link href="/faq" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Preguntas Frecuentes</Link>
-                <Link href="/admin" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Panel Admin</Link>
               </div>
             </div>
           </div>
