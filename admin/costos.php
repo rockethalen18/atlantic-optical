@@ -93,6 +93,7 @@ $exchangeRates = db()->query('SELECT * FROM exchange_rates ORDER BY id DESC LIMI
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Costos - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
     <div class="crm-layout">

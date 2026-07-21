@@ -96,6 +96,7 @@ $totalPages = max(1, ceil($total / $perPage));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ($editId > 0 || $isNew) ? 'Editar Usuario' : 'Usuarios'; ?> - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
     <div class="crm-layout">

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   keywords: "foróptero, lentómetro, equipo oftálmico, auto refractómetro, lámpara de hendidura, tónómetro, equipo optométrico, monturas, lentes de sol, Atlantic Optical, Panamá, México",
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://equipos.atlanticopticalgroup.com' },
-  icons: { icon: '/images/logo-atlantic-retina.png' },
+  icons: { icon: '/favicon.svg', apple: '/images/logo-atlantic-retina.png' },
   openGraph: {
     title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
     description: "Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias.",

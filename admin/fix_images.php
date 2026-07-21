@@ -39,6 +39,7 @@ foreach ($products as $p) {
     <meta charset="UTF-8">
     <title>Fix Product Images</title>
     <link rel="stylesheet" href="assets/css/crm.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
 <body>
     <div class="crm-layout">

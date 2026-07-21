@@ -52,10 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Atlantic Optical - Admin Login</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         .login-box { background: #111827; border-radius: 12px; padding: 40px; width: 100%; max-width: 400px; border: 1px solid #1f2937; }
         .login-logo { text-align: center; margin-bottom: 32px; }
+        .login-logo img { height: 60px; margin-bottom: 16px; }
         .login-logo h1 { color: #fff; font-size: 22px; margin: 0 0 6px; }
         .login-logo p { color: #6b7280; font-size: 14px; margin: 0; }
         .form-group { margin-bottom: 20px; }
@@ -71,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="login-box">
         <div class="login-logo">
-            <h1><?php echo crm_icon('eye'); ?> Atlantic Optical</h1>
+            <img src="/images/logo-atlantic.png" alt="Atlantic Optical">
             <p>Panel de Administracion</p>
         </div>
 
