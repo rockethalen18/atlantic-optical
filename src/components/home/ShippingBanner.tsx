@@ -106,7 +106,7 @@ export default function ShippingBanner() {
             const key = (m.method || '').toLowerCase();
             const Icon = iconMap[key] || Icons.Package;
             const color = colorMap[key] || 'var(--blue)';
-            const days = m.min_days && m.max_days ? `${m.min_days}-${m.max_days} días` : m.estimated_days || '';
+            const days = m.min_days && m.max_days ? `${m.min_days}-${m.max_days} días` : '';
             return (
               <div key={i} className="ship-card group relative bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-center hover:bg-white/10 transition-all duration-500 hover:border-white/20">
                 <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
