@@ -95,7 +95,7 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="mt-14 text-center">
-          <Link href="/productos" className="inline-flex items-center gap-3 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-10 py-4 hover:bg-[var(--green-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]">
+          <Link href="/productos" className="inline-flex items-center gap-3 font-bold text-[12px] uppercase tracking-[0.1em] px-10 py-4 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]" style={{ background: '#1e3a5f', color: '#ffffff' }}>
             Ver Todo el Catálogo <Icons.ArrowRight size={13} />
           </Link>
         </div>

@@ -63,7 +63,7 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={ref} className="bg-[var(--dark-bg)] relative overflow-hidden text-white">
+    <footer ref={ref} className="relative overflow-hidden" style={{ background: '#0a1628', color: '#ffffff' }}>
       {/* Decorative gradient */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.5\'/%3E%3C/svg%3E")' }} />
 
@@ -88,9 +88,10 @@ export default function Footer() {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-white/10 border border-white/20 text-white text-[14px] placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
+                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] text-[14px] focus:outline-none transition-colors"
+                  style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
                 />
-                <button type="submit" className="px-6 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
+                <button type="submit" className="px-6 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-colors whitespace-nowrap" style={{ background: '#2563eb', color: '#ffffff' }}>
                   Suscribir
                 </button>
               </form>

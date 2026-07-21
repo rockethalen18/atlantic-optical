@@ -73,7 +73,7 @@ export default function HeroCarousel() {
   const s = slides[i];
 
   return (
-    <section className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] bg-[#0a1628] overflow-hidden text-white">
+    <section className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] overflow-hidden text-white" style={{ background: '#0a1628' }}>
       {slides.map((slide, idx) => (
         <div
           key={idx}
@@ -85,7 +85,7 @@ export default function HeroCarousel() {
       ))}
 
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/70 to-[#0a1628]/30" />
-      <div className="absolute inset-0 bg-[#0a1628]/40" />
+      <div className="absolute inset-0" style={{ background: 'rgba(10,22,40,0.4)' }} />
       <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#0a1628] to-transparent" />
 
       <div className="relative z-10 max-w-[1680px] mx-auto px-5 sm:px-6 md:px-10 h-full flex items-center pt-[60px] lg:pt-[106px] text-white">
@@ -104,7 +104,7 @@ export default function HeroCarousel() {
           </p>
 
           <div className="hero-cta flex flex-col sm:flex-row gap-2.5 sm:gap-3 mb-8 sm:mb-0">
-            <Link href={s.primaryCta.href} className="hero-cta group inline-flex items-center justify-center gap-2.5 bg-[var(--blue)] text-white font-bold text-[12px] sm:text-[13px] uppercase tracking-[0.08em] px-6 sm:px-8 py-3.5 sm:py-4 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(37,99,235,0.3)]">
+            <Link href={s.primaryCta.href} className="hero-cta group inline-flex items-center justify-center gap-2.5 font-bold text-[12px] sm:text-[13px] uppercase tracking-[0.08em] px-6 sm:px-8 py-3.5 sm:py-4 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(37,99,235,0.3)]" style={{ background: '#2563eb', color: '#ffffff' }}>
               {s.primaryCta.label}
               <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>

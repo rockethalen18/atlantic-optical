@@ -86,7 +86,7 @@ export default function VideoSection() {
             </div>
 
             <div className="mt-12">
-              <Link href="/nosotros" className="inline-flex items-center gap-2 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 hover:bg-[var(--green-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]">
+              <Link href="/nosotros" className="inline-flex items-center gap-2 font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]" style={{ background: '#1e3a5f', color: '#ffffff' }}>
                 Conocer Más <Icons.ArrowRight size={13} />
               </Link>
             </div>

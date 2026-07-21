@@ -40,7 +40,7 @@ function render_exchange_widget() {
 echo '<aside class="sidebar">';
 echo '<div class="sidebar-header">';
 echo '<div class="sidebar-logo">';
-echo crm_icon('eye');
+echo '<img src="/images/logo-atlantic.png" alt="Atlantic Optical" style="height:36px;width:auto">';
 echo '<div><strong>Atlantic Optical</strong><small>Admin Panel</small></div>';
 echo '</div></div>';
 echo '<nav class="sidebar-nav">';
