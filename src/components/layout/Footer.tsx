@@ -22,8 +22,6 @@ const helpLinks = [
 
 const companyLinks = [
   { label: 'Sobre Nosotros', href: '/nosotros' },
-  { label: 'Programa Distribuidores', href: '/distribuidores' },
-  { label: 'OEM & ODM', href: '/oem-odm' },
   { label: 'Términos y Condiciones', href: '/terminos' },
 ];
 
@@ -72,8 +70,8 @@ export default function Footer() {
         <div className="footer-col mb-12 p-8 bg-white/5 border border-white/10 backdrop-blur-sm">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
-              <h3 className="text-[18px] font-bold text-white mb-1">Mantente Actualizado</h3>
-              <p className="text-[13px] text-white/70">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
+              <h3 className="text-[18px] font-bold mb-1" style={{ color: '#ffffff' }}>Mantente Actualizado</h3>
+              <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
             </div>
             {subscribed ? (
               <div className="flex items-center gap-2 text-emerald-400">

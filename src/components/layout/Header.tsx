@@ -124,8 +124,6 @@ const rightNavItems = [
           title: 'Atlantic Optical',
           links: [
             { label: 'Sobre Nosotros', href: '/nosotros' },
-            { label: 'Programa Distribuidores', href: '/distribuidores' },
-            { label: 'OEM & ODM', href: '/oem-odm' },
           ],
         },
         {
