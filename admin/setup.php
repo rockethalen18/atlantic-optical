@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <script>var t=localStorage.getItem('admin-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+    <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
         .setup-box { background: #111827; border-radius: 12px; padding: 40px; width: 100%; max-width: 500px; border: 1px solid #1f2937; }

@@ -255,7 +255,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
     <title><?php echo ($editId > 0 || $isNew) ? 'Editar Producto' : 'Productos'; ?> - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <script>var t=localStorage.getItem('admin-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+    <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 12px; }
         .photo-item { position: relative; background: #1f2937; border-radius: 8px; overflow: hidden; border: 2px solid transparent; }

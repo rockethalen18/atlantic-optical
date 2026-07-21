@@ -96,7 +96,7 @@ $currencies = [
     <title>Divisas - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <script>var t=localStorage.getItem('admin-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+    <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         .rate-card { background: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 24px; display: flex; align-items: center; gap: 20px; }
         .rate-flag { font-size: 36px; }

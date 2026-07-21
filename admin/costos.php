@@ -94,7 +94,7 @@ $exchangeRates = db()->query('SELECT * FROM exchange_rates ORDER BY id DESC LIMI
     <title>Costos - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <script>var t=localStorage.getItem('admin-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+    <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>
     <div class="crm-layout">
@@ -165,41 +165,6 @@ $exchangeRates = db()->query('SELECT * FROM exchange_rates ORDER BY id DESC LIMI
                 <?php else: ?>
                 <div class="crm-card">
                     <div class="crm-card-header">
-                        <h2><?php echo crm_icon('globe'); ?> Tipo de Cambio (USD/MXN)</h2>
-                        <a href="/admin/costos?new_exchange=1" class="btn-primary"><?php echo crm_icon('plus'); ?> Nuevo</a>
-                    </div>
-                    <?php if (!empty($exchangeRates)): ?>
-                    <div class="crm-table-wrap">
-                        <table class="crm-table">
-                            <thead><tr><th>USD to MXN</th><th>Fuente</th><th>Fecha</th><th>Acciones</th></tr></thead>
-                            <tbody>
-                                <?php foreach ($exchangeRates as $er): ?>
-                                <tr>
-                                    <td><strong><?php echo number_format($er['usd_to_mxn'], 4); ?></strong></td>
-                                    <td><?php echo htmlspecialchars($er['source'] ?? '-'); ?></td>
-                                    <td><?php echo isset($er['updated_at']) ? date('d/m/Y H:i', strtotime($er['updated_at'])) : '-'; ?></td>
-                                    <td class="actions-cell">
-                                        <a href="/admin/costos?edit_exchange=<?php echo intval($er['id']); ?>" class="btn-sm" title="Editar"><?php echo crm_icon('edit'); ?></a>
-                                        <form method="POST" style="display:inline">
-                                            <?php echo csrf_field(); ?>
-                                            <input type="hidden" name="action" value="delete">
-                                            <input type="hidden" name="id" value="<?php echo intval($er['id']); ?>">
-                                            <input type="hidden" name="delt" value="exchange">
-                                            <button type="submit" class="btn-sm btn-danger" onclick="return confirm('Eliminar?')"><?php echo crm_icon('trash'); ?></button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php else: ?>
-                    <div class="crm-card-body text-center text-muted">No hay tipos de cambio registrados</div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="crm-card">
-                    <div class="crm-card-header">
                         <h2><?php echo crm_icon('truck'); ?> Tarifas de Envio</h2>
                         <a href="/admin/costos?new_shipping=1" class="btn-primary"><?php echo crm_icon('plus'); ?> Nueva</a>
                     </div>
@@ -235,6 +200,41 @@ $exchangeRates = db()->query('SELECT * FROM exchange_rates ORDER BY id DESC LIMI
                     </div>
                     <?php else: ?>
                     <div class="crm-card-body text-center text-muted">No hay tarifas de envio registradas</div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="crm-card">
+                    <div class="crm-card-header">
+                        <h2><?php echo crm_icon('globe'); ?> Tipo de Cambio (USD/MXN)</h2>
+                        <a href="/admin/costos?new_exchange=1" class="btn-primary"><?php echo crm_icon('plus'); ?> Nuevo</a>
+                    </div>
+                    <?php if (!empty($exchangeRates)): ?>
+                    <div class="crm-table-wrap">
+                        <table class="crm-table">
+                            <thead><tr><th>USD to MXN</th><th>Fuente</th><th>Fecha</th><th>Acciones</th></tr></thead>
+                            <tbody>
+                                <?php foreach ($exchangeRates as $er): ?>
+                                <tr>
+                                    <td><strong><?php echo number_format($er['usd_to_mxn'], 4); ?></strong></td>
+                                    <td><?php echo htmlspecialchars($er['source'] ?? '-'); ?></td>
+                                    <td><?php echo isset($er['updated_at']) ? date('d/m/Y H:i', strtotime($er['updated_at'])) : '-'; ?></td>
+                                    <td class="actions-cell">
+                                        <a href="/admin/costos?edit_exchange=<?php echo intval($er['id']); ?>" class="btn-sm" title="Editar"><?php echo crm_icon('edit'); ?></a>
+                                        <form method="POST" style="display:inline">
+                                            <?php echo csrf_field(); ?>
+                                            <input type="hidden" name="action" value="delete">
+                                            <input type="hidden" name="id" value="<?php echo intval($er['id']); ?>">
+                                            <input type="hidden" name="delt" value="exchange">
+                                            <button type="submit" class="btn-sm btn-danger" onclick="return confirm('Eliminar?')"><?php echo crm_icon('trash'); ?></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php else: ?>
+                    <div class="crm-card-body text-center text-muted">No hay tipos de cambio registrados</div>
                     <?php endif; ?>
                 </div>
                 <?php endif; ?>

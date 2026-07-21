@@ -43,7 +43,7 @@ $statusColors = [
     <title>Dashboard - Atlantic Optical Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <script>var t=localStorage.getItem('admin-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+    <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>
     <div class="crm-layout">

@@ -87,21 +87,21 @@ export default function CategoryGrid() {
                   alt={c.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 100%)' }} />
+                <div className="absolute bottom-0 left-0 right-0 p-5" style={{ color: '#ffffff' }}>
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                      <c.Icon size={14} className="text-white" />
+                    <div className="w-8 h-8 flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)' }}>
+                      <c.Icon size={14} style={{ color: '#ffffff' }} />
                     </div>
-                    <span className="text-[10px] font-bold text-white/70 uppercase tracking-[0.1em]">{c.count} productos</span>
+                    <span className="text-[10px] font-bold uppercase tracking-[0.1em]" style={{ color: 'rgba(255,255,255,0.8)' }}>{c.count} productos</span>
                   </div>
-                  <h3 className="text-[18px] font-bold text-white mb-1">{c.name}</h3>
-                  <p className="text-[12px] text-white/70 leading-relaxed">{c.desc}</p>
+                  <h3 className="text-[18px] font-bold mb-1" style={{ color: '#ffffff' }}>{c.name}</h3>
+                  <p className="text-[12px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.75)' }}>{c.desc}</p>
                 </div>
               </div>
 
-              <div className="p-4 flex items-center justify-between">
-                <span className="text-[11px] font-bold text-[var(--green)] uppercase tracking-[0.08em] group-hover:text-[var(--green-hover)] transition-colors">
+              <div className="p-4 flex items-center justify-between" style={{ background: '#ffffff' }}>
+                <span className="text-[11px] font-bold uppercase tracking-[0.08em] transition-colors" style={{ color: 'var(--green)' }}>
                   Ver productos
                 </span>
                 <div className="w-7 h-7 bg-[var(--bg-alt)] flex items-center justify-center group-hover:bg-[var(--green)] transition-colors duration-300">
