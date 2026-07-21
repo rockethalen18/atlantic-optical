@@ -96,7 +96,7 @@ export default function VideoSection() {
           <div className="vid-right">
             <div className="bg-[var(--bg-alt)] border border-[var(--border)] p-6 sm:p-8 md:p-10 lg:p-12">
               <div className="flex items-center gap-3 mb-6 md:mb-8">
-                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center shrink-0 text-white">
                   <Icons.Eye size={18} className="text-white" />
                 </div>
                 <div>

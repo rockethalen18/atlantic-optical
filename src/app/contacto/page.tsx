@@ -58,7 +58,7 @@ export default function ContactoPage() {
                 <p className="text-[13px] text-[var(--text-muted)]">Ciudad de Mexico, Mexico</p>
                 <p className="text-[11px] text-[var(--text-soft)] mt-1">Envio a toda la republica</p>
               </div>
-              <div className="p-6 bg-[var(--green)] text-center">
+              <div className="p-6 bg-[var(--green)] text-center text-white">
                 <p className="text-[13px] font-bold text-white mb-2">¿Necesitas ayuda urgente?</p>
                 <a href="https://wa.me/5215512345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[11px] uppercase tracking-[0.08em] px-6 py-2.5 hover:bg-white/90 transition-colors">
                   WhatsApp <Icons.ArrowRight size={10} />

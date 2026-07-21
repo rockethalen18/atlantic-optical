@@ -48,7 +48,7 @@ export default function FAQPage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-12 p-8 bg-[var(--green)] text-center">
+          <div className="mt-12 p-8 bg-[var(--green)] text-center text-white">
             <h3 className="text-[18px] font-bold text-white mb-2" style={{ fontFamily: 'var(--font-display)' }}>¿No encontraste tu respuesta?</h3>
             <p className="text-[13px] text-white/70 mb-5">Contacta a nuestro equipo de soporte tecnico.</p>
             <a href="/contacto" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.08em] px-8 py-3.5 hover:bg-white/90 transition-colors">

@@ -73,7 +73,7 @@ export default function HeroCarousel() {
   const s = slides[i];
 
   return (
-    <section className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] bg-[#0a1628] overflow-hidden">
+    <section className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] bg-[#0a1628] overflow-hidden text-white">
       {slides.map((slide, idx) => (
         <div
           key={idx}

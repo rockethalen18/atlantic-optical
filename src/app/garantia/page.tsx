@@ -41,7 +41,7 @@ export default function GarantiaPage() {
 
         {/* Badge */}
         <div className="max-w-[900px] mx-auto px-6 md:px-10 -mt-8 relative z-10">
-          <div className="bg-[var(--green)] p-6 md:p-8 flex flex-col md:flex-row items-center gap-5">
+          <div className="bg-[var(--green)] p-6 md:p-8 flex flex-col md:flex-row items-center gap-5 text-white">
             <div className="w-14 h-14 bg-white/20 flex items-center justify-center flex-shrink-0">
               <Icons.ShieldCheck size={28} className="text-white" />
             </div>
