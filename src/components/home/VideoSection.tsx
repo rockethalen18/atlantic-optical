@@ -100,7 +100,7 @@ export default function VideoSection() {
                   <Icons.Eye size={18} className="text-white" />
                 </div>
                 <div>
-                  <div className="text-[10px] sm:text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical</div>
+                   <div className="text-[10px] sm:text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical International Limited</div>
                   <div className="text-[13px] sm:text-[14px] font-bold text-[var(--text)]">Proveedor desde 2011</div>
                 </div>
               </div>

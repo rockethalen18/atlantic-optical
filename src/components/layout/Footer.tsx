@@ -26,10 +26,10 @@ const companyLinks = [
 ];
 
 const social = [
-  { icon: Icons.Facebook, href: 'https://www.facebook.com/atlantic.optics', label: 'Facebook' },
-  { icon: Icons.Instagram, href: 'https://www.instagram.com/atlanticoptical', label: 'Instagram' },
-  { icon: Icons.Linkedin, href: 'https://www.linkedin.com/company/atlantic-optical', label: 'LinkedIn' },
-  { icon: Icons.Youtube, href: 'https://www.youtube.com/@atlanticoptical', label: 'YouTube' },
+  { icon: Icons.Facebook, href: '#', label: 'Facebook' },
+  { icon: Icons.Instagram, href: '#', label: 'Instagram' },
+  { icon: Icons.Linkedin, href: '#', label: 'LinkedIn' },
+  { icon: Icons.Youtube, href: '#', label: 'YouTube' },
 ];
 
 export default function Footer() {
@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
               <h3 className="text-[18px] font-bold mb-1" style={{ color: '#ffffff' }}>Mantente Actualizado</h3>
-              <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
+              <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Recibe ofertas, nuevos productos y noticias de Atlantic Optical International Limited.</p>
             </div>
             {subscribed ? (
               <div className="flex items-center gap-2 text-emerald-400">
@@ -102,7 +102,7 @@ export default function Footer() {
             <Link href="/" className="block mb-5">
               <img
                 src="/images/logo-atlantic.png"
-                alt="Atlantic Optical Internacional"
+                alt="Atlantic Optical International Limited"
                 className="h-[48px] w-auto object-contain brightness-0 invert"
               />
             </Link>
@@ -155,7 +155,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-[11px] text-white/70">
-              &copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.
+              &copy; 2026 Atlantic Optical International Limited. Todos los derechos reservados.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
               <div className="flex items-center gap-2 text-white/70">

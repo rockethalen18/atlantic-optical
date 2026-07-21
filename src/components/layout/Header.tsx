@@ -121,7 +121,7 @@ const rightNavItems = [
       type: 'links' as const,
       columns: [
         {
-          title: 'Atlantic Optical',
+          title: 'Atlantic Optical International Limited',
           links: [
             { label: 'Sobre Nosotros', href: '/nosotros' },
           ],
@@ -230,8 +230,8 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-0 shrink-0">
             <img
               src="/images/logo-atlantic.png"
-              alt="Atlantic Optical Internacional"
-              className="h-[40px] w-auto object-contain"
+              alt="Atlantic Optical International Limited"
+              className="h-[40px] w-auto object-contain brightness-0 invert"
             />
           </Link>
 
@@ -418,7 +418,7 @@ export default function Header() {
               <div className="mb-6">
                 <img
                   src="/images/logo-atlantic.png"
-                  alt="Atlantic Optical Internacional"
+                  alt="Atlantic Optical International Limited"
                   className="h-[36px] w-auto object-contain brightness-0 invert"
                 />
               </div>

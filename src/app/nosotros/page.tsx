@@ -44,7 +44,7 @@ export default function NosotrosPage() {
               </h2>
               <div className="space-y-4 text-[14px] text-[var(--text-secondary)] leading-[1.7]">
                 <p>
-                  Desde 2010, Atlantic Optical ha sido el socio de confianza para clinicas,
+                   Desde 2010, Atlantic Optical International Limited ha sido el socio de confianza para clinicas,
                   consultorios y laboratorios opticos en toda Latinoamerica.
                 </p>
                 <p>

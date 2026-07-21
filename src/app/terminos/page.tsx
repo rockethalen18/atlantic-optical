@@ -15,11 +15,11 @@ export default function TerminosPage() {
               <div className="space-y-6 text-[var(--text-secondary)] text-[15px] leading-relaxed">
                 <p><strong>Última actualización:</strong> Junio 2026</p>
                 <h2 className="text-xl font-bold text-[var(--text)]">1. Aceptación</h2>
-                <p>Al usar el sitio web de Atlantic Optical, aceptas estos términos y condiciones.</p>
+                <p>Al usar el sitio web de Atlantic Optical International Limited, aceptas estos términos y condiciones.</p>
                 <h2 className="text-xl font-bold text-[var(--text)]">2. Precios</h2>
                 <p>Los precios se calculan automáticamente incluyendo envío y impuestos. Están sujetos a cambio sin previo aviso.</p>
                 <h2 className="text-xl font-bold text-[var(--text)]">3. Envíos</h2>
-                <p>Los tiempos de entrega son estimados. Atlantic Optical no se hace responsable por retrasos aduanales.</p>
+                <p>Los tiempos de entrega son estimados. Atlantic Optical International Limited no se hace responsable por retrasos aduanales.</p>
                 <h2 className="text-xl font-bold text-[var(--text)]">4. Garantía</h2>
                 <p>Todos los productos incluyen 12 meses de garantía contra defectos de fabricación.</p>
                 <h2 className="text-xl font-bold text-[var(--text)]">5. Devoluciones</h2>

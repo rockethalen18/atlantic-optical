@@ -21,7 +21,7 @@ export function generateMetadata({ params }: ProductPageProps): Promise<Metadata
     if (!product) return { title: 'Producto no encontrado' };
 
     return {
-      title: `${product.name} | Atlantic Optical`,
+      title: `${product.name} | Atlantic Optical International Limited`,
       description: product.description || `${product.name} - ${product.subcategory}. SKU: ${product.sku}.`,
       openGraph: {
         title: product.name,
@@ -114,7 +114,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <Icons.ShoppingCart size={14} />
                 Solicitar Cotización
               </Link>
-              <a href={`https://wa.me/5215512345678?text=Hola, me interesa el producto: ${product.name} (${product.sku})`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--green-light)] text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-[var(--green)]/15 transition-all">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[var(--green-light)] text-[var(--green)] font-bold text-[12px] uppercase tracking-[0.08em] px-8 py-4 hover:bg-[var(--green)]/15 transition-all">
                 WhatsApp
               </a>
             </div>

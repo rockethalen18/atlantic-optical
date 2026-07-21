@@ -91,9 +91,9 @@ $exchangeRates = db()->query('SELECT * FROM exchange_rates ORDER BY id DESC LIMI
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Costos - Atlantic Optical Admin</title>
+    <title>Costos - Atlantic Optical International Limited Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>

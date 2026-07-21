@@ -9,7 +9,7 @@ const reviews = [
     name: 'Dr. Carlos Méndez',
     role: 'Oftalmólogo',
     location: 'Ciudad de México',
-    text: 'Excelente calidad en todos los equipos. El soporte post-venta es excepcional. Ya realizamos 3 compras con Atlantic Optical y cada una superó expectativas.',
+    text: 'Excelente calidad en todos los equipos. El soporte post-venta es excepcional. Ya realizamos 3 compras con Atlantic Optical International Limited y cada una superó expectativas.',
     rating: 5,
     initial: 'CM',
     color: 'var(--green)',

@@ -49,16 +49,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atlantic Optical - Admin Login</title>
+    <title>Atlantic Optical International Limited - Admin Login</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-body); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-body); }
         .login-box { background: var(--bg-card); border-radius: 12px; padding: 40px; width: 100%; max-width: 400px; border: 1px solid var(--border-card); }
         .login-logo { text-align: center; margin-bottom: 32px; }
         .login-logo img { height: 80px; margin-bottom: 20px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15)); }
+        [data-theme="dark"] .login-logo img { filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(255,255,255,0.15)); }
         .login-logo h1 { color: var(--text-header-title); font-size: 22px; margin: 0 0 6px; }
         .login-logo p { color: var(--text-muted); font-size: 14px; margin: 0; }
         .form-group { margin-bottom: 20px; }
@@ -80,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </button>
     <div class="login-box">
         <div class="login-logo">
-            <img src="/images/logo-atlantic.png" alt="Atlantic Optical" style="width:200px;height:auto;max-width:100%">
-            <h1 style="margin-top:12px">Atlantic Optical</h1>
+            <img src="/images/logo-atlantic.png" alt="Atlantic Optical International Limited" style="width:200px;height:auto;max-width:100%">
+            <h1 style="margin-top:12px">Atlantic Optical International Limited</h1>
             <p>Panel de Administracion</p>
         </div>
 

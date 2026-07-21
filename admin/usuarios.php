@@ -94,9 +94,9 @@ $totalPages = max(1, ceil($total / $perPage));
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo ($editId > 0 || $isNew) ? 'Editar Usuario' : 'Usuarios'; ?> - Atlantic Optical Admin</title>
+    <title><?php echo ($editId > 0 || $isNew) ? 'Editar Usuario' : 'Usuarios'; ?> - Atlantic Optical International Limited Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>
