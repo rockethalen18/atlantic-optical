@@ -243,14 +243,24 @@ img { transition: opacity 0.3s ease; }
    ============================================ */
 .bg-\[\#0a1628\],
 .bg-\[\#0f2340\],
+.bg-\[\#1e3a5f\],
 section[class*="bg-[var(--text)]"],
 section[class*="bg-[var(--dark-bg)]"],
+section[class*="bg-[var(--green)]"],
+section[class*="bg-[var(--blue)]"],
 div[class*="bg-[var(--text)]"],
-div[class*="bg-[var(--dark-bg)]"] {
-  color: white;
+div[class*="bg-[var(--dark-bg)]"],
+div[class*="bg-[var(--green)]"],
+div[class*="bg-[var(--blue)]"],
+a[class*="bg-[var(--green)]"],
+a[class*="bg-[var(--blue)]"],
+button[class*="bg-[var(--green)]"],
+button[class*="bg-[var(--blue)]"] {
+  color: white !important;
 }
 .bg-\[\#0a1628\] *,
-.bg-\[\#0f2340\] * {
+.bg-\[\#0f2340\] *,
+.bg-\[\#1e3a5f\] * {
   color: inherit;
 }
 
