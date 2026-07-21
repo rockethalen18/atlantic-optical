@@ -54,6 +54,8 @@ echo sidebar_item('usuarios', 'users', 'Usuarios');
 echo '</nav>';
 echo render_exchange_widget();
 echo '<div class="sidebar-footer">';
+echo '<button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">' . crm_icon('sun') . '<span id="themeLabel">Modo Claro</span></button>';
 echo '<a href="https://equipos.atlanticopticalgroup.com" target="_blank">' . crm_icon('globe') . '<span>Ver Sitio</span></a>';
 echo '<a href="/admin/logout">' . crm_icon('log-out') . '<span>Cerrar Sesion</span></a>';
 echo '</div></aside>';
+echo '<script src="/admin/assets/js/theme.js"></script>';

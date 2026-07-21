@@ -53,24 +53,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <script>var t=localStorage.getItem('admin-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
     <style>
-        body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        .login-box { background: #111827; border-radius: 12px; padding: 40px; width: 100%; max-width: 400px; border: 1px solid #1f2937; }
+        body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-body); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-body); }
+        .login-box { background: var(--bg-card); border-radius: 12px; padding: 40px; width: 100%; max-width: 400px; border: 1px solid var(--border-card); }
         .login-logo { text-align: center; margin-bottom: 32px; }
         .login-logo img { height: 60px; margin-bottom: 16px; }
-        .login-logo h1 { color: #fff; font-size: 22px; margin: 0 0 6px; }
-        .login-logo p { color: #6b7280; font-size: 14px; margin: 0; }
+        .login-logo h1 { color: var(--text-header-title); font-size: 22px; margin: 0 0 6px; }
+        .login-logo p { color: var(--text-muted); font-size: 14px; margin: 0; }
         .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; color: #9ca3af; font-size: 13px; margin-bottom: 6px; font-weight: 500; }
-        .form-group input { width: 100%; padding: 12px 14px; background: #1f2937; border: 1px solid #374151; border-radius: 8px; color: #fff; font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
-        .form-group input:focus { border-color: #3b82f6; }
-        .form-group input::placeholder { color: #6b7280; }
-        .btn-login { width: 100%; padding: 12px; background: #2563eb; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .btn-login:hover { background: #1d4ed8; }
-        .error-msg { background: #7f1d1d; color: #fca5a5; padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 20px; text-align: center; }
+        .form-group label { display: block; color: var(--text-label); font-size: 13px; margin-bottom: 6px; font-weight: 500; }
+        .form-group input { width: 100%; padding: 12px 14px; background: var(--bg-form-input); border: 1px solid var(--border-input); border-radius: 8px; color: var(--text-input); font-size: 14px; box-sizing: border-box; outline: none; transition: border-color 0.2s; }
+        .form-group input:focus { border-color: var(--accent-primary); }
+        .form-group input::placeholder { color: var(--text-input-placeholder); }
+        .btn-login { width: 100%; padding: 12px; background: var(--accent-primary); color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+        .btn-login:hover { background: var(--accent-primary-hover); }
+        .error-msg { background: var(--accent-status-inactive-bg); color: var(--accent-status-inactive-text); padding: 10px 14px; border-radius: 8px; font-size: 13px; margin-bottom: 20px; text-align: center; }
+        .theme-toggle-login { position: fixed; top: 16px; right: 16px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 8px; padding: 8px 12px; cursor: pointer; color: var(--text-body); font-size: 13px; display: flex; align-items: center; gap: 6px; }
+        .theme-toggle-login:hover { background: var(--bg-table-hover); }
     </style>
 </head>
 <body>
+    <button class="theme-toggle-login" onclick="toggleLoginTheme()" id="loginThemeBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <span id="loginThemeLabel">Modo Oscuro</span>
+    </button>
     <div class="login-box">
         <div class="login-logo">
             <img src="/images/logo-atlantic.png" alt="Atlantic Optical">
@@ -94,5 +101,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn-login">Iniciar Sesion</button>
         </form>
     </div>
+    <script src="/admin/assets/js/theme.js"></script>
+    <script>
+    (function(){
+        var saved = localStorage.getItem('admin-theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+        updateLoginLabel();
+    })();
+    function toggleLoginTheme() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('admin-theme', next);
+        updateLoginLabel();
+    }
+    function updateLoginLabel() {
+        var theme = document.documentElement.getAttribute('data-theme') || 'light';
+        var label = document.getElementById('loginThemeLabel');
+        var btn = document.getElementById('loginThemeBtn');
+        if (label) label.textContent = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
+        if (btn) {
+            btn.innerHTML = theme === 'dark'
+                ? '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><span id="loginThemeLabel">Modo Claro</span>'
+                : '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><span id="loginThemeLabel">Modo Oscuro</span>';
+            label = document.getElementById('loginThemeLabel');
+            if (label) label.textContent = theme === 'dark' ? 'Modo Claro' : 'Modo Oscuro';
+        }
+    }
+    </script>
 </body>
 </html>
