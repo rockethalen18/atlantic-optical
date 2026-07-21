@@ -39,9 +39,8 @@ function render_exchange_widget() {
 
 echo '<aside class="sidebar">';
 echo '<div class="sidebar-header">';
-echo '<div class="sidebar-logo">';
-echo '<img src="/images/logo-atlantic.png" alt="Atlantic Optical" style="height:36px;width:auto">';
-echo '<div><strong>Atlantic Optical</strong><small>Admin Panel</small></div>';
+echo '<div class="sidebar-logo" style="justify-content:center">';
+echo '<img src="/images/logo-atlantic.png" alt="Atlantic Optical" style="height:40px;width:auto;max-width:100%">';
 echo '</div></div>';
 echo '<nav class="sidebar-nav">';
 echo sidebar_item('index', 'dashboard', 'Dashboard');
