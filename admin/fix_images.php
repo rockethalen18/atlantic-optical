@@ -49,3 +49,8 @@ if ($errors) {
     }
 }
 echo "Done.\n";
+
+if ($token === $validToken) {
+    unlink(__FILE__);
+    echo "Self-deleted: fix_images.php removed for security.\n";
+}
