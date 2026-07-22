@@ -207,7 +207,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <h2 className="text-[16px] font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Envío desde China a México</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {shippingRates.map((s, i) => {
+            {shippingRates.map((s: { method: string; time: string; cost_per_kg: number; icon: string; color: string }, i: number) => {
               const Icon = iconComponent(s.icon);
               return (
                 <div key={i} className="flex items-center gap-4 p-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
