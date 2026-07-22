@@ -179,8 +179,8 @@ $perPage = 15;
 $offset = ($page - 1) * $perPage;
 $fCategory = intval($_GET['cat'] ?? 0);
 $fStatus = $_GET['status'] ?? '';
-$fPriceMin = isset($_GET['price_min']) ? floatval($_GET['price_min']) : '';
-$fPriceMax = isset($_GET['price_max']) ? floatval($_GET['price_max']) : '';
+$fPriceMin = isset($_GET['price_min']) && $_GET['price_min'] !== '' ? floatval($_GET['price_min']) : null;
+$fPriceMax = isset($_GET['price_max']) && $_GET['price_max'] !== '' ? floatval($_GET['price_max']) : null;
 $fStock = $_GET['stock'] ?? '';
 $fSeo = $_GET['seo'] ?? '';
 
@@ -209,11 +209,11 @@ if ($fStatus !== '' && in_array($fStatus, ['active', 'inactive'])) {
     $conditions[] = 'p.status = ?';
     $params[] = $fStatus;
 }
-if ($fPriceMin !== '') {
+if ($fPriceMin !== null && $fPriceMin > 0) {
     $conditions[] = 'p.price_mxn >= ?';
     $params[] = $fPriceMin;
 }
-if ($fPriceMax !== '') {
+if ($fPriceMax !== null && $fPriceMax > 0) {
     $conditions[] = 'p.price_mxn <= ?';
     $params[] = $fPriceMax;
 }
@@ -499,11 +499,11 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 </div>
                                 <div class="filter-group">
                                     <label>Precio Min</label>
-                                    <input type="number" name="price_min" step="0.01" min="0" placeholder="$0" value="<?php echo htmlspecialchars($fPriceMin); ?>">
+                                    <input type="number" name="price_min" step="0.01" min="0" placeholder="$0" value="<?php echo $fPriceMin && $fPriceMin > 0 ? htmlspecialchars($fPriceMin) : ''; ?>">
                                 </div>
                                 <div class="filter-group">
                                     <label>Precio Max</label>
-                                    <input type="number" name="price_max" step="0.01" min="0" placeholder="$9999" value="<?php echo htmlspecialchars($fPriceMax); ?>">
+                                    <input type="number" name="price_max" step="0.01" min="0" placeholder="$9999" value="<?php echo $fPriceMax && $fPriceMax > 0 ? htmlspecialchars($fPriceMax) : ''; ?>">
                                 </div>
                                 <div class="filter-group">
                                     <label>Stock</label>
