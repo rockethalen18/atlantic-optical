@@ -231,7 +231,7 @@ export default function Header() {
             <img
               src="/images/logo-dark.png"
               alt="Atlantic Optical International Limited"
-              className="h-[40px] w-auto object-contain"
+              className="h-[160px] w-auto object-contain"
             />
           </Link>
 
@@ -419,7 +419,7 @@ export default function Header() {
                 <img
                   src="/images/logo-dark.png"
                   alt="Atlantic Optical International Limited"
-                  className="h-[36px] w-auto object-contain"
+                  className="h-[144px] w-auto object-contain"
                 />
               </div>
 

@@ -103,7 +103,7 @@ export default function Footer() {
               <img
                 src="/images/logo-dark.png"
                 alt="Atlantic Optical International Limited"
-                className="h-[48px] w-auto object-contain"
+                className="h-[192px] w-auto object-contain"
               />
             </Link>
             <p className="text-[13px] text-white/70 leading-[1.7] max-w-[300px] mb-5">

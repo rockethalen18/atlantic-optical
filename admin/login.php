@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-body); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-body); }
-        .login-box { background: var(--bg-card); border-radius: 12px; padding: 40px; width: 100%; max-width: 400px; border: 1px solid var(--border-card); }
+        .login-box { background: var(--bg-card); border-radius: 12px; padding: 40px; width: 100%; max-width: 500px; border: 1px solid var(--border-card); }
         .login-logo { text-align: center; margin-bottom: 32px; }
         .login-logo img { height: 80px; margin-bottom: 20px; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15)); }
         [data-theme="dark"] .login-logo img { filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(255,255,255,0.15)); }
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </button>
     <div class="login-box">
         <div class="login-logo">
-            <img src="/images/logo-light.png" alt="Atlantic Optical International Limited" style="width:200px;height:auto;max-width:100%">
+            <img src="/images/logo-light.png" alt="Atlantic Optical International Limited" style="width:380px;height:auto;max-width:100%">
             <h1 style="margin-top:12px">Atlantic Optical International Limited</h1>
             <p>Panel de Administracion</p>
         </div>
