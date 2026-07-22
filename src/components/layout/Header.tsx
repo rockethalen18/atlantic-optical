@@ -222,7 +222,7 @@ export default function Header() {
   return (
     <>
       <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 text-white">
-        <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[60px]">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[160px]">
           <button className="lg:hidden w-11 h-11 flex items-center justify-center -ml-1" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
             {mobileOpen ? <Icons.X size={22} className="text-white" /> : <Icons.Menu size={22} className="text-white" />}
           </button>
@@ -254,7 +254,7 @@ export default function Header() {
 
         {/* Search Overlay */}
         {searchOpen && (
-          <div className="absolute top-[60px] left-0 right-0 bg-[#0f2340] border-b border-white/10 shadow-2xl z-50 text-white">
+          <div className="absolute top-[160px] left-0 right-0 bg-[#0f2340] border-b border-white/10 shadow-2xl z-50 text-white">
             <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-4">
               <div className="relative max-w-2xl mx-auto">
                 <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60" />
@@ -414,7 +414,7 @@ export default function Header() {
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
           <div className="absolute top-0 left-0 w-[300px] max-w-[85vw] h-full bg-[#0f2340] overflow-y-auto shadow-2xl text-white">
-            <div className="pt-[72px] px-5 pb-6">
+            <div className="pt-[160px] px-5 pb-6">
               <div className="mb-6">
                 <img
                   src="/images/logo-dark.png"
