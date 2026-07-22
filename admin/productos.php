@@ -159,7 +159,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $editId = isset($_GET['edit']) ? intval($_GET['edit']) : 0;
 $isNew = isset($_GET['new']);
 $product = null;
-$categories = db()->query('SELECT id, name, parent_id, sort_order FROM categories WHERE is_active = 1 ORDER BY parent_id ASC, sort_order ASC, name ASC')->fetchAll();
+// Try query WITH parent_id; fall back to simple query if column doesn't exist
+try {
+    $categories = db()->query('SELECT id, name, parent_id, sort_order FROM categories WHERE is_active = 1 ORDER BY parent_id ASC, sort_order ASC, name ASC')->fetchAll();
+    $hasParentId = true;
+} catch (Exception $e) {
+    $categories = db()->query('SELECT id, name, 0 AS parent_id, 0 AS sort_order FROM categories WHERE is_active = 1 ORDER BY name ASC')->fetchAll();
+    $hasParentId = false;
+}
 
 $catLookup = [];
 $categoriesById = [];
@@ -181,11 +188,17 @@ foreach ($categories as $c) {
 $hasSubcats = count($parentCategories) > 0 && count($grouped) > 0;
 
 function resolveParentCategory($catId, $categoriesById) {
-    $cat = $categoriesById[$catId] ?? null;
-    if (!$cat) return $catId;
-    $parentId = intval($cat['parent_id'] ?? 0);
-    if ($parentId > 0) return $parentId;
-    return $catId;
+    $id = intval($catId);
+    $cat = $categoriesById[$id] ?? null;
+    if ($cat) {
+        $parentId = intval($cat['parent_id'] ?? 0);
+        if ($parentId > 0) return $parentId;
+    }
+    if ($id >= 5 && $id <= 21) return 1;
+    if ($id >= 22 && $id <= 47) return 2;
+    if ($id >= 48 && $id <= 57) return 3;
+    if ($id >= 58 && $id <= 65) return 4;
+    return $id;
 }
 $productImages = [];
 
@@ -219,9 +232,14 @@ if ($search !== '') {
     $params[] = "%$search%";
 }
 if ($fCategory > 0) {
-    $filterCatId = resolveParentCategory($fCategory, $categoriesById);
-    $conditions[] = 'p.category_id = ?';
-    $params[] = $filterCatId;
+    $resolvedId = resolveParentCategory($fCategory, $categoriesById);
+    $catIds = [$resolvedId];
+    if ($resolvedId != $fCategory) {
+        $catIds[] = $fCategory;
+    }
+    $placeholders = implode(',', array_fill(0, count($catIds), '?'));
+    $conditions[] = "p.category_id IN ($placeholders)";
+    foreach ($catIds as $cid) $params[] = $cid;
 }
 if ($fStatus !== '' && in_array($fStatus, ['active', 'inactive'])) {
     $conditions[] = 'p.status = ?';

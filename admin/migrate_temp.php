@@ -159,6 +159,22 @@ try {
     foreach ($rows as $r) {
         $results[] = ['ok', "Cat {$r['category_id']} ({$r['name']}): {$r['cnt']} productos"];
     }
+    $totalProducts = $db->query('SELECT COUNT(*) FROM products')->fetchColumn();
+    $withCat = $db->query('SELECT COUNT(*) FROM products WHERE category_id > 0 AND category_id IS NOT NULL')->fetchColumn();
+    $results[] = ['ok', "Total: $totalProducts, con category_id: $withCat"];
+    
+    // Show sample products
+    $samples = $db->query('SELECT id, name, category_id, status, price_mxn FROM products LIMIT 10')->fetchAll();
+    foreach ($samples as $s) {
+        $results[] = ['ok', "  → [{$s['id']}] {$s['name']} | cat={$s['category_id']} | status={$s['status']} | price={$s['price_mxn']}"];
+    }
+    // Show all distinct category_ids
+    $catIds = $db->query('SELECT DISTINCT category_id FROM products ORDER BY category_id')->fetchAll(PDO::FETCH_COLUMN);
+    $results[] = ['ok', 'Distinct category_ids in products: ' . implode(', ', $catIds)];
+    // Check total without any filter
+    $allProducts = $db->query('SELECT COUNT(*) FROM products')->fetchColumn();
+    $activeProducts = $db->query("SELECT COUNT(*) FROM products WHERE status = 'active'")->fetchColumn();
+    $results[] = ['ok', "Total products: $allProducts, active: $activeProducts"];
 } catch (Exception $e) { $results[] = ['warn', 'Diag: ' . $e->getMessage()]; }
 
 // ─── 7. CLEANUP: drop empty subcategories table ───
