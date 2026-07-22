@@ -149,7 +149,56 @@ try {
     $results[] = ['error', 'Insert subs: ' . $e->getMessage()];
 }
 
-// 7. Diagnostic: test search query
+// 7. Add parent_id to categories table
+try {
+    $catCols = [];
+    foreach ($db->query("SHOW COLUMNS FROM categories")->fetchAll() as $c) $catCols[] = $c['Field'];
+    if (!in_array('parent_id', $catCols)) {
+        $db->exec("ALTER TABLE categories ADD COLUMN parent_id INT DEFAULT 0 AFTER name");
+        $results[] = ['ok', 'Columna parent_id agregada a categories'];
+    }
+    if (!in_array('sort_order', $catCols)) {
+        $db->exec("ALTER TABLE categories ADD COLUMN sort_order INT DEFAULT 0 AFTER is_active");
+        $results[] = ['ok', 'Columna sort_order agregada a categories'];
+    }
+} catch (Exception $e) {
+    $results[] = ['warn', 'categories parent_id: ' . $e->getMessage()];
+}
+
+// 8. Populate parent_id for subcategories (5-65 → their parent)
+try {
+    $updated = 0;
+    $parents = [
+        [1, [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]],
+        [2, [22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47]],
+        [3, [48,49,50,51,52,53,54,55,56,57]],
+        [4, [58,59,60,61,62,63,64,65]],
+    ];
+    $upd = $db->prepare('UPDATE categories SET parent_id = ?, sort_order = ? WHERE id = ?');
+    foreach ($parents as [$parentId, $ids]) {
+        $order = 1;
+        foreach ($ids as $id) {
+            $upd->execute([$parentId, $order++, $id]);
+            $updated++;
+        }
+    }
+    // Ensure parent categories have parent_id=0
+    $db->exec("UPDATE categories SET parent_id = 0 WHERE id IN (1,2,3,4)");
+    $results[] = ['ok', "parent_id actualizado para $updated subcategorias + 4 padres"];
+} catch (Exception $e) {
+    $results[] = ['warn', 'parent_id update: ' . $e->getMessage()];
+}
+
+// 9. Verify hierarchy
+try {
+    $parentsCnt = $db->query("SELECT COUNT(*) FROM categories WHERE parent_id = 0")->fetchColumn();
+    $childrenCnt = $db->query("SELECT COUNT(*) FROM categories WHERE parent_id > 0")->fetchColumn();
+    $results[] = ['ok', "Jerarquia: $parentsCnt padres, $childrenCnt subcategorias"];
+} catch (Exception $e) {
+    $results[] = ['warn', 'Verify: ' . $e->getMessage()];
+}
+
+// 10. Diagnostic: test search query
 try {
     $cnt = $db->query("SELECT COUNT(*) FROM products WHERE name LIKE '%biseladora%'")->fetchColumn();
     $results[] = ['ok', "Busqueda 'biseladora': $cnt resultados"];
