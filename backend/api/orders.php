@@ -119,7 +119,7 @@ switch ($method) {
             ]);
             $orderId = $db->lastInsertId();
             
-            $itemStmt = $db->prepare("INSERT INTO order_items (order_id, product_id, product_name, product_sku, quantity, unit_price_usd, unit_price_mxn, total_price_mxn, weight_kg) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $itemStmt = $db->prepare("INSERT INTO order_items (order_id, product_id, product_name, sku, quantity, unit_price, total_price) VALUES (?, ?, ?, ?, ?, ?, ?)");
             foreach ($data['items'] as $item) {
                 $qty = $item['quantity'] ?? 1;
                 $unitMxn = $item['unit_price_mxn'] ?? 0;
@@ -129,10 +129,8 @@ switch ($method) {
                     $item['product_name'] ?? '',
                     $item['product_sku'] ?? '',
                     $qty,
-                    $item['unit_price_usd'] ?? 0,
                     $unitMxn,
-                    $unitMxn * $qty,
-                    $item['weight_kg'] ?? 0
+                    $unitMxn * $qty
                 ]);
             }
             
