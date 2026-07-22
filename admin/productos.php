@@ -160,7 +160,7 @@ $editId = isset($_GET['edit']) ? intval($_GET['edit']) : 0;
 $isNew = isset($_GET['new']);
 $product = null;
 $categories = db()->query('SELECT id, name, NULL as parent_id FROM categories WHERE is_active = 1 ORDER BY name')->fetchAll();
-$subcategories = db()->query('SELECT s.id, s.name, s.category_id AS parent_id FROM subcategories s WHERE s.is_active = 1 ORDER BY s.name')->fetchAll();
+try { $subcategories = db()->query('SELECT s.id, s.name, s.category_id AS parent_id FROM subcategories s WHERE s.is_active = 1 ORDER BY s.name')->fetchAll(); } catch (Exception $e) { $subcategories = []; }
 $productImages = [];
 
 if ($editId > 0) {
