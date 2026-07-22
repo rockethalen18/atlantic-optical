@@ -193,16 +193,17 @@ if ($search !== '') {
     $params[] = "%$search%";
 }
 if ($fCategory > 0) {
-    $catCheck = db()->prepare('SELECT parent_id FROM subcategories WHERE id = ?');
-    $catCheck->execute([$fCategory]);
-    $subCat = $catCheck->fetch();
-    if ($subCat && $subCat['parent_id']) {
-        $conditions[] = 'p.category_id = ?';
-        $params[] = intval($subCat['parent_id']);
-    } else {
-        $conditions[] = 'p.category_id = ?';
-        $params[] = $fCategory;
-    }
+    $parentId = $fCategory;
+    try {
+        $catCheck = db()->prepare('SELECT category_id FROM subcategories WHERE id = ?');
+        $catCheck->execute([$fCategory]);
+        $subCat = $catCheck->fetch();
+        if ($subCat && $subCat['category_id']) {
+            $parentId = intval($subCat['category_id']);
+        }
+    } catch (Exception $e) {}
+    $conditions[] = 'p.category_id = ?';
+    $params[] = $parentId;
 }
 if ($fStatus !== '' && in_array($fStatus, ['active', 'inactive'])) {
     $conditions[] = 'p.status = ?';
