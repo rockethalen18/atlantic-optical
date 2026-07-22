@@ -133,7 +133,7 @@ export default function CartPage() {
                   </div>
 
                   <button className="w-full mt-6 px-6 py-3 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] hover:bg-[var(--green-hover)] transition-colors">
-                    Proceder al Pago
+                    <a href="/checkout" className="block w-full">Proceder al Pago</a>
                   </button>
 
                   <p className="text-xs text-[var(--text-soft)] text-center mt-3">

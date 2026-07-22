@@ -57,6 +57,26 @@ $routes = [
     
     'GET /dashboard'       => ['file' => 'api/dashboard.php'],
     'GET /pricing'         => ['file' => 'api/pricing.php'],
+    
+    'GET /discount-codes'       => ['file' => 'api/discount-codes.php'],
+    'POST /discount-codes'      => ['file' => 'api/discount-codes.php'],
+    'PUT /discount-codes'       => ['file' => 'api/discount-codes.php'],
+    'DELETE /discount-codes'    => ['file' => 'api/discount-codes.php'],
+    
+    'GET /bundles'         => ['file' => 'api/bundles.php'],
+    'POST /bundles'        => ['file' => 'api/bundles.php'],
+    'PUT /bundles'         => ['file' => 'api/bundles.php'],
+    'DELETE /bundles'      => ['file' => 'api/bundles.php'],
+    
+    'GET /banners'         => ['file' => 'api/banners.php'],
+    'POST /banners'        => ['file' => 'api/banners.php'],
+    'PUT /banners'         => ['file' => 'api/banners.php'],
+    'DELETE /banners'      => ['file' => 'api/banners.php'],
+    
+    'GET /popups'          => ['file' => 'api/popups.php'],
+    'POST /popups'         => ['file' => 'api/popups.php'],
+    'PUT /popups'          => ['file' => 'api/popups.php'],
+    'DELETE /popups'       => ['file' => 'api/popups.php'],
 ];
 
 // Find matching route
@@ -93,6 +113,10 @@ if (!$found) {
             'categories' => 'api/categories.php',
             'shipping' => 'api/shipping.php',
             'orders' => 'api/orders.php',
+            'discount-codes' => 'api/discount-codes.php',
+            'bundles' => 'api/bundles.php',
+            'banners' => 'api/banners.php',
+            'popups' => 'api/popups.php',
         ];
         
         if (isset($fileMap[$resource])) {

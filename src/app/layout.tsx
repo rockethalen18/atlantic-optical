@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import ScrollRevealProvider from "@/components/ui/ScrollRevealProvider";
+import DynamicPopup from "@/components/ui/DynamicPopup";
 import "./globals.css";
 
 const inter = Inter({
@@ -50,6 +51,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1 pt-[126px]">{children}</main>
           <Footer />
+          <DynamicPopup />
         </ScrollRevealProvider>
       </body>
     </html>
