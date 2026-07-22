@@ -14,6 +14,10 @@ const categories = [
   { name: 'Monitores y Optotipos', slug: 'monitores-optotipos', count: 15 },
 ];
 
+function formatMXN(amount: number): string {
+  return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount);
+}
+
 interface Product {
   sku: string;
   name: string;
@@ -25,6 +29,8 @@ interface Product {
   description: string;
   barcode: string;
   reference: string;
+  price_mxn?: number | null;
+  compare_price_mxn?: number | null;
 }
 
 function SkeletonCard() {
@@ -186,17 +192,34 @@ export default function ProductsPage() {
                         <span className="absolute top-2 left-2 bg-[var(--green)] text-white text-[8px] font-bold px-2 py-0.5 uppercase tracking-[0.1em]">
                           {product.category.replace('Equipos de ', '')}
                         </span>
+                        {product.price_mxn && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn && (
+                          <span className="absolute top-2 right-2 bg-[#dc2626] text-white text-[9px] font-black px-2 py-0.5 shadow">
+                            -{Math.round(((product.compare_price_mxn - product.price_mxn) / product.compare_price_mxn) * 100)}%
+                          </span>
+                        )}
                       </div>
                       <div className="p-4">
                         <span className="text-[9px] font-bold text-[var(--green)] uppercase tracking-[0.14em] block mb-1">{product.subcategory}</span>
                         <h3 className="text-[13px] font-bold text-[var(--text)] group-hover:text-[var(--green)] transition-colors leading-tight line-clamp-2 mb-1">{product.name}</h3>
                         <p className="text-[11px] text-[var(--text-muted)] mb-2 line-clamp-2 leading-relaxed">{product.description}</p>
-                        <div className="flex items-center justify-between pt-2.5 border-t border-[var(--border-light)]">
-                          <span className="text-[9px] font-mono text-[var(--text-soft)]">{product.sku}</span>
-                          <span className="text-[11px] font-bold text-[var(--green)] flex items-center gap-1">
-                            Cotizar <Icons.ArrowRight size={9} className="group-hover:translate-x-0.5 transition-transform" />
-                          </span>
-                        </div>
+                        {product.price_mxn && product.price_mxn > 0 ? (
+                          <div className="pt-2.5 border-t border-[var(--border-light)]">
+                            <div className="flex items-center gap-2">
+                              {product.compare_price_mxn && product.compare_price_mxn > product.price_mxn && (
+                                <span className="text-[12px] text-[var(--text-muted)] line-through">{formatMXN(product.compare_price_mxn)}</span>
+                              )}
+                              <span className="text-[15px] font-black text-[var(--green)]">{formatMXN(product.price_mxn)}</span>
+                            </div>
+                            <span className="text-[9px] font-mono text-[var(--text-soft)]">{product.sku}</span>
+                          </div>
+                        ) : (
+                          <div className="flex items-center justify-between pt-2.5 border-t border-[var(--border-light)]">
+                            <span className="text-[9px] font-mono text-[var(--text-soft)]">{product.sku}</span>
+                            <span className="text-[11px] font-bold text-[var(--green)] flex items-center gap-1">
+                              Cotizar <Icons.ArrowRight size={9} className="group-hover:translate-x-0.5 transition-transform" />
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </Link>
                   ))}
@@ -218,8 +241,19 @@ export default function ProductsPage() {
                         <p className="text-[11px] text-[var(--text-muted)] truncate">{product.description}</p>
                       </div>
                       <div className="text-right flex-shrink-0">
-                        <span className="text-[9px] font-mono text-[var(--text-soft)] block">{product.sku}</span>
-                        <span className="text-[11px] font-bold text-[var(--green)]">Cotizar</span>
+                        {product.price_mxn && product.price_mxn > 0 ? (
+                          <>
+                            {product.compare_price_mxn && product.compare_price_mxn > product.price_mxn && (
+                              <span className="text-[11px] text-[var(--text-muted)] line-through block">{formatMXN(product.compare_price_mxn)}</span>
+                            )}
+                            <span className="text-[14px] font-black text-[var(--green)] block">{formatMXN(product.price_mxn)}</span>
+                          </>
+                        ) : (
+                          <>
+                            <span className="text-[9px] font-mono text-[var(--text-soft)] block">{product.sku}</span>
+                            <span className="text-[11px] font-bold text-[var(--green)]">Cotizar</span>
+                          </>
+                        )}
                       </div>
                     </Link>
                   ))}

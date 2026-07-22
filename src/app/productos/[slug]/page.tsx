@@ -36,6 +36,10 @@ interface ProductPageProps {
   params: Promise<{ slug: string }>;
 }
 
+function formatMXN(amount: number): string {
+  return new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount);
+}
+
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -112,6 +116,12 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                 <div className="absolute top-4 left-4 bg-[var(--green)] text-white text-[8px] font-bold px-2.5 py-1 uppercase tracking-[0.12em]">
                   {product.subcategory}
                 </div>
+                {/* Discount badge */}
+                {product.price_mxn && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn && (
+                  <div className="absolute top-4 right-4 bg-[#dc2626] text-white text-[11px] font-black px-3 py-1.5 shadow-lg">
+                    -{Math.round(((product.compare_price_mxn - product.price_mxn) / product.compare_price_mxn) * 100)}% OFF
+                  </div>
+                )}
               </div>
 
               {/* Thumbnail strip */}
@@ -138,6 +148,21 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
             {product.description && (
               <p className="text-[14px] text-[var(--text-secondary)] leading-[1.7] mb-6">{product.description}</p>
+            )}
+
+            {/* Price */}
+            {product.price_mxn && product.price_mxn > 0 && (
+              <div className="mb-6 flex items-center gap-4">
+                {product.compare_price_mxn && product.compare_price_mxn > product.price_mxn && (
+                  <>
+                    <span className="text-[16px] text-[var(--text-muted)] line-through">{formatMXN(product.compare_price_mxn)}</span>
+                    <span className="bg-[#dc2626] text-white text-[11px] font-black px-2.5 py-1">
+                      -{Math.round(((product.compare_price_mxn - product.price_mxn) / product.compare_price_mxn) * 100)}%
+                    </span>
+                  </>
+                )}
+                <span className="text-[28px] font-black text-[var(--green)]">{formatMXN(product.price_mxn)}</span>
+              </div>
             )}
 
             {/* CTA */}

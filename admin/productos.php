@@ -344,7 +344,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 <div class="form-group"><label>Costo Base (USD)</label><input type="number" name="base_cost_usd" step="0.01" min="0" value="<?php echo htmlspecialchars($product['base_cost_usd'] ?? '0.00'); ?>"></div>
                                 <div class="form-group"><label>Margen (%)</label><input type="number" name="margin" step="0.01" min="0" value="<?php echo htmlspecialchars($product['margin'] ?? '0'); ?>"></div>
                                 <div class="form-group"><label>Precio (MXN)</label><input type="number" name="price_mxn" step="0.01" min="0" value="<?php echo htmlspecialchars($product['price_mxn'] ?? '0.00'); ?>"></div>
-                                <div class="form-group"><label>Precio Comparar (MXN)</label><input type="number" name="compare_price_mxn" step="0.01" min="0" value="<?php echo htmlspecialchars($product['compare_price_mxn'] ?? '0.00'); ?>"></div>
+                                <div class="form-group"><label>Precio Original / Antes de Descuento (MXN)</label><input type="number" name="compare_price_mxn" step="0.01" min="0" value="<?php echo htmlspecialchars($product['compare_price_mxn'] ?? '0.00'); ?>" placeholder="0 = sin promocion"></div>
                             </div>
                         </div>
                     </div>

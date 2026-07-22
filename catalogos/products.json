@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "sku":  "AO-104",
         "name":  "CAJA DE PRUEBA DE 104 LENTILLAS",
@@ -13,7 +13,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-20D",
@@ -29,7 +31,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-215D",
@@ -45,7 +49,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-230A",
@@ -61,7 +67,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-266JS",
@@ -77,7 +85,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-468E4310",
@@ -93,7 +103,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-6ACP",
@@ -109,7 +121,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-78D",
@@ -125,7 +139,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ACP300",
@@ -141,7 +157,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ALE1000",
@@ -157,7 +175,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ALE1600G",
@@ -173,7 +193,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ALE1700G",
@@ -189,7 +211,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ARK7710",
@@ -205,7 +229,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-BROC1",
@@ -221,7 +247,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-C288AT",
@@ -237,7 +265,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-C330A",
@@ -253,7 +283,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CB028",
@@ -269,7 +301,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP008",
@@ -285,7 +319,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP10C",
@@ -301,7 +337,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP11A35WV",
@@ -317,7 +355,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP18C",
@@ -333,7 +373,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP1B",
@@ -349,7 +391,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP30",
@@ -365,7 +409,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP6A1",
@@ -381,7 +427,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CP8A",
@@ -397,7 +445,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CT1504",
@@ -413,7 +463,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CT1955",
@@ -429,7 +481,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-CTS215",
@@ -445,7 +499,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-D900",
@@ -461,7 +517,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-D910",
@@ -477,7 +535,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-FA100",
@@ -493,7 +553,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-FA6000A",
@@ -509,7 +571,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-FA6100CK",
@@ -525,7 +589,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-FA6500K",
@@ -541,7 +607,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-FA8500K",
@@ -557,7 +625,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-GB800",
@@ -573,7 +643,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-GD1104",
@@ -589,7 +661,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-HL004",
@@ -605,7 +679,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-IREF",
@@ -621,7 +697,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-JD26000D",
@@ -637,7 +715,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-JS158",
@@ -653,7 +733,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-JS22P",
@@ -669,7 +751,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-K215F",
@@ -685,7 +769,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-KJRDA2",
@@ -701,7 +787,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-KJRDA3",
@@ -717,7 +805,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LE420",
@@ -733,7 +823,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LETRARO",
@@ -749,7 +841,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LM260",
@@ -765,7 +859,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LM300",
@@ -781,7 +877,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LM800",
@@ -797,7 +895,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LM900",
@@ -813,7 +913,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY12A",
@@ -829,7 +931,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY2A",
@@ -845,7 +949,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY6BT",
@@ -861,7 +967,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY6C",
@@ -877,7 +985,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY8384",
@@ -893,7 +1003,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY900",
@@ -909,7 +1021,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY9C",
@@ -925,7 +1039,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-LY988C",
@@ -941,7 +1057,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-MD480",
@@ -957,7 +1075,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ML400",
@@ -973,7 +1093,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ML5S1",
@@ -989,7 +1111,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-NH3GS",
@@ -1005,7 +1129,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-NJC6",
@@ -1021,7 +1147,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-OCT500",
@@ -1037,7 +1165,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-PS22",
@@ -1053,7 +1183,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-RNH316",
@@ -1069,7 +1201,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-RETIWAVE1000",
@@ -1085,7 +1219,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-RM3",
@@ -1101,7 +1237,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-S150",
@@ -1117,7 +1255,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-SJ350",
@@ -1133,7 +1273,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-SC800",
@@ -1149,7 +1291,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-SJ989",
@@ -1165,7 +1309,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-SJG7100",
@@ -1181,7 +1327,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-SK5500A",
@@ -1197,7 +1345,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-ST150",
@@ -1213,7 +1363,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-SW500",
@@ -1229,7 +1381,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TC10A",
@@ -1245,7 +1399,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TF488A",
@@ -1261,7 +1417,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TFC",
@@ -1277,7 +1435,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TF5470",
@@ -1293,7 +1453,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TM001",
@@ -1309,7 +1471,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TR6",
@@ -1325,7 +1489,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-TTF08",
@@ -1341,7 +1507,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-VB15HB16",
@@ -1357,7 +1525,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WATERPUMP",
@@ -1373,7 +1543,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WB1112H",
@@ -1389,7 +1561,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WB1117A",
@@ -1405,7 +1579,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WB3AN",
@@ -1421,7 +1597,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ01",
@@ -1437,7 +1615,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ08",
@@ -1453,7 +1633,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ1300",
@@ -1469,7 +1651,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ3000B",
@@ -1485,7 +1669,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ3A",
@@ -1501,7 +1687,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ3AT",
@@ -1517,7 +1705,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZ5AT",
@@ -1533,7 +1723,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZA",
@@ -1549,7 +1741,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZDT1A",
@@ -1565,7 +1759,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZJP120",
@@ -1581,7 +1777,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZJP15A",
@@ -1597,7 +1795,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZJP15B",
@@ -1613,7 +1813,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZJP17B",
@@ -1629,7 +1831,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZJP800C",
@@ -1645,7 +1849,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZSLB12",
@@ -1661,7 +1867,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZSLB8",
@@ -1677,7 +1885,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZY5A",
@@ -1693,7 +1903,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZY5B",
@@ -1709,7 +1921,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZY5C",
@@ -1725,7 +1939,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-WZZN",
@@ -1741,7 +1957,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ11",
@@ -1757,7 +1975,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ13",
@@ -1773,7 +1993,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ20T4",
@@ -1789,7 +2011,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ24",
@@ -1805,7 +2029,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ24BYZ11D",
@@ -1821,7 +2047,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ25C",
@@ -1837,7 +2065,9 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     },
     {
         "sku":  "AO-YZ30R",
@@ -1853,6 +2083,8 @@
         "barcode":  "",
         "specs":  {
 
-                  }
+                  },
+        "price_mxn":  null,
+        "compare_price_mxn":  null
     }
 ]
