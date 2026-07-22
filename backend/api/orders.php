@@ -104,7 +104,7 @@ switch ($method) {
                 $data['customer_email'] ?? null,
                 $data['customer_phone'] ?? null,
                 $data['status'] ?? 'pending',
-                $data['shipping_address'] ?? null,
+                !empty($data['shipping_address']) ? json_encode(['address' => $data['shipping_address']]) : null,
                 $shippingMethod,
                 $shippingCost,
                 $subtotal,
