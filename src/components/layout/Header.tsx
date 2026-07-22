@@ -229,9 +229,9 @@ export default function Header() {
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
             <img
-              src={scrolled ? "/images/logo-light.png" : "/images/logo-dark.png"}
+              src="/images/logo-dark.png"
               alt="Atlantic Optical International Limited"
-              className="h-[80px] w-auto object-contain transition-all duration-300"
+              className="h-[80px] w-auto object-contain"
             />
           </Link>
 
@@ -417,9 +417,9 @@ export default function Header() {
             <div className="pt-[100px] px-5 pb-6">
               <div className="mb-6">
                 <img
-                  src={scrolled ? "/images/logo-light.png" : "/images/logo-dark.png"}
+                  src="/images/logo-dark.png"
                   alt="Atlantic Optical International Limited"
-                  className="h-[60px] w-auto object-contain transition-all duration-300"
+                  className="h-[60px] w-auto object-contain"
                 />
               </div>
 
