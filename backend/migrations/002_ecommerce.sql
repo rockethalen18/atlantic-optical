@@ -23,23 +23,22 @@ CREATE TABLE IF NOT EXISTS order_items (
 -- ============================================================
 -- ENHANCE ORDERS TABLE (add missing columns)
 -- ============================================================
-ALTER TABLE orders
-    ADD COLUMN IF NOT EXISTS order_number VARCHAR(30) NULL AFTER id,
-    ADD COLUMN IF NOT EXISTS customer_phone VARCHAR(30) NULL AFTER customer_name,
-    ADD COLUMN IF NOT EXISTS shipping_address TEXT NULL AFTER customer_phone,
-    ADD COLUMN IF NOT EXISTS shipping_method VARCHAR(30) DEFAULT 'maritimo' AFTER shipping_address,
-    ADD COLUMN IF NOT EXISTS shipping_cost DECIMAL(10,2) DEFAULT 0 AFTER shipping_method,
-    ADD COLUMN IF NOT EXISTS subtotal DECIMAL(10,2) DEFAULT 0 AFTER total,
-    ADD COLUMN IF NOT EXISTS discount_amount DECIMAL(10,2) DEFAULT 0 AFTER subtotal,
-    ADD COLUMN IF NOT EXISTS discount_code VARCHAR(50) NULL AFTER discount_amount,
-    ADD COLUMN IF NOT EXISTS tax DECIMAL(10,2) DEFAULT 0 AFTER discount_code,
-    ADD COLUMN IF NOT EXISTS total_usd DECIMAL(10,2) DEFAULT 0 AFTER tax,
-    ADD COLUMN IF NOT EXISTS currency VARCHAR(5) DEFAULT 'MXN' AFTER total_usd,
-    ADD COLUMN IF NOT EXISTS payment_method VARCHAR(30) NULL AFTER currency,
-    ADD COLUMN IF NOT EXISTS payment_status VARCHAR(20) DEFAULT 'pending' AFTER payment_method,
-    ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER created_at,
-    ADD INDEX IF NOT EXISTS idx_orders_number (order_number),
-    ADD INDEX IF NOT EXISTS idx_orders_payment_status (payment_status);
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS order_number VARCHAR(30) NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS customer_name VARCHAR(255) NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS customer_phone VARCHAR(30) NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS shipping_address TEXT NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS shipping_method VARCHAR(30) DEFAULT 'maritimo';
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS shipping_cost DECIMAL(10,2) DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS subtotal DECIMAL(10,2) DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS discount_amount DECIMAL(10,2) DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS discount_code VARCHAR(50) NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS tax DECIMAL(10,2) DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS total_usd DECIMAL(10,2) DEFAULT 0;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS currency VARCHAR(5) DEFAULT 'MXN';
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS payment_method VARCHAR(30) NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS payment_status VARCHAR(20) DEFAULT 'pending';
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS notes TEXT NULL;
+ALTER TABLE orders ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
 
 -- ============================================================
 -- DISCOUNT CODES
