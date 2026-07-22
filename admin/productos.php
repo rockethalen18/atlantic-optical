@@ -179,6 +179,14 @@ foreach ($categories as $c) {
     }
 }
 $hasSubcats = count($parentCategories) > 0 && count($grouped) > 0;
+
+function resolveParentCategory($catId, $categoriesById) {
+    $cat = $categoriesById[$catId] ?? null;
+    if (!$cat) return $catId;
+    $parentId = intval($cat['parent_id'] ?? 0);
+    if ($parentId > 0) return $parentId;
+    return $catId;
+}
 $productImages = [];
 
 if ($editId > 0) {
@@ -211,14 +219,7 @@ if ($search !== '') {
     $params[] = "%$search%";
 }
 if ($fCategory > 0) {
-    $filterCatId = $fCategory;
-    $catRow = $categoriesById[$fCategory] ?? null;
-    if ($catRow) {
-        $parentId = intval($catRow['parent_id'] ?? 0);
-        if ($parentId > 0) {
-            $filterCatId = $parentId;
-        }
-    }
+    $filterCatId = resolveParentCategory($fCategory, $categoriesById);
     $conditions[] = 'p.category_id = ?';
     $params[] = $filterCatId;
 }
@@ -361,13 +362,12 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                         <?php if ($hasSubcats): ?>
                                         <?php foreach ($parentCategories as $cat):
                                             $children = $grouped[$cat['id']] ?? [];
-                                            if (empty($children)) continue;
                                         ?>
                                         <optgroup label="<?php echo htmlspecialchars($cat['name']); ?>">
+                                            <option value="<?php echo intval($cat['id']); ?>" <?php if (intval($product['category_id'] ?? 0) === intval($cat['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($cat['name']); ?> (General)</option>
                                             <?php foreach ($children as $sub): ?>
                                             <option value="<?php echo intval($sub['id']); ?>" <?php if (intval($product['category_id'] ?? 0) === intval($sub['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($sub['name']); ?></option>
                                             <?php endforeach; ?>
-                                            <option value="<?php echo intval($cat['id']); ?>" <?php if (intval($product['category_id'] ?? 0) === intval($cat['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($cat['name']); ?> (General)</option>
                                         </optgroup>
                                         <?php endforeach; ?>
                                         <?php else: ?>
@@ -529,9 +529,9 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                         <?php if ($hasSubcats): ?>
                                         <?php foreach ($parentCategories as $cat):
                                             $children = $grouped[$cat['id']] ?? [];
-                                            if (empty($children)) continue;
                                         ?>
                                         <optgroup label="<?php echo htmlspecialchars($cat['name']); ?>">
+                                            <option value="<?php echo intval($cat['id']); ?>" <?php if ($fCategory == intval($cat['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($cat['name']); ?> (Todos)</option>
                                             <?php foreach ($children as $sub): ?>
                                             <option value="<?php echo intval($sub['id']); ?>" <?php if ($fCategory == intval($sub['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($sub['name']); ?></option>
                                             <?php endforeach; ?>
