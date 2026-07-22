@@ -19,10 +19,10 @@ async function getShippingRates() {
     const res = await fetch(`${API_BASE}/shipping`, { next: { revalidate: 300 } });
     const data = await res.json();
     if (data?.data?.rates && data.data.rates.length > 0) {
-      return data.data.rates.map((r: { method: string; cost_per_kg: number; min_days?: number; max_days?: number; estimated_days?: string }) => ({
+      return data.data.rates.map((r: { method: string; cost_per_kg: string | number; min_days?: number; max_days?: number; estimated_days?: string }) => ({
         method: r.method.charAt(0).toUpperCase() + r.method.slice(1),
         time: r.min_days && r.max_days ? `${r.min_days}-${r.max_days} días` : r.estimated_days || '',
-        cost_per_kg: r.cost_per_kg,
+        cost_per_kg: Number(r.cost_per_kg),
         icon: r.method === 'aereo' ? 'truck' : r.method === 'express' ? 'package' : 'shipping',
         color: r.method === 'aereo' ? 'var(--blue)' : r.method === 'express' ? 'var(--green-dark)' : 'var(--green)',
       }));
@@ -216,7 +216,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
                   </div>
                   <div>
                     <p className="text-[13px] font-bold text-[var(--text)]">{s.method}</p>
-                    <p className="text-[11px] text-[var(--text-muted)]">{s.time} | ${s.cost_per_kg.toFixed(2)} USD/kg</p>
+                    <p className="text-[11px] text-[var(--text-muted)]">{s.time} | ${Number(s.cost_per_kg).toFixed(2)} USD/kg</p>
                   </div>
                 </div>
               );

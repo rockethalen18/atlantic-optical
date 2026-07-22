@@ -31,7 +31,7 @@ export function useShippingRates() {
       .then(r => r.json())
       .then(data => {
         if (data?.data?.rates && data.data.rates.length > 0) {
-          setRates(data.data.rates);
+          setRates(data.data.rates.map((r: ShippingRate) => ({ ...r, cost_per_kg: Number(r.cost_per_kg) })));
         }
       })
       .catch(() => {})
