@@ -187,8 +187,7 @@ $conditions = [];
 $params = [];
 
 if ($search !== '') {
-    $conditions[] = '(p.name LIKE ? OR p.sku LIKE ? OR p.reference LIKE ?)';
-    $params[] = "%$search%";
+    $conditions[] = '(p.name LIKE ? OR p.sku LIKE ?)';
     $params[] = "%$search%";
     $params[] = "%$search%";
 }
@@ -216,21 +215,29 @@ if ($fStock === 'out') {
     $conditions[] = 'p.stock > 5';
 }
 if ($fSeo === 'yes') {
-    $conditions[] = "p.seo_title != ''";
+    $conditions[] = "p.seo_title IS NOT NULL AND p.seo_title != ''";
 } elseif ($fSeo === 'no') {
     $conditions[] = "(p.seo_title IS NULL OR p.seo_title = '')";
 }
 
 $where = $conditions ? 'WHERE ' . implode(' AND ', $conditions) : '';
 
-$cntS = db()->prepare("SELECT COUNT(*) FROM products p $where");
-$cntS->execute($params);
-$total = $cntS->fetchColumn();
+try {
+    $cntS = db()->prepare("SELECT COUNT(*) FROM products p $where");
+    $cntS->execute($params);
+    $total = $cntS->fetchColumn();
+} catch (Exception $e) {
+    $total = 0;
+}
 
-$stmt = db()->prepare("SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON p.category_id = c.id $where ORDER BY p.created_at DESC LIMIT ? OFFSET ?");
-$allParams = array_merge($params, [$perPage, $offset]);
-$stmt->execute($allParams);
-$products = $stmt->fetchAll();
+try {
+    $stmt = db()->prepare("SELECT p.*, c.name AS category_name FROM products p LEFT JOIN categories c ON p.category_id = c.id $where ORDER BY p.created_at DESC LIMIT ? OFFSET ?");
+    $allParams = array_merge($params, [$perPage, $offset]);
+    $stmt->execute($allParams);
+    $products = $stmt->fetchAll();
+} catch (Exception $e) {
+    $products = [];
+}
 $totalPages = max(1, ceil($total / $perPage));
 
 function build_filter_url($overrides = []) {
