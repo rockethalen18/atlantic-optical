@@ -159,7 +159,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $editId = isset($_GET['edit']) ? intval($_GET['edit']) : 0;
 $isNew = isset($_GET['new']);
 $product = null;
-$categories = db()->query('SELECT id, name, parent_id FROM categories WHERE is_active = 1 ORDER BY CASE WHEN parent_id IS NULL THEN 0 ELSE 1 END, name')->fetchAll();
+$categories = db()->query('SELECT id, name, NULL as parent_id FROM categories WHERE is_active = 1 ORDER BY name')->fetchAll();
+$subcategories = db()->query('SELECT s.id, s.name, s.category_id AS parent_id FROM subcategories s WHERE s.is_active = 1 ORDER BY s.name')->fetchAll();
 $productImages = [];
 
 if ($editId > 0) {
@@ -192,8 +193,16 @@ if ($search !== '') {
     $params[] = "%$search%";
 }
 if ($fCategory > 0) {
-    $conditions[] = 'p.category_id = ?';
-    $params[] = $fCategory;
+    $catCheck = db()->prepare('SELECT parent_id FROM subcategories WHERE id = ?');
+    $catCheck->execute([$fCategory]);
+    $subCat = $catCheck->fetch();
+    if ($subCat && $subCat['parent_id']) {
+        $conditions[] = 'p.category_id = ?';
+        $params[] = intval($subCat['parent_id']);
+    } else {
+        $conditions[] = 'p.category_id = ?';
+        $params[] = $fCategory;
+    }
 }
 if ($fStatus !== '' && in_array($fStatus, ['active', 'inactive'])) {
     $conditions[] = 'p.status = ?';
@@ -323,19 +332,15 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 <div class="form-group"><label>Categoria</label>
                                     <select name="category_id">
                                         <option value="0">-- Sin categoria --</option>
-                                        <?php
-                                        $parentId = 0;
-                                        $catById = [];
-                                        foreach ($categories as $c) $catById[$c['id']] = $c;
-                                        foreach ($categories as $c):
-                                            if ($c['parent_id'] == null):
-                                                if ($parentId > 0) echo '</optgroup>';
-                                                $parentId = $c['id'];
-                                        ?>
-                                        <optgroup label="<?php echo htmlspecialchars($c['name']); ?>">
-                                        <?php else: ?>
-                                        <option value="<?php echo intval($c['id']); ?>" <?php if (intval($product['category_id'] ?? 0) === intval($c['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($c['name']); ?></option>
-                                        <?php endif; endforeach; if ($parentId > 0) echo '</optgroup>'; ?>
+                                        <?php foreach ($categories as $cat): ?>
+                                        <optgroup label="<?php echo htmlspecialchars($cat['name']); ?>">
+                                        <?php foreach ($subcategories as $sub):
+                                            if ($sub['parent_id'] == $cat['id']): ?>
+                                        <option value="<?php echo intval($sub['id']); ?>" <?php if (intval($product['category_id'] ?? 0) === intval($sub['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($sub['name']); ?></option>
+                                        <?php endif; endforeach; ?>
+                                        </optgroup>
+                                        <?php endforeach; ?>
+                                    </select>
                                     </select>
                                 </div>
                             </div>
@@ -473,16 +478,14 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                     <label>Categoria</label>
                                     <select name="cat">
                                         <option value="">Todas</option>
-                                        <?php
-                                        $openOptgroup = false;
-                                        foreach ($categories as $c):
-                                            if ($c['parent_id'] == null):
-                                                if ($openOptgroup) echo '</optgroup>';
-                                        ?>
-                                        <optgroup label="<?php echo htmlspecialchars($c['name']); ?>">
-                                        <?php $openOptgroup = true; else: ?>
-                                        <option value="<?php echo intval($c['id']); ?>" <?php if ($fCategory === intval($c['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($c['name']); ?></option>
-                                        <?php endif; endforeach; if ($openOptgroup) echo '</optgroup>'; ?>
+                                        <?php foreach ($categories as $cat): ?>
+                                        <optgroup label="<?php echo htmlspecialchars($cat['name']); ?>">
+                                        <?php foreach ($subcategories as $sub):
+                                            if ($sub['parent_id'] == $cat['id']): ?>
+                                        <option value="<?php echo intval($sub['id']); ?>" <?php if ($fCategory === intval($sub['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($sub['name']); ?></option>
+                                        <?php endif; endforeach; ?>
+                                        </optgroup>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="filter-group">

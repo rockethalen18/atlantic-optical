@@ -145,6 +145,102 @@ if (!in_array('seo_description', $cols)) {
     }
 }
 
+// Fix 4: Create subcategories table if missing
+try {
+    db()->exec("CREATE TABLE IF NOT EXISTS subcategories (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        category_id INT NOT NULL,
+        name VARCHAR(100) NOT NULL,
+        slug VARCHAR(100) NOT NULL UNIQUE,
+        description TEXT,
+        image VARCHAR(500),
+        is_active TINYINT(1) DEFAULT 1,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
+    ) ENGINE=InnoDB");
+    $results[] = ['ok', 'Tabla subcategories verificada/creada'];
+} catch (Exception $e) {
+    $results[] = ['error', 'Subcategories table: ' . $e->getMessage()];
+}
+
+// Fix 5: Add parent_id to categories if missing
+try {
+    $catCols = [];
+    $colStmt2 = db()->query("SHOW COLUMNS FROM categories");
+    foreach ($colStmt2->fetchAll() as $col) { $catCols[] = $col['Field']; }
+    if (!in_array('parent_id', $catCols)) {
+        db()->exec("ALTER TABLE categories ADD COLUMN parent_id INT DEFAULT NULL AFTER image");
+        $results[] = ['ok', 'Columna parent_id agregada a categories'];
+    }
+} catch (Exception $e) {
+    $results[] = ['error', 'Categories parent_id: ' . $e->getMessage()];
+}
+
+// Fix 6: Populate subcategories from import_clean data if empty
+try {
+    $subCnt = db()->query('SELECT COUNT(*) FROM subcategories')->fetchColumn();
+    if ($subCnt == 0) {
+        $subs = [
+            [1,1,'Biseladoras Automaticas','biseladoras-automaticas'],
+            [2,1,'Biseladoras Manuales','biseladoras-manuales'],
+            [3,1,'Biseladoras Semiautomaticas','biseladoras-semiautomaticas'],
+            [4,1,'Calentadores','calentadores'],
+            [5,1,'Centradoras','centradoras'],
+            [6,1,'Esferometros','esferometros'],
+            [7,1,'Limpiadores Ultrasonicos','limpiadores-ultrasonicos'],
+            [8,1,'Medidores de Espesor','medidores-de-espesor'],
+            [9,1,'Otros Laboratorio','otros-laboratorio'],
+            [10,1,'Perforadoras al Aire','perforadoras-al-aire'],
+            [11,1,'Perforadoras para Plantilla','perforadoras-para-plantilla'],
+            [12,1,'Probadores de Fotocromatico','probadores-de-fotocromatico'],
+            [13,1,'Pulidoras Manuales','pulidoras-manuales'],
+            [14,1,'Ranuradoras Manuales','ranuradoras-manuales'],
+            [15,1,'Repuestos','repuestos'],
+            [16,1,'Tinturadoras','tinturadoras'],
+            [17,1,'Uveometros','uveometros'],
+            [18,2,'Analisis de Gafas','analisis-de-gafas'],
+            [19,2,'Auto Refractometros','auto-refractometros'],
+            [20,2,'Auto Refractometros con Keratometro','auto-refractometros-con-keratometro'],
+            [21,2,'Cajas de Prisma','cajas-de-prisma'],
+            [22,2,'Cajas de Prueba','cajas-de-prueba'],
+            [23,2,'Camara de Fondo','camara-de-fondo'],
+            [24,2,'Equipos de Fisioterapia','equipos-de-fisioterapia'],
+            [25,2,'Facoemulsificador','facoemulsificador'],
+            [26,2,'Foropteros Manuales','foropteros-manuales'],
+            [27,2,'Lamparas de Hendidura','lamparas-de-hendidura'],
+            [28,2,'Lamparas Portatiles','lamparas-portatiles'],
+            [29,2,'Lente de 3 Espejos','lente-de-3-espejos'],
+            [30,2,'Lente de Aumento','lente-de-aumento'],
+            [31,2,'Microscopio Quirurgico','microscopio-quirurgico'],
+            [32,2,'Monturas de Prueba','monturas-de-prueba'],
+            [33,2,'OCT','oct'],
+            [34,2,'Oftalmoscopios','oftalmoscopios'],
+            [35,2,'Probetas Desechables','probetas-desechables'],
+            [36,2,'Pupilometros','pupilometros'],
+            [37,2,'Retinoscopios','retinoscopios'],
+            [38,2,'Tonometros de Contacto','tonometros-de-contacto'],
+            [39,2,'Tonometros Metalicos','tonometros-metalicos'],
+            [40,3,'Mesas de Elevacion','mesas-de-elevacion'],
+            [41,3,'Mesas Dobles','mesas-dobles'],
+            [42,3,'Mesas Multifuncional','mesas-multifuncional'],
+            [43,3,'Sillas con Pedal','sillas-con-pedal'],
+            [44,3,'Sillas para Optica','sillas-para-optica'],
+            [45,4,'Cartillas','cartillas'],
+            [46,4,'Monitores Estandar','monitores-estandar'],
+            [47,4,'Monitores Verticales','monitores-verticales'],
+            [48,4,'Optotipos con Soporte','optotipos-con-soporte'],
+            [49,4,'Optotipos Electricos','optotipos-electricos'],
+            [50,4,'Proyectores Graficos','proyectores-graficos'],
+            [51,4,'Tablet LCD','tablet-lcd'],
+        ];
+        $ins = db()->prepare('INSERT IGNORE INTO subcategories (id, category_id, name, slug) VALUES (?, ?, ?, ?)');
+        foreach ($subs as $s) { $ins->execute($s); }
+        $results[] = ['ok', count($subs) . ' subcategorias insertadas'];
+    }
+} catch (Exception $e) {
+    $results[] = ['error', 'Insert subcategories: ' . $e->getMessage()];
+}
+
 // Show results
 echo '<!DOCTYPE html><html><head><title>Migration 004</title><style>body{font-family:monospace;padding:20px;background:#1a1a2e;color:#e0e0e0}h1{color:#60a5fa}.ok{color:#4ade80}.error{color:#f87171}pre{background:#0f1629;padding:12px;border-radius:8px;overflow-x:auto}</style></head><body>';
 echo '<h1>Migration 004: Fix products.status ENUM</h1>';
