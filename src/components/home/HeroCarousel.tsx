@@ -6,44 +6,45 @@ import { gsap } from '@/lib/gsap';
 import { useShippingRates } from '@/lib/useShippingRates';
 import Icons from '@/components/ui/Icons';
 
-  const slides = [
-    {
-      image: '/images/hero-optical-equipment.jpg',
-      alt: 'Equipo oftalmológico profesional - autorefractómetro y lámpara de hendidura',
-      tag: 'Líder en Equipamiento Oftálmico',
-      title: 'Equipo profesional para tu consultorio',
-      desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a México.',
-      primaryCta: { label: 'Explorar Catálogo', href: '/productos' },
-      secondaryCta: { label: 'Solicitar Cotización', href: '/contacto' },
-    },
-    {
-      image: '/images/hero-optical-store.jpg',
-      alt: 'Local de óptica con exhibidor de monturas y lentes',
-      tag: 'Nuevas Colecciones',
-      title: 'Monturas de última tendencia',
-      desc: 'Exclusivas colecciones de monturas ópticas y lentes de sol con diseño contemporáneo.',
-      primaryCta: { label: 'Ver Colecciones', href: '/productos' },
-      secondaryCta: { label: 'Contactar', href: '/contacto' },
-    },
-    {
-      image: '/images/hero-eye-exam.jpg',
-      alt: 'Examen visual con equipo oftalmológico de última generación',
-      tag: 'Innovación Constante',
-      title: 'Equipamiento de última generación',
-      desc: 'Fábricas certificadas ISO 13485 con tecnología de vanguardia. Más de 116 productos.',
-      primaryCta: { label: 'Ver Productos', href: '/productos' },
-      secondaryCta: { label: 'Nuestra Empresa', href: '/nosotros' },
-    },
-    {
-      image: '/images/hero-glasses-display.jpg',
-      alt: 'Exhibición de lentes y monturas ópticas de diseñador',
-      tag: 'Envío a Todo México',
-      title: 'Costos de envío en tiempo real',
-      desc: shippingDesc,
-      primaryCta: { label: 'Calcular Envío', href: '/contacto' },
-      secondaryCta: { label: 'Ver Catálogo', href: '/productos' },
-    },
-  ];
+const staticSlides = [
+  {
+    image: '/images/hero-optical-equipment.jpg',
+    alt: 'Equipo oftalmológico profesional - autorefractómetro y lámpara de hendidura',
+    tag: 'Líder en Equipamiento Oftálmico',
+    title: 'Equipo profesional para tu consultorio',
+    desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a México.',
+    primaryCta: { label: 'Explorar Catálogo', href: '/productos' },
+    secondaryCta: { label: 'Solicitar Cotización', href: '/contacto' },
+  },
+  {
+    image: '/images/hero-optical-store.jpg',
+    alt: 'Local de óptica con exhibidor de monturas y lentes',
+    tag: 'Nuevas Colecciones',
+    title: 'Monturas de última tendencia',
+    desc: 'Exclusivas colecciones de monturas ópticas y lentes de sol con diseño contemporáneo.',
+    primaryCta: { label: 'Ver Colecciones', href: '/productos' },
+    secondaryCta: { label: 'Contactar', href: '/contacto' },
+  },
+  {
+    image: '/images/hero-eye-exam.jpg',
+    alt: 'Examen visual con equipo oftalmológico de última generación',
+    tag: 'Innovación Constante',
+    title: 'Equipamiento de última generación',
+    desc: 'Fábricas certificadas ISO 13485 con tecnología de vanguardia. Más de 116 productos.',
+    primaryCta: { label: 'Ver Productos', href: '/productos' },
+    secondaryCta: { label: 'Nuestra Empresa', href: '/nosotros' },
+  },
+];
+
+const shippingSlide = {
+  image: '/images/hero-glasses-display.jpg',
+  alt: 'Exhibición de lentes y monturas ópticas de diseñador',
+  tag: 'Envío a Todo México',
+  title: 'Costos de envío en tiempo real',
+  desc: 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización según destino y peso.',
+  primaryCta: { label: 'Calcular Envío', href: '/contacto' },
+  secondaryCta: { label: 'Ver Catálogo', href: '/productos' },
+};
 
 export default function HeroCarousel() {
   const [i, setI] = useState(0);
@@ -52,7 +53,9 @@ export default function HeroCarousel() {
 
   const shippingDesc = rates.length > 0
     ? rates.map(r => `${r.method_label || r.method} desde $${r.cost_per_kg}/kg`).join('. ') + '. Cotización según destino y peso.'
-    : 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización según destino y peso.';
+    : shippingSlide.desc;
+
+  const slides = [...staticSlides, { ...shippingSlide, desc: shippingDesc }];
 
   const goTo = useCallback((next: number) => {
     if (animating || next === i) return;
