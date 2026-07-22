@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . '/includes/security.php';
-require_once __DIR__ . '/includes/auth.php';
+define('CURRENT_PAGE', 'descuentos');
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
-require_once __DIR__ . '/includes/sidebar.php';
-
-init_session();
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/security.php';
 require_login();
-CURRENT_PAGE = 'descuentos';
+security_headers();
 
 $editing = null;
 $editId = $_GET['edit'] ?? null;
@@ -18,7 +16,7 @@ if ($editId) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_check();
+    verify_csrf();
     $action = $_POST['action'] ?? '';
     
     if ($action === 'delete') {
@@ -66,9 +64,8 @@ $msg = $_GET['msg'] ?? '';
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>
-<?php include __DIR__ . '/includes/header.php'; ?>
 <div class="layout">
-<?php include __DIR__ . '/includes/sidebar.php'; ?>
+<?php require_once __DIR__ . '/includes/sidebar.php'; ?>
 <main class="main-content">
 <div class="page-header">
     <div>

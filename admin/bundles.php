@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . '/includes/security.php';
-require_once __DIR__ . '/includes/auth.php';
+define('CURRENT_PAGE', 'bundles');
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
-require_once __DIR__ . '/includes/sidebar.php';
-
-init_session();
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/security.php';
 require_login();
-CURRENT_PAGE = 'bundles';
+security_headers();
 
 $editing = null;
 $editId = $_GET['edit'] ?? null;
@@ -25,7 +23,7 @@ if ($editId) {
 $allProducts = db()->query('SELECT id, name, sku FROM products ORDER BY name')->fetchAll();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_check();
+    verify_csrf();
     $action = $_POST['action'] ?? '';
     
     if ($action === 'delete') {
@@ -39,16 +37,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $slug = strtolower(preg_replace('/[^a-z0-9]+/', '-', strtolower($name)));
     $slug = trim($slug, '-');
     
-    $stmt = db()->prepare('INSERT INTO bundles (name, slug, description, bundle_price_usd, image, is_active, sort_order) VALUES (?,?,?,?,?,?,?)');
-    $stmt->execute([
-        $name, $slug,
-        $_POST['description'] ?? null,
-        floatval($_POST['bundle_price_usd'] ?? 0),
-        $_POST['image'] ?? null,
-        isset($_POST['is_active']) ? 1 : 0,
-        intval($_POST['sort_order'] ?? 0)
-    ]);
-    $bundleId = db()->lastInsertId();
+    if ($editId) {
+        $stmt = db()->prepare('UPDATE bundles SET name=?, slug=?, description=?, bundle_price_usd=?, image=?, is_active=?, sort_order=? WHERE id=?');
+        $stmt->execute([
+            $name, $slug,
+            $_POST['description'] ?? null,
+            floatval($_POST['bundle_price_usd'] ?? 0),
+            $_POST['image'] ?? null,
+            isset($_POST['is_active']) ? 1 : 0,
+            intval($_POST['sort_order'] ?? 0),
+            $editId
+        ]);
+        db()->prepare('DELETE FROM bundle_items WHERE bundle_id = ?')->execute([$editId]);
+        $bundleId = $editId;
+        header('Location: /admin/bundles?msg=updated');
+    } else {
+        $stmt = db()->prepare('INSERT INTO bundles (name, slug, description, bundle_price_usd, image, is_active, sort_order) VALUES (?,?,?,?,?,?,?)');
+        $stmt->execute([
+            $name, $slug,
+            $_POST['description'] ?? null,
+            floatval($_POST['bundle_price_usd'] ?? 0),
+            $_POST['image'] ?? null,
+            isset($_POST['is_active']) ? 1 : 0,
+            intval($_POST['sort_order'] ?? 0)
+        ]);
+        $bundleId = db()->lastInsertId();
+        header('Location: /admin/bundles?msg=created');
+    }
     
     if (!empty($_POST['product_ids']) && is_array($_POST['product_ids'])) {
         $itemStmt = db()->prepare('INSERT INTO bundle_items (bundle_id, product_id, quantity) VALUES (?,?,?)');
@@ -60,7 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     
-    header('Location: /admin/bundles?msg=created');
     exit;
 }
 
@@ -79,9 +93,8 @@ $msg = $_GET['msg'] ?? '';
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>
-<?php include __DIR__ . '/includes/header.php'; ?>
 <div class="layout">
-<?php include __DIR__ . '/includes/sidebar.php'; ?>
+<?php require_once __DIR__ . '/includes/sidebar.php'; ?>
 <main class="main-content">
 <div class="page-header">
     <div>

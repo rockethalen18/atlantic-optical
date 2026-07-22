@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . '/includes/security.php';
-require_once __DIR__ . '/includes/auth.php';
+define('CURRENT_PAGE', 'popups');
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/icons.php';
-require_once __DIR__ . '/includes/sidebar.php';
-
-init_session();
+require_once __DIR__ . '/includes/auth.php';
+require_once __DIR__ . '/includes/security.php';
 require_login();
-CURRENT_PAGE = 'popups';
+security_headers();
 
 $editing = null;
 $editId = $_GET['edit'] ?? null;
@@ -18,7 +16,7 @@ if ($editId) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    csrf_check();
+    verify_csrf();
     $action = $_POST['action'] ?? '';
     
     if ($action === 'delete') {
@@ -38,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['button_color'] ?? '#2563eb',
         $_POST['button_link'] ?? null,
         $_POST['position'] ?? 'center',
-        $_POST['trigger'] ?? 'delay',
+        $_POST['trigger_type'] ?? 'delay',
         intval($_POST['trigger_value'] ?? 3000),
         $_POST['frequency'] ?? 'once',
         isset($_POST['is_active']) ? 1 : 0,
@@ -47,12 +45,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
     
     if ($editId) {
-        $stmt = db()->prepare('UPDATE popups SET title=?, content=?, image=?, bg_color=?, text_color=?, button_text=?, button_color=?, button_link=?, position=?, `trigger`=?, trigger_value=?, frequency=?, is_active=?, starts_at=?, expires_at=? WHERE id=?');
+        $stmt = db()->prepare('UPDATE popups SET title=?, content=?, image=?, bg_color=?, text_color=?, button_text=?, button_color=?, button_link=?, position=?, trigger_type=?, trigger_value=?, frequency=?, is_active=?, starts_at=?, expires_at=? WHERE id=?');
         $data[] = $editId;
         $stmt->execute($data);
         header('Location: /admin/popups?msg=updated');
     } else {
-        $stmt = db()->prepare('INSERT INTO popups (title, content, image, bg_color, text_color, button_text, button_color, button_link, position, `trigger`, trigger_value, frequency, is_active, starts_at, expires_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
+        $stmt = db()->prepare('INSERT INTO popups (title, content, image, bg_color, text_color, button_text, button_color, button_link, position, trigger_type, trigger_value, frequency, is_active, starts_at, expires_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)');
         $stmt->execute($data);
         header('Location: /admin/popups?msg=created');
     }
@@ -74,9 +72,8 @@ $msg = $_GET['msg'] ?? '';
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>
-<?php include __DIR__ . '/includes/header.php'; ?>
 <div class="layout">
-<?php include __DIR__ . '/includes/sidebar.php'; ?>
+<?php require_once __DIR__ . '/includes/sidebar.php'; ?>
 <main class="main-content">
 <div class="page-header">
     <div>
