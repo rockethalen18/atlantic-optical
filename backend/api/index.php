@@ -60,6 +60,8 @@ $routes = [
     
     'POST /setup'          => ['file' => 'api/setup.php'],
     
+    'GET /migrate'         => ['file' => 'api/migrate.php'],
+    
     'GET /discount-codes'       => ['file' => 'api/discount-codes.php'],
     'POST /discount-codes'      => ['file' => 'api/discount-codes.php'],
     'PUT /discount-codes'       => ['file' => 'api/discount-codes.php'],
