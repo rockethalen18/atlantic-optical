@@ -97,12 +97,10 @@ switch ($method) {
             $tax = ($subtotal - $discountAmount) * 0.16;
             $total = $subtotal - $discountAmount + $shippingCost + $tax;
             
-            $stmt = $db->prepare("INSERT INTO orders (order_number, customer_name, customer_email, customer_phone, status, shipping_address, shipping_method, shipping_cost, subtotal, discount_amount, discount_code, tax, total, currency, payment_method, payment_status, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $db->prepare("INSERT INTO orders (order_number, customer_name, status, shipping_address, shipping_method, shipping_cost, subtotal, discount_amount, discount_code, tax, total, currency, payment_method, payment_status, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->execute([
                 $orderNumber,
                 $data['customer_name'] ?? null,
-                $data['customer_email'] ?? null,
-                $data['customer_phone'] ?? null,
                 $data['status'] ?? 'pending',
                 $data['shipping_address'] ?? null,
                 $shippingMethod,

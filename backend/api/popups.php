@@ -24,7 +24,7 @@ switch ($method) {
         $userId = requireAdmin();
         $data = getJsonBody();
         if (!$data || empty($data['title']) || empty($data['content'])) jsonError('title and content are required');
-        $stmt = $db->prepare("INSERT INTO popups (title, content, image, bg_color, text_color, button_text, button_color, button_link, position, trigger, trigger_value, frequency, is_active, starts_at, expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO popups (title, content, image, bg_color, text_color, button_text, button_color, button_link, position, trigger_type, trigger_value, frequency, is_active, starts_at, expires_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([
             $data['title'],
             $data['content'],
@@ -35,7 +35,7 @@ switch ($method) {
             $data['button_color'] ?? '#2563eb',
             $data['button_link'] ?? null,
             $data['position'] ?? 'center',
-            $data['trigger'] ?? 'delay',
+            $data['trigger_type'] ?? 'delay',
             $data['trigger_value'] ?? 3000,
             $data['frequency'] ?? 'once',
             $data['is_active'] ?? 1,
@@ -52,7 +52,7 @@ switch ($method) {
         $data = getJsonBody();
         $fields = [];
         $params = [];
-        foreach (['title', 'content', 'image', 'bg_color', 'text_color', 'button_text', 'button_color', 'button_link', 'position', 'trigger', 'trigger_value', 'frequency', 'is_active', 'starts_at', 'expires_at'] as $f) {
+        foreach (['title', 'content', 'image', 'bg_color', 'text_color', 'button_text', 'button_color', 'button_link', 'position', 'trigger_type', 'trigger_value', 'frequency', 'is_active', 'starts_at', 'expires_at'] as $f) {
             if (array_key_exists($f, $data)) {
                 $fields[] = "$f = ?";
                 $params[] = $data[$f];

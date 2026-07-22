@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS order_items (
 -- ============================================================
 ALTER TABLE orders
     ADD COLUMN IF NOT EXISTS order_number VARCHAR(30) NULL AFTER id,
-    ADD COLUMN IF NOT EXISTS customer_phone VARCHAR(30) NULL AFTER customer_email,
+    ADD COLUMN IF NOT EXISTS customer_phone VARCHAR(30) NULL AFTER customer_name,
     ADD COLUMN IF NOT EXISTS shipping_address TEXT NULL AFTER customer_phone,
     ADD COLUMN IF NOT EXISTS shipping_method VARCHAR(30) DEFAULT 'maritimo' AFTER shipping_address,
     ADD COLUMN IF NOT EXISTS shipping_cost DECIMAL(10,2) DEFAULT 0 AFTER shipping_method,
@@ -37,7 +37,6 @@ ALTER TABLE orders
     ADD COLUMN IF NOT EXISTS currency VARCHAR(5) DEFAULT 'MXN' AFTER total_usd,
     ADD COLUMN IF NOT EXISTS payment_method VARCHAR(30) NULL AFTER currency,
     ADD COLUMN IF NOT EXISTS payment_status VARCHAR(20) DEFAULT 'pending' AFTER payment_method,
-    ADD COLUMN IF NOT EXISTS notes TEXT NULL AFTER payment_status,
     ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP AFTER created_at,
     ADD INDEX IF NOT EXISTS idx_orders_number (order_number),
     ADD INDEX IF NOT EXISTS idx_orders_payment_status (payment_status);
@@ -133,7 +132,7 @@ CREATE TABLE IF NOT EXISTS popups (
     button_color VARCHAR(20) DEFAULT '#2563eb',
     button_link VARCHAR(500) NULL,
     position VARCHAR(30) DEFAULT 'center' COMMENT 'center, bottom-right, bottom-left',
-    trigger VARCHAR(30) DEFAULT 'delay' COMMENT 'delay, scroll, exit-intent',
+    trigger_type VARCHAR(30) DEFAULT 'delay' COMMENT 'delay, scroll, exit-intent',
     trigger_value INT DEFAULT 3000 COMMENT 'delay ms or scroll %',
     frequency VARCHAR(20) DEFAULT 'once' COMMENT 'once, daily, always',
     is_active TINYINT(1) DEFAULT 1,

@@ -128,10 +128,10 @@ $msg = $_GET['msg'] ?? '';
                 </div>
                 <div class="form-group">
                     <label>Trigger</label>
-                    <select name="trigger">
-                        <option value="delay" <?= ($editing['trigger'] ?? '') === 'delay' ? 'selected' : '' ?>>Despues de tiempo</option>
-                        <option value="scroll" <?= ($editing['trigger'] ?? '') === 'scroll' ? 'selected' : '' ?>>Al hacer scroll</option>
-                        <option value="exit-intent" <?= ($editing['trigger'] ?? '') === 'exit-intent' ? 'selected' : '' ?>>Al salir de pagina</option>
+                    <select name="trigger_type">
+                        <option value="delay" <?= ($editing['trigger_type'] ?? $editing['trigger'] ?? '') === 'delay' ? 'selected' : '' ?>>Despues de tiempo</option>
+                        <option value="scroll" <?= ($editing['trigger_type'] ?? $editing['trigger'] ?? '') === 'scroll' ? 'selected' : '' ?>>Al hacer scroll</option>
+                        <option value="exit-intent" <?= ($editing['trigger_type'] ?? $editing['trigger'] ?? '') === 'exit-intent' ? 'selected' : '' ?>>Al salir de pagina</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -197,7 +197,7 @@ $msg = $_GET['msg'] ?? '';
                 <tr>
                     <td><strong><?= htmlspecialchars($p['title']) ?></strong></td>
                     <td><?= ucfirst($p['position']) ?></td>
-                    <td><?= $p['trigger'] ?> (<?= $p['trigger_value'] ?>)</td>
+                    <td><?= $p['trigger_type'] ?? $p['trigger'] ?> (<?= $p['trigger_value'] ?>)</td>
                     <td><?= ucfirst($p['frequency']) ?></td>
                     <td><?= $p['is_active'] ? '<span class="badge badge-green">Si</span>' : '<span class="badge badge-red">No</span>' ?></td>
                     <td>

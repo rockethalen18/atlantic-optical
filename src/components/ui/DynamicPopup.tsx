@@ -16,7 +16,7 @@ interface Popup {
   button_color: string;
   button_link: string | null;
   position: string;
-  trigger: string;
+  trigger_type: string;
   trigger_value: number;
   frequency: string;
 }
@@ -42,9 +42,9 @@ export default function DynamicPopup() {
 
         setPopup(active);
 
-        if (active.trigger === 'delay') {
+        if (active.trigger_type === 'delay') {
           setTimeout(() => setVisible(true), active.trigger_value || 3000);
-        } else if (active.trigger === 'scroll') {
+        } else if (active.trigger_type === 'scroll') {
           const handler = () => {
             const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
             if (pct >= (active.trigger_value || 50)) {
@@ -54,7 +54,7 @@ export default function DynamicPopup() {
           };
           window.addEventListener('scroll', handler, { passive: true });
           return () => window.removeEventListener('scroll', handler);
-        } else if (active.trigger === 'exit-intent') {
+        } else if (active.trigger_type === 'exit-intent') {
           const handler = (e: MouseEvent) => {
             if (e.clientY < 10) {
               setVisible(true);
