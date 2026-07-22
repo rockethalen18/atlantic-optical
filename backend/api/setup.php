@@ -17,6 +17,10 @@ if (!file_exists($migrationFile)) {
 }
 
 $sql = file_get_contents($migrationFile);
+
+// Remove comment lines (-- ...) before splitting
+$sql = preg_replace('/^\s*--.*$/m', '', $sql);
+
 $statements = array_filter(array_map('trim', explode(';', $sql)));
 
 $results = [];
@@ -25,15 +29,15 @@ $skipped = 0;
 
 foreach ($statements as $stmt) {
     $stmt = trim($stmt);
-    if (empty($stmt) || str_starts_with($stmt, '--')) continue;
+    if (empty($stmt)) continue;
     try {
         $db->exec($stmt);
         $success++;
     } catch (PDOException $e) {
-        if (str_contains($e->getMessage(), 'already exists')) {
+        if (str_contains($e->getMessage(), 'already exists') || str_contains($e->getMessage(), 'Duplicate column')) {
             $skipped++;
         } else {
-            $results[] = 'ERROR: ' . substr($stmt, 0, 80) . '... -> ' . $e->getMessage();
+            $results[] = substr($stmt, 0, 80) . '... -> ' . $e->getMessage();
         }
     }
 }
