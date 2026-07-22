@@ -32,11 +32,20 @@ switch ($method) {
             jsonSuccess($order);
         } else {
             $status = $_GET['status'] ?? null;
+            $email = $_GET['email'] ?? null;
             $sql = "SELECT o.* FROM orders o";
             $params = [];
+            $wheres = [];
             if ($status) {
-                $sql .= " WHERE o.status = ?";
+                $wheres[] = "o.status = ?";
                 $params[] = $status;
+            }
+            if ($email) {
+                $wheres[] = "o.customer_email = ?";
+                $params[] = $email;
+            }
+            if ($wheres) {
+                $sql .= " WHERE " . implode(' AND ', $wheres);
             }
             $sql .= " ORDER BY o.created_at DESC";
             $stmt = $db->prepare($sql);

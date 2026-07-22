@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { gsap } from '@/lib/gsap';
 import Icons from '@/components/ui/Icons';
 import productsData from '../../../catalogos/products.json';
+import { useAuth } from '@/lib/AuthContext';
 
 const allProducts = productsData as Array<{
   sku: string; name: string; slug: string; category: string; category_slug: string;
@@ -147,6 +148,7 @@ const rightNavItems = [
 ];
 
 export default function Header() {
+  const { user } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMega, setActiveMega] = useState<string | null>(null);
@@ -238,6 +240,13 @@ export default function Header() {
           <div className="flex-1" />
 
           <div className="flex items-center gap-0.5">
+            <Link
+              href={user ? '/cuenta/perfil' : '/cuenta'}
+              className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors rounded-lg hover:bg-white/10"
+              aria-label={user ? 'Mi Cuenta' : 'Iniciar Sesión'}
+            >
+              <Icons.User size={18} />
+            </Link>
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors rounded-lg hover:bg-white/10"
@@ -441,6 +450,9 @@ export default function Header() {
               ))}
 
               <div className="mt-4 pt-4 border-t border-white/10">
+                <Link href={user ? '/cuenta/perfil' : '/cuenta'} className="block py-3 min-h-[44px] flex items-center gap-2 text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>
+                  <Icons.User size={16} /> {user ? user.name : 'Iniciar Sesión'}
+                </Link>
                 <Link href="/contacto" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Contacto</Link>
                 <Link href="/faq" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Preguntas Frecuentes</Link>
               </div>

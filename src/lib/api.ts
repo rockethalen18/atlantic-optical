@@ -93,7 +93,7 @@ export const pricingAPI = {
 export const ordersAPI = {
   list: (params?: Record<string, string>) => {
     const query = params ? '?' + new URLSearchParams(params).toString() : '';
-    return fetchAPI<{ orders: Order[]; pagination: PaginatedResponse<Order>['pagination'] }>(`/orders${query}`);
+    return fetchAPI<Order[] | { orders: Order[] }>(`/orders${query}`);
   },
   get: (id: number) =>
     fetchAPI<Order>(`/orders?id=${id}`),
@@ -101,10 +101,17 @@ export const ordersAPI = {
     fetchAPI<{ order_id: number; order_number: string; total: number }>('/orders', { method: 'POST', body: JSON.stringify(data) }),
   update: (id: number, data: Partial<Order>) =>
     fetchAPI<null>(`/orders?id=${id}`, { method: 'PUT', body: JSON.stringify(data) }),
+  byEmail: (email: string) =>
+    fetchAPI<Order[]>(`/orders?email=${encodeURIComponent(email)}`),
 };
 
 // Auth
 export const authAPI = {
+  register: (name: string, email: string, password: string) =>
+    fetchAPI<User>('/auth?action=register', {
+      method: 'POST',
+      body: JSON.stringify({ name, email, password }),
+    }),
   login: (email: string, password: string) =>
     fetchAPI<User>('/auth?action=login', {
       method: 'POST',
@@ -114,6 +121,11 @@ export const authAPI = {
     fetchAPI<null>('/auth?action=logout', { method: 'POST' }),
   me: () =>
     fetchAPI<User>('/auth?action=me'),
+  update: (data: { name?: string; email?: string; phone?: string; password?: string }) =>
+    fetchAPI<null>('/auth?action=update', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    }),
 };
 
 // Settings
