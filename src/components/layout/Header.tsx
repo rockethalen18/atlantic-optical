@@ -167,8 +167,8 @@ export default function Header() {
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
-      backgroundColor: scrolled ? 'rgba(15,35,64,0.97)' : 'rgba(15,35,64,0.55)',
-      backdropFilter: 'blur(12px)',
+      backgroundColor: scrolled ? 'rgba(15,35,64,0.85)' : 'rgba(15,35,64,1)',
+      backdropFilter: scrolled ? 'blur(12px)' : 'blur(0px)',
       boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.3)' : 'none',
       duration: 0.28,
     });
@@ -229,9 +229,9 @@ export default function Header() {
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
             <img
-              src="/images/logo-dark.png"
+              src={scrolled ? "/images/logo-light.png" : "/images/logo-dark.png"}
               alt="Atlantic Optical International Limited"
-              className="h-[80px] w-auto object-contain"
+              className="h-[80px] w-auto object-contain transition-all duration-300"
             />
           </Link>
 
@@ -417,9 +417,9 @@ export default function Header() {
             <div className="pt-[100px] px-5 pb-6">
               <div className="mb-6">
                 <img
-                  src="/images/logo-dark.png"
+                  src={scrolled ? "/images/logo-light.png" : "/images/logo-dark.png"}
                   alt="Atlantic Optical International Limited"
-                  className="h-[60px] w-auto object-contain"
+                  className="h-[60px] w-auto object-contain transition-all duration-300"
                 />
               </div>
 
