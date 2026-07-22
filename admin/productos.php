@@ -288,9 +288,17 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
         .filter-form { display: block; }
         .filter-row { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
         .filter-group { display: flex; flex-direction: column; gap: 4px; }
-        .filter-group label { color: #6b7280; font-size: 11px; font-weight: 500; text-transform: uppercase; }
-        .filter-group input, .filter-group select { background: #1f2937; border: 1px solid #374151; border-radius: 6px; color: #d1d5db; padding: 7px 10px; font-size: 13px; min-width: 100px; }
-        .filter-group input:focus, .filter-group select:focus { outline: none; border-color: #3b82f6; }
+        .filter-group label { color: #6b7280; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .filter-group input, .filter-group select { background: #1f2937; border: 1px solid #374151; border-radius: 6px; color: #d1d5db; padding: 7px 10px; font-size: 13px; min-width: 100px; transition: border-color 0.15s; }
+        .filter-group input:focus, .filter-group select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 2px rgba(59,130,246,0.15); }
+        .filter-group select { cursor: pointer; appearance: auto; }
+        .filter-group select optgroup { background: #1e293b; color: #94a3b8; font-weight: 600; font-style: normal; padding: 4px 0; }
+        .filter-group select option { background: #1f2937; color: #d1d5db; padding: 6px 10px 6px 20px; font-weight: 400; }
+        .filter-group select option:hover { background: #334155; }
+        .filter-actions { display: flex; gap: 6px; align-self: flex-end; }
+        .filter-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(59,130,246,0.15); color: #60a5fa; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; margin-bottom: 8px; }
+        .filter-badge a { color: #60a5fa; text-decoration: none; opacity: 0.7; }
+        .filter-badge a:hover { opacity: 1; }
     </style>
 </head>
 <body>
@@ -468,23 +476,47 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                 <?php else: ?>
                 <div class="crm-card" style="margin-bottom:16px">
                     <div class="crm-card-body" style="padding:12px 16px">
+                        <?php if ($hasFilters): ?>
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">
+                            <?php if ($search): ?><span class="filter-badge">🔍 "<?php echo htmlspecialchars($search); ?>" <a href="<?php echo build_filter_url(['q' => '']); ?>">✕</a></span><?php endif; ?>
+                            <?php if ($fCategory > 0):
+                                $catName = '';
+                                foreach ($subcategories as $s) { if ($s['id'] == $fCategory) { $catName = $s['name']; break; } }
+                                if (!$catName) foreach ($categories as $c) { if ($c['id'] == $fCategory) { $catName = $c['name']; break; } }
+                            ?><span class="filter-badge">📁 <?php echo htmlspecialchars($catName); ?> <a href="<?php echo build_filter_url(['cat' => '']); ?>">✕</a></span><?php endif; ?>
+                            <?php if ($fStatus): ?><span class="filter-badge">● <?php echo $fStatus === 'active' ? 'Activo' : 'Inactivo'; ?> <a href="<?php echo build_filter_url(['status' => '']); ?>">✕</a></span><?php endif; ?>
+                            <?php if ($fPriceMin && $fPriceMin > 0): ?><span class="filter-badge">💰 Min $<?php echo number_format($fPriceMin, 0); ?> <a href="<?php echo build_filter_url(['price_min' => '']); ?>">✕</a></span><?php endif; ?>
+                            <?php if ($fPriceMax && $fPriceMax > 0): ?><span class="filter-badge">💰 Max $<?php echo number_format($fPriceMax, 0); ?> <a href="<?php echo build_filter_url(['price_max' => '']); ?>">✕</a></span><?php endif; ?>
+                            <?php if ($fStock): ?>
+                                <span class="filter-badge">📦 <?php echo $fStock === 'out' ? 'Agotado' : ($fStock === 'low' ? 'Stock Bajo' : 'Stock OK'); ?> <a href="<?php echo build_filter_url(['stock' => '']); ?>">✕</a></span>
+                            <?php endif; ?>
+                        </div>
+                        <?php endif; ?>
                         <form method="GET" class="filter-form">
                             <input type="hidden" name="page" value="1">
                             <div class="filter-row">
-                                <div class="filter-group">
-                                    <label>Buscar</label>
+                                <div class="filter-group" style="flex:1;min-width:180px">
+                                    <label>🔍 Buscar</label>
                                     <input type="text" name="q" placeholder="Nombre, SKU..." value="<?php echo htmlspecialchars($search); ?>">
                                 </div>
-                                <div class="filter-group">
-                                    <label>Categoria</label>
+                                <div class="filter-group" style="min-width:180px">
+                                    <label>📁 Categoría</label>
                                     <select name="cat">
-                                        <option value="">Todas</option>
-                                        <?php foreach ($categories as $cat): ?>
+                                        <option value="">Todas las categorías</option>
+                                        <?php
+                                        $grouped = [];
+                                        foreach ($subcategories as $sub) {
+                                            $pid = $sub['parent_id'] ?? 0;
+                                            $grouped[$pid][] = $sub;
+                                        }
+                                        foreach ($categories as $cat):
+                                            $catId = $cat['id'];
+                                            $children = $grouped[$catId] ?? [];
+                                        ?>
                                         <optgroup label="<?php echo htmlspecialchars($cat['name']); ?>">
-                                        <?php foreach ($subcategories as $sub):
-                                            if ($sub['parent_id'] == $cat['id']): ?>
-                                        <option value="<?php echo intval($sub['id']); ?>" <?php if ($fCategory === intval($sub['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($sub['name']); ?></option>
-                                        <?php endif; endforeach; ?>
+                                            <?php foreach ($children as $sub): ?>
+                                            <option value="<?php echo intval($sub['id']); ?>" <?php if ($fCategory == intval($sub['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($sub['name']); ?></option>
+                                            <?php endforeach; ?>
                                         </optgroup>
                                         <?php endforeach; ?>
                                     </select>
@@ -499,11 +531,11 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 </div>
                                 <div class="filter-group">
                                     <label>Precio Min</label>
-                                    <input type="number" name="price_min" step="0.01" min="0" placeholder="$0" value="<?php echo $fPriceMin && $fPriceMin > 0 ? htmlspecialchars($fPriceMin) : ''; ?>">
+                                    <input type="number" name="price_min" step="0.01" min="0" placeholder="$0" value="<?php echo ($fPriceMin && $fPriceMin > 0) ? htmlspecialchars($fPriceMin) : ''; ?>">
                                 </div>
                                 <div class="filter-group">
                                     <label>Precio Max</label>
-                                    <input type="number" name="price_max" step="0.01" min="0" placeholder="$9999" value="<?php echo $fPriceMax && $fPriceMax > 0 ? htmlspecialchars($fPriceMax) : ''; ?>">
+                                    <input type="number" name="price_max" step="0.01" min="0" placeholder="$9999" value="<?php echo ($fPriceMax && $fPriceMax > 0) ? htmlspecialchars($fPriceMax) : ''; ?>">
                                 </div>
                                 <div class="filter-group">
                                     <label>Stock</label>
@@ -514,18 +546,10 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                         <option value="ok" <?php if ($fStock === 'ok') echo 'selected'; ?>>Suficiente (6+)</option>
                                     </select>
                                 </div>
-                                <div class="filter-group">
-                                    <label>SEO</label>
-                                    <select name="seo">
-                                        <option value="">Todos</option>
-                                        <option value="yes" <?php if ($fSeo === 'yes') echo 'selected'; ?>>Con SEO</option>
-                                        <option value="no" <?php if ($fSeo === 'no') echo 'selected'; ?>>Sin SEO</option>
-                                    </select>
-                                </div>
-                                <div class="filter-group" style="align-self:flex-end">
+                                <div class="filter-actions">
                                     <button type="submit" class="btn-primary"><?php echo crm_icon('search'); ?> Filtrar</button>
                                     <?php if ($hasFilters): ?>
-                                    <a href="/admin/productos" class="btn-secondary" style="margin-left:4px">Limpiar</a>
+                                    <a href="/admin/productos" class="btn-secondary"><?php echo crm_icon('x'); ?> Limpiar</a>
                                     <?php endif; ?>
                                 </div>
                             </div>
