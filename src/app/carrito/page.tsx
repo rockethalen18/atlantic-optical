@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { formatMXN } from '@/lib/utils';
+import { useShippingRates } from '@/lib/useShippingRates';
 import Icons from '@/components/ui/Icons';
 
 interface CartItem {
@@ -15,15 +16,10 @@ interface CartItem {
   img: string;
 }
 
-const shippingRates: Record<string, { price: number; label: string; days: string }> = {
-  maritimo: { price: 4.50, label: 'Marítimo (20-40 días)', days: '20-40' },
-  aereo: { price: 12.00, label: 'Aéreo (5-10 días)', days: '5-10' },
-  express: { price: 20.00, label: 'Express (3-7 días)', days: '3-7' },
-};
-
 export default function CartPage() {
   const [items, setItems] = useState<CartItem[]>([]);
   const [shippingMethod, setShippingMethod] = useState('maritimo');
+  const { rates, getRate, getDays } = useShippingRates();
 
   const updateQuantity = (id: number, delta: number) => {
     setItems(items.map(item =>
@@ -37,7 +33,8 @@ export default function CartPage() {
 
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const totalWeight = items.reduce((sum, item) => sum + item.weight * item.quantity, 0);
-  const shippingCost = shippingRates[shippingMethod].price * totalWeight;
+  const currentRate = getRate(shippingMethod);
+  const shippingCost = (currentRate?.cost_per_kg || 0) * totalWeight;
   const tax = subtotal * 0.16;
   const total = subtotal + shippingCost + tax;
 
@@ -103,13 +100,13 @@ export default function CartPage() {
                   <div className="mb-4">
                     <label className="text-sm font-medium text-[var(--text-secondary)] mb-2 block">Método de Envío</label>
                     <div className="space-y-2">
-                      {Object.entries(shippingRates).map(([key, rate]) => (
-                        <label key={key} className={`flex items-center gap-3 p-3 border cursor-pointer transition-colors ${shippingMethod === key ? 'border-[var(--green)] bg-[var(--green-light)]' : 'border-[var(--border)] hover:border-[var(--border-strong)]'}`}>
-                          <input type="radio" name="shipping" value={key} checked={shippingMethod === key} onChange={() => setShippingMethod(key)} className="accent-[var(--green)]" />
+                      {rates.map((rate) => (
+                        <label key={rate.method} className={`flex items-center gap-3 p-3 border cursor-pointer transition-colors ${shippingMethod === rate.method ? 'border-[var(--green)] bg-[var(--green-light)]' : 'border-[var(--border)] hover:border-[var(--border-strong)]'}`}>
+                          <input type="radio" name="shipping" value={rate.method} checked={shippingMethod === rate.method} onChange={() => setShippingMethod(rate.method)} className="accent-[var(--green)]" />
                           <Icons.Truck size={16} className="text-[var(--text-soft)]" />
                           <div className="flex-1">
-                            <div className="text-sm font-medium text-[var(--text)]">{rate.label}</div>
-                            <div className="text-xs text-[var(--text-muted)]">${rate.price}/kg</div>
+                            <div className="text-sm font-medium text-[var(--text)]">{rate.method_label || rate.method} ({getDays(rate.method)})</div>
+                            <div className="text-xs text-[var(--text-muted)]">${rate.cost_per_kg}/kg</div>
                           </div>
                         </label>
                       ))}
@@ -122,7 +119,7 @@ export default function CartPage() {
                       <span className="font-medium text-[var(--text)]">{formatMXN(subtotal)}</span>
                     </div>
                     <div className="flex justify-between text-sm">
-                      <span className="text-[var(--text-muted)]">Envío ({totalWeight} kg × ${shippingRates[shippingMethod].price})</span>
+                      <span className="text-[var(--text-muted)]">Envío ({totalWeight} kg × ${currentRate?.cost_per_kg || 0})</span>
                       <span className="font-medium text-[var(--text)]">{formatMXN(shippingCost)}</span>
                     </div>
                     <div className="flex justify-between text-sm">

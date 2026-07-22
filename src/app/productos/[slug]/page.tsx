@@ -6,6 +6,31 @@ import products from '../../../../catalogos/products.json';
 import { Icons } from '@/components/ui/Icons';
 import ProductCard from '@/components/ui/ProductCard';
 
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://equipos.atlanticopticalgroup.com/backend/api';
+
+const fallbackShipping = [
+  { method: 'Marítimo', time: '20-40 días', cost_per_kg: 4.50, icon: 'shipping', color: 'var(--green)' },
+  { method: 'Aéreo', time: '5-10 días', cost_per_kg: 12.00, icon: 'truck', color: 'var(--blue)' },
+  { method: 'Express', time: '3-7 días', cost_per_kg: 20.00, icon: 'package', color: 'var(--green-dark)' },
+];
+
+async function getShippingRates() {
+  try {
+    const res = await fetch(`${API_BASE}/shipping`, { next: { revalidate: 300 } });
+    const data = await res.json();
+    if (data?.data?.rates && data.data.rates.length > 0) {
+      return data.data.rates.map((r: { method: string; cost_per_kg: number; min_days?: number; max_days?: number; estimated_days?: string }) => ({
+        method: r.method.charAt(0).toUpperCase() + r.method.slice(1),
+        time: r.min_days && r.max_days ? `${r.min_days}-${r.max_days} días` : r.estimated_days || '',
+        cost_per_kg: r.cost_per_kg,
+        icon: r.method === 'aereo' ? 'truck' : r.method === 'express' ? 'package' : 'shipping',
+        color: r.method === 'aereo' ? 'var(--blue)' : r.method === 'express' ? 'var(--green-dark)' : 'var(--green)',
+      }));
+    }
+  } catch {}
+  return fallbackShipping;
+}
+
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
@@ -43,6 +68,13 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     .slice(0, 4);
 
   const hasSpecs = product.specs && Object.keys(product.specs).length > 0;
+  const shippingRates = await getShippingRates();
+
+  const iconComponent = (name: string) => {
+    if (name === 'truck') return Icons.Truck;
+    if (name === 'package') return Icons.Package;
+    return Icons.Shipping;
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -175,21 +207,20 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
             <h2 className="text-[16px] font-bold text-[var(--text)]" style={{ fontFamily: 'var(--font-display)' }}>Envío desde China a México</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {[
-              { method: 'Marítimo', time: '20-40 días', price: '$4.50 USD/kg', icon: Icons.Shipping, color: 'var(--green)' },
-              { method: 'Aéreo', time: '5-10 días', price: '$12.00 USD/kg', icon: Icons.Truck, color: 'var(--blue)' },
-              { method: 'Express', time: '3-7 días', price: '$20.00 USD/kg', icon: Icons.Package, color: 'var(--green-dark)' },
-            ].map((s, i) => (
-              <div key={i} className="flex items-center gap-4 p-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
-                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ background: `${s.color}10` }}>
-                  <span style={{ color: s.color }}><s.icon size={18} /></span>
+            {shippingRates.map((s, i) => {
+              const Icon = iconComponent(s.icon);
+              return (
+                <div key={i} className="flex items-center gap-4 p-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
+                  <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ background: `${s.color}10` }}>
+                    <span style={{ color: s.color }}><Icon size={18} /></span>
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-bold text-[var(--text)]">{s.method}</p>
+                    <p className="text-[11px] text-[var(--text-muted)]">{s.time} | ${s.cost_per_kg.toFixed(2)} USD/kg</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-[13px] font-bold text-[var(--text)]">{s.method}</p>
-                  <p className="text-[11px] text-[var(--text-muted)]">{s.time} | {s.price}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
