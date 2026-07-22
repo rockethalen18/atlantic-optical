@@ -456,6 +456,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                 <div class="crm-card" style="margin-bottom:16px">
                     <div class="crm-card-body" style="padding:12px 16px">
                         <form method="GET" class="filter-form">
+                            <input type="hidden" name="page" value="1">
                             <div class="filter-row">
                                 <div class="filter-group">
                                     <label>Buscar</label>
@@ -465,12 +466,16 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                     <label>Categoria</label>
                                     <select name="cat">
                                         <option value="">Todas</option>
-                                        <?php foreach ($categories as $c): ?>
-                                        <?php if ($c['parent_id'] == null): ?>
+                                        <?php
+                                        $openOptgroup = false;
+                                        foreach ($categories as $c):
+                                            if ($c['parent_id'] == null):
+                                                if ($openOptgroup) echo '</optgroup>';
+                                        ?>
                                         <optgroup label="<?php echo htmlspecialchars($c['name']); ?>">
-                                        <?php else: ?>
+                                        <?php $openOptgroup = true; else: ?>
                                         <option value="<?php echo intval($c['id']); ?>" <?php if ($fCategory === intval($c['id'])) echo 'selected'; ?>><?php echo htmlspecialchars($c['name']); ?></option>
-                                        <?php endif; endforeach; ?>
+                                        <?php endif; endforeach; if ($openOptgroup) echo '</optgroup>'; ?>
                                     </select>
                                 </div>
                                 <div class="filter-group">
