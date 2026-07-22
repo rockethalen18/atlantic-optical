@@ -93,7 +93,7 @@ $totalPages = max(1, ceil($total / $perPage));
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ($editId > 0 || $isNew) ? 'Editar Categoria' : 'Categorias'; ?> - Atlantic Optical International Limited Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.png">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
 </head>
 <body>

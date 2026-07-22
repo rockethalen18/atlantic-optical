@@ -101,9 +101,9 @@ export default function Footer() {
           <div className="footer-col lg:col-span-2">
             <Link href="/" className="block mb-5">
               <img
-                src="/images/logo-atlantic.png"
+                src="/images/logo-dark.png"
                 alt="Atlantic Optical International Limited"
-                className="h-[48px] w-auto object-contain brightness-0 invert"
+                className="h-[48px] w-auto object-contain"
               />
             </Link>
             <p className="text-[13px] text-white/70 leading-[1.7] max-w-[300px] mb-5">

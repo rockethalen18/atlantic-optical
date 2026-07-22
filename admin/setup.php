@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Setup - Atlantic Optical International Limited Admin</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.png">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0a0e1a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }

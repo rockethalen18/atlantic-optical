@@ -254,7 +254,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ($editId > 0 || $isNew) ? 'Editar Producto' : 'Productos'; ?> - Atlantic Optical International Limited Admin</title>
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.png">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 12px; }

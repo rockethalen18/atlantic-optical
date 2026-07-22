@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Atlantic Optical International Limited - Admin Login</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="assets/css/crm.css">
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.png">
     <script>var t=localStorage.getItem('admin-theme');document.documentElement.setAttribute('data-theme',t||'light');</script>
     <style>
         body { margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--bg-body); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text-body); }
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </button>
     <div class="login-box">
         <div class="login-logo">
-            <img src="/images/logo-atlantic.png" alt="Atlantic Optical International Limited" style="width:200px;height:auto;max-width:100%">
+            <img src="/images/logo-light.png" alt="Atlantic Optical International Limited" style="width:200px;height:auto;max-width:100%">
             <h1 style="margin-top:12px">Atlantic Optical International Limited</h1>
             <p>Panel de Administracion</p>
         </div>
