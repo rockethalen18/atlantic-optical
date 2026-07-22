@@ -16,7 +16,7 @@ switch ($method) {
         }
         
         if ($id) {
-            $stmt = $db->prepare("SELECT o.*, u.name as customer_name FROM orders o LEFT JOIN users u ON o.customer_email = u.email WHERE o.id = ?");
+            $stmt = $db->prepare("SELECT o.* FROM orders o WHERE o.id = ?");
             $stmt->execute([$id]);
             $order = $stmt->fetch();
             if (!$order) jsonError('Order not found', 404);
@@ -32,7 +32,7 @@ switch ($method) {
             jsonSuccess($order);
         } else {
             $status = $_GET['status'] ?? null;
-            $sql = "SELECT o.*, u.name as customer_name FROM orders o LEFT JOIN users u ON o.customer_email = u.email";
+            $sql = "SELECT o.* FROM orders o";
             $params = [];
             if ($status) {
                 $sql .= " WHERE o.status = ?";
