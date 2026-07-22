@@ -58,6 +58,8 @@ $routes = [
     'GET /dashboard'       => ['file' => 'api/dashboard.php'],
     'GET /pricing'         => ['file' => 'api/pricing.php'],
     
+    'POST /setup'          => ['file' => 'api/setup.php'],
+    
     'GET /discount-codes'       => ['file' => 'api/discount-codes.php'],
     'POST /discount-codes'      => ['file' => 'api/discount-codes.php'],
     'PUT /discount-codes'       => ['file' => 'api/discount-codes.php'],
