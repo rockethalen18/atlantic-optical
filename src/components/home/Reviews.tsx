@@ -9,10 +9,10 @@ const reviews = [
     name: 'Dr. Carlos Méndez',
     role: 'Oftalmólogo',
     location: 'Ciudad de México',
-    text: 'Excelente calidad en todos los equipos. El soporte post-venta es excepcional. Ya realizamos 3 compras con Atlantic Optical International Limited y cada una superó expectativas.',
+    text: 'Excelente calidad en todos los equipos. El soporte post-venta es excepcional. Ya realizamos 3 compras con Atlantic Optical y cada una superó expectativas.',
     rating: 5,
     initial: 'CM',
-    color: 'var(--green)',
+    color: 'var(--blue)',
   },
   {
     name: 'Dra. María García',
@@ -21,7 +21,7 @@ const reviews = [
     text: 'El auto-refractometro ARK-7710 superó nuestras expectativas. Precisión clínica y diseño profesional. El envío fue rápido y bien coordinado.',
     rating: 5,
     initial: 'MG',
-    color: 'var(--blue)',
+    color: 'var(--green)',
   },
   {
     name: 'Ing. Roberto Sánchez',
@@ -30,7 +30,7 @@ const reviews = [
     text: 'Los costos variables de envío son muy transparentes y justos. El equipo llegó en perfecto estado. Totalmente recomendados como proveedor.',
     rating: 5,
     initial: 'RS',
-    color: 'var(--green-dark)',
+    color: 'var(--blue)',
   },
 ];
 
@@ -51,10 +51,10 @@ export default function Reviews() {
     const cards = sectionRef.current.querySelectorAll<HTMLElement>('.review-card');
     const statEls = sectionRef.current.querySelectorAll<HTMLElement>('.stat-item');
 
-    gsap.set(cards, { opacity: 0, y: 40, rotateX: 6 });
+    gsap.set(cards, { opacity: 0, y: 40, scale: 0.97 });
     gsap.to(cards, {
       scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
-      opacity: 1, y: 0, rotateX: 0,
+      opacity: 1, y: 0, scale: 1,
       duration: 0.7, stagger: 0.12, ease: 'power3.out',
     });
 
@@ -69,36 +69,33 @@ export default function Reviews() {
   return (
     <section ref={sectionRef} className="py-16 md:py-28 bg-[var(--bg)]">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
-        {/* Header */}
         <div className="text-center mb-14">
-          <span className="text-[10px] font-bold text-[var(--green)] uppercase tracking-[0.2em]">Testimonios</span>
-          <h2 className="text-[32px] md:text-[42px] font-black text-[var(--text)] tracking-[-0.04em] mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-8 h-[2px] bg-[var(--blue)]" />
+            <span className="text-[10px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Testimonios</span>
+            <div className="w-8 h-[2px] bg-[var(--blue)]" />
+          </div>
+          <h2 className="text-[32px] md:text-[42px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
             Lo Que Dicen Nuestros Clientes
           </h2>
-          <div className="w-12 h-[2px] bg-[var(--green)] mx-auto mt-4" />
         </div>
 
-        {/* Reviews grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16" style={{ perspective: '1200px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 mb-16">
           {reviews.map((r, i) => (
-            <div key={i} className="review-card group relative bg-white border border-[var(--border)] p-7 hover:border-[var(--green)]/30 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,101,53,0.06)]">
-              {/* Quote mark */}
-              <div className="absolute top-5 right-6 text-[60px] font-black text-[var(--green)] opacity-[0.06] leading-none" style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</div>
+            <div key={i} className="review-card group relative bg-white border border-[var(--border)] p-7 md:p-8 hover:border-[var(--blue)]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(37,99,235,0.06)] hover:-translate-y-0.5">
+              <div className="absolute top-5 right-6 text-[60px] font-black text-[var(--blue)] opacity-[0.04] leading-none" style={{ fontFamily: 'Georgia, serif' }}>&ldquo;</div>
 
-              {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: r.rating }).map((_, si) => (
                   <Icons.Star key={si} size={13} className="text-[var(--star)] fill-[var(--star)]" />
                 ))}
               </div>
 
-              {/* Text */}
               <p className="text-[13px] text-[var(--text-secondary)] leading-[1.7] mb-6 relative z-10">&ldquo;{r.text}&rdquo;</p>
 
-              {/* Author */}
               <div className="flex items-center gap-3 pt-5 border-t border-[var(--border-light)]">
                 <div
-                  className="w-10 h-10 text-white flex items-center justify-center text-[12px] font-bold flex-shrink-0"
+                  className="w-11 h-11 text-white flex items-center justify-center text-[12px] font-bold flex-shrink-0"
                   style={{ background: r.color }}
                 >
                   {r.initial}
@@ -112,11 +109,10 @@ export default function Reviews() {
           ))}
         </div>
 
-        {/* Stats */}
         <div className="stats-row grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--bg-alt)] p-6 sm:p-8 border border-[var(--border)]">
           {stats.map((s, i) => (
             <div key={i} className="stat-item text-center">
-              <div className="text-[24px] sm:text-[28px] md:text-[34px] font-black text-[var(--green)]" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
+              <div className="text-[24px] sm:text-[28px] md:text-[34px] font-black text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
               <div className="text-[9px] sm:text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.1em] sm:tracking-[0.14em] mt-1 leading-tight">{s.label}</div>
             </div>
           ))}

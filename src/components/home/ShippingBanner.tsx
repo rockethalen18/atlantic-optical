@@ -40,23 +40,23 @@ const methods = [
     price: 4.50,
     time: '30-45 días',
     color: 'var(--blue)',
-    desc: 'Ideal para equipos grandes y pesados. Opción más económica.',
+    desc: 'Ideal para equipos grandes y pesados',
   },
   {
     icon: Icons.Truck,
     name: 'Aéreo',
     price: 12.00,
     time: '7-15 días',
-    color: 'var(--amber)',
-    desc: 'Equilibrio entre velocidad y costo. Para pedidos medianos.',
+    color: '#60a5fa',
+    desc: 'Equilibrio entre velocidad y costo',
   },
   {
     icon: Icons.Package,
     name: 'Express',
     price: 20.00,
     time: '3-7 días',
-    color: '#60a5fa',
-    desc: 'Máxima urgencia. Para equipos críticos y repuestos.',
+    color: '#93c5fd',
+    desc: 'Máxima urgencia para equipos críticos',
   },
 ];
 
@@ -68,62 +68,62 @@ export default function ShippingBanner() {
   useEffect(() => {
     if (!mounted || !sectionRef.current) return;
     const els = sectionRef.current.querySelectorAll<HTMLElement>('.ship-card');
-    gsap.set(els, { opacity: 0, y: 30, scale: 0.97 });
+    gsap.set(els, { opacity: 0, y: 40, scale: 0.95 });
     gsap.to(els, {
       scrollTrigger: { trigger: sectionRef.current, start: 'top 75%', once: true },
       opacity: 1, y: 0, scale: 1,
-      duration: 0.6, stagger: 0.12, ease: 'power3.out',
+      duration: 0.7, stagger: 0.15, ease: 'power3.out',
     });
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-28 bg-[var(--dark-bg)] relative overflow-hidden">
-      {/* Grid pattern */}
+    <section ref={sectionRef} className="py-20 md:py-32 bg-[var(--dark-bg)] relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
         backgroundSize: '50px 50px',
       }} />
-      {/* Floating orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--green)] opacity-[0.05] rounded-full blur-[120px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--blue)] opacity-[0.04] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--green)] opacity-[0.03] rounded-full blur-[120px] translate-y-1/3 -translate-x-1/4" />
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10">
-        <div className="text-center mb-12">
-          <span className="text-[10px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Envío Directo</span>
-          <h2 className="text-[32px] md:text-[42px] font-black text-white tracking-[-0.04em] mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+        <div className="text-center mb-14">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-8 h-[2px] bg-[var(--blue)]" />
+            <span className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-[0.2em]">Envío Directo</span>
+            <div className="w-8 h-[2px] bg-[var(--blue)]" />
+          </div>
+          <h2 className="text-[32px] md:text-[42px] font-black text-white tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
             Costos de Envío Variables
           </h2>
           <p className="text-[14px] text-white/70 mt-3 max-w-[400px] mx-auto">China → Latinoamérica con cotización en tiempo real</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-[1000px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-[1100px] mx-auto">
           {methods.map((m, i) => (
-            <div key={i} className="ship-card group relative bg-white/5 backdrop-blur-sm border border-white/10 p-8 text-center hover:bg-white/10 transition-all duration-500 hover:border-white/20">
-              {/* Icon */}
-              <div className="w-14 h-14 mx-auto mb-5 flex items-center justify-center bg-white/5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                <span style={{ color: m.color }}><m.icon size={24} /></span>
+            <div key={i} className="ship-card group relative bg-white/[0.03] backdrop-blur-md border border-white/10 p-8 md:p-10 text-center hover:bg-white/[0.07] transition-all duration-500 hover:border-white/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white/5 border border-white/10 group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300">
+                <span style={{ color: m.color }}><m.icon size={28} /></span>
               </div>
 
-              {/* Name */}
-              <h3 className="text-[12px] font-bold text-white uppercase tracking-[0.14em] mb-2">{m.name}</h3>
+              <h3 className="text-[12px] font-bold text-white/80 uppercase tracking-[0.16em] mb-3">{m.name}</h3>
 
-              {/* Price */}
-              <div className="text-[32px] font-black leading-none mb-1" style={{ color: m.color, fontFamily: 'var(--font-display)' }}>
+              <div className="text-[40px] font-black leading-none mb-1" style={{ color: m.color, fontFamily: 'var(--font-display)' }}>
                 ${mounted ? <AnimatedNumber target={m.price} /> : '0.00'}
               </div>
-              <span className="text-[10px] text-white/60 uppercase tracking-wider">por kg</span>
+              <span className="text-[10px] text-white/50 uppercase tracking-wider">por kg</span>
 
-              {/* Divider */}
-              <div className="w-8 h-px bg-white/10 mx-auto my-5" />
+              <div className="w-10 h-px bg-white/10 mx-auto my-6" />
 
-              {/* Time */}
-              <div className="text-[11px] font-semibold text-white/80 mb-1">{m.time}</div>
+              <div className="text-[12px] font-semibold text-white/80 mb-1.5">{m.time}</div>
               <p className="text-[11px] text-white/60 leading-relaxed">{m.desc}</p>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-8">
-          <p className="text-[12px] text-white/60">Costos calculados en tiempo real según destino y peso. IVA incluido.</p>
+        <div className="text-center mt-10">
+          <p className="text-[12px] text-white/50">Costos calculados en tiempo real según destino y peso. IVA incluido.</p>
         </div>
       </div>
     </section>
