@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 import ScrollRevealProvider from "@/components/ui/ScrollRevealProvider";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import { AuthProvider } from "@/lib/AuthContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -45,13 +46,15 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
-        <LoadingScreen />
-        <ScrollRevealProvider>
-          <ScrollProgress />
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </ScrollRevealProvider>
+        <AuthProvider>
+          <LoadingScreen />
+          <ScrollRevealProvider>
+            <ScrollProgress />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </ScrollRevealProvider>
+        </AuthProvider>
       </body>
     </html>
   );
