@@ -39,7 +39,7 @@ export default function CTASection() {
           </p>
         </div>
         <div className="cta-item flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/contacto" className="group inline-flex items-center justify-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4.5 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(37,99,235,0.25)]">
+          <Link href="/contacto" className="group inline-flex items-center justify-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4.5 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.25)]">
             Solicitar Cotización <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link href="/productos" className="inline-flex items-center justify-center gap-2 bg-white text-[var(--text)] border border-[var(--border)] font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4.5 hover:bg-[var(--bg-alt)] transition-all duration-300">

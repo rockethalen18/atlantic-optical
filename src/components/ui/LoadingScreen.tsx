@@ -36,7 +36,7 @@ export default function LoadingScreen() {
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-500 ${
         fadeOut ? 'opacity-0' : 'opacity-100'
       }`}
-      style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f2340 50%, #1e3a5f 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0ea5e9 100%)' }}
     >
       <div className="relative w-40 h-40 flex items-center justify-center mb-6">
         <div className="absolute inset-0 rounded-full border border-white/5 animate-ping" />

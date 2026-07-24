@@ -69,7 +69,7 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="mt-16 text-center">
-          <Link href="/productos" className="inline-flex items-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-12 py-4.5 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(37,99,235,0.3)]">
+          <Link href="/productos" className="inline-flex items-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-12 py-4.5 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.3)]">
             Ver Todo el Catálogo <Icons.ArrowRight size={14} />
           </Link>
         </div>

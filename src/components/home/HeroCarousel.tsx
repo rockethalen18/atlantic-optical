@@ -89,7 +89,7 @@ export default function HeroCarousel() {
           </p>
 
           <div className="hero-cta flex flex-col sm:flex-row gap-3">
-            <Link href={s.cta.href} className="hero-cta group inline-flex items-center justify-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(37,99,235,0.35)]">
+            <Link href={s.cta.href} className="hero-cta group inline-flex items-center justify-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.35)]">
               {s.cta.label}
               <Icons.ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>

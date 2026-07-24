@@ -3,10 +3,10 @@
 import Icons from '@/components/ui/Icons';
 
 const values = [
-  { icon: Icons.Award, title: 'Experiencia', desc: 'Mas de 15 años distribuyendo equipo oftalmico de alta calidad a clinicas y consultorios.', color: '#1e3a5f' },
-  { icon: Icons.Truck, title: 'Logistica Global', desc: 'Envio directo desde China a toda Latinoamérica con costos transparentes por kg. Maritimo, aereo y express.', color: '#2563eb' },
+  { icon: Icons.Award, title: 'Experiencia', desc: 'Mas de 15 años distribuyendo equipo oftalmico de alta calidad a clinicas y consultorios.', color: '#0ea5e9' },
+  { icon: Icons.Truck, title: 'Logistica Global', desc: 'Envio directo desde China a toda Latinoamérica con costos transparentes por kg. Maritimo, aereo y express.', color: '#0ea5e9' },
   { icon: Icons.ShieldCheck, title: 'Garantia', desc: 'Todos nuestros equipos incluyen 12 meses de garantia contra defectos de fabricacion.', color: '#f59e0b' },
-  { icon: Icons.Headphones, title: 'Soporte Tecnico', desc: 'Equipo de soporte disponible 24/7 para asistencia tecnica y post-venta.', color: '#0f2340' },
+  { icon: Icons.Headphones, title: 'Soporte Tecnico', desc: 'Equipo de soporte disponible 24/7 para asistencia tecnica y post-venta.', color: '#0284c7' },
 ];
 
 const stats = [
