@@ -300,6 +300,31 @@ img { transition: opacity 0.3s ease; }
 }
 
 /* ============================================
+   3D CARD TILT
+   ============================================ */
+.perspective-1200 { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+
+/* ============================================
+   MARQUEE
+   ============================================ */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================
+   GLOW PULSE
+   ============================================ */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(14,165,233,0.1); }
+  50% { box-shadow: 0 0 40px rgba(14,165,233,0.25); }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ============================================
    CLIP PATH SHAPES
    ============================================ */
 .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
