@@ -66,11 +66,11 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="stats-row grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--dark-bg)] p-8 md:p-10">
+        <div className="stats-row grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--bg-alt)] p-8 md:p-10 border border-[var(--border)]">
           {stats.map((s, i) => (
             <div key={i} className="stat-item text-center">
-              <div className="text-[28px] sm:text-[32px] md:text-[38px] font-black text-white" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
-              <div className="text-[10px] sm:text-[11px] font-semibold text-white/50 uppercase tracking-[0.12em] mt-2 leading-tight">{s.label}</div>
+              <div className="text-[28px] sm:text-[32px] md:text-[38px] font-black text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
+              <div className="text-[10px] sm:text-[11px] font-semibold text-[var(--text-muted)] uppercase tracking-[0.12em] mt-2 leading-tight">{s.label}</div>
             </div>
           ))}
         </div>

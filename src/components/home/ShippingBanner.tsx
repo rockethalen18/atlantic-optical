@@ -52,33 +52,33 @@ export default function ShippingBanner() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #0a1628 0%, #0f2340 100%)' }}>
+    <section ref={sectionRef} className="py-24 md:py-36 relative overflow-hidden bg-[var(--bg-alt)]">
       <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: 'linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)',
+        backgroundImage: 'linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)',
         backgroundSize: '60px 60px',
       }} />
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10">
         <div className="text-center mb-16">
           <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Envío Directo</span>
-          <h2 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>Costos de Envío Variables</h2>
-          <p className="text-[15px] text-white/50 mt-3">China → Latinoamérica con cotización en tiempo real</p>
+          <h2 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>Costos de Envío Variables</h2>
+          <p className="text-[15px] text-[var(--text-muted)] mt-3">China → Latinoamérica con cotización en tiempo real</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
           {methods.map((m, i) => (
-            <div key={i} className="ship-card group text-center p-10 border border-white/10 hover:border-white/20 transition-all duration-500 hover:bg-white/[0.02]">
-              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white/5 border border-white/10 group-hover:border-[var(--blue)]/30 transition-colors">
+            <div key={i} className="ship-card group text-center p-10 bg-white border border-[var(--border)] hover:border-[var(--blue)]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-[var(--bg-alt)] border border-[var(--border)] group-hover:border-[var(--blue)]/30 transition-colors">
                 <m.icon size={26} className="text-[var(--blue)]" />
               </div>
-              <h3 className="text-[13px] font-bold text-white/80 uppercase tracking-[0.16em] mb-4">{m.name}</h3>
-              <div className="text-[44px] font-black leading-none mb-1 text-white" style={{ fontFamily: 'var(--font-display)' }}>
+              <h3 className="text-[13px] font-bold text-[var(--text-muted)] uppercase tracking-[0.16em] mb-4">{m.name}</h3>
+              <div className="text-[44px] font-black leading-none mb-1 text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>
                 {mounted ? <AnimatedNumber target={m.price} /> : '$0.00'}
               </div>
-              <span className="text-[11px] text-white/40 uppercase tracking-wider">por kg</span>
-              <div className="w-8 h-px bg-white/10 mx-auto my-6" />
-              <div className="text-[13px] font-semibold text-white/70 mb-1">{m.time}</div>
-              <p className="text-[12px] text-white/40">{m.desc}</p>
+              <span className="text-[11px] text-[var(--text-soft)] uppercase tracking-wider">por kg</span>
+              <div className="w-8 h-px bg-[var(--border-light)] mx-auto my-6" />
+              <div className="text-[13px] font-semibold text-[var(--text)] mb-1">{m.time}</div>
+              <p className="text-[12px] text-[var(--text-muted)]">{m.desc}</p>
             </div>
           ))}
         </div>
