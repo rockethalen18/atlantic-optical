@@ -46,9 +46,13 @@ export default function LoadingScreen() {
         {/* Logo */}
         <div className="relative z-10 animate-pulse">
           <img
-            src="/images/logo-dark.png"
+            src="/images/logo-atlantic.png"
             alt="Atlantic Optical"
-            className="w-24 h-24 object-contain drop-shadow-[0_0_30px_rgba(37,99,235,0.4)]"
+            width={180}
+            height={68}
+            loading="eager"
+            fetchPriority="high"
+            className="w-[180px] h-auto object-contain drop-shadow-[0_0_30px_rgba(37,99,235,0.4)]"
           />
         </div>
       </div>

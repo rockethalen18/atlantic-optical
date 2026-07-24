@@ -239,9 +239,13 @@ export default function Header() {
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
             <img
-              src="/images/logo-dark.png"
+              src="/images/logo-atlantic.png"
               alt="Atlantic Optical Internacional"
-              className="h-[48px] md:h-[54px] w-auto object-contain"
+              width={240}
+              height={90}
+              loading="eager"
+              fetchPriority="high"
+              className="h-[56px] md:h-[62px] w-auto object-contain"
             />
           </Link>
 
@@ -428,9 +432,12 @@ export default function Header() {
             <div className="pt-[72px] px-5 pb-6">
               <div className="mb-6">
                 <img
-                  src="/images/logo-dark.png"
+                  src="/images/logo-atlantic.png"
                   alt="Atlantic Optical Internacional"
-                  className="h-[44px] w-auto object-contain"
+                  width={200}
+                  height={76}
+                  loading="eager"
+                  className="h-[48px] w-auto object-contain"
                 />
               </div>
 

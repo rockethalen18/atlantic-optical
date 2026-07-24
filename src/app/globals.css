@@ -293,12 +293,10 @@ img { transition: opacity 0.3s ease; }
 }
 
 /* ============================================
-   DARK SECTIONS — FORCED WHITE TEXT
+   DARK SECTIONS — DEFAULT WHITE TEXT
    ============================================ */
-.bg-\[\#0a1628\] *,
-.bg-\[\#0f2340\] * {
-  color: inherit;
-}
+section.bg-\[\#0a1628\] { color: white; }
+section.bg-\[\#0f2340\] { color: white; }
 
 /* ============================================
    PRODUCT IMAGE BACKGROUNDS
