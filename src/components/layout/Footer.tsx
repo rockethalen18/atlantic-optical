@@ -57,9 +57,9 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={ref} className="bg-[var(--bg-alt)] border-t border-[var(--border-light)] relative overflow-hidden">
+    <footer ref={ref} className="bg-white/40 backdrop-blur-[60px] border-t border-white/40 relative overflow-hidden">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-20 relative z-10">
-        <div className="footer-col mb-14 p-8 md:p-10 bg-white border border-[var(--border-light)]">
+        <div className="footer-col mb-14 p-8 md:p-10 glass-card">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
               <h3 className="text-[20px] font-bold text-[var(--text)] mb-1">Mantente Actualizado</h3>
@@ -73,7 +73,7 @@ export default function Footer() {
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2 w-full md:w-auto">
                 <input type="email" placeholder="tu@email.com" required value={email} onChange={e => setEmail(e.target.value)}
-                  className="flex-1 md:w-[300px] px-5 py-3.5 min-h-[48px] bg-white border border-[var(--border)] text-[var(--text)] text-[14px] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)] transition-colors" />
+                  className="flex-1 md:w-[300px] px-5 py-3.5 min-h-[48px] bg-white/50 backdrop-blur-sm border border-white/40 text-[var(--text)] text-[14px] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)] transition-colors" />
                 <button type="submit" className="px-8 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
                   Suscribir
                 </button>
@@ -94,7 +94,7 @@ export default function Footer() {
             <div className="flex gap-3">
               {social.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
-                  className="w-11 h-11 bg-white border border-[var(--border)] flex items-center justify-center hover:bg-[var(--blue)] hover:border-[var(--blue)] transition-all duration-300">
+                  className="w-11 h-11 bg-white/50 backdrop-blur-sm border border-white/40 flex items-center justify-center hover:bg-[var(--blue)] hover:border-[var(--blue)] transition-all duration-300">
                   <s.icon size={16} className="text-[var(--text-muted)]" />
                 </a>
               ))}
