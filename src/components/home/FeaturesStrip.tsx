@@ -5,7 +5,7 @@ import { gsap } from '@/lib/gsap';
 import Icons from '@/components/ui/Icons';
 
 const features = [
-  { icon: Icons.Truck, title: 'Envío Directo', desc: 'China → México' },
+  { icon: Icons.Truck, title: 'Envío Directo', desc: 'China → Latinoamérica' },
   { icon: Icons.ShieldCheck, title: 'Garantía 12 Meses', desc: 'Soporte incluido' },
   { icon: Icons.Tag, title: 'Mejor Precio', desc: 'Directo de fábrica' },
   { icon: Icons.Headphones, title: 'Soporte 24/7', desc: 'Asesoría técnica' },

@@ -3,16 +3,15 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { gsap } from '@/lib/gsap';
-import { useShippingRates } from '@/lib/useShippingRates';
 import Icons from '@/components/ui/Icons';
 
-const staticSlides = [
+const slides = [
   {
     image: '/images/hero-optical-equipment.jpg',
     alt: 'Equipo oftalmológico profesional - autorefractómetro y lámpara de hendidura',
     tag: 'Líder en Equipamiento Oftálmico',
     title: 'Equipo profesional para tu consultorio',
-    desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a México.',
+    desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a toda Latinoamérica.',
     primaryCta: { label: 'Explorar Catálogo', href: '/productos' },
     secondaryCta: { label: 'Solicitar Cotización', href: '/contacto' },
   },
@@ -34,28 +33,20 @@ const staticSlides = [
     primaryCta: { label: 'Ver Productos', href: '/productos' },
     secondaryCta: { label: 'Nuestra Empresa', href: '/nosotros' },
   },
+  {
+    image: '/images/hero-glasses-display.jpg',
+    alt: 'Exhibición de lentes y monturas ópticas de diseñador',
+    tag: 'Envío a Toda Latinoamérica',
+    title: 'Costos de envío en tiempo real',
+    desc: 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización según destino y peso.',
+    primaryCta: { label: 'Calcular Envío', href: '/contacto' },
+    secondaryCta: { label: 'Ver Catálogo', href: '/productos' },
+  },
 ];
-
-const shippingSlide = {
-  image: '/images/hero-glasses-display.jpg',
-  alt: 'Exhibición de lentes y monturas ópticas de diseñador',
-  tag: 'Envío a Todo México',
-  title: 'Costos de envío en tiempo real',
-  desc: 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización según destino y peso.',
-  primaryCta: { label: 'Calcular Envío', href: '/contacto' },
-  secondaryCta: { label: 'Ver Catálogo', href: '/productos' },
-};
 
 export default function HeroCarousel() {
   const [i, setI] = useState(0);
   const [animating, setA] = useState(false);
-  const { rates } = useShippingRates();
-
-  const shippingDesc = rates.length > 0
-    ? rates.map(r => `${r.method_label || r.method} desde $${r.cost_per_kg}/kg`).join('. ') + '. Cotización según destino y peso.'
-    : shippingSlide.desc;
-
-  const slides = [...staticSlides, { ...shippingSlide, desc: shippingDesc }];
 
   const goTo = useCallback((next: number) => {
     if (animating || next === i) return;
@@ -82,7 +73,7 @@ export default function HeroCarousel() {
   const s = slides[i];
 
   return (
-    <section className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] overflow-hidden text-white" style={{ background: '#0a1628' }}>
+    <section className="relative h-[70vh] sm:h-[80vh] md:h-[85vh] lg:h-[90vh] bg-[#0a1628] overflow-hidden">
       {slides.map((slide, idx) => (
         <div
           key={idx}
@@ -93,18 +84,17 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0a1628]/70 to-[#0a1628]/30" />
-      <div className="absolute inset-0" style={{ background: 'rgba(10,22,40,0.4)' }} />
-      <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-[#0a1628] to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/85 via-[#0a1628]/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 sm:h-40 bg-gradient-to-t from-black/60 to-transparent" />
 
-      <div className="relative z-10 max-w-[1680px] mx-auto px-5 sm:px-6 md:px-10 h-full flex items-center pt-[60px] lg:pt-[106px] text-white">
+      <div className="relative z-10 max-w-[1680px] mx-auto px-5 sm:px-6 md:px-10 h-full flex items-center pt-[60px] lg:pt-[106px]">
         <div className="max-w-[600px]">
           <div key={`tag-${i}`} className="hero-tag inline-flex items-center gap-2 sm:gap-2.5 mb-4 sm:mb-6">
             <div className="w-6 sm:w-8 h-[2px] bg-[#60a5fa]" />
             <span className="text-[10px] sm:text-[11px] font-semibold text-[#60a5fa] uppercase tracking-[0.18em]">{s.tag}</span>
           </div>
 
-          <h1 key={`title-${i}`} className="hero-title text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-black leading-[1.08] tracking-[-0.02em] mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-display)', color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.5)' }}>
+          <h1 key={`title-${i}`} className="hero-title text-[28px] sm:text-[36px] md:text-[48px] lg:text-[60px] font-black text-white leading-[1.08] tracking-[-0.02em] mb-4 sm:mb-6" style={{ fontFamily: 'var(--font-display)' }}>
             {s.title}
           </h1>
 
@@ -113,7 +103,7 @@ export default function HeroCarousel() {
           </p>
 
           <div className="hero-cta flex flex-col sm:flex-row gap-2.5 sm:gap-3 mb-8 sm:mb-0">
-            <Link href={s.primaryCta.href} className="hero-cta group inline-flex items-center justify-center gap-2.5 font-bold text-[12px] sm:text-[13px] uppercase tracking-[0.08em] px-6 sm:px-8 py-3.5 sm:py-4 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(37,99,235,0.3)]" style={{ background: '#2563eb', color: '#ffffff' }}>
+            <Link href={s.primaryCta.href} className="hero-cta group inline-flex items-center justify-center gap-2.5 bg-[var(--blue)] text-white font-bold text-[12px] sm:text-[13px] uppercase tracking-[0.08em] px-6 sm:px-8 py-3.5 sm:py-4 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(37,99,235,0.3)]">
               {s.primaryCta.label}
               <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -128,21 +118,21 @@ export default function HeroCarousel() {
               <Icons.ShieldCheck size={15} className="text-[#60a5fa] shrink-0" />
               <div>
                 <div className="text-[11px] sm:text-[12px] font-bold text-white">Garantía 12 meses</div>
-                <div className="text-[9px] sm:text-[10px] text-white/70">Soporte incluido</div>
+                <div className="text-[9px] sm:text-[10px] text-white/50">Soporte incluido</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Icons.Truck size={15} className="text-[#60a5fa] shrink-0" />
               <div>
                 <div className="text-[11px] sm:text-[12px] font-bold text-white">Envío directo</div>
-                <div className="text-[9px] sm:text-[10px] text-white/70">China → México</div>
+                <div className="text-[9px] sm:text-[10px] text-white/50">China → Latinoamérica</div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Icons.Tag size={15} className="text-[#d4a843] shrink-0" />
               <div>
                 <div className="text-[11px] sm:text-[12px] font-bold text-white">Mejor precio</div>
-                <div className="text-[9px] sm:text-[10px] text-white/70">Directo de fábrica</div>
+                <div className="text-[9px] sm:text-[10px] text-white/50">Directo de fábrica</div>
               </div>
             </div>
           </div>

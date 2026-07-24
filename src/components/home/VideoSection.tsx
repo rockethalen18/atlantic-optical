@@ -20,8 +20,8 @@ const features = [
   },
   {
     Icon: Icons.Truck,
-    title: 'Envío Puerta a Puerta México',
-    desc: 'Coordinación completa del envío desde la fábrica en China hasta tu consultorio en México.',
+    title: 'Envío Puerta a Puerta Latinoamérica',
+    desc: 'Coordinación completa del envío desde la fábrica en China hasta tu consultorio en Latinoamérica.',
     color: 'var(--green-dark)',
   },
 ];
@@ -86,7 +86,7 @@ export default function VideoSection() {
             </div>
 
             <div className="mt-12">
-              <Link href="/nosotros" className="inline-flex items-center gap-2 font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]" style={{ background: '#1e3a5f', color: '#ffffff' }}>
+              <Link href="/nosotros" className="inline-flex items-center gap-2 bg-[var(--green)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 hover:bg-[var(--green-hover)] transition-all duration-300 hover:shadow-[0_16px_40px_rgba(30,58,95,0.25)]">
                 Conocer Más <Icons.ArrowRight size={13} />
               </Link>
             </div>
@@ -96,11 +96,11 @@ export default function VideoSection() {
           <div className="vid-right">
             <div className="bg-[var(--bg-alt)] border border-[var(--border)] p-6 sm:p-8 md:p-10 lg:p-12">
               <div className="flex items-center gap-3 mb-6 md:mb-8">
-                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center shrink-0 text-white">
+                <div className="w-10 h-10 bg-[var(--green)] flex items-center justify-center shrink-0">
                   <Icons.Eye size={18} className="text-white" />
                 </div>
                 <div>
-                   <div className="text-[10px] sm:text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical International Limited</div>
+                  <div className="text-[10px] sm:text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.14em]">Atlantic Optical</div>
                   <div className="text-[13px] sm:text-[14px] font-bold text-[var(--text)]">Proveedor desde 2011</div>
                 </div>
               </div>

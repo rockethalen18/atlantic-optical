@@ -22,14 +22,16 @@ const helpLinks = [
 
 const companyLinks = [
   { label: 'Sobre Nosotros', href: '/nosotros' },
+  { label: 'Programa Distribuidores', href: '/distribuidores' },
+  { label: 'OEM & ODM', href: '/oem-odm' },
   { label: 'Términos y Condiciones', href: '/terminos' },
 ];
 
 const social = [
-  { icon: Icons.Facebook, href: '#', label: 'Facebook' },
-  { icon: Icons.Instagram, href: '#', label: 'Instagram' },
-  { icon: Icons.Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Icons.Youtube, href: '#', label: 'YouTube' },
+  { icon: Icons.Facebook, href: 'https://www.facebook.com/profile.php?id=61590555098794', label: 'Facebook' },
+  { icon: Icons.Instagram, href: 'https://www.instagram.com/atlanticoptical', label: 'Instagram' },
+  { icon: Icons.Linkedin, href: 'https://www.linkedin.com/company/atlantic-optical', label: 'LinkedIn' },
+  { icon: Icons.Youtube, href: 'https://www.youtube.com/@atlanticoptical', label: 'YouTube' },
 ];
 
 export default function Footer() {
@@ -61,7 +63,7 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={ref} className="relative overflow-hidden" style={{ background: '#0a1628', color: '#ffffff' }}>
+    <footer ref={ref} className="bg-[var(--dark-bg)] relative overflow-hidden">
       {/* Decorative gradient */}
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.5\'/%3E%3C/svg%3E")' }} />
 
@@ -70,8 +72,8 @@ export default function Footer() {
         <div className="footer-col mb-12 p-8 bg-white/5 border border-white/10 backdrop-blur-sm">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
-              <h3 className="text-[18px] font-bold mb-1" style={{ color: '#ffffff' }}>Mantente Actualizado</h3>
-              <p className="text-[13px]" style={{ color: 'rgba(255,255,255,0.7)' }}>Recibe ofertas, nuevos productos y noticias de Atlantic Optical International Limited.</p>
+              <h3 className="text-[18px] font-bold text-white mb-1">Mantente Actualizado</h3>
+              <p className="text-[13px] text-white/70">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
             </div>
             {subscribed ? (
               <div className="flex items-center gap-2 text-emerald-400">
@@ -86,10 +88,9 @@ export default function Footer() {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] text-[14px] focus:outline-none transition-colors"
-                  style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#ffffff' }}
+                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-white/10 border border-white/20 text-white text-[14px] placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
                 />
-                <button type="submit" className="px-6 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-colors whitespace-nowrap" style={{ background: '#2563eb', color: '#ffffff' }}>
+                <button type="submit" className="px-6 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
                   Suscribir
                 </button>
               </form>
@@ -102,12 +103,12 @@ export default function Footer() {
             <Link href="/" className="block mb-5">
               <img
                 src="/images/logo-dark.png"
-                alt="Atlantic Optical International Limited"
-                className="h-[192px] w-auto object-contain"
+                alt="Atlantic Optical Internacional"
+                className="h-[48px] w-auto object-contain"
               />
             </Link>
             <p className="text-[13px] text-white/70 leading-[1.7] max-w-[300px] mb-5">
-              Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China.
+              Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a toda Latinoamérica.
             </p>
             <div className="flex gap-3">
               {social.map((s) => (
@@ -154,19 +155,19 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[11px] text-white/70">
-              &copy; 2026 Atlantic Optical International Limited. Todos los derechos reservados.
+            <p className="text-[11px] text-white/60">
+              &copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-white/70">
+              <div className="flex items-center gap-2 text-white/60">
                 <Icons.CreditCard size={14} />
                 <span className="text-[11px]">Pago Seguro</span>
               </div>
-              <div className="flex items-center gap-2 text-white/70">
+              <div className="flex items-center gap-2 text-white/60">
                 <Icons.Truck size={14} />
                 <span className="text-[11px]">Envío Internacional</span>
               </div>
-              <div className="flex items-center gap-2 text-white/70">
+              <div className="flex items-center gap-2 text-white/60">
                 <Icons.ShieldCheck size={14} />
                 <span className="text-[11px]">Garantía 12 Meses</span>
               </div>
