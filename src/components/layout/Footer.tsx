@@ -63,20 +63,17 @@ export default function Footer() {
   };
 
   return (
-    <footer ref={ref} className="bg-[var(--dark-bg)] relative overflow-hidden">
-      {/* Decorative gradient */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.5\'/%3E%3C/svg%3E")' }} />
-
+    <footer ref={ref} className="bg-[#f8f5f0] relative overflow-hidden">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-16 relative z-10">
         {/* Newsletter Bar */}
-        <div className="footer-col mb-12 p-8 bg-white/5 border border-white/10 backdrop-blur-sm">
+        <div className="footer-col mb-12 p-8 bg-white border border-[#e8e4de]">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
-              <h3 className="text-[18px] font-bold text-white mb-1">Mantente Actualizado</h3>
-              <p className="text-[13px] text-white/70">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
+              <h3 className="text-[18px] font-bold text-[#1d1d1f] mb-1">Mantente Actualizado</h3>
+              <p className="text-[13px] text-[#6e6e73]">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
             </div>
             {subscribed ? (
-              <div className="flex items-center gap-2 text-emerald-400">
+              <div className="flex items-center gap-2 text-[#006633]">
                 <Icons.CheckCircle size={18} />
                 <span className="text-[14px] font-medium">¡Suscrito! Gracias.</span>
               </div>
@@ -88,9 +85,9 @@ export default function Footer() {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-white/10 border border-white/20 text-white text-[14px] placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
+                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-[#f5f5f7] border border-[#e8e8e8] text-[#1d1d1f] text-[14px] placeholder-[#86868b] focus:outline-none focus:border-[#006633] transition-colors"
                 />
-                <button type="submit" className="px-6 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
+                <button type="submit" className="px-6 py-3 bg-[#1d1d1f] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[#2d2d2f] transition-colors whitespace-nowrap">
                   Suscribir
                 </button>
               </form>
@@ -104,15 +101,15 @@ export default function Footer() {
               <img
                 src="/images/logo-dark.png"
                 alt="Atlantic Optical Internacional"
-                className="h-[48px] w-auto object-contain"
+                className="h-[40px] w-auto object-contain"
               />
             </Link>
-            <p className="text-[13px] text-white/70 leading-[1.7] max-w-[300px] mb-5">
+            <p className="text-[13px] text-[#6e6e73] leading-[1.7] max-w-[300px] mb-5">
               Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a toda Latinoamérica.
             </p>
             <div className="flex gap-3">
               {social.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-10 h-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-[var(--blue)] transition-colors">
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-10 h-10 bg-[#1d1d1f] flex items-center justify-center rounded-full hover:bg-[#006633] transition-colors">
                   <s.icon size={15} className="text-white" />
                 </a>
               ))}
@@ -120,54 +117,54 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5">Tienda</h4>
+            <h4 className="text-[11px] font-bold text-[#1d1d1f] uppercase tracking-[0.14em] mb-5">Tienda</h4>
             <ul className="space-y-3">
               {shopLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5">Ayuda</h4>
+            <h4 className="text-[11px] font-bold text-[#1d1d1f] uppercase tracking-[0.14em] mb-5">Ayuda</h4>
             <ul className="space-y-3">
               {helpLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5">Empresa</h4>
+            <h4 className="text-[11px] font-bold text-[#1d1d1f] uppercase tracking-[0.14em] mb-5">Empresa</h4>
             <ul className="space-y-3">
               {companyLinks.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-[#e8e4de]">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[11px] text-white/60">
+            <p className="text-[11px] text-[#86868b]">
               &copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-[#86868b]">
                 <Icons.CreditCard size={14} />
                 <span className="text-[11px]">Pago Seguro</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-[#86868b]">
                 <Icons.Truck size={14} />
                 <span className="text-[11px]">Envío Internacional</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-[#86868b]">
                 <Icons.ShieldCheck size={14} />
                 <span className="text-[11px]">Garantía 12 Meses</span>
               </div>
