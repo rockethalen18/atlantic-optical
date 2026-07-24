@@ -10,12 +10,12 @@ export default function Home() {
   return (
     <>
       <HeroCarousel />
-      <div className="wow wow-fadeUp"><FeaturesStrip /></div>
-      <div className="wow wow-fadeUp"><FeaturedProducts /></div>
-      <div className="wow wow-fadeUp"><ShippingBanner /></div>
-      <div className="wow wow-fadeUp"><VideoSection /></div>
-      <div className="wow wow-fadeUp"><Reviews /></div>
-      <div className="wow wow-fadeUp"><CTASection /></div>
+      <div className="gsap-reveal" data-gsap-direction="up"><FeaturesStrip /></div>
+      <div className="gsap-reveal" data-gsap-direction="up" data-gsap-delay="0.1"><FeaturedProducts /></div>
+      <div className="gsap-reveal" data-gsap-direction="left"><ShippingBanner /></div>
+      <div className="gsap-reveal" data-gsap-direction="scale" data-gsap-duration="1.2"><VideoSection /></div>
+      <div className="gsap-reveal" data-gsap-direction="up" data-gsap-delay="0.15"><Reviews /></div>
+      <div className="gsap-reveal" data-gsap-direction="up" data-gsap-duration="1.1"><CTASection /></div>
     </>
   );
 }
