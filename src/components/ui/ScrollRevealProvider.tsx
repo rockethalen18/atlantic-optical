@@ -5,10 +5,6 @@ import { gsap } from '@/lib/gsap';
 
 export default function ScrollRevealProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Register ScrollTrigger if available
-    if (typeof window !== 'undefined' && gsap.registerPlugin) {
-      // ScrollTrigger will be registered via the gsap lib setup
-    }
 
     const reveals = document.querySelectorAll('.gsap-reveal');
     const animations: gsap.core.Tween[] = [];
