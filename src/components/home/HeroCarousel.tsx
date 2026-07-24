@@ -7,32 +7,32 @@ import Icons from '@/components/ui/Icons';
 
 const slides = [
   {
-    image: '/images/products/AO-ARK7710.jpg',
-    tag: 'Auto Refractómetro',
-    title: 'Diagnóstico visual de alta precisión',
-    desc: 'Tecnología avanzada con keratometría integrada. Resultados instantáneos para tu consultorio.',
-    cta: { label: 'Ver Producto', href: '/productos/auto-refractometros-con-keratometro' },
+    image: '/images/hero-optical-equipment.jpg',
+    tag: 'Líder en Equipamiento Oftálmico',
+    title: 'Equipo profesional para tu consultorio',
+    desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a toda Latinoamérica.',
+    cta: { label: 'Explorar Catálogo', href: '/productos' },
   },
   {
-    image: '/images/products/AO-ALE1000.jpg',
-    tag: 'Biseladora Automática',
-    title: 'Laboratorio óptico de nueva generación',
-    desc: 'Biselado automático con escáner. Precisión milimétrica para todo tipo de micas.',
-    cta: { label: 'Ver Producto', href: '/productos/biseladoras-automaticas' },
+    image: '/images/hero-eye-exam.jpg',
+    tag: 'Innovación Constante',
+    title: 'Tecnología de última generación',
+    desc: 'Fábricas certificadas ISO 13485 con equipos de vanguardia. Más de 200 productos disponibles.',
+    cta: { label: 'Ver Productos', href: '/productos' },
   },
   {
-    image: '/images/products/AO-CT1955.jpg',
-    tag: 'Mobiliario Clínico',
-    title: 'Consultorios que inspiran confianza',
-    desc: 'Sillas con pedal de elevación y mesas multifuncionales. Diseño ergonómico profesional.',
-    cta: { label: 'Ver Mobiliario', href: '/productos?category=mobiliario' },
+    image: '/images/hero-optician-work.jpg',
+    tag: 'Laboratorio Óptico',
+    title: 'Biseladoras y laboratorio completo',
+    desc: 'Biseladoras automáticas con escáner, pulidoras y todo para tu laboratorio óptico.',
+    cta: { label: 'Ver Laboratorio', href: '/productos?category=equipos-laboratorio' },
   },
   {
-    image: '/images/products/AO-SJ350.jpg',
-    tag: 'Lámpara de Hendidura',
-    title: 'Iluminación profesional de precisión',
-    desc: 'LED de alta intensidad con filtros cobalt y verde. El estándar en oftalmología.',
-    cta: { label: 'Ver Producto', href: '/productos/lamparas-de-hendidura' },
+    image: '/images/hero-optical-store.jpg',
+    tag: 'Envío a Toda Latinoamérica',
+    title: 'Costos de envío en tiempo real',
+    desc: 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización según destino y peso.',
+    cta: { label: 'Calcular Envío', href: '/contacto' },
   },
 ];
 
@@ -48,7 +48,7 @@ export default function HeroCarousel() {
   }, [animating, i]);
 
   useEffect(() => {
-    const t = setInterval(() => { if (!animating) goTo((i + 1) % slides.length); }, 5000);
+    const t = setInterval(() => { if (!animating) goTo((i + 1) % slides.length); }, 5500);
     return () => clearInterval(t);
   }, [i, animating, goTo]);
 
@@ -63,18 +63,19 @@ export default function HeroCarousel() {
   const s = slides[i];
 
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[900px] bg-gradient-to-br from-[var(--bg-alt)] via-white to-[var(--bg-alt)] overflow-hidden">
-      {/* Subtle gradient bg */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/80 z-[1]" />
-
+    <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden">
       {slides.map((slide, idx) => (
         <div key={idx} className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out" style={{ opacity: idx === i ? 1 : 0 }}>
-          <img src={slide.image} alt={slide.tag} className="absolute right-[5%] md:right-[8%] top-1/2 -translate-y-1/2 h-[55%] md:h-[70%] w-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.12)]" style={{ transform: `translateY(-50%) scale(${idx === i ? 1 : 0.95})`, transition: 'transform 6s ease-out' }} />
+          <img src={slide.image} alt={slide.tag} className="w-full h-full object-cover" style={{ transform: idx === i ? 'scale(1)' : 'scale(1.08)', transition: 'transform 6s ease-out' }} />
         </div>
       ))}
 
+      {/* Light gradient overlay */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.15) 100%)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to top, white 0%, transparent 100%)' }} />
+
       <div className="relative z-10 max-w-[1680px] mx-auto px-6 md:px-10 h-full flex items-center pt-[80px] md:pt-[90px]">
-        <div className="max-w-[600px]">
+        <div className="max-w-[620px]">
           <div key={`tag-${i}`} className="hero-tag inline-flex items-center gap-3 mb-6">
             <div className="w-10 h-[2px] bg-[var(--blue)]" />
             <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">{s.tag}</span>
@@ -93,7 +94,7 @@ export default function HeroCarousel() {
               {s.cta.label}
               <Icons.ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/productos" className="hero-cta inline-flex items-center justify-center gap-2 text-[var(--text)] font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 border border-[var(--border)] hover:border-[var(--blue)]/30 hover:bg-[var(--blue-light)] transition-all duration-300">
+            <Link href="/productos" className="hero-cta inline-flex items-center justify-center gap-2 bg-white/70 backdrop-blur-md text-[var(--text)] font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 border border-[var(--border)] hover:border-[var(--blue)]/30 hover:bg-white transition-all duration-300">
               Ver Catálogo
             </Link>
           </div>
@@ -122,7 +123,7 @@ export default function HeroCarousel() {
             className="h-[3px] transition-all duration-500 overflow-hidden"
             style={{ width: idx === i ? 40 : 16, background: idx === i ? 'var(--blue)' : 'var(--border)' }}
             aria-label={`Slide ${idx + 1}`}>
-            {idx === i && <div className="absolute inset-0 bg-[var(--blue)]/30" style={{ animation: 'progressBar 5s linear' }} />}
+            {idx === i && <div className="absolute inset-0 bg-[var(--blue)]/30" style={{ animation: 'progressBar 5.5s linear' }} />}
           </button>
         ))}
       </div>

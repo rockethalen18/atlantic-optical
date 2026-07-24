@@ -46,7 +46,7 @@ export default function TestimonialCards() {
   }, []);
 
   return (
-    <section className="py-24 md:py-36 bg-[var(--bg-alt)]">
+    <section className="py-24 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
           <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Testimonios</span>
@@ -58,7 +58,7 @@ export default function TestimonialCards() {
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ perspective: '1200px' }}>
           {testimonials.map((t, i) => (
             <div key={i}
-              className={`test-card group relative p-8 md:p-10 bg-white border transition-all duration-500 ${i === active ? 'border-[var(--blue)]/30 shadow-[0_20px_60px_rgba(14,165,233,0.1)]' : 'border-[var(--border)]'}`}
+              className={`test-card group relative p-8 md:p-10 glass-card transition-all duration-500 ${i === active ? 'border-[var(--blue)]/30 shadow-[0_20px_60px_rgba(14,165,233,0.1)]' : ''}`}
               style={{ transformStyle: 'preserve-3d' }}
               onMouseEnter={() => setActive(i)}
             >

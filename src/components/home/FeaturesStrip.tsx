@@ -25,12 +25,12 @@ export default function FeaturesStrip() {
   }, []);
 
   return (
-    <section className="bg-white border-b border-[var(--border-light)]">
+    <section className="glass-section">
       <div ref={ref} className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-2 lg:grid-cols-4">
           {features.map((f, i) => (
-            <div key={i} className={`feat-card group flex items-center gap-5 py-7 px-6 md:px-8 border-[var(--border-light)] ${i < 3 ? 'border-r' : ''} transition-colors hover:bg-[var(--bg-alt)]`}>
-              <div className="w-12 h-12 bg-[var(--bg-alt)] border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--blue)]/30 transition-colors">
+            <div key={i} className={`feat-card group flex items-center gap-5 py-7 px-6 md:px-8 border-white/40 ${i < 3 ? 'border-r' : ''} transition-all duration-300 hover:bg-white/40`}>
+              <div className="w-12 h-12 bg-white/50 backdrop-blur-sm border border-white/50 flex items-center justify-center flex-shrink-0 group-hover:border-[var(--blue)]/30 transition-colors">
                 <f.icon size={20} className="text-[var(--blue)]" />
               </div>
               <div className="flex-1 min-w-0">

@@ -39,7 +39,7 @@ export default function Reviews() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 bg-white">
+    <section ref={sectionRef} className="py-24 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
           <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Testimonios</span>
@@ -48,7 +48,7 @@ export default function Reviews() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {reviews.map((r, i) => (
-            <div key={i} className="review-card group bg-[var(--bg-alt)] p-8 transition-all duration-500 hover:shadow-[0_30px_80px_rgba(0,0,0,0.06)] hover:-translate-y-1">
+            <div key={i} className="review-card group glass-card p-8 transition-all duration-500 hover:-translate-y-1">
               <div className="flex gap-1 mb-5">
                 {Array.from({ length: r.rating }).map((_, si) => (
                   <Icons.Star key={si} size={14} className="text-[var(--star)] fill-[var(--star)]" />
@@ -56,7 +56,7 @@ export default function Reviews() {
               </div>
               <p className="text-[14px] text-[var(--text-secondary)] leading-[1.7] mb-7">&ldquo;{r.text}&rdquo;</p>
               <div className="flex items-center gap-3 pt-6 border-t border-[var(--border-light)]">
-                <div className="w-12 h-12 bg-[var(--dark-bg)] text-white flex items-center justify-center text-[13px] font-bold flex-shrink-0">{r.initial}</div>
+                <div className="w-12 h-12 bg-[var(--blue)] text-white flex items-center justify-center text-[13px] font-bold flex-shrink-0 rounded-xl">{r.initial}</div>
                 <div>
                   <div className="text-[14px] font-bold text-[var(--text)]">{r.name}</div>
                   <div className="text-[12px] text-[var(--text-soft)]">{r.role} — {r.location}</div>
@@ -66,7 +66,7 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="stats-row grid grid-cols-2 md:grid-cols-4 gap-4 bg-[var(--bg-alt)] p-8 md:p-10 border border-[var(--border)]">
+        <div className="stats-row grid grid-cols-2 md:grid-cols-4 gap-4 glass-card p-8 md:p-10">
           {stats.map((s, i) => (
             <div key={i} className="stat-item text-center">
               <div className="text-[28px] sm:text-[32px] md:text-[38px] font-black text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>

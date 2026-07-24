@@ -55,7 +55,7 @@ export default function ProcessTimeline() {
   }, []);
 
   return (
-    <section className="py-24 md:py-36 bg-white">
+    <section className="py-24 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-20">
           <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Proceso Simple</span>
@@ -74,7 +74,7 @@ export default function ProcessTimeline() {
             {steps.map((step, i) => (
               <div key={i} className="step-item group text-center lg:text-center">
                 <div className="relative mb-6 inline-flex">
-                  <div className="w-[72px] h-[72px] bg-white border-2 border-[var(--border)] flex items-center justify-center group-hover:border-[var(--blue)] group-hover:bg-[var(--blue-light)] transition-all duration-500 relative z-10">
+                  <div className="w-[72px] h-[72px] glass-card flex items-center justify-center group-hover:border-[var(--blue)] group-hover:bg-[var(--blue-light)] transition-all duration-500 relative z-10">
                     <step.icon size={28} className="text-[var(--text-soft)] group-hover:text-[var(--blue)] transition-colors" />
                   </div>
                   <span className="absolute -top-3 -right-3 w-[28px] h-[28px] bg-[var(--blue)] text-white text-[10px] font-black flex items-center justify-center" style={{ fontFamily: 'var(--font-display)' }}>

@@ -29,7 +29,7 @@ export default function FeaturedProducts() {
   }>).filter(p => featuredSkus.includes(p.sku));
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 bg-white">
+    <section ref={sectionRef} className="py-24 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
@@ -44,8 +44,8 @@ export default function FeaturedProducts() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {products.map((p) => (
             <Link key={p.sku} href={`/productos/${p.slug}/`}
-              className="fp-card group block bg-[var(--bg-alt)] overflow-hidden transition-all duration-500 hover:shadow-[0_30px_80px_rgba(0,0,0,0.08)] hover:-translate-y-2">
-              <div className="relative h-[300px] bg-white overflow-hidden flex items-center justify-center p-8">
+              className="fp-card group block glass-card overflow-hidden transition-all duration-500 hover:-translate-y-2">
+              <div className="relative h-[300px] bg-white/50 backdrop-blur-sm overflow-hidden flex items-center justify-center p-8 border-b border-white/40">
                 <img src={`/images/products/${p.sku}.jpg`} alt={p.name}
                   className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute top-4 left-4 bg-[var(--dark-bg)] text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-[0.12em]">

@@ -21,7 +21,7 @@ export default function CTASection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden bg-[var(--bg-alt)]">
+    <section ref={sectionRef} className="py-24 md:py-40 relative overflow-hidden glass-section">
       <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[var(--blue)] opacity-[0.03] rounded-full blur-[200px] -translate-y-1/3 translate-x-1/4" />
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10 text-center">

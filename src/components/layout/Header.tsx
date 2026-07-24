@@ -177,8 +177,8 @@ export default function Header() {
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
-      backgroundColor: scrolled ? 'rgba(255,255,255,0.72)' : 'rgba(255,255,255,0)',
-      boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.06)' : 'none',
+      backgroundColor: scrolled ? 'rgba(255,255,255,0.82)' : 'rgba(255,255,255,0)',
+      boxShadow: scrolled ? '0 1px 0 rgba(0,0,0,0.05), 0 4px 20px rgba(0,0,0,0.03)' : 'none',
       duration: 0.3,
     });
   }, [scrolled]);
@@ -205,7 +205,7 @@ export default function Header() {
   }, []);
 
   const closeMega = useCallback(() => {
-    megaTimerRef.current = setTimeout(() => { setActiveMega(null); setActiveCat(null); }, 150);
+    megaTimerRef.current = setTimeout(() => { setActiveMega(null); setActiveCat(null); }, 120);
   }, []);
 
   const keepMegaOpen = useCallback(() => { if (megaTimerRef.current) clearTimeout(megaTimerRef.current); }, []);
@@ -214,32 +214,23 @@ export default function Header() {
 
   return (
     <>
-      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b border-white/30" style={{ backgroundColor: 'rgba(255,255,255,0)' }}>
+      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgba(255,255,255,0)' }}>
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[72px] md:h-[80px]">
           <button className="lg:hidden w-12 h-12 flex items-center justify-center -ml-1" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
             {mobileOpen ? <Icons.X size={24} className="text-[var(--text)]" /> : <Icons.Menu size={24} className="text-[var(--text)]" />}
           </button>
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
-            <img
-              src="/images/logo-dark.png"
-              alt="Atlantic Optical Internacional"
-              width={320}
-              height={180}
-              loading="eager"
-              fetchPriority="high"
-              className="h-[60px] md:h-[70px] w-auto object-contain"
-            />
+            <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={320} height={180} loading="eager" fetchPriority="high"
+              className="h-[60px] md:h-[70px] w-auto object-contain" />
           </Link>
 
           <div className="flex-1" />
 
           <div className="flex items-center gap-1">
-            <button
-              onClick={() => setSearchOpen(!searchOpen)}
+            <button onClick={() => setSearchOpen(!searchOpen)}
               className="w-12 h-12 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text)] transition-colors rounded-lg hover:bg-black/5"
-              aria-label="Buscar"
-            >
+              aria-label="Buscar">
               <Icons.Search size={20} />
             </button>
             <Link href="/carrito" className="w-12 h-12 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text)] transition-colors relative rounded-lg hover:bg-black/5">
@@ -250,20 +241,20 @@ export default function Header() {
         </div>
 
         {searchOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white/80 backdrop-blur-2xl border-b border-[var(--border-light)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] z-50">
+          <div className="absolute top-full left-0 right-0 bg-white/90 backdrop-blur-2xl border-b border-[var(--border-light)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] z-50">
             <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-4">
               <div className="relative max-w-2xl mx-auto">
                 <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />
                 <input ref={searchInputRef} type="text" placeholder="Buscar productos..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-12 py-3.5 bg-white/60 border border-[var(--border)] text-[15px] text-[var(--text)] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)] transition-colors" />
+                  className="w-full pl-12 pr-12 py-3.5 bg-white/80 border border-[var(--border)] rounded-xl text-[15px] text-[var(--text)] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)] transition-colors" />
                 <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-soft)] hover:text-[var(--text)]"><Icons.X size={18} /></button>
               </div>
               {searchResults.length > 0 && (
-                <div className="max-w-2xl mx-auto mt-3 border border-[var(--border)] bg-white/80 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.06)] max-h-[400px] overflow-y-auto">
+                <div className="max-w-2xl mx-auto mt-3 border border-[var(--border)] bg-white/95 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] rounded-xl max-h-[400px] overflow-y-auto">
                   {searchResults.map(p => (
                     <Link key={p.sku} href={`/productos/${p.slug}/`} onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
-                      className="flex items-center gap-4 px-4 py-3 hover:bg-[var(--blue-light)]/50 transition-colors border-b border-[var(--border-light)] last:border-0">
-                      <div className="w-12 h-12 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden">
+                      className="flex items-center gap-4 px-4 py-3 hover:bg-[var(--blue-light)]/40 transition-colors border-b border-[var(--border-light)] last:border-0 first:rounded-t-xl last:rounded-b-xl">
+                      <div className="w-12 h-12 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-lg">
                         <img src={p.image} alt={p.name} className="w-full h-full object-contain p-1" />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -279,13 +270,13 @@ export default function Header() {
           </div>
         )}
 
-        <nav className="hidden lg:block border-t border-[var(--border-light)]">
+        <nav className="hidden lg:block border-t border-[var(--border-light)]" style={{ backgroundColor: scrolled ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0)' }}>
           <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center h-[48px]">
             <div className="flex items-center gap-0 flex-1">
               {allNavItems.map((item) => (
                 <div key={item.label} className="relative" onMouseEnter={() => openMega(item.label)} onMouseLeave={closeMega}>
                   <Link href={item.href}
-                    className={`flex items-center gap-1 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] transition-colors ${activeMega === item.label ? 'text-[var(--blue)] bg-[var(--blue-light)]/50' : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-black/5'}`}>
+                    className={`flex items-center gap-1 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] transition-all duration-200 ${activeMega === item.label ? 'text-[var(--blue)] bg-[var(--blue)]/5' : 'text-[var(--text-muted)] hover:text-[var(--text)] hover:bg-black/[0.03]'}`}>
                     {item.label}
                     <Icons.ChevronDown size={12} className={`transition-transform duration-200 ${activeMega === item.label ? 'rotate-180' : ''}`} />
                   </Link>
@@ -297,17 +288,18 @@ export default function Header() {
 
         {allNavItems.map((item) => (
           <div key={item.label}
-            className={`hidden lg:block absolute top-full left-0 right-0 bg-white/80 backdrop-blur-2xl border-t border-[var(--border-light)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-300 ${activeMega === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
+            className={`hidden lg:block absolute top-full left-0 right-0 border-b border-[var(--border-light)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition-all duration-200 ${activeMega === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-1'}`}
+            style={{ backgroundColor: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(40px)' }}
             onMouseEnter={keepMegaOpen} onMouseLeave={closeMega}>
             <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
               {item.mega.type === 'products' && (
                 <div className="flex gap-10">
                   <div className="w-[240px] flex-shrink-0">
                     <h4 className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.12em] mb-4">Categorías</h4>
-                    <div className="space-y-1">
+                    <div className="space-y-0.5">
                       {item.mega.categories.map((cat) => (
                         <Link key={cat.slug} href={`/productos?subcategory=${cat.slug}`}
-                          className={`block px-3 py-2 text-[13px] transition-colors ${activeCat === cat.slug ? 'bg-[var(--blue)] text-white font-medium' : 'text-[var(--text-muted)] hover:bg-[var(--blue-light)]/50 hover:text-[var(--text)]'}`}
+                          className={`block px-3 py-2.5 text-[13px] rounded-lg transition-all duration-200 ${activeCat === cat.slug ? 'bg-[var(--blue)] text-white font-medium shadow-md shadow-[var(--blue)]/20' : 'text-[var(--text-muted)] hover:bg-[var(--blue-light)]/60 hover:text-[var(--text)] hover:pl-4'}`}
                           onClick={() => setActiveCat(cat.slug)}>
                           {cat.name}
                         </Link>
@@ -321,8 +313,8 @@ export default function Header() {
                     <h4 className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.12em] mb-4">Productos Destacados</h4>
                     <div className="grid grid-cols-3 gap-3">
                       {item.mega.products.map((p) => (
-                        <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 hover:bg-[var(--blue-light)]/30 transition-colors">
-                          <div className="w-14 h-14 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden border border-[var(--border-light)]">
+                        <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-[var(--blue-light)]/40 transition-all duration-200">
+                          <div className="w-14 h-14 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-xl border border-[var(--border-light)] group-hover:border-[var(--blue)]/20 transition-colors">
                             <img src={p.image} alt={p.name} className="w-full h-full object-contain p-1 group-hover:scale-110 transition-transform duration-500" />
                           </div>
                           <div className="flex-1 min-w-0">
@@ -340,9 +332,9 @@ export default function Header() {
                   {item.mega.columns.map((col) => (
                     <div key={col.title}>
                       <h4 className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.12em] mb-4">{col.title}</h4>
-                      <div className="space-y-2.5">
+                      <div className="space-y-1">
                         {col.links.map((link) => (
-                          <Link key={link.label} href={link.href} className="block text-[13px] text-[var(--text-muted)] hover:text-[var(--blue)] transition-colors">{link.label}</Link>
+                          <Link key={link.label} href={link.href} className="block text-[13px] text-[var(--text-muted)] hover:text-[var(--blue)] hover:pl-2 transition-all duration-200 py-1">{link.label}</Link>
                         ))}
                       </div>
                     </div>
@@ -357,25 +349,24 @@ export default function Header() {
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute top-0 left-0 w-[300px] max-w-[85vw] h-full bg-white/90 backdrop-blur-2xl overflow-y-auto shadow-[20px_0_60px_rgba(0,0,0,0.1)]">
+          <div className="absolute top-0 left-0 w-[300px] max-w-[85vw] h-full bg-white/95 backdrop-blur-2xl overflow-y-auto shadow-[20px_0_60px_rgba(0,0,0,0.1)]">
             <div className="pt-[84px] px-5 pb-6">
               <div className="mb-6">
-                <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={135}
-                  className="h-[50px] w-auto object-contain" />
+                <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={135} className="h-[50px] w-auto object-contain" />
               </div>
               <div className="relative mb-6">
                 <Icons.Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />
                 <input type="text" placeholder="Buscar productos..."
-                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/60 border border-[var(--border)] text-[14px] text-[var(--text)] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)]" />
+                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/80 border border-[var(--border)] rounded-xl text-[14px] text-[var(--text)] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)]" />
               </div>
               {[...navItems, ...rightNavItems].map((item) => (
                 <div key={item.label} className="border-b border-[var(--border-light)]">
-                  <Link href={item.href} className="block py-3.5 min-h-[44px] flex items-center text-[14px] font-bold text-[var(--text)]" onClick={() => setMobileOpen(false)}>{item.label}</Link>
+                  <Link href={item.href} className="block py-3.5 min-h-[44px] flex items-center text-[14px] font-bold text-[var(--text)] hover:text-[var(--blue)] transition-colors" onClick={() => setMobileOpen(false)}>{item.label}</Link>
                 </div>
               ))}
               <div className="mt-4 pt-4 border-t border-[var(--border-light)]">
-                <Link href="/contacto" className="block py-3 min-h-[44px] flex items-center text-[14px] text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileOpen(false)}>Contacto</Link>
-                <Link href="/faq" className="block py-3 min-h-[44px] flex items-center text-[14px] text-[var(--text-muted)] hover:text-[var(--text)]" onClick={() => setMobileOpen(false)}>Preguntas Frecuentes</Link>
+                <Link href="/contacto" className="block py-3 min-h-[44px] flex items-center text-[14px] text-[var(--text-muted)] hover:text-[var(--text)] transition-colors" onClick={() => setMobileOpen(false)}>Contacto</Link>
+                <Link href="/faq" className="block py-3 min-h-[44px] flex items-center text-[14px] text-[var(--text-muted)] hover:text-[var(--text)] transition-colors" onClick={() => setMobileOpen(false)}>Preguntas Frecuentes</Link>
               </div>
             </div>
           </div>

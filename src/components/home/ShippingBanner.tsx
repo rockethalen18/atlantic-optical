@@ -52,7 +52,7 @@ export default function ShippingBanner() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 relative overflow-hidden bg-[var(--bg-alt)]">
+    <section ref={sectionRef} className="py-24 md:py-36 relative overflow-hidden glass-section">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)',
         backgroundSize: '60px 60px',
@@ -67,7 +67,7 @@ export default function ShippingBanner() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
           {methods.map((m, i) => (
-            <div key={i} className="ship-card group text-center p-10 bg-white border border-[var(--border)] hover:border-[var(--blue)]/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
+            <div key={i} className="ship-card group text-center p-10 glass-card">
               <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-[var(--bg-alt)] border border-[var(--border)] group-hover:border-[var(--blue)]/30 transition-colors">
                 <m.icon size={26} className="text-[var(--blue)]" />
               </div>

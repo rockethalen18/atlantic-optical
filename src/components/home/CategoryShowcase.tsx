@@ -56,7 +56,7 @@ export default function CategoryShowcase() {
   }, []);
 
   return (
-    <section ref={ref} className="py-24 md:py-36 bg-white/50 backdrop-blur-[60px]">
+    <section ref={ref} className="py-24 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
           <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Explora por Categoría</span>
@@ -68,10 +68,10 @@ export default function CategoryShowcase() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: '1200px' }}>
           {categories.map((cat, i) => (
             <Link key={i} href={`/productos?subcategory=${cat.slug}`}
-              className="cat-card group block bg-white/60 backdrop-blur-xl border border-white/40 p-6 relative overflow-hidden hover:border-[var(--blue)]/30 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(14,165,233,0.1)]"
+              className="cat-card group block glass-card p-6 relative overflow-hidden"
               style={{ transformStyle: 'preserve-3d' }}>
 
-              <div className="relative h-[200px] overflow-hidden mb-5 bg-gradient-to-br from-[var(--bg-alt)] to-white/80">
+              <div className="relative h-[200px] overflow-hidden mb-5 bg-white/50 backdrop-blur-sm rounded-xl border border-white/60">
                 <img src={cat.image} alt={cat.name}
                   className="cat-img w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" />
               </div>

@@ -41,7 +41,7 @@ export default function VideoSection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 bg-[var(--bg-alt)]">
+    <section ref={sectionRef} className="py-24 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div>
@@ -52,7 +52,7 @@ export default function VideoSection() {
             <div className="space-y-10">
               {features.map((f, i) => (
                 <div key={i} className="vid-item group flex gap-6">
-                  <div className="w-14 h-14 bg-white border border-[var(--border)] flex items-center justify-center flex-shrink-0 group-hover:border-[var(--blue)]/20 group-hover:bg-[var(--blue)]/5 transition-all duration-300">
+                  <div className="w-14 h-14 glass-card flex items-center justify-center flex-shrink-0 group-hover:border-[var(--blue)]/20 transition-all duration-300">
                     <f.Icon size={22} className="text-[var(--blue)]" />
                   </div>
                   <div>
@@ -70,7 +70,7 @@ export default function VideoSection() {
           </div>
 
           <div className="vid-right">
-            <div className="bg-white border border-[var(--border)] p-8 md:p-12 relative overflow-hidden">
+            <div className="glass-card p-8 md:p-12 relative overflow-hidden">
               <div className="flex items-center gap-4 mb-10">
                 <div className="w-14 h-14 bg-[var(--blue)] flex items-center justify-center shrink-0">
                   <Icons.Eye size={22} className="text-white" />
