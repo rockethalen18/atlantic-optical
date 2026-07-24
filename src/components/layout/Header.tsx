@@ -177,125 +177,95 @@ export default function Header() {
   useEffect(() => {
     if (!headerRef.current) return;
     gsap.to(headerRef.current, {
-      backgroundColor: scrolled ? 'rgba(15,35,64,0.97)' : 'rgba(15,35,64,0.55)',
-      backdropFilter: 'blur(12px)',
-      boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.3)' : 'none',
-      duration: 0.28,
+      backgroundColor: scrolled ? 'rgba(10,22,40,0.98)' : 'rgba(10,22,40,0.0)',
+      boxShadow: scrolled ? '0 4px 30px rgba(0,0,0,0.3)' : 'none',
+      duration: 0.3,
     });
   }, [scrolled]);
 
   useEffect(() => {
-    if (searchOpen && searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
+    if (searchOpen && searchInputRef.current) searchInputRef.current.focus();
   }, [searchOpen]);
 
   useEffect(() => {
-    if (searchQuery.length < 2) {
-      setSearchResults([]);
-      return;
-    }
+    if (searchQuery.length < 2) { setSearchResults([]); return; }
     const term = searchQuery.toLowerCase();
-    const results = allProducts.filter(p =>
-      p.name.toLowerCase().includes(term) ||
-      p.sku.toLowerCase().includes(term) ||
-      p.subcategory.toLowerCase().includes(term)
-    ).slice(0, 8);
-    setSearchResults(results);
+    setSearchResults(allProducts.filter(p =>
+      p.name.toLowerCase().includes(term) || p.sku.toLowerCase().includes(term) || p.subcategory.toLowerCase().includes(term)
+    ).slice(0, 8));
   }, [searchQuery]);
 
   const openMega = useCallback((label: string) => {
     if (megaTimerRef.current) clearTimeout(megaTimerRef.current);
     setActiveMega(label);
-    const allItems = [...navItems, ...rightNavItems];
-    const item = allItems.find(n => n.label === label);
-    if (item?.mega?.type === 'products' && item.mega.categories.length > 0) {
-      setActiveCat(item.mega.categories[0].slug);
-    } else {
-      setActiveCat(null);
-    }
+    const all = [...navItems, ...rightNavItems];
+    const item = all.find(n => n.label === label);
+    if (item?.mega?.type === 'products' && item.mega.categories.length > 0) setActiveCat(item.mega.categories[0].slug);
+    else setActiveCat(null);
   }, []);
 
   const closeMega = useCallback(() => {
-    megaTimerRef.current = setTimeout(() => {
-      setActiveMega(null);
-      setActiveCat(null);
-    }, 150);
+    megaTimerRef.current = setTimeout(() => { setActiveMega(null); setActiveCat(null); }, 150);
   }, []);
 
-  const keepMegaOpen = useCallback(() => {
-    if (megaTimerRef.current) clearTimeout(megaTimerRef.current);
-  }, []);
+  const keepMegaOpen = useCallback(() => { if (megaTimerRef.current) clearTimeout(megaTimerRef.current); }, []);
 
   const allNavItems = [...navItems, ...rightNavItems];
 
   return (
     <>
-      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[60px]">
-          <button className="lg:hidden w-11 h-11 flex items-center justify-center -ml-1" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
-            {mobileOpen ? <Icons.X size={22} className="text-white" /> : <Icons.Menu size={22} className="text-white" />}
+      <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgba(10,22,40,0.0)' }}>
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[72px] md:h-[80px]">
+          <button className="lg:hidden w-12 h-12 flex items-center justify-center -ml-1" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
+            {mobileOpen ? <Icons.X size={24} className="text-white" /> : <Icons.Menu size={24} className="text-white" />}
           </button>
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
             <img
-              src="/images/logo-atlantic.png"
+              src="/images/logo-dark.png"
               alt="Atlantic Optical Internacional"
-              width={240}
-              height={90}
+              width={320}
+              height={180}
               loading="eager"
               fetchPriority="high"
-              className="h-[56px] md:h-[62px] w-auto object-contain"
+              className="h-[60px] md:h-[70px] w-auto object-contain"
             />
           </Link>
 
           <div className="flex-1" />
 
-          <div className="flex items-center gap-0.5">
+          <div className="flex items-center gap-1">
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors rounded-lg hover:bg-white/10"
+              className="w-12 h-12 flex items-center justify-center text-white hover:text-white transition-colors rounded-lg hover:bg-white/10"
               aria-label="Buscar"
             >
-              <Icons.Search size={18} />
+              <Icons.Search size={20} />
             </button>
-            <Link href="/admin" className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors hidden sm:flex rounded-lg hover:bg-white/10">
-              <Icons.User size={18} />
+            <Link href="/admin" className="w-12 h-12 flex items-center justify-center text-white hover:text-white transition-colors hidden sm:flex rounded-lg hover:bg-white/10">
+              <Icons.User size={20} />
             </Link>
-            <Link href="/carrito" className="w-11 h-11 flex items-center justify-center text-white hover:text-white transition-colors relative rounded-lg hover:bg-white/10">
-              <Icons.ShoppingCart size={18} />
-              <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-[var(--blue)] text-[8px] font-bold text-white rounded-full flex items-center justify-center">0</span>
+            <Link href="/carrito" className="w-12 h-12 flex items-center justify-center text-white hover:text-white transition-colors relative rounded-lg hover:bg-white/10">
+              <Icons.ShoppingCart size={20} />
+              <span className="absolute top-1.5 right-1.5 w-[18px] h-[18px] bg-[var(--blue)] text-[9px] font-bold text-white rounded-full flex items-center justify-center">0</span>
             </Link>
           </div>
         </div>
 
-        {/* Search Overlay */}
         {searchOpen && (
-          <div className="absolute top-[60px] left-0 right-0 bg-[#0f2340] border-b border-white/10 shadow-2xl z-50">
+          <div className="absolute top-full left-0 right-0 bg-[#0a1628] border-b border-white/10 shadow-2xl z-50">
             <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-4">
               <div className="relative max-w-2xl mx-auto">
                 <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" />
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  placeholder="Buscar productos por nombre, SKU o categoría..."
-                  value={searchQuery}
-                  onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-12 py-3.5 bg-white/10 border border-white/20 text-[15px] text-white placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
-                />
-                <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white">
-                  <Icons.X size={18} />
-                </button>
+                <input ref={searchInputRef} type="text" placeholder="Buscar productos..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-12 py-3.5 bg-white/10 border border-white/20 text-[15px] text-white placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors" />
+                <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white"><Icons.X size={18} /></button>
               </div>
               {searchResults.length > 0 && (
-                <div className="max-w-2xl mx-auto mt-3 border border-white/10 bg-[#0a1628] shadow-2xl max-h-[400px] overflow-y-auto">
+                <div className="max-w-2xl mx-auto mt-3 border border-white/10 bg-[#0f2340] shadow-2xl max-h-[400px] overflow-y-auto">
                   {searchResults.map(p => (
-                    <Link
-                      key={p.sku}
-                      href={`/productos/${p.slug}/`}
-                      onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
-                      className="flex items-center gap-4 px-4 py-3 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0"
-                    >
+                    <Link key={p.sku} href={`/productos/${p.slug}/`} onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
+                      className="flex items-center gap-4 px-4 py-3 hover:bg-white/10 transition-colors border-b border-white/5 last:border-0">
                       <div className="w-12 h-12 bg-white/5 flex-shrink-0 overflow-hidden">
                         <img src={p.image} alt={p.name} className="w-full h-full object-cover" />
                       </div>
@@ -308,32 +278,17 @@ export default function Header() {
                   ))}
                 </div>
               )}
-              {searchQuery.length >= 2 && searchResults.length === 0 && (
-                <div className="max-w-2xl mx-auto mt-3 p-6 text-center text-white/40 text-[14px]">
-                  No se encontraron productos para &ldquo;{searchQuery}&rdquo;
-                </div>
-              )}
             </div>
           </div>
         )}
 
-        {/* Desktop Navigation Row */}
         <nav className="hidden lg:block border-t border-white/10">
-          <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center h-[46px]">
+          <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center h-[48px]">
             <div className="flex items-center gap-0 flex-1">
-              {[...navItems, ...rightNavItems].map((item) => (
-                <div
-                  key={item.label}
-                  className="relative"
-                  onMouseEnter={() => openMega(item.label)}
-                  onMouseLeave={closeMega}
-                >
-                  <Link
-                    href={item.href}
-                    className={`flex items-center gap-1 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] transition-colors text-white ${
-                      activeMega === item.label ? 'bg-white/10' : 'hover:bg-white/10'
-                    }`}
-                  >
+              {allNavItems.map((item) => (
+                <div key={item.label} className="relative" onMouseEnter={() => openMega(item.label)} onMouseLeave={closeMega}>
+                  <Link href={item.href}
+                    className={`flex items-center gap-1 px-4 py-2 text-[12px] font-semibold uppercase tracking-[0.06em] transition-colors text-white ${activeMega === item.label ? 'bg-white/10' : 'hover:bg-white/10'}`}>
                     {item.label}
                     <Icons.ChevronDown size={12} className={`transition-transform duration-200 ${activeMega === item.label ? 'rotate-180' : ''}`} />
                   </Link>
@@ -343,16 +298,10 @@ export default function Header() {
           </div>
         </nav>
 
-        {/* Mega Menu Panels */}
         {allNavItems.map((item) => (
-          <div
-            key={item.label}
-            className={`hidden lg:block absolute top-full left-0 right-0 bg-[#0f2340] border-t border-white/10 shadow-2xl transition-all duration-300 ${
-              activeMega === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
-            }`}
-            onMouseEnter={keepMegaOpen}
-            onMouseLeave={closeMega}
-          >
+          <div key={item.label}
+            className={`hidden lg:block absolute top-full left-0 right-0 bg-[#0f2340] border-t border-white/10 shadow-2xl transition-all duration-300 ${activeMega === item.label ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}
+            onMouseEnter={keepMegaOpen} onMouseLeave={closeMega}>
             <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
               {item.mega.type === 'products' && (
                 <div className="flex gap-10">
@@ -360,24 +309,14 @@ export default function Header() {
                     <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-[0.12em] mb-4">Categorías</h4>
                     <div className="space-y-1">
                       {item.mega.categories.map((cat) => (
-                        <Link
-                          key={cat.slug}
-                          href={`/productos?subcategory=${cat.slug}`}
-                          className={`block px-3 py-2 text-[13px] transition-colors ${
-                            activeCat === cat.slug
-                              ? 'bg-[var(--blue)] text-white font-medium'
-                              : 'text-white/60 hover:bg-white/10 hover:text-white'
-                          }`}
-                          onClick={() => setActiveCat(cat.slug)}
-                        >
+                        <Link key={cat.slug} href={`/productos?subcategory=${cat.slug}`}
+                          className={`block px-3 py-2 text-[13px] transition-colors ${activeCat === cat.slug ? 'bg-[var(--blue)] text-white font-medium' : 'text-white/60 hover:bg-white/10 hover:text-white'}`}
+                          onClick={() => setActiveCat(cat.slug)}>
                           {cat.name}
                         </Link>
                       ))}
                     </div>
-                    <Link
-                      href={item.href}
-                      className="mt-4 flex items-center gap-1.5 text-[11px] font-bold text-[#60a5fa] uppercase tracking-[0.08em] hover:gap-2.5 transition-all"
-                    >
+                    <Link href={item.href} className="mt-4 flex items-center gap-1.5 text-[11px] font-bold text-[#60a5fa] uppercase tracking-[0.08em] hover:gap-2.5 transition-all">
                       Ver Todo <Icons.ArrowRight size={11} />
                     </Link>
                   </div>
@@ -385,11 +324,7 @@ export default function Header() {
                     <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-[0.12em] mb-4">Productos Destacados</h4>
                     <div className="grid grid-cols-3 gap-3">
                       {item.mega.products.map((p) => (
-                        <Link
-                          key={p.sku}
-                          href={`/productos/${p.slug}/`}
-                          className="group flex items-center gap-3 p-3 hover:bg-white/10 transition-colors"
-                        >
+                        <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 hover:bg-white/10 transition-colors">
                           <div className="w-14 h-14 bg-white/5 flex-shrink-0 overflow-hidden border border-white/10">
                             <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                           </div>
@@ -410,9 +345,7 @@ export default function Header() {
                       <h4 className="text-[11px] font-bold text-white/70 uppercase tracking-[0.12em] mb-4">{col.title}</h4>
                       <div className="space-y-2.5">
                         {col.links.map((link) => (
-                          <Link key={link.label} href={link.href} className="block text-[13px] text-white/60 hover:text-white transition-colors">
-                            {link.label}
-                          </Link>
+                          <Link key={link.label} href={link.href} className="block text-[13px] text-white/60 hover:text-white transition-colors">{link.label}</Link>
                         ))}
                       </div>
                     </div>
@@ -424,40 +357,25 @@ export default function Header() {
         ))}
       </header>
 
-      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/60" onClick={() => setMobileOpen(false)} />
           <div className="absolute top-0 left-0 w-[300px] max-w-[85vw] h-full bg-[#0f2340] overflow-y-auto shadow-2xl">
-            <div className="pt-[72px] px-5 pb-6">
+            <div className="pt-[84px] px-5 pb-6">
               <div className="mb-6">
-                <img
-                  src="/images/logo-atlantic.png"
-                  alt="Atlantic Optical Internacional"
-                  width={200}
-                  height={76}
-                  loading="eager"
-                  className="h-[48px] w-auto object-contain"
-                />
+                <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={135}
+                  className="h-[50px] w-auto object-contain" />
               </div>
-
               <div className="relative mb-6">
                 <Icons.Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40" />
-                <input
-                  type="text"
-                  placeholder="Buscar productos..."
-                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/10 border border-white/20 text-[14px] text-white placeholder-white/40 focus:outline-none focus:border-[var(--blue)]"
-                />
+                <input type="text" placeholder="Buscar productos..."
+                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/10 border border-white/20 text-[14px] text-white placeholder-white/40 focus:outline-none focus:border-[var(--blue)]" />
               </div>
-
               {[...navItems, ...rightNavItems].map((item) => (
                 <div key={item.label} className="border-b border-white/10">
-                  <Link href={item.href} className="block py-3.5 min-h-[44px] flex items-center text-[14px] font-bold text-white" onClick={() => setMobileOpen(false)}>
-                    {item.label}
-                  </Link>
+                  <Link href={item.href} className="block py-3.5 min-h-[44px] flex items-center text-[14px] font-bold text-white" onClick={() => setMobileOpen(false)}>{item.label}</Link>
                 </div>
               ))}
-
               <div className="mt-4 pt-4 border-t border-white/10">
                 <Link href="/contacto" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Contacto</Link>
                 <Link href="/faq" className="block py-3 min-h-[44px] flex items-center text-[14px] text-white/60 hover:text-white" onClick={() => setMobileOpen(false)}>Preguntas Frecuentes</Link>

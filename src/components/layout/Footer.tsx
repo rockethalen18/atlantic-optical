@@ -42,38 +42,28 @@ export default function Footer() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          gsap.fromTo(el.querySelectorAll<HTMLElement>('.footer-col'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'power3.out' });
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        gsap.fromTo(el.querySelectorAll<HTMLElement>('.footer-col'), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.12, ease: 'power3.out' });
+        obs.disconnect();
+      }
+    }, { threshold: 0.1 });
     obs.observe(el);
   }, []);
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
-      setSubscribed(true);
-      setEmail('');
-    }
+    if (email) { setSubscribed(true); setEmail(''); }
   };
 
   return (
-    <footer ref={ref} className="bg-[var(--dark-bg)] relative overflow-hidden">
-      {/* Decorative gradient */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'0.5\'/%3E%3C/svg%3E")' }} />
-
-      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-16 relative z-10">
-        {/* Newsletter Bar */}
-        <div className="footer-col mb-12 p-8 bg-white/5 border border-white/10 backdrop-blur-sm">
+    <footer ref={ref} className="bg-[#060d18] relative overflow-hidden">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-20 relative z-10">
+        <div className="footer-col mb-14 p-8 md:p-10 bg-white/[0.03] border border-white/5">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">
-              <h3 className="text-[18px] font-bold text-white mb-1">Mantente Actualizado</h3>
-              <p className="text-[13px] text-white/70">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
+              <h3 className="text-[20px] font-bold text-white mb-1">Mantente Actualizado</h3>
+              <p className="text-[14px] text-white/50">Recibe ofertas, nuevos productos y noticias de Atlantic Optical.</p>
             </div>
             {subscribed ? (
               <div className="flex items-center gap-2 text-emerald-400">
@@ -82,15 +72,9 @@ export default function Footer() {
               </div>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2 w-full md:w-auto">
-                <input
-                  type="email"
-                  placeholder="tu@email.com"
-                  required
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  className="flex-1 md:w-[280px] px-4 py-3.5 min-h-[48px] bg-white/10 border border-white/20 text-white text-[14px] placeholder-white/40 focus:outline-none focus:border-[var(--blue)] transition-colors"
-                />
-                <button type="submit" className="px-6 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
+                <input type="email" placeholder="tu@email.com" required value={email} onChange={e => setEmail(e.target.value)}
+                  className="flex-1 md:w-[300px] px-5 py-3.5 min-h-[48px] bg-white/5 border border-white/10 text-white text-[14px] placeholder-white/30 focus:outline-none focus:border-[var(--blue)] transition-colors" />
+                <button type="submit" className="px-8 py-3 bg-[var(--blue)] text-white text-[12px] font-bold uppercase tracking-[0.08em] hover:bg-[var(--blue-hover)] transition-colors whitespace-nowrap">
                   Suscribir
                 </button>
               </form>
@@ -98,82 +82,67 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
           <div className="footer-col lg:col-span-2">
-            <Link href="/" className="block mb-5">
-              <img
-                src="/images/logo-atlantic.png"
-                alt="Atlantic Optical Internacional"
-                width={280}
-                height={106}
-                loading="lazy"
-                className="h-[64px] md:h-[72px] w-auto object-contain"
-              />
+            <Link href="/" className="block mb-6">
+              <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={320} height={180}
+                className="h-[70px] md:h-[80px] w-auto object-contain" />
             </Link>
-            <p className="text-[13px] text-white/70 leading-[1.7] max-w-[300px] mb-5">
+            <p className="text-[14px] text-white/50 leading-[1.7] max-w-[320px] mb-6">
               Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a toda Latinoamérica.
             </p>
             <div className="flex gap-3">
               {social.map((s) => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="w-10 h-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-[var(--blue)] transition-colors">
-                  <s.icon size={15} className="text-white" />
+                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
+                  className="w-11 h-11 bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[var(--blue)] hover:border-[var(--blue)] transition-all duration-300">
+                  <s.icon size={16} className="text-white" />
                 </a>
               ))}
             </div>
           </div>
 
           <div className="footer-col">
-            <h4 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5">Tienda</h4>
-            <ul className="space-y-3">
+            <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-[0.16em] mb-6">Tienda</h4>
+            <ul className="space-y-3.5">
               {shopLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
-                </li>
+                <li key={l.href}><Link href={l.href} className="text-[13px] text-white/50 hover:text-white transition-colors">{l.label}</Link></li>
               ))}
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5">Ayuda</h4>
-            <ul className="space-y-3">
+            <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-[0.16em] mb-6">Ayuda</h4>
+            <ul className="space-y-3.5">
               {helpLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
-                </li>
+                <li key={l.href}><Link href={l.href} className="text-[13px] text-white/50 hover:text-white transition-colors">{l.label}</Link></li>
               ))}
             </ul>
           </div>
 
           <div className="footer-col">
-            <h4 className="text-[11px] font-bold text-white uppercase tracking-[0.14em] mb-5">Empresa</h4>
-            <ul className="space-y-3">
+            <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-[0.16em] mb-6">Empresa</h4>
+            <ul className="space-y-3.5">
               {companyLinks.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-[13px] text-white/70 hover:text-white transition-colors">{l.label}</Link>
-                </li>
+                <li key={l.href}><Link href={l.href} className="text-[13px] text-white/50 hover:text-white transition-colors">{l.label}</Link></li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-white/5">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[11px] text-white/60">
-              &copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-end gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 text-white/60">
-                <Icons.CreditCard size={14} />
-                <span className="text-[11px]">Pago Seguro</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/60">
-                <Icons.Truck size={14} />
-                <span className="text-[11px]">Envío Internacional</span>
-              </div>
-              <div className="flex items-center gap-2 text-white/60">
-                <Icons.ShieldCheck size={14} />
-                <span className="text-[11px]">Garantía 12 Meses</span>
-              </div>
+            <p className="text-[11px] text-white/30">&copy; 2026 Atlantic Optical Internacional S.A. Todos los derechos reservados.</p>
+            <div className="flex flex-wrap justify-center md:justify-end gap-6">
+              {[
+                { icon: Icons.CreditCard, label: 'Pago Seguro' },
+                { icon: Icons.Truck, label: 'Envío Internacional' },
+                { icon: Icons.ShieldCheck, label: 'Garantía 12 Meses' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-white/30">
+                  <item.icon size={14} />
+                  <span className="text-[11px]">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

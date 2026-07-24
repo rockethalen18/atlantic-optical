@@ -21,7 +21,7 @@ export default function LoadingScreen() {
     const timer = setTimeout(() => {
       setFadeOut(true);
       setTimeout(() => setVisible(false), 500);
-    }, 3000);
+    }, 2500);
 
     return () => {
       window.removeEventListener('load', handleLoad);
@@ -33,39 +33,27 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-[#0a1628] flex flex-col items-center justify-center transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-500 ${
         fadeOut ? 'opacity-0' : 'opacity-100'
       }`}
+      style={{ background: 'linear-gradient(135deg, #0a1628 0%, #0f2340 50%, #1e3a5f 100%)' }}
     >
-      {/* Pulse ring effect */}
-      <div className="relative w-32 h-32 flex items-center justify-center">
-        <div className="absolute inset-0 rounded-full border-2 border-[var(--blue)]/30 animate-ping" />
-        <div className="absolute inset-2 rounded-full border-2 border-[var(--blue)]/20 animate-ping" style={{ animationDelay: '0.5s' }} />
-        <div className="absolute inset-4 rounded-full border-2 border-[var(--blue)]/10 animate-ping" style={{ animationDelay: '1s' }} />
-
-        {/* Logo */}
-        <div className="relative z-10 animate-pulse">
-          <img
-            src="/images/logo-atlantic.png"
-            alt="Atlantic Optical"
-            width={180}
-            height={68}
-            loading="eager"
-            fetchPriority="high"
-            className="w-[180px] h-auto object-contain drop-shadow-[0_0_30px_rgba(37,99,235,0.4)]"
-          />
-        </div>
+      <div className="relative w-40 h-40 flex items-center justify-center mb-6">
+        <div className="absolute inset-0 rounded-full border border-white/5 animate-ping" />
+        <div className="absolute inset-3 rounded-full border border-white/10 animate-ping" style={{ animationDelay: '0.4s' }} />
+        <img
+          src="/images/logo-dark.png"
+          alt="Atlantic Optical"
+          width={200}
+          height={112}
+          loading="eager"
+          fetchPriority="high"
+          className="relative z-10 w-[200px] h-auto object-contain"
+        />
       </div>
-
-      {/* Loading bar */}
-      <div className="mt-10 w-48 h-[2px] bg-white/10 overflow-hidden">
-        <div className="h-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-hover)] animate-loading-bar" />
+      <div className="mt-4 w-40 h-[1px] bg-white/10 overflow-hidden">
+        <div className="h-full bg-gradient-to-r from-transparent via-white/50 to-transparent animate-loading-bar" />
       </div>
-
-      {/* Text */}
-      <p className="mt-6 text-[12px] text-white/40 uppercase tracking-[0.3em] font-medium">
-        Cargando
-      </p>
     </div>
   );
 }
