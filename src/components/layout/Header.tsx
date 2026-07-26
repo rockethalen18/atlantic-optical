@@ -221,7 +221,7 @@ export default function Header() {
           </button>
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
-            <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={320} height={180} loading="eager" fetchPriority="high"
+            <img src="/images/logos/logo-dark.png" alt="Atlantic Optical Internacional" width={320} height={180} loading="eager" fetchPriority="high"
               className="h-[60px] md:h-[70px] w-auto object-contain" />
           </Link>
 
@@ -352,7 +352,7 @@ export default function Header() {
           <div className="absolute top-0 left-0 w-[300px] max-w-[85vw] h-full bg-white/95 backdrop-blur-2xl overflow-y-auto shadow-[20px_0_60px_rgba(0,0,0,0.1)]">
             <div className="pt-[84px] px-5 pb-6">
               <div className="mb-6">
-                <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={135} className="h-[50px] w-auto object-contain" />
+                <img src="/images/logos/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={135} className="h-[50px] w-auto object-contain" />
               </div>
               <div className="relative mb-6">
                 <Icons.Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />

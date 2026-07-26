@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </button>
     <div class="login-box">
         <div class="login-logo">
-            <img src="/images/logo-light.png" alt="Atlantic Optical International Limited" style="width:380px;height:auto;max-width:100%">
+            <img src="/images/logos/logo-light.png" alt="Atlantic Optical International Limited" style="width:380px;height:auto;max-width:100%">
             <h1 style="margin-top:12px">Atlantic Optical International Limited</h1>
             <p>Panel de Administracion</p>
         </div>

@@ -85,7 +85,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
           <div className="footer-col lg:col-span-2">
             <Link href="/" className="block mb-6">
-              <img src="/images/logo-dark.png" alt="Atlantic Optical Internacional" width={320} height={180}
+              <img src="/images/logos/logo-dark.png" alt="Atlantic Optical Internacional" width={320} height={180}
                 className="h-[70px] md:h-[80px] w-auto object-contain" />
             </Link>
             <p className="text-[14px] text-[var(--text-muted)] leading-[1.7] max-w-[320px] mb-6">

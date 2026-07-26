@@ -7,28 +7,28 @@ import Icons from '@/components/ui/Icons';
 
 const slides = [
   {
-    image: '/images/hero-optical-equipment.jpg',
+    image: '/images/hero/hero-optical-equipment.jpg',
     tag: 'Líder en Equipamiento Oftálmico',
     title: 'Equipo profesional para tu consultorio',
     desc: 'Distribuidor autorizado de las mejores fábricas del mundo. Envío directo desde China a toda Latinoamérica.',
     cta: { label: 'Explorar Catálogo', href: '/productos' },
   },
   {
-    image: '/images/hero-eye-exam.jpg',
+    image: '/images/hero/hero-eye-exam.jpg',
     tag: 'Innovación Constante',
     title: 'Tecnología de última generación',
     desc: 'Fábricas certificadas ISO 13485 con equipos de vanguardia. Más de 200 productos disponibles.',
     cta: { label: 'Ver Productos', href: '/productos' },
   },
   {
-    image: '/images/hero-optician-work.jpg',
+    image: '/images/hero/hero-optician-work.jpg',
     tag: 'Laboratorio Óptico',
     title: 'Biseladoras y laboratorio completo',
     desc: 'Biseladoras automáticas con escáner, pulidoras y todo para tu laboratorio óptico.',
     cta: { label: 'Ver Laboratorio', href: '/productos?category=equipos-laboratorio' },
   },
   {
-    image: '/images/hero-optical-store.jpg',
+    image: '/images/hero/hero-optical-store.jpg',
     tag: 'Envío a Toda Latinoamérica',
     title: 'Costos de envío en tiempo real',
     desc: 'Marítimo desde $4.50/kg. Aéreo desde $12/kg. Cotización según destino y peso.',

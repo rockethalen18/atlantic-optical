@@ -12,7 +12,7 @@ const categories = [
     desc: 'Diagnóstico y tratamiento visual profesional',
     Icon: Icons.EyeRefractometer,
     count: 55,
-    image: '/images/hero-optical-equipment.jpg',
+    image: '/images/hero/hero-optical-equipment.jpg',
   },
   {
     name: 'Equipos de Laboratorio',
@@ -20,7 +20,7 @@ const categories = [
     desc: 'Maquinaria de laboratorio óptico',
     Icon: Icons.Edger,
     count: 34,
-    image: '/images/hero-optician-work.jpg',
+    image: '/images/hero/hero-optician-work.jpg',
   },
   {
     name: 'Mobiliario',
@@ -28,7 +28,7 @@ const categories = [
     desc: 'Unidades y sillas oftálmicas',
     Icon: Icons.Phoropter,
     count: 12,
-    image: '/images/hero-optical-store.jpg',
+    image: '/images/hero/hero-optical-store.jpg',
   },
   {
     name: 'Monitores y Optotipos',
@@ -36,7 +36,7 @@ const categories = [
     desc: 'Monitores LCD y proyectores',
     Icon: Icons.Eye,
     count: 15,
-    image: '/images/hero-glasses-display.jpg',
+    image: '/images/hero/hero-glasses-display.jpg',
   },
 ];
 

@@ -42,7 +42,7 @@ export default function LoadingScreen() {
         <div className="absolute inset-0 rounded-full border border-white/5 animate-ping" />
         <div className="absolute inset-3 rounded-full border border-white/10 animate-ping" style={{ animationDelay: '0.4s' }} />
         <img
-          src="/images/logo-dark.png"
+          src="/images/logos/logo-dark.png"
           alt="Atlantic Optical"
           width={200}
           height={112}
