@@ -46,7 +46,7 @@ export default function FeaturedProducts() {
             <Link key={p.sku} href={`/productos/${p.slug}/`}
               className="fp-card group block glass-card overflow-hidden transition-all duration-500 hover:-translate-y-2">
               <div className="relative h-[300px] bg-white/50 backdrop-blur-sm overflow-hidden flex items-center justify-center p-8 border-b border-white/40">
-                <img src={`/images/products/${p.sku}.jpg`} alt={p.name}
+                <img src={`/images/extracted_images/${p.sku}.jpg`} alt={p.name}
                   className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute top-4 left-4 bg-[var(--dark-bg)] text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-[0.12em]">
                   Destacado

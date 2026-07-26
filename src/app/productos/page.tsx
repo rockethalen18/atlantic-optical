@@ -173,7 +173,7 @@ export default function ProductsPage() {
                   >
                     <div className="relative aspect-square bg-[var(--bg-alt)] overflow-hidden">
                       <img
-                        src={`/images/products/${product.sku}.jpg`}
+                        src={`/images/extracted_images/${product.sku}.jpg`}
                         alt={product.name}
                         className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                         onError={(e) => {
@@ -209,7 +209,7 @@ export default function ProductsPage() {
                     className="group flex items-center gap-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/30 p-4 transition-all duration-300 hover:shadow-md"
                   >
                     <div className="w-20 h-20 bg-[var(--bg-alt)] overflow-hidden flex-shrink-0">
-                      <img src={`/images/products/${product.sku}.jpg`} alt={product.name} className="w-full h-full object-contain p-2" />
+                      <img src={`/images/extracted_images/${product.sku}.jpg`} alt={product.name} className="w-full h-full object-contain p-2" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[9px] font-bold text-[var(--green)] uppercase tracking-[0.14em]">{product.subcategory}</span>

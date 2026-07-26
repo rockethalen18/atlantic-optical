@@ -12,7 +12,7 @@ $messages = [];
 // Paths
 $docRoot = $_SERVER['DOCUMENT_ROOT'];
 $basePath = realpath($docRoot) ?: $docRoot;
-$imagesDir = $basePath . '/images/products/';
+$imagesDir = $basePath . '/images/extracted_images/';
 $catalogDir = $basePath . '/../catalogos/extracted_images/';
 if (!is_dir($catalogDir)) {
     $catalogDir = $basePath . '/catalogos/extracted_images/';
@@ -90,7 +90,7 @@ foreach ($products as $p) {
 
     // Exact match
     if (isset($deployImages[$sku])) {
-        $imagePath = '/images/products/' . basename($deployImages[$sku]);
+        $imagePath = '/images/extracted_images/' . basename($deployImages[$sku]);
         $matched[] = ['product' => $p, 'image' => $imagePath, 'source' => 'deploy'];
         $orphanImages = array_diff($orphanImages, [$sku]);
         $found = true;
@@ -105,7 +105,7 @@ foreach ($products as $p) {
     if (!$found) {
         $clean = preg_replace('/^AO-?/i', '', $sku);
         if ($clean !== $sku && isset($deployImages['AO-' . $clean])) {
-            $imagePath = '/images/products/AO-' . $clean . '.jpg';
+            $imagePath = '/images/extracted_images/AO-' . $clean . '.jpg';
             $matched[] = ['product' => $p, 'image' => $imagePath, 'source' => 'deploy'];
             $orphanImages = array_diff($orphanImages, ['AO-' . $clean]);
             $found = true;
@@ -145,7 +145,7 @@ if ($action === 'apply') {
     foreach ($products as $p) {
         $sku = strtoupper(trim($p['sku']));
         if (isset($deployImages[$sku])) {
-            $imagePath = '/images/products/' . basename($deployImages[$sku]);
+            $imagePath = '/images/extracted_images/' . basename($deployImages[$sku]);
             if (($p['image'] ?? '') !== $imagePath) {
                 $stmt = $db->prepare('UPDATE products SET image = ? WHERE id = ?');
                 $stmt->execute([$imagePath, $p['id']]);
@@ -265,7 +265,7 @@ $catalogEmpty = count($catalogFolders) - $catalogWithImages;
                         </td>
                         <td>
                             <?php if ($cf['hasImage']): ?>
-                                <img src="/images/products/<?php echo htmlspecialchars($cf['imageFile']); ?>" class="img-preview" onerror="this.style.background='#7f1d1d'">
+                                <img src="/images/extracted_images/<?php echo htmlspecialchars($cf['imageFile']); ?>" class="img-preview" onerror="this.style.background='#7f1d1d'">
                             <?php else: ?>
                                 <span class="badge badge-err">No</span>
                             <?php endif; ?>
@@ -310,7 +310,7 @@ $catalogEmpty = count($catalogFolders) - $catalogWithImages;
                         <td><code><?php echo htmlspecialchars($p['sku']); ?></code></td>
                         <td><?php echo htmlspecialchars($p['name']); ?></td>
                         <td><?php echo htmlspecialchars($catNames[$p['category_id']] ?? 'N/A'); ?></td>
-                        <td><code>/images/products/<?php echo strtoupper(htmlspecialchars($p['sku'])); ?>.jpg</code></td>
+                        <td><code>/images/extracted_images/<?php echo strtoupper(htmlspecialchars($p['sku'])); ?>.jpg</code></td>
                         <td>
                             <?php if ($catalogFolder): ?>
                                 <code><?php echo htmlspecialchars($catalogFolder['folder']); ?></code>

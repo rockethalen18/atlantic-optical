@@ -5,12 +5,12 @@ import Link from 'next/link';
 import { gsap } from '@/lib/gsap';
 
 const categories = [
-  { name: 'Auto Refractómetros', slug: 'auto-refractometros-con-keratometro', image: '/images/products/AO-ARK7710.jpg', desc: 'Diagnóstico preciso con keratometría', count: '12+ modelos' },
-  { name: 'Forópteros', slug: 'foropteros-manuales', image: '/images/products/AO-CT1504.jpg', desc: 'Examen subjetivo automatizado', count: '8+ modelos' },
-  { name: 'Lámparas de Hendidura', slug: 'lamparas-de-hendidura', image: '/images/products/AO-SJ350.jpg', desc: 'Iluminación profesional de precisión', count: '10+ modelos' },
-  { name: 'Tonómetros', slug: 'tonometros-de-contacto', image: '/images/products/AO-SK5500A.jpg', desc: 'Medición intraocular confiable', count: '6+ modelos' },
-  { name: 'Biseladoras Automáticas', slug: 'biseladoras-automaticas', image: '/images/products/AO-ALE1000.jpg', desc: 'Laboratorio óptico de alta gama', count: '15+ modelos' },
-  { name: 'Mobiliario Clínico', slug: 'sillas-con-pedal', image: '/images/products/AO-CT1955.jpg', desc: 'Consultorios y clínicas modernas', count: '20+ modelos' },
+  { name: 'Auto Refractómetros', slug: 'auto-refractometros-con-keratometro', image: '/images/extracted_images/AO-ARK7710.jpg', desc: 'Diagnóstico preciso con keratometría', count: '12+ modelos' },
+  { name: 'Forópteros', slug: 'foropteros-manuales', image: '/images/extracted_images/AO-CT1504.jpg', desc: 'Examen subjetivo automatizado', count: '8+ modelos' },
+  { name: 'Lámparas de Hendidura', slug: 'lamparas-de-hendidura', image: '/images/extracted_images/AO-SJ350.jpg', desc: 'Iluminación profesional de precisión', count: '10+ modelos' },
+  { name: 'Tonómetros', slug: 'tonometros-de-contacto', image: '/images/extracted_images/AO-SK5500A.jpg', desc: 'Medición intraocular confiable', count: '6+ modelos' },
+  { name: 'Biseladoras Automáticas', slug: 'biseladoras-automaticas', image: '/images/extracted_images/AO-ALE1000.jpg', desc: 'Laboratorio óptico de alta gama', count: '15+ modelos' },
+  { name: 'Mobiliario Clínico', slug: 'sillas-con-pedal', image: '/images/extracted_images/AO-CT1955.jpg', desc: 'Consultorios y clínicas modernas', count: '20+ modelos' },
 ];
 
 export default function CategoryShowcase() {

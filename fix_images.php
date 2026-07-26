@@ -35,7 +35,7 @@ foreach ($products as $p) {
     }
     $sku = trim($p['sku']);
     if ($sku === '') continue;
-    $imagePath = '/images/products/' . $sku . '.jpg';
+    $imagePath = '/images/extracted_images/' . $sku . '.jpg';
     $stmt = $pdo->prepare('UPDATE products SET image = ? WHERE id = ?');
     $stmt->execute([$imagePath, $p['id']]);
     $updated++;
