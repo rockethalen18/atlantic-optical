@@ -7,24 +7,24 @@ export default function LoadingScreen() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const handleLoad = () => {
+    const img = new Image();
+    img.src = '/images/logos/logo-dark.png';
+
+    const handleReady = () => {
       setFadeOut(true);
-      setTimeout(() => setVisible(false), 500);
+      setTimeout(() => setVisible(false), 400);
     };
 
     if (document.readyState === 'complete') {
-      handleLoad();
+      handleReady();
     } else {
-      window.addEventListener('load', handleLoad);
+      window.addEventListener('load', handleReady);
     }
 
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => setVisible(false), 500);
-    }, 2500);
+    const timer = setTimeout(handleReady, 2000);
 
     return () => {
-      window.removeEventListener('load', handleLoad);
+      window.removeEventListener('load', handleReady);
       clearTimeout(timer);
     };
   }, []);
@@ -33,22 +33,28 @@ export default function LoadingScreen() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-500 ${
-        fadeOut ? 'opacity-0' : 'opacity-100'
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-400 ${
+        fadeOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
       style={{ background: 'linear-gradient(180deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%)' }}
     >
-      <div className="relative flex flex-col items-center justify-center">
-        <img
-          src="/images/logos/logo-dark.png"
-          alt="Atlantic Optical International Limited"
-          width={400}
-          height={400}
-          loading="eager"
-          fetchPriority="high"
-          className="w-[260px] md:w-[340px] h-auto object-contain animate-[pulse-glow_2.5s_ease-in-out_infinite]"
-        />
-      </div>
+      <style>{`
+        @keyframes logo-pulse {
+          0%, 100% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.04); opacity: 0.85; }
+        }
+      `}</style>
+      <img
+        src="/images/logos/logo-dark.png"
+        alt="Atlantic Optical International Limited"
+        width={400}
+        height={400}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
+        className="w-[240px] md:w-[300px] h-auto object-contain"
+        style={{ animation: 'logo-pulse 2s ease-in-out infinite' }}
+      />
     </div>
   );
 }
