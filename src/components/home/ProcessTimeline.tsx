@@ -77,7 +77,7 @@ export default function ProcessTimeline() {
                   <div className="w-[72px] h-[72px] glass-card flex items-center justify-center group-hover:border-[var(--blue)] group-hover:bg-[var(--blue-light)] transition-all duration-500 relative z-10">
                     <step.icon size={28} className="text-[var(--text-soft)] group-hover:text-[var(--blue)] transition-colors" />
                   </div>
-                  <span className="absolute -top-3 -right-3 w-[28px] h-[28px] bg-[var(--blue)] text-white text-[10px] font-black flex items-center justify-center" style={{ fontFamily: 'var(--font-display)' }}>
+                  <span className="absolute -top-3 -right-3 w-[28px] h-[28px] bg-[var(--blue)] text-white text-[10px] font-black flex items-center justify-center z-20" style={{ fontFamily: 'var(--font-display)' }}>
                     {step.num}
                   </span>
                 </div>

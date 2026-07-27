@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   keywords: "foróptero, lentómetro, equipo oftálmico, auto refractómetro, lámpara de hendidura, tonómetro, equipo optométrico, monturas, lentes de sol, Atlantic Optical, Panamá, México",
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://atlanticoptical.com.mx' },
-  icons: { icon: '/images/logos/logo-dark.png' },
+  icons: { icon: '/favicon.png' },
   openGraph: {
     title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
     description: "Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias.",
@@ -51,7 +51,7 @@ export default function RootLayout({
           <ScrollRevealProvider>
             <ScrollProgress />
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 pt-[80px] md:pt-[90px]">{children}</main>
             <Footer />
           </ScrollRevealProvider>
         </AuthProvider>

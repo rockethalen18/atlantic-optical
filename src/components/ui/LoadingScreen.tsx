@@ -36,23 +36,24 @@ export default function LoadingScreen() {
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center transition-opacity duration-500 ${
         fadeOut ? 'opacity-0' : 'opacity-100'
       }`}
-      style={{ background: 'linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0ea5e9 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%)' }}
     >
-      <div className="relative w-40 h-40 flex items-center justify-center mb-6">
-        <div className="absolute inset-0 rounded-full border border-white/5 animate-ping" />
-        <div className="absolute inset-3 rounded-full border border-white/10 animate-ping" style={{ animationDelay: '0.4s' }} />
+      <div className="relative w-48 h-48 flex items-center justify-center mb-6">
+        <div className="absolute inset-0 rounded-full border-2 border-[var(--blue)]/10 animate-ping" />
+        <div className="absolute inset-4 rounded-full border border-[var(--blue)]/15 animate-ping" style={{ animationDelay: '0.3s' }} />
+        <div className="absolute inset-8 rounded-full border border-[var(--blue)]/10 animate-ping" style={{ animationDelay: '0.6s' }} />
         <img
-          src="/images/logos/logo-dark.png"
+          src="/favicon.png"
           alt="Atlantic Optical"
-          width={200}
-          height={112}
+          width={160}
+          height={160}
           loading="eager"
           fetchPriority="high"
-          className="relative z-10 w-[200px] h-auto object-contain"
+          className="relative z-10 w-[140px] h-[140px] object-contain animate-[pulse-glow_2s_ease-in-out_infinite]"
         />
       </div>
-      <div className="mt-4 w-40 h-[1px] bg-white/10 overflow-hidden">
-        <div className="h-full bg-gradient-to-r from-transparent via-white/50 to-transparent animate-loading-bar" />
+      <div className="mt-2 w-48 h-[2px] bg-[var(--blue)]/10 overflow-hidden rounded-full">
+        <div className="h-full bg-gradient-to-r from-transparent via-[var(--blue)]/40 to-transparent animate-loading-bar" />
       </div>
     </div>
   );

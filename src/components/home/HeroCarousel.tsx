@@ -63,7 +63,7 @@ export default function HeroCarousel() {
   const s = slides[i];
 
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden">
+    <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden -mt-[80px] md:-mt-[90px]">
       {slides.map((slide, idx) => (
         <div key={idx} className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out" style={{ opacity: idx === i ? 1 : 0 }}>
           <img src={slide.image} alt={slide.tag} className="w-full h-full object-cover" style={{ transform: idx === i ? 'scale(1)' : 'scale(1.08)', transition: 'transform 6s ease-out' }} />
@@ -74,7 +74,7 @@ export default function HeroCarousel() {
       <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.15) 100%)' }} />
       <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to top, white 0%, transparent 100%)' }} />
 
-      <div className="relative z-10 max-w-[1680px] mx-auto px-6 md:px-10 h-full flex items-center pt-[80px] md:pt-[90px]">
+      <div className="relative z-10 max-w-[1680px] mx-auto px-6 md:px-10 h-full flex items-center">
         <div className="max-w-[620px]">
           <div key={`tag-${i}`} className="hero-tag inline-flex items-center gap-3 mb-6">
             <div className="w-10 h-[2px] bg-[var(--blue)]" />

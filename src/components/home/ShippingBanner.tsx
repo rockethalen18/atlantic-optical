@@ -30,16 +30,40 @@ function AnimatedNumber({ target, decimals = 2 }: { target: number; decimals?: n
   return <span ref={ref}>${val.toFixed(decimals)}</span>;
 }
 
-const methods = [
-  { icon: Icons.Shipping, name: 'Marítimo', price: 4.50, time: '30-45 días', desc: 'Equipos grandes y pesados' },
-  { icon: Icons.Truck, name: 'Aéreo', price: 12.00, time: '7-15 días', desc: 'Velocidad y costo equilibrados' },
-  { icon: Icons.Package, name: 'Express', price: 20.00, time: '3-7 días', desc: 'Máxima urgencia' },
+const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
+  Shipping: Icons.Shipping,
+  Truck: Icons.Truck,
+  Package: Icons.Package,
+};
+
+const fallbackMethods = [
+  { icon: 'Shipping', name: 'Marítimo', price: 4.50, time: '30-45 días', desc: 'Equipos grandes y pesados' },
+  { icon: 'Truck', name: 'Aéreo', price: 12.00, time: '7-15 días', desc: 'Velocidad y costo equilibrados' },
+  { icon: 'Package', name: 'Express', price: 20.00, time: '3-7 días', desc: 'Máxima urgencia' },
 ];
 
 export default function ShippingBanner() {
   const sectionRef = useRef<HTMLElement>(null);
   const [mounted, setMounted] = useState(false);
+  const [methods, setMethods] = useState(fallbackMethods);
   useEffect(() => { setMounted(true); }, []);
+
+  useEffect(() => {
+    fetch('/admin/api/shipping.php')
+      .then(r => r.json())
+      .then(data => {
+        if (data.success && data.rates.length > 0) {
+          setMethods(data.rates.map((r: any, i: number) => ({
+            icon: fallbackMethods[i]?.icon || 'Package',
+            name: r.method_label,
+            price: parseFloat(r.cost_per_kg),
+            time: `${r.min_days}-${r.max_days} días`,
+            desc: r.description,
+          })));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     if (!mounted || !sectionRef.current) return;
@@ -66,21 +90,24 @@ export default function ShippingBanner() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
-          {methods.map((m, i) => (
-            <div key={i} className="ship-card group text-center p-10 glass-card">
-              <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-[var(--bg-alt)] border border-[var(--border)] group-hover:border-[var(--blue)]/30 transition-colors">
-                <m.icon size={26} className="text-[var(--blue)]" />
+          {methods.map((m, i) => {
+            const IconComp = iconMap[m.icon] || Icons.Package;
+            return (
+              <div key={i} className="ship-card group text-center p-10 glass-card">
+                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-[var(--bg-alt)] border border-[var(--border)] group-hover:border-[var(--blue)]/30 transition-colors">
+                  <IconComp size={26} className="text-[var(--blue)]" />
+                </div>
+                <h3 className="text-[13px] font-bold text-[var(--text-muted)] uppercase tracking-[0.16em] mb-4">{m.name}</h3>
+                <div className="text-[44px] font-black leading-none mb-1 text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>
+                  {mounted ? <AnimatedNumber target={m.price} /> : '$0.00'}
+                </div>
+                <span className="text-[11px] text-[var(--text-soft)] uppercase tracking-wider">por kg</span>
+                <div className="w-8 h-px bg-[var(--border-light)] mx-auto my-6" />
+                <div className="text-[13px] font-semibold text-[var(--text)] mb-1">{m.time}</div>
+                <p className="text-[12px] text-[var(--text-muted)]">{m.desc}</p>
               </div>
-              <h3 className="text-[13px] font-bold text-[var(--text-muted)] uppercase tracking-[0.16em] mb-4">{m.name}</h3>
-              <div className="text-[44px] font-black leading-none mb-1 text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>
-                {mounted ? <AnimatedNumber target={m.price} /> : '$0.00'}
-              </div>
-              <span className="text-[11px] text-[var(--text-soft)] uppercase tracking-wider">por kg</span>
-              <div className="w-8 h-px bg-[var(--border-light)] mx-auto my-6" />
-              <div className="text-[13px] font-semibold text-[var(--text)] mb-1">{m.time}</div>
-              <p className="text-[12px] text-[var(--text-muted)]">{m.desc}</p>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
