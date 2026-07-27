@@ -40,7 +40,7 @@ function render_exchange_widget() {
 echo '<aside class="sidebar">';
 echo '<div class="sidebar-header">';
 echo '<div class="sidebar-logo" style="justify-content:center">';
-echo '<img src="/images/logos/logo-light.png" alt="Atlantic Optical International Limited" class="sidebar-logo-img" style="height:160px;width:auto;max-width:100%">';
+echo '<img src="/images/logos/logo-dark.png" alt="Atlantic Optical International Limited" class="sidebar-logo-img" style="height:120px;width:auto;max-width:100%">';
 echo '</div></div>';
 echo '<nav class="sidebar-nav">';
 echo sidebar_item('index', 'dashboard', 'Dashboard');
