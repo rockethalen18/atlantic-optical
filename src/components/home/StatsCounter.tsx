@@ -76,15 +76,19 @@ export default function StatsCounter() {
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10">
         <div className="text-center mb-14">
-          <span className="text-[11px] font-bold text-white/60 uppercase tracking-[0.2em] block mb-3">Números que Hablan</span>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-white/40" />
+            <span className="text-[11px] font-bold text-white/60 uppercase tracking-[0.2em]">Números que Hablan</span>
+            <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-white/40" />
+          </div>
           <h2 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
             Resultados que Inspiran Confianza
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
           {stats.map((s, i) => (
-            <div key={i} className="stat-item text-center p-6 md:p-8 bg-white/10 border border-white/10 backdrop-blur-sm hover:bg-white/15 hover:border-white/20 transition-all duration-300">
+            <div key={i} className="stat-item text-center p-6 md:p-8 glass-stat">
               <div className="text-[32px] md:text-[40px] font-black text-white leading-none mb-2" style={{ fontFamily: 'var(--font-display)' }}>
                 {mounted ? <AnimatedNumber target={s.value} suffix={s.suffix} prefix={s.prefix} /> : `${s.prefix}0${s.suffix}`}
               </div>

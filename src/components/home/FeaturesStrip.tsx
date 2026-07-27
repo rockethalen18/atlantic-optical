@@ -27,17 +27,17 @@ export default function FeaturesStrip() {
   return (
     <section className="glass-section">
       <div ref={ref} className="max-w-[1680px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {features.map((f, i) => (
-            <div key={i} className={`feat-card group flex items-center gap-5 py-7 px-6 md:px-8 border-white/40 ${i < 3 ? 'sm:border-r' : ''} transition-all duration-300 hover:bg-white/40`}>
-              <div className="w-12 h-12 bg-white/50 backdrop-blur-sm border border-white/50 flex items-center justify-center flex-shrink-0 group-hover:border-[var(--blue)]/30 transition-colors">
+            <div key={i} className="feat-card group flex items-center gap-5 py-6 px-6 glass-card !rounded-2xl">
+              <div className="w-12 h-12 glass-img !rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[var(--blue-light)] transition-colors duration-300">
                 <f.icon size={20} className="text-[var(--blue)]" />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[13px] font-bold text-[var(--text)] mb-0.5">{f.title}</div>
+                <div className="text-[13px] font-bold text-[var(--text)] mb-0.5 group-hover:text-[var(--blue)] transition-colors">{f.title}</div>
                 <div className="text-[11px] text-[var(--text-muted)]">{f.desc}</div>
               </div>
-              <div className="text-[18px] font-black text-[var(--blue)] hidden sm:block" style={{ fontFamily: 'var(--font-display)' }}>{f.stat}</div>
+              <div className="glass-chip text-[16px] font-black text-[var(--blue)] px-3 py-1 hidden sm:block" style={{ fontFamily: 'var(--font-display)' }}>{f.stat}</div>
             </div>
           ))}
         </div>

@@ -84,17 +84,21 @@ export default function ShippingBanner() {
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10">
         <div className="text-center mb-16">
-          <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Envío Directo</span>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-[var(--blue)]" />
+            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Envío Directo</span>
+            <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-[var(--blue)]" />
+          </div>
           <h2 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>Costos de Envío Variables</h2>
           <p className="text-[15px] text-[var(--text-muted)] mt-3">China → Latinoamérica con cotización en tiempo real</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-[1000px] mx-auto">
           {methods.map((m, i) => {
             const IconComp = iconMap[m.icon] || Icons.Package;
             return (
-              <div key={i} className="ship-card group text-center p-10 glass-card">
-                <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-[var(--bg-alt)] border border-[var(--border)] group-hover:border-[var(--blue)]/30 transition-colors">
+              <div key={i} className="ship-card group text-center p-10 glass-premium">
+                <div className="w-16 h-16 mx-auto mb-6 glass-img !rounded-2xl flex items-center justify-center group-hover:bg-[var(--blue-light)] transition-colors duration-300">
                   <IconComp size={26} className="text-[var(--blue)]" />
                 </div>
                 <h3 className="text-[13px] font-bold text-[var(--text-muted)] uppercase tracking-[0.16em] mb-4">{m.name}</h3>
@@ -102,7 +106,7 @@ export default function ShippingBanner() {
                   {mounted ? <AnimatedNumber target={m.price} /> : '$0.00'}
                 </div>
                 <span className="text-[11px] text-[var(--text-soft)] uppercase tracking-wider">por kg</span>
-                <div className="w-8 h-px bg-[var(--border-light)] mx-auto my-6" />
+                <div className="w-8 h-[2px] bg-gradient-to-r from-transparent via-[var(--blue)]/20 to-transparent mx-auto my-6" />
                 <div className="text-[13px] font-semibold text-[var(--text)] mb-1">{m.time}</div>
                 <p className="text-[12px] text-[var(--text-muted)]">{m.desc}</p>
               </div>

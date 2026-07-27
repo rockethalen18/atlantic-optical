@@ -69,17 +69,18 @@ export default function CategoryGrid() {
             </div>
             <h2 className="text-[32px] md:text-[42px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>Categorías</h2>
           </div>
-          <Link href="/productos" className="hidden md:inline-flex items-center gap-2 text-[11px] font-bold text-[var(--green)] uppercase tracking-[0.1em] hover:gap-3 transition-all">
-            Ver Catálogo Completo <Icons.ArrowRight size={12} />
+          <Link href="/productos" className="hidden md:inline-flex items-center gap-2 glass-card !rounded-full px-6 py-2.5 group">
+            <span className="text-[11px] font-bold text-[var(--green)] uppercase tracking-[0.1em] group-hover:text-[var(--blue)] transition-colors">Ver Catálogo Completo</span>
+            <Icons.ArrowRight size={12} className="text-[var(--green)] group-hover:text-[var(--blue)] group-hover:translate-x-1 transition-all" />
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {categories.map((c) => (
             <Link
               key={c.slug}
               href={`/productos?category=${c.slug}`}
-              className="cat-card group relative bg-white border border-[var(--border)] overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] hover:-translate-y-1"
+              className="cat-card group relative glass-premium overflow-hidden"
             >
               <div className="relative h-[220px] overflow-hidden">
                 <img
@@ -90,7 +91,7 @@ export default function CategoryGrid() {
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0.1) 100%)' }} />
                 <div className="absolute bottom-0 left-0 right-0 p-5" style={{ color: '#ffffff' }}>
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-8 h-8 flex items-center justify-center" style={{ background: 'rgba(255,255,255,0.2)', backdropFilter: 'blur(4px)' }}>
+                    <div className="w-8 h-8 flex items-center justify-center rounded-lg" style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}>
                       <c.Icon size={14} style={{ color: '#ffffff' }} />
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.1em]" style={{ color: 'rgba(255,255,255,0.8)' }}>{c.count} productos</span>
@@ -100,11 +101,11 @@ export default function CategoryGrid() {
                 </div>
               </div>
 
-              <div className="p-4 flex items-center justify-between" style={{ background: '#ffffff' }}>
-                <span className="text-[11px] font-bold uppercase tracking-[0.08em] transition-colors" style={{ color: 'var(--green)' }}>
+              <div className="p-4 flex items-center justify-between bg-white/60 backdrop-blur-sm">
+                <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-[var(--green)] group-hover:text-[var(--blue)] transition-colors">
                   Ver productos
                 </span>
-                <div className="w-7 h-7 bg-[var(--bg-alt)] flex items-center justify-center group-hover:bg-[var(--green)] transition-colors duration-300">
+                <div className="w-7 h-7 glass-card !rounded-full flex items-center justify-center group-hover:bg-[var(--blue)] transition-colors duration-300">
                   <Icons.ArrowRight size={12} className="text-[var(--text-muted)] group-hover:text-white transition-colors" />
                 </div>
               </div>
@@ -113,8 +114,9 @@ export default function CategoryGrid() {
         </div>
 
         <div className="mt-10 text-center md:hidden">
-          <Link href="/productos" className="inline-flex items-center gap-1.5 text-[12px] font-bold text-[var(--green)] uppercase tracking-[0.08em]">
-            Ver Todas las Categorías <Icons.ArrowRight size={12} />
+          <Link href="/productos" className="inline-flex items-center gap-1.5 glass-card !rounded-full px-6 py-3 group">
+            <span className="text-[12px] font-bold text-[var(--green)] group-hover:text-[var(--blue)] transition-colors uppercase tracking-[0.08em]">Ver Todas las Categorías</span>
+            <Icons.ArrowRight size={12} className="text-[var(--green)] group-hover:text-[var(--blue)] group-hover:translate-x-1 transition-all" />
           </Link>
         </div>
       </div>

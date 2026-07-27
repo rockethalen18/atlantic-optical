@@ -27,19 +27,19 @@ export default function CategoryShowcase() {
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
         gsap.to(card, {
-          rotateY: x * 8,
-          rotateX: -y * 8,
-          transformPerspective: 800,
-          duration: 0.4,
+          rotateY: x * 6,
+          rotateX: -y * 6,
+          transformPerspective: 1000,
+          duration: 0.5,
           ease: 'power2.out',
         });
         if (img) {
-          gsap.to(img, { x: x * 10, y: y * 10, scale: 1.05, duration: 0.4, ease: 'power2.out' });
+          gsap.to(img, { x: x * 8, y: y * 8, scale: 1.04, duration: 0.5, ease: 'power2.out' });
         }
       };
       const handleLeave = () => {
-        gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.6, ease: 'power3.out' });
-        if (img) gsap.to(img, { x: 0, y: 0, scale: 1, duration: 0.6, ease: 'power3.out' });
+        gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.8, ease: 'elastic.out(1, 0.5)' });
+        if (img) gsap.to(img, { x: 0, y: 0, scale: 1, duration: 0.8, ease: 'elastic.out(1, 0.5)' });
       };
       card.addEventListener('mousemove', handleMouse);
       card.addEventListener('mouseleave', handleLeave);
@@ -59,30 +59,34 @@ export default function CategoryShowcase() {
     <section ref={ref} className="py-16 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
-          <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Explora por Categoría</span>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-[var(--blue)]" />
+            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Explora por Categoría</span>
+            <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-[var(--blue)]" />
+          </div>
           <h2 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
             Equipos que Transforman
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: '1200px' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" style={{ perspective: '1200px' }}>
           {categories.map((cat, i) => (
             <Link key={i} href={`/productos?subcategory=${cat.slug}`}
-              className="cat-card group block glass-card p-6 relative overflow-hidden"
+              className="cat-card group block glass-premium p-6 relative"
               style={{ transformStyle: 'preserve-3d' }}>
 
-              <div className="relative h-[200px] overflow-hidden mb-5 bg-white/50 backdrop-blur-sm rounded-xl border border-white/60">
+              <div className="glass-img relative h-[220px] mb-5">
                 <img src={cat.image} alt={cat.name}
-                  className="cat-img w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110" />
+                  className="cat-img w-full h-full object-contain p-5 transition-transform duration-700 group-hover:scale-110" />
               </div>
 
-              <h3 className="text-[17px] font-bold text-[var(--text)] mb-1 group-hover:text-[var(--blue)] transition-colors">{cat.name}</h3>
-              <p className="text-[13px] text-[var(--text-muted)] mb-4 leading-[1.6]">{cat.desc}</p>
+              <h3 className="text-[17px] font-bold text-[var(--text)] mb-1.5 group-hover:text-[var(--blue)] transition-colors duration-300">{cat.name}</h3>
+              <p className="text-[13px] text-[var(--text-muted)] mb-5 leading-[1.6]">{cat.desc}</p>
 
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-[var(--blue)] bg-[var(--blue-light)] px-3 py-1">{cat.count}</span>
-                <span className="text-[12px] font-bold text-[var(--text-soft)] group-hover:text-[var(--blue)] group-hover:translate-x-1 transition-all flex items-center gap-1">
-                  Ver más <span className="text-[15px]">→</span>
+                <span className="glass-chip text-[11px] font-bold text-[var(--blue)] px-3.5 py-1.5">{cat.count}</span>
+                <span className="text-[12px] font-bold text-[var(--text-soft)] group-hover:text-[var(--blue)] group-hover:translate-x-1 transition-all duration-300 flex items-center gap-1">
+                  Ver más <span className="text-[15px] transition-transform group-hover:translate-x-0.5">→</span>
                 </span>
               </div>
             </Link>

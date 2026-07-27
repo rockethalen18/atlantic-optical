@@ -49,21 +49,25 @@ export default function TestimonialCards() {
     <section className="py-16 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
-          <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Testimonios</span>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-[var(--blue)]" />
+            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Testimonios</span>
+            <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-[var(--blue)]" />
+          </div>
           <h2 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
             Lo que Dicen Nuestros Clientes
           </h2>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{ perspective: '1200px' }}>
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" style={{ perspective: '1200px' }}>
           {testimonials.map((t, i) => (
             <div key={i}
-              className={`test-card group relative p-8 md:p-10 glass-card transition-all duration-500 ${i === active ? 'border-[var(--blue)]/30 shadow-[0_20px_60px_rgba(14,165,233,0.1)]' : ''}`}
+              className={`test-card group relative p-8 md:p-10 glass-premium transition-all duration-500 ${i === active ? '!border-[var(--blue)]/20 !shadow-[0_20px_60px_rgba(14,165,233,0.1)]' : ''}`}
               style={{ transformStyle: 'preserve-3d' }}
               onMouseEnter={() => setActive(i)}
             >
               {/* Quote icon */}
-              <div className="absolute top-6 right-6 text-[60px] font-black text-[var(--blue)] opacity-[0.06] leading-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
+              <div className="absolute top-6 right-6 text-[60px] font-black text-[var(--blue)] opacity-[0.05] leading-none" style={{ fontFamily: 'var(--font-display)' }}>&ldquo;</div>
 
               {/* Stars */}
               <div className="flex gap-1 mb-5">
@@ -73,11 +77,11 @@ export default function TestimonialCards() {
               </div>
 
               {/* Text */}
-              <p className="text-[15px] text-[var(--text)] leading-[1.75] mb-8 relative z-10">&ldquo;{t.text}&rdquo;</p>
+              <p className="text-[15px] text-[var(--text)] leading-[1.8] mb-8 relative z-10">&ldquo;{t.text}&rdquo;</p>
 
               {/* Author */}
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-[var(--blue-light)] flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 glass-chip flex items-center justify-center flex-shrink-0 !rounded-full">
                   <span className="text-[16px] font-black text-[var(--blue)]" style={{ fontFamily: 'var(--font-display)' }}>{t.name.charAt(0)}</span>
                 </div>
                 <div>
@@ -86,8 +90,10 @@ export default function TestimonialCards() {
                 </div>
               </div>
 
-              {/* Hover border glow */}
-              <div className={`absolute inset-0 border border-[var(--blue)] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none`} />
+              {/* Active indicator */}
+              {i === active && (
+                <div className="absolute bottom-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[var(--blue)] to-transparent opacity-40" />
+              )}
             </div>
           ))}
         </div>

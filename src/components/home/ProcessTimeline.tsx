@@ -22,7 +22,6 @@ export default function ProcessTimeline() {
     const items = ref.current.querySelectorAll<HTMLElement>('.step-item');
     const line = timelineRef.current;
 
-    // Line draw animation
     gsap.fromTo(line,
       { scaleX: 0 },
       {
@@ -37,7 +36,6 @@ export default function ProcessTimeline() {
       }
     );
 
-    // Stagger items
     gsap.fromTo(items,
       { opacity: 0, x: -40, scale: 0.9 },
       {
@@ -58,7 +56,11 @@ export default function ProcessTimeline() {
     <section className="py-16 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-20">
-          <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Proceso Simple</span>
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-[var(--blue)]" />
+            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Proceso Simple</span>
+            <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-[var(--blue)]" />
+          </div>
           <h2 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
             De la Selección a tu Consultorio
           </h2>
@@ -66,22 +68,22 @@ export default function ProcessTimeline() {
 
         <div ref={ref} className="relative">
           {/* Timeline line */}
-          <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-[var(--border)]">
-            <div ref={timelineRef} className="h-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-hover)] origin-left" />
+          <div className="hidden lg:block absolute top-[60px] left-[10%] right-[10%] h-[2px] bg-[var(--border-light)]">
+            <div ref={timelineRef} className="h-full bg-gradient-to-r from-[var(--blue)] to-[var(--blue-hover)] origin-left rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4 relative z-10">
             {steps.map((step, i) => (
               <div key={i} className="step-item group text-center lg:text-center">
                 <div className="relative mb-6 inline-flex">
-                  <div className="w-[72px] h-[72px] glass-card flex items-center justify-center group-hover:border-[var(--blue)] group-hover:bg-[var(--blue-light)] transition-all duration-500 relative z-10">
-                    <step.icon size={28} className="text-[var(--text-soft)] group-hover:text-[var(--blue)] transition-colors" />
+                  <div className="w-[72px] h-[72px] glass-premium !rounded-2xl flex items-center justify-center group-hover:border-[var(--blue)]/20 group-hover:bg-[var(--blue-light)] transition-all duration-500 relative z-10">
+                    <step.icon size={28} className="text-[var(--text-soft)] group-hover:text-[var(--blue)] transition-colors duration-300" />
                   </div>
-                  <span className="absolute -top-3 -right-3 w-[28px] h-[28px] bg-[var(--blue)] text-white text-[10px] font-black flex items-center justify-center z-20" style={{ fontFamily: 'var(--font-display)' }}>
+                  <span className="absolute -top-3 -right-3 w-[28px] h-[28px] bg-[var(--blue)] text-white text-[10px] font-black flex items-center justify-center rounded-full z-20 shadow-lg" style={{ fontFamily: 'var(--font-display)' }}>
                     {step.num}
                   </span>
                 </div>
-                <h3 className="text-[16px] font-bold text-[var(--text)] mb-2 group-hover:text-[var(--blue)] transition-colors">{step.title}</h3>
+                <h3 className="text-[16px] font-bold text-[var(--text)] mb-2 group-hover:text-[var(--blue)] transition-colors duration-300">{step.title}</h3>
                 <p className="text-[13px] text-[var(--text-muted)] leading-[1.6] max-w-[220px] mx-auto">{step.desc}</p>
               </div>
             ))}
@@ -89,8 +91,9 @@ export default function ProcessTimeline() {
         </div>
 
         <div className="text-center mt-16">
-          <Link href="/productos" className="inline-flex items-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.3)]">
-            Empezar Ahora <Icons.ArrowRight size={14} />
+          <Link href="/productos" className="inline-flex items-center gap-3 glass-card !rounded-full px-10 py-4 group">
+            <span className="text-[13px] font-bold text-[var(--text)] group-hover:text-[var(--blue)] transition-colors uppercase tracking-[0.1em]">Empezar Ahora</span>
+            <Icons.ArrowRight size={14} className="text-[var(--blue)] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

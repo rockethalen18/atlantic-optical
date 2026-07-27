@@ -33,31 +33,36 @@ export default function FeaturedProducts() {
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
-            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Selección</span>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-[var(--blue)]" />
+              <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Selección</span>
+              <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-[var(--blue)]" />
+            </div>
             <h2 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em] leading-[1.05]" style={{ fontFamily: 'var(--font-display)' }}>Productos Destacados</h2>
           </div>
-          <Link href="/productos" className="mt-5 md:mt-0 inline-flex items-center gap-2 bg-[var(--dark-bg)] text-white font-bold text-[12px] uppercase tracking-[0.1em] px-8 py-3.5 hover:bg-[var(--dark-surface)] transition-all duration-300">
-            Ver Catálogo Completo <Icons.ArrowRight size={12} />
+          <Link href="/productos" className="mt-5 md:mt-0 inline-flex items-center gap-2 glass-card !rounded-full px-8 py-3.5 hover:!shadow-[0_8px_30px_rgba(14,165,233,0.15)] group">
+            <span className="text-[12px] font-bold text-[var(--text)] group-hover:text-[var(--blue)] transition-colors uppercase tracking-[0.1em]">Ver Catálogo Completo</span>
+            <Icons.ArrowRight size={12} className="text-[var(--blue)] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {products.map((p) => (
             <Link key={p.sku} href={`/productos/${p.slug}/`}
-              className="fp-card group block glass-card overflow-hidden transition-all duration-500 hover:-translate-y-2">
-              <div className="relative h-[300px] bg-white/50 backdrop-blur-sm overflow-hidden flex items-center justify-center p-8 border-b border-white/40">
+              className="fp-card group block glass-premium overflow-hidden">
+              <div className="glass-img relative h-[300px] flex items-center justify-center p-8">
                 <img src={`/images/extracted_images/${p.sku}.jpg`} alt={p.name}
                   className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" />
-                <div className="absolute top-4 left-4 bg-[var(--dark-bg)] text-white text-[10px] font-bold px-3 py-1.5 uppercase tracking-[0.12em]">
+                <div className="absolute top-4 left-4 glass-chip text-[10px] font-bold text-[var(--blue)] px-3 py-1.5 uppercase tracking-[0.12em]">
                   Destacado
                 </div>
-                <div className="absolute bottom-4 right-4 w-11 h-11 bg-[var(--blue)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-3 group-hover:translate-y-0">
-                  <Icons.ArrowUpRight size={16} className="text-white" />
+                <div className="absolute bottom-4 right-4 w-11 h-11 glass-card !rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-3 group-hover:translate-y-0 !shadow-lg">
+                  <Icons.ArrowUpRight size={16} className="text-[var(--blue)]" />
                 </div>
               </div>
               <div className="p-6">
                 <span className="text-[10px] font-bold text-[var(--blue)] uppercase tracking-[0.14em]">{p.subcategory}</span>
-                <h3 className="text-[16px] font-bold text-[var(--text)] mt-2 mb-2 leading-snug group-hover:text-[var(--blue)] transition-colors line-clamp-2">{p.name}</h3>
+                <h3 className="text-[16px] font-bold text-[var(--text)] mt-2 mb-2 leading-snug group-hover:text-[var(--blue)] transition-colors duration-300 line-clamp-2">{p.name}</h3>
                 <p className="text-[13px] text-[var(--text-muted)] line-clamp-2 mb-5 leading-relaxed">{p.description}</p>
                 <div className="flex items-center justify-between pt-4 border-t border-[var(--border-light)]">
                   <span className="text-[11px] font-mono text-[var(--text-soft)]">{p.sku}</span>
@@ -69,8 +74,9 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="mt-16 text-center">
-          <Link href="/productos" className="inline-flex items-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-12 py-4.5 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.3)]">
-            Ver Todo el Catálogo <Icons.ArrowRight size={14} />
+          <Link href="/productos" className="inline-flex items-center gap-3 glass-card !rounded-full px-12 py-4.5 group hover:!shadow-[0_20px_50px_rgba(14,165,233,0.2)]">
+            <span className="bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-8 py-3 rounded-full group-hover:bg-[var(--blue-hover)] transition-colors">Ver Todo el Catálogo</span>
+            <Icons.ArrowRight size={14} className="text-[var(--blue)] group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

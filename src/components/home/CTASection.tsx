@@ -23,10 +23,14 @@ export default function CTASection() {
   return (
     <section ref={sectionRef} className="py-16 md:py-40 relative overflow-hidden glass-section">
       <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[var(--blue)] opacity-[0.03] rounded-full blur-[200px] -translate-y-1/3 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--blue)] opacity-[0.02] rounded-full blur-[150px] translate-y-1/3 -translate-x-1/4" />
 
       <div className="max-w-[1680px] mx-auto px-6 md:px-10 relative z-10 text-center">
         <div className="cta-item mb-5">
-          <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Contáctanos</span>
+          <div className="inline-flex items-center gap-3 glass-chip px-5 py-2">
+            <div className="w-2 h-2 bg-[var(--blue)] rounded-full animate-pulse" />
+            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Contáctanos</span>
+          </div>
         </div>
         <div className="cta-item mb-8">
           <h2 className="text-[36px] md:text-[52px] font-black text-[var(--text)] tracking-[-0.04em] leading-[1.06]" style={{ fontFamily: 'var(--font-display)' }}>
@@ -39,11 +43,11 @@ export default function CTASection() {
           </p>
         </div>
         <div className="cta-item flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/contacto" className="group inline-flex items-center justify-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4.5 hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.25)]">
+          <Link href="/contacto" className="group inline-flex items-center justify-center gap-3 bg-[var(--blue)] text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4.5 rounded-full hover:bg-[var(--blue-hover)] transition-all duration-300 hover:shadow-[0_20px_50px_rgba(14,165,233,0.25)]">
             Solicitar Cotización <Icons.ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link href="/productos" className="inline-flex items-center justify-center gap-2 bg-white text-[var(--text)] border border-[var(--border)] font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4.5 hover:bg-[var(--bg-alt)] transition-all duration-300">
-            Ver Catálogo
+          <Link href="/productos" className="inline-flex items-center justify-center gap-2 glass-card !rounded-full px-10 py-4.5 group">
+            <span className="text-[13px] font-bold text-[var(--text)] group-hover:text-[var(--blue)] transition-colors uppercase tracking-[0.1em]">Ver Catálogo</span>
           </Link>
         </div>
       </div>
