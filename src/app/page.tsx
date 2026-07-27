@@ -1,4 +1,5 @@
 import HeroCarousel from '@/components/home/HeroCarousel';
+import ScrollExpandSection from '@/components/home/ScrollExpandSection';
 import FeaturesStrip from '@/components/home/FeaturesStrip';
 import CategoryShowcase from '@/components/home/CategoryShowcase';
 import StatsCounter from '@/components/home/StatsCounter';
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <>
       <HeroCarousel />
+      <ScrollExpandSection />
       <FeaturesStrip />
       <div className="gsap-reveal" data-gsap-direction="up"><CategoryShowcase /></div>
       <div className="gsap-reveal" data-gsap-direction="up" data-gsap-delay="0.1"><StatsCounter /></div>
