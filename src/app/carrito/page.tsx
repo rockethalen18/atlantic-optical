@@ -49,7 +49,7 @@ export default function CartPage() {
 
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-8">
           {items.length === 0 ? (
-            <div className="bg-white p-16 text-center border border-[var(--border)] shadow-sm">
+            <div className="bg-white p-8 md:p-16 text-center border border-[var(--border)] shadow-sm">
               <div className="w-20 h-20 bg-[var(--bg-alt)] flex items-center justify-center mx-auto mb-5">
                 <Icons.ShoppingCart size={32} className="text-[var(--text-soft)]" />
               </div>

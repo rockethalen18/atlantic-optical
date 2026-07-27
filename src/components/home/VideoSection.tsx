@@ -41,7 +41,7 @@ export default function VideoSection() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 glass-section">
+    <section ref={sectionRef} className="py-16 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div>
@@ -80,7 +80,7 @@ export default function VideoSection() {
                   <div className="text-[16px] font-bold text-[var(--text)]">Proveedor desde 2011</div>
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-6 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
                 {stats.map((s, i) => (
                   <div key={i} className="text-center py-6 bg-[var(--bg-alt)]">
                     <div className="text-[28px] md:text-[36px] font-black text-[var(--blue)] leading-none" style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>

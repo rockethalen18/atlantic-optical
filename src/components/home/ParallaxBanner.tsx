@@ -60,7 +60,7 @@ export default function ParallaxBanner() {
       {/* Content */}
       <div ref={textRef} className="relative z-10 text-center px-6 max-w-[800px]">
         <span className="text-[12px] font-bold text-white/60 uppercase tracking-[0.25em] block mb-5">Programa de Distribuidores</span>
-        <h2 className="text-[40px] md:text-[64px] font-black text-white tracking-[-0.04em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+        <h2 className="text-[32px] sm:text-[40px] md:text-[64px] font-black text-white tracking-[-0.04em] leading-[1.05] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
           Haz crecer tu negocio con nosotros
         </h2>
         <p className="text-[16px] md:text-[18px] text-white/70 leading-[1.7] mb-10 max-w-[600px] mx-auto">

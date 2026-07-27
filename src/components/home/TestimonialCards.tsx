@@ -46,7 +46,7 @@ export default function TestimonialCards() {
   }, []);
 
   return (
-    <section className="py-24 md:py-36 glass-section">
+    <section className="py-16 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="text-center mb-16">
           <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em] block mb-3">Testimonios</span>

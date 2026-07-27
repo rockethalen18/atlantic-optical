@@ -58,7 +58,7 @@ export default function Footer() {
 
   return (
     <footer ref={ref} className="bg-white/40 backdrop-blur-[60px] border-t border-white/40 relative overflow-hidden">
-      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-20 relative z-10">
+      <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-12 md:py-20 relative z-10">
         <div className="footer-col mb-14 p-8 md:p-10 glass-card">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex-1">

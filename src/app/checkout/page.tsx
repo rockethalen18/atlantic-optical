@@ -127,7 +127,7 @@ export default function CheckoutPage() {
   if (orderPlaced) {
     return (
       <div className="min-h-screen bg-[var(--bg-alt)] flex items-center justify-center">
-        <div className="bg-white p-12 border border-[var(--border)] shadow-sm text-center max-w-[500px]">
+        <div className="bg-white p-8 md:p-12 border border-[var(--border)] shadow-sm text-center max-w-[500px]">
           <div className="w-16 h-16 bg-green-100 flex items-center justify-center mx-auto mb-5">
             <Icons.CheckCircle size={32} className="text-green-600" />
           </div>

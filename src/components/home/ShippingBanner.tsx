@@ -76,7 +76,7 @@ export default function ShippingBanner() {
   }, [mounted]);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 relative overflow-hidden glass-section">
+    <section ref={sectionRef} className="py-16 md:py-36 relative overflow-hidden glass-section">
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)',
         backgroundSize: '60px 60px',

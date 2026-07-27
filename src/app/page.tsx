@@ -9,7 +9,6 @@ import VideoSection from '@/components/home/VideoSection';
 import ProcessTimeline from '@/components/home/ProcessTimeline';
 import ShippingBanner from '@/components/home/ShippingBanner';
 import TestimonialCards from '@/components/home/TestimonialCards';
-import Reviews from '@/components/home/Reviews';
 import CTASection from '@/components/home/CTASection';
 
 export default function Home() {
@@ -26,7 +25,6 @@ export default function Home() {
       <div className="gsap-reveal" data-gsap-direction="right"><ProcessTimeline /></div>
       <ShippingBanner />
       <div className="gsap-reveal" data-gsap-direction="up"><TestimonialCards /></div>
-      <div className="gsap-reveal" data-gsap-direction="up" data-gsap-delay="0.1"><Reviews /></div>
       <CTASection />
     </>
   );

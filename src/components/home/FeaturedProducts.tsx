@@ -29,7 +29,7 @@ export default function FeaturedProducts() {
   }>).filter(p => featuredSkus.includes(p.sku));
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-36 glass-section">
+    <section ref={sectionRef} className="py-16 md:py-36 glass-section">
       <div className="max-w-[1680px] mx-auto px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div>
