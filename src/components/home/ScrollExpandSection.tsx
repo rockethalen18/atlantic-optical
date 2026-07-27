@@ -6,7 +6,7 @@ export default function ScrollExpandSection() {
   return (
     <ScrollExpandMedia
       mediaType="video"
-      mediaSrc="/images/hero/magnifying-glass.mp4"
+      mediaSrc="/images/hero/ophthalmic-machine.mp4"
       posterSrc="/images/hero/eye-exam-machine.jpg"
       bgImageSrc="/images/hero/eye-exam-machine.jpg"
       title="Equipo Profesional de Última Generación"
