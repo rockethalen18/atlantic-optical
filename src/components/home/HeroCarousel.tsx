@@ -63,7 +63,7 @@ export default function HeroCarousel() {
   const s = slides[i];
 
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden -mt-[80px] md:-mt-[90px]">
+    <section className="relative h-screen min-h-[600px] max-h-[900px] overflow-hidden -mt-[128px] md:-mt-[138px]">
       {slides.map((slide, idx) => (
         <div key={idx} className="absolute inset-0 transition-opacity duration-[1200ms] ease-in-out" style={{ opacity: idx === i ? 1 : 0 }}>
           <img src={slide.image} alt={slide.tag} className="w-full h-full object-cover" style={{ transform: idx === i ? 'scale(1)' : 'scale(1.08)', transition: 'transform 6s ease-out' }} />

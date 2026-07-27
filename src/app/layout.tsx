@@ -51,7 +51,7 @@ export default function RootLayout({
           <ScrollRevealProvider>
             <ScrollProgress />
             <Header />
-            <main className="flex-1 pt-[80px] md:pt-[90px]">{children}</main>
+            <main className="flex-1 pt-[128px] md:pt-[138px]">{children}</main>
             <Footer />
           </ScrollRevealProvider>
         </AuthProvider>
