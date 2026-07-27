@@ -124,18 +124,18 @@ export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <div className="bg-[var(--dark-bg)] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+      <div className="bg-white relative overflow-hidden border-b border-[var(--border)]">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(var(--blue) 1px, transparent 1px), linear-gradient(90deg, var(--blue) 1px, transparent 1px)',
           backgroundSize: '50px 50px',
         }} />
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-14 md:py-20 relative z-10 text-center">
-          <span className="text-[10px] font-bold text-white/80 uppercase tracking-[0.2em]">Centro de Ayuda</span>
-          <h1 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
+          <span className="text-[10px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Centro de Ayuda</span>
+          <h1 className="text-[36px] md:text-[48px] font-black text-[var(--text)] tracking-[-0.04em] mt-2" style={{ fontFamily: 'var(--font-display)' }}>
             Preguntas Frecuentes
           </h1>
-          <p className="text-[14px] text-white/60 mt-3 max-w-[500px] mx-auto">Respuestas a las preguntas mas comunes sobre compra, envio y soporte de equipo oftalmico profesional.</p>
-          <p className="text-[12px] text-white/40 mt-2">{totalQuestions} preguntas organizadas por categoria</p>
+          <p className="text-[14px] text-[var(--text-muted)] mt-3 max-w-[500px] mx-auto">Respuestas a las preguntas mas comunes sobre compra, envio y soporte de equipo oftalmico profesional.</p>
+          <p className="text-[12px] text-[var(--text-soft)] mt-2">{totalQuestions} preguntas organizadas por categoria</p>
         </div>
       </div>
 

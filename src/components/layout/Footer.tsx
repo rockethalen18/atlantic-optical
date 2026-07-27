@@ -29,9 +29,6 @@ const companyLinks = [
 
 const social = [
   { icon: Icons.Facebook, href: 'https://www.facebook.com/profile.php?id=61590555098794', label: 'Facebook' },
-  { icon: Icons.Instagram, href: 'https://www.instagram.com/atlanticoptical', label: 'Instagram' },
-  { icon: Icons.Linkedin, href: 'https://www.linkedin.com/company/atlantic-optical', label: 'LinkedIn' },
-  { icon: Icons.Youtube, href: 'https://www.youtube.com/@atlanticoptical', label: 'YouTube' },
 ];
 
 export default function Footer() {

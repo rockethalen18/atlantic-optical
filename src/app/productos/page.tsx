@@ -82,17 +82,17 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-[var(--bg-alt)]">
       {/* Hero header */}
-      <div className="bg-[var(--text)] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.04]" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+      <div className="bg-white relative overflow-hidden border-b border-[var(--border)]">
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: 'linear-gradient(var(--blue) 1px, transparent 1px), linear-gradient(90deg, var(--blue) 1px, transparent 1px)',
           backgroundSize: '50px 50px',
         }} />
         <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-10 md:py-14 relative z-10">
-          <span className="text-[10px] font-bold text-[var(--green-status)] uppercase tracking-[0.2em]">Catalogo</span>
-          <h1 className="text-[32px] md:text-[42px] font-black text-white tracking-[-0.04em] mt-1" style={{ fontFamily: 'var(--font-display)' }}>
+          <span className="text-[10px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">Catalogo</span>
+          <h1 className="text-[32px] md:text-[42px] font-black text-[var(--text)] tracking-[-0.04em] mt-1" style={{ fontFamily: 'var(--font-display)' }}>
             Productos
           </h1>
-          <p className="text-[14px] text-white/50 mt-2">{filtered.length} productos disponibles</p>
+          <p className="text-[14px] text-[var(--text-muted)] mt-2">{filtered.length} productos disponibles</p>
         </div>
       </div>
 
