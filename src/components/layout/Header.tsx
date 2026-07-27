@@ -215,14 +215,14 @@ export default function Header() {
   return (
     <>
       <header ref={headerRef} className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'rgba(255,255,255,0)' }}>
-        <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[72px] md:h-[80px]">
+        <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center justify-between h-[80px] md:h-[90px]">
           <button className="lg:hidden w-12 h-12 flex items-center justify-center -ml-1" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
             {mobileOpen ? <Icons.X size={24} className="text-[var(--text)]" /> : <Icons.Menu size={24} className="text-[var(--text)]" />}
           </button>
 
           <Link href="/" className="flex items-center gap-0 shrink-0">
-            <img src="/images/logos/logo-horizontal.png" alt="Atlantic Optical Internacional" width={320} height={180} loading="eager" fetchPriority="high"
-              className="h-[50px] md:h-[56px] w-auto object-contain" />
+            <img src="/images/logos/logo-horizontal.png" alt="Atlantic Optical Internacional" width={400} height={220} loading="eager" fetchPriority="high"
+              className="h-[55px] md:h-[64px] w-auto object-contain" />
           </Link>
 
           <div className="flex-1" />
@@ -350,7 +350,7 @@ export default function Header() {
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
           <div className="absolute top-0 left-0 w-[300px] max-w-[85vw] h-full bg-white/95 backdrop-blur-2xl overflow-y-auto shadow-[20px_0_60px_rgba(0,0,0,0.1)]">
-            <div className="pt-[84px] px-5 pb-6">
+            <div className="pt-[94px] px-5 pb-6">
               <div className="mb-6">
                 <img src="/images/logos/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={300} className="h-[60px] w-auto object-contain" />
               </div>

@@ -49,7 +49,7 @@ export default function ShippingBanner() {
   useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
-    fetch('/admin/api/shipping.php')
+    fetch('/admin/api/shipping')
       .then(r => r.json())
       .then(data => {
         if (data.success && data.rates.length > 0) {
