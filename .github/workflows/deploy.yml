@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy frontend
         run: |
-          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --parallel=5 ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -38,7 +38,7 @@ jobs:
 
       - name: Deploy backend
         run: |
-          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./backend/ /equipos.atlanticopticalgroup.com/backend/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./backend/ /equipos.atlanticopticalgroup.com/backend/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -46,7 +46,7 @@ jobs:
 
       - name: Deploy admin
         run: |
-          lftp -e "set ssl:verify-certificate no; mirror -R --verbose ./admin/ /equipos.atlanticopticalgroup.com/admin/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./admin/ /equipos.atlanticopticalgroup.com/admin/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
