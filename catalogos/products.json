@@ -4,7 +4,7 @@
         "name":  "CAJA DE PRUEBA DE 104 LENTILLAS",
         "slug":  "caja-de-prueba-de-104-lentillas",
         "reference":  "104",
-        "image":  "/images/extracted_images/AO-104.jpg",
+        "image":  "/images/products/AO-104.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Cajas de Prueba",
@@ -14,8 +14,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-104.jpg",
                        "/images/extracted_images/AO-104_2.jpg",
@@ -33,7 +31,7 @@
         "name":  "LENTE DE AUMENTO",
         "slug":  "lente-de-aumento",
         "reference":  "20D",
-        "image":  "/images/extracted_images/AO-20D.jpg",
+        "image":  "/images/products/AO-20D.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lente de Aumento",
@@ -43,8 +41,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-20D.jpg",
                        "/images/extracted_images/AO-20D_2.jpg",
@@ -57,7 +53,7 @@
         "name":  "MONITOR LCD 23",
         "slug":  "monitor-lcd-23",
         "reference":  "215D",
-        "image":  "/images/extracted_images/AO-215D.jpg",
+        "image":  "/images/products/AO-215D.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Monitores Estandar",
@@ -67,8 +63,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-215D.jpg",
                        "/images/extracted_images/AO-215D_2.jpg",
@@ -80,7 +74,7 @@
         "name":  "MONITOR LCD 23",
         "slug":  "monitor-lcd-23-230a",
         "reference":  "230A",
-        "image":  "/images/extracted_images/AO-230A.jpg",
+        "image":  "/images/products/AO-230A.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Monitores Estandar",
@@ -90,8 +84,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-230A.jpg",
                        "/images/extracted_images/AO-230A_2.jpg",
@@ -104,7 +96,7 @@
         "name":  "GRIS CAJA DE PRUEBA DE 266 LENTILLAS",
         "slug":  "gris-caja-de-prueba-de-266-lentillas",
         "reference":  "266JS",
-        "image":  "/images/extracted_images/AO-266JS.jpg",
+        "image":  "/images/products/AO-266JS.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Cajas de Prueba",
@@ -114,8 +106,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-266JS.jpg",
                        "/images/extracted_images/AO-266JS_2.jpg",
@@ -128,7 +118,7 @@
         "name":  "RETINOSCOPIO CON OFTALMOSCOPIO",
         "slug":  "retinoscopio-con-oftalmoscopio",
         "reference":  "468E4310",
-        "image":  "/images/extracted_images/AO-468E4310.jpg",
+        "image":  "/images/products/AO-468E4310.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Oftalmoscopios",
@@ -138,8 +128,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-468E4310.jpg",
                        "/images/extracted_images/AO-468E4310_2.jpg"
@@ -150,7 +138,7 @@
         "name":  "BISELADORA MANUAL DE TRES PIEDRAS",
         "slug":  "biseladora-manual-de-tres-piedras",
         "reference":  "6A-CP",
-        "image":  "/images/extracted_images/AO-6ACP.jpg",
+        "image":  "/images/products/AO-6ACP.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Manuales",
@@ -160,8 +148,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-6ACP.jpg",
                        "/images/extracted_images/AO-6ACP_2.jpg",
@@ -173,7 +159,7 @@
         "name":  "LENTE DE AUMENTO",
         "slug":  "lente-de-aumento-78d",
         "reference":  "78D",
-        "image":  "/images/extracted_images/AO-78D.jpg",
+        "image":  "/images/products/AO-78D.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lente de Aumento",
@@ -183,8 +169,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-78D.jpg",
                        "/images/extracted_images/AO-78D_2.jpg",
@@ -197,7 +181,7 @@
         "name":  "MONITOR LCD VISUAL 44 TEST 23.5",
         "slug":  "monitor-lcd-visual-44-test-235",
         "reference":  "ACP-300",
-        "image":  "/images/extracted_images/AO-ACP300.jpg",
+        "image":  "/images/products/AO-ACP300.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Monitores Estandar",
@@ -207,8 +191,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ACP300.jpg",
                        "/images/extracted_images/AO-ACP300_2.jpg",
@@ -220,7 +202,7 @@
         "name":  "BISELADORA AUTOMATICA CON ESCANER",
         "slug":  "biseladora-automatica-con-escaner",
         "reference":  "ALE-1000",
-        "image":  "/images/extracted_images/AO-ALE1000.jpg",
+        "image":  "/images/products/AO-ALE1000.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Automaticas",
@@ -230,8 +212,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ALE1000.jpg",
                        "/images/extracted_images/AO-ALE1000_2.jpg",
@@ -244,7 +224,7 @@
         "name":  "BISELADORA AUTOMATICA",
         "slug":  "biseladora-automatica",
         "reference":  "ALE-1600G",
-        "image":  "/images/extracted_images/AO-ALE1600G.jpg",
+        "image":  "/images/products/AO-ALE1600G.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Automaticas",
@@ -254,8 +234,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ALE1600G.jpg",
                        "/images/extracted_images/AO-ALE1600G_2.jpg",
@@ -267,7 +245,7 @@
         "name":  "BISELADORA AUTOMATICA",
         "slug":  "biseladora-automatica-ale1700g",
         "reference":  "ALE-1700G",
-        "image":  "/images/extracted_images/AO-ALE1700G.jpg",
+        "image":  "/images/products/AO-ALE1700G.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Automaticas",
@@ -277,8 +255,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ALE1700G.jpg",
                        "/images/extracted_images/AO-ALE1700G_2.jpg",
@@ -290,7 +266,7 @@
         "name":  "AUTOREFRACTOMETRO CON KERATOMETRO",
         "slug":  "autorefractometro-con-keratometro",
         "reference":  "ARK-7710",
-        "image":  "/images/extracted_images/AO-ARK7710.jpg",
+        "image":  "/images/products/AO-ARK7710.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros con Keratometro",
@@ -300,8 +276,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ARK7710.jpg",
                        "/images/extracted_images/AO-ARK7710_2.jpg",
@@ -313,7 +287,7 @@
         "name":  "REPUESTO DE BROCA PARA CORTADORA",
         "slug":  "repuesto-de-broca-para-cortadora",
         "reference":  "BROC-1",
-        "image":  "/images/extracted_images/AO-BROC1.jpg",
+        "image":  "/images/products/AO-BROC1.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Repuestos",
@@ -323,8 +297,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-BROC1.jpg",
                        "/images/extracted_images/AO-BROC1_2.jpg",
@@ -336,7 +308,7 @@
         "name":  "MESA MULTIFUNCIONAL",
         "slug":  "mesa-multifuncional",
         "reference":  "C-288AT",
-        "image":  "/images/extracted_images/AO-C288AT.jpg",
+        "image":  "/images/products/AO-C288AT.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Mesas Multifuncional",
@@ -346,8 +318,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-C288AT.jpg",
                        "/images/extracted_images/AO-C288AT_2.jpg",
@@ -359,7 +329,7 @@
         "name":  "MESA DOBLE DE ELEVACIN",
         "slug":  "mesa-doble-de-elevacin",
         "reference":  "C-330A",
-        "image":  "/images/extracted_images/AO-C330A.jpg",
+        "image":  "/images/products/AO-C330A.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Mesas Dobles",
@@ -369,8 +339,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-C330A.jpg",
                        "/images/extracted_images/AO-C330A_2.jpg",
@@ -382,7 +350,7 @@
         "name":  "OPTOTIPO ELECTRICO LUMINICO",
         "slug":  "optotipo-electrico-luminico",
         "reference":  "CB-028",
-        "image":  "/images/extracted_images/AO-CB028.jpg",
+        "image":  "/images/products/AO-CB028.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Optotipos Electricos",
@@ -392,8 +360,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CB028.jpg",
                        "/images/extracted_images/AO-CB028_2.jpg"
@@ -404,7 +370,7 @@
         "name":  "LIMPIADOR DE LENTES ULTRASONICO",
         "slug":  "limpiador-de-lentes-ultrasonico",
         "reference":  "CP-008",
-        "image":  "/images/extracted_images/AO-CP008.jpg",
+        "image":  "/images/products/AO-CP008.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Limpiadores Ultrasonicos",
@@ -414,8 +380,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP008.jpg",
                        "/images/extracted_images/AO-CP008_2.jpg",
@@ -427,7 +391,7 @@
         "name":  "PERFORADORA PARA PLANTILLA",
         "slug":  "perforadora-para-plantilla",
         "reference":  "CP-10C-",
-        "image":  "/images/extracted_images/AO-CP10C.jpg",
+        "image":  "/images/products/AO-CP10C.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Perforadoras para Plantilla",
@@ -437,8 +401,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP10C.jpg",
                        "/images/extracted_images/AO-CP10C_2.jpg",
@@ -451,7 +413,7 @@
         "name":  "BISELADORA MANUAL DE UNA PIEDRA",
         "slug":  "biseladora-manual-de-una-piedra",
         "reference":  "CP-11A-35WV",
-        "image":  "/images/extracted_images/AO-CP11A35WV.jpg",
+        "image":  "/images/products/AO-CP11A35WV.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Manuales",
@@ -461,8 +423,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP11A35WV.jpg",
                        "/images/extracted_images/AO-CP11A35WV_2.jpg",
@@ -474,7 +434,7 @@
         "name":  "UVEOMETRO",
         "slug":  "uveometro",
         "reference":  "CP-18C+",
-        "image":  "/images/extracted_images/AO-CP18C.jpg",
+        "image":  "/images/products/AO-CP18C.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Uveometros",
@@ -484,8 +444,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP18C.jpg",
                        "/images/extracted_images/AO-CP18C_2.jpg",
@@ -497,7 +455,7 @@
         "name":  "LENSOMETRO PORTATIL",
         "slug":  "lensometro-portatil",
         "reference":  "CP-1B-",
-        "image":  "/images/extracted_images/AO-CP1B.jpg",
+        "image":  "/images/products/AO-CP1B.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -507,8 +465,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP1B.jpg",
                        "/images/extracted_images/AO-CP1B_2.jpg",
@@ -521,7 +477,7 @@
         "name":  "PUPILOMETRO MANUAL",
         "slug":  "pupilometro-manual",
         "reference":  "CP-30",
-        "image":  "/images/extracted_images/AO-CP30.jpg",
+        "image":  "/images/products/AO-CP30.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Pupilometros",
@@ -531,8 +487,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP30.jpg",
                        "/images/extracted_images/AO-CP30_2.jpg",
@@ -544,7 +498,7 @@
         "name":  "NH-136 BISELADORA MANUAL DE TRES PIEDRAS",
         "slug":  "nh-136-biseladora-manual-de-tres-piedras",
         "reference":  "CP-6A-1",
-        "image":  "/images/extracted_images/AO-CP6A1.jpg",
+        "image":  "/images/products/AO-CP6A1.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Manuales",
@@ -554,8 +508,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP6A1.jpg",
                        "/images/extracted_images/AO-CP6A1_2.jpg",
@@ -567,7 +519,7 @@
         "name":  "PULIDORA MANUAL",
         "slug":  "pulidora-manual",
         "reference":  "CP-8A",
-        "image":  "/images/extracted_images/AO-CP8A.jpg",
+        "image":  "/images/products/AO-CP8A.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Pulidoras Manuales",
@@ -577,8 +529,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CP8A.jpg",
                        "/images/extracted_images/AO-CP8A_2.jpg",
@@ -590,7 +540,7 @@
         "name":  "BRAZO PARA FOROPTERO Y PROYECTOR DE",
         "slug":  "brazo-para-foroptero-y-proyector-de",
         "reference":  "CT-1504",
-        "image":  "/images/extracted_images/AO-CT1504.jpg",
+        "image":  "/images/products/AO-CT1504.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Foropteros Manuales",
@@ -600,8 +550,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CT1504.jpg",
                        "/images/extracted_images/AO-CT1504_2.jpg",
@@ -613,7 +561,7 @@
         "name":  "SILLA CON PEDAL DE ELEVACION",
         "slug":  "silla-con-pedal-de-elevacion",
         "reference":  "CT1955",
-        "image":  "/images/extracted_images/AO-CT1955.jpg",
+        "image":  "/images/products/AO-CT1955.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas con Pedal",
@@ -623,8 +571,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CT1955.jpg",
                        "/images/extracted_images/AO-CT1955_2.jpg",
@@ -636,7 +582,7 @@
         "name":  "MONITOR LCD VERTICAL",
         "slug":  "monitor-lcd-vertical",
         "reference":  "CTS-215",
-        "image":  "/images/extracted_images/AO-CTS215.jpg",
+        "image":  "/images/products/AO-CTS215.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Monitores Verticales",
@@ -646,8 +592,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-CTS215.jpg",
                        "/images/extracted_images/AO-CTS215_2.jpg",
@@ -659,7 +603,7 @@
         "name":  "LENSOMETRO DIGITAL",
         "slug":  "lensometro-digital",
         "reference":  "D-900",
-        "image":  "/images/extracted_images/AO-D900.jpg",
+        "image":  "/images/products/AO-D900.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -669,8 +613,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-D900.jpg",
                        "/images/extracted_images/AO-D900_2.jpg",
@@ -682,7 +624,7 @@
         "name":  "AUTOLENSOMETRO DIGITAL",
         "slug":  "autolensometro-digital",
         "reference":  "D-910",
-        "image":  "/images/extracted_images/AO-D910.jpg",
+        "image":  "/images/products/AO-D910.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -692,8 +634,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-D910.jpg",
                        "/images/extracted_images/AO-D910_2.jpg",
@@ -708,7 +648,7 @@
         "name":  "AUTOREFRACTOMETRO CON KERATOMETRO",
         "slug":  "autorefractometro-con-keratometro-fa100",
         "reference":  "FA-100",
-        "image":  "/images/extracted_images/AO-FA100.jpg",
+        "image":  "/images/products/AO-FA100.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros con Keratometro",
@@ -718,8 +658,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-FA100.jpg",
                        "/images/extracted_images/AO-FA100_2.jpg",
@@ -732,7 +670,7 @@
         "name":  "AUTOREFRACTOMETRO",
         "slug":  "autorefractometro",
         "reference":  "FA-6000A",
-        "image":  "/images/extracted_images/AO-FA6000A.jpg",
+        "image":  "/images/products/AO-FA6000A.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros",
@@ -742,8 +680,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-FA6000A.jpg",
                        "/images/extracted_images/AO-FA6000A_2.jpg",
@@ -756,7 +692,7 @@
         "name":  "AUTOREFRACTOMETRO CON KERATOMETRO",
         "slug":  "autorefractometro-con-keratometro-fa6100ck",
         "reference":  "FA-6100CK",
-        "image":  "/images/extracted_images/AO-FA6100CK.jpg",
+        "image":  "/images/products/AO-FA6100CK.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros con Keratometro",
@@ -766,8 +702,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-FA6100CK.jpg",
                        "/images/extracted_images/AO-FA6100CK_2.jpg",
@@ -779,7 +713,7 @@
         "name":  "AUTOREFRACTOMETRO CON KERATOMETRO",
         "slug":  "autorefractometro-con-keratometro-fa6500k",
         "reference":  "FA-6500K-",
-        "image":  "/images/extracted_images/AO-FA6500K.jpg",
+        "image":  "/images/products/AO-FA6500K.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros con Keratometro",
@@ -789,8 +723,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-FA6500K.jpg",
                        "/images/extracted_images/AO-FA6500K_2.jpg",
@@ -802,7 +734,7 @@
         "name":  "AUTOREFRACTOMETRO CON KERATOMETRO",
         "slug":  "autorefractometro-con-keratometro-fa8500k",
         "reference":  "FA-8500K",
-        "image":  "/images/extracted_images/AO-FA8500K.jpg",
+        "image":  "/images/products/AO-FA8500K.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros con Keratometro",
@@ -812,8 +744,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-FA8500K.jpg",
                        "/images/extracted_images/AO-FA8500K_2.jpg",
@@ -825,7 +755,7 @@
         "name":  "WZ-JP121 LIMPIADOR ULTRASONICO MODERNO",
         "slug":  "wz-jp121-limpiador-ultrasonico-moderno",
         "reference":  "GB-800",
-        "image":  "/images/extracted_images/AO-GB800.jpg",
+        "image":  "/images/products/AO-GB800.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Limpiadores Ultrasonicos",
@@ -835,8 +765,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-GB800.jpg",
                        "/images/extracted_images/AO-GB800_2.jpg",
@@ -848,7 +776,7 @@
         "name":  "MONTURA DE PRUEBA",
         "slug":  "montura-de-prueba",
         "reference":  "GD-1104",
-        "image":  "/images/extracted_images/AO-GD1104.jpg",
+        "image":  "/images/products/AO-GD1104.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Monturas de Prueba",
@@ -858,8 +786,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-GD1104.jpg",
                        "/images/extracted_images/AO-GD1104_2.jpg",
@@ -871,7 +797,7 @@
         "name":  "LAMPARA FRONTAL MEDICA",
         "slug":  "lampara-frontal-medica",
         "reference":  "HL-004",
-        "image":  "/images/extracted_images/AO-HL004.jpg",
+        "image":  "/images/products/AO-HL004.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lamparas Portatiles",
@@ -881,8 +807,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-HL004.jpg",
                        "/images/extracted_images/AO-HL004_2.jpg",
@@ -894,7 +818,7 @@
         "name":  "AUTOREFRACTOMETRO PORTATIL",
         "slug":  "autorefractometro-portatil",
         "reference":  "IREF",
-        "image":  "/images/extracted_images/AO-IREF.jpg",
+        "image":  "/images/products/AO-IREF.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Auto Refractometros",
@@ -904,8 +828,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-IREF.jpg",
                        "/images/extracted_images/AO-IREF_2.jpg",
@@ -918,7 +840,7 @@
         "name":  "AUTOLENSOMETRO DIGITAL",
         "slug":  "autolensometro-digital-jd26000d",
         "reference":  "JD-26000D",
-        "image":  "/images/extracted_images/AO-JD26000D.jpg",
+        "image":  "/images/products/AO-JD26000D.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -928,8 +850,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-JD26000D.jpg",
                        "/images/extracted_images/AO-JD26000D_2.jpg",
@@ -941,7 +861,7 @@
         "name":  "CAJA DE PRUEBA DE 158 LENTILLAS",
         "slug":  "caja-de-prueba-de-158-lentillas",
         "reference":  "JS-158",
-        "image":  "/images/extracted_images/AO-JS158.jpg",
+        "image":  "/images/products/AO-JS158.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Cajas de Prueba",
@@ -951,8 +871,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-JS158.jpg",
                        "/images/extracted_images/AO-JS158_2.jpg",
@@ -964,7 +882,7 @@
         "name":  "CAJA DE PRUEBA PROGRESIVA",
         "slug":  "caja-de-prueba-progresiva",
         "reference":  "JS-22P",
-        "image":  "/images/extracted_images/AO-JS22P.jpg",
+        "image":  "/images/products/AO-JS22P.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Cajas de Prueba",
@@ -974,8 +892,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-JS22P.jpg",
                        "/images/extracted_images/AO-JS22P_2.jpg",
@@ -987,7 +903,7 @@
         "name":  "MONITOR LCD 21.5",
         "slug":  "monitor-lcd-215",
         "reference":  "K215F",
-        "image":  "/images/extracted_images/AO-K215F.jpg",
+        "image":  "/images/products/AO-K215F.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Monitores Estandar",
@@ -997,8 +913,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-K215F.jpg",
                        "/images/extracted_images/AO-K215F_2.jpg",
@@ -1010,7 +924,7 @@
         "name":  "EQUIPO DE FISIOTERAPIA VISUAL",
         "slug":  "equipo-de-fisioterapia-visual",
         "reference":  "KJR-D-A2",
-        "image":  "/images/extracted_images/AO-KJRDA2.jpg",
+        "image":  "/images/products/AO-KJRDA2.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Equipos de Fisioterapia",
@@ -1020,8 +934,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-KJRDA2.jpg",
                        "/images/extracted_images/AO-KJRDA2_2.jpg",
@@ -1033,7 +945,7 @@
         "name":  "EQUIPO DE FISIOTERAPIA VISUAL",
         "slug":  "equipo-de-fisioterapia-visual-kjrda3",
         "reference":  "KJR-D-A3",
-        "image":  "/images/extracted_images/AO-KJRDA3.jpg",
+        "image":  "/images/products/AO-KJRDA3.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Equipos de Fisioterapia",
@@ -1043,8 +955,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-KJRDA3.jpg",
                        "/images/extracted_images/AO-KJRDA3_2.jpg",
@@ -1056,7 +966,7 @@
         "name":  "+ LY-2A + CP-10C- BISELADORA",
         "slug":  "ly-2a-cp-10c-biseladora",
         "reference":  "LE-420",
-        "image":  "/images/extracted_images/AO-LE420.jpg",
+        "image":  "/images/products/AO-LE420.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Otros Laboratorio",
@@ -1066,8 +976,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LE420.jpg",
                        "/images/extracted_images/AO-LE420_2.jpg",
@@ -1079,7 +987,7 @@
         "name":  "LETRAS CARTILLA VISUAL DIRECCIONAL",
         "slug":  "letras-cartilla-visual-direccional",
         "reference":  "LETRARO",
-        "image":  "/images/extracted_images/AO-LETRARO.jpg",
+        "image":  "/images/products/AO-LETRARO.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Cartillas",
@@ -1089,8 +997,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LETRARO.jpg",
                        "/images/extracted_images/AO-LETRARO_2.jpg"
@@ -1101,7 +1007,7 @@
         "name":  "AUTOLENSOMETRO DIGITAL",
         "slug":  "autolensometro-digital-lm260",
         "reference":  "LM-260",
-        "image":  "/images/extracted_images/AO-LM260.jpg",
+        "image":  "/images/products/AO-LM260.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -1111,8 +1017,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LM260.jpg",
                        "/images/extracted_images/AO-LM260_2.jpg",
@@ -1124,7 +1028,7 @@
         "name":  "AUTOLENSOMETRO DIGITAL",
         "slug":  "autolensometro-digital-lm300",
         "reference":  "LM-300",
-        "image":  "/images/extracted_images/AO-LM300.jpg",
+        "image":  "/images/products/AO-LM300.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -1134,8 +1038,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LM300.jpg",
                        "/images/extracted_images/AO-LM300_2.jpg",
@@ -1147,7 +1049,7 @@
         "name":  "AUTOLENSOMETRO DIGITAL",
         "slug":  "autolensometro-digital-lm800",
         "reference":  "LM-800",
-        "image":  "/images/extracted_images/AO-LM800.jpg",
+        "image":  "/images/products/AO-LM800.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -1157,8 +1059,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LM800.jpg",
                        "/images/extracted_images/AO-LM800_2.jpg",
@@ -1170,7 +1070,7 @@
         "name":  "AUTOLENSOMETRO DIGITAL",
         "slug":  "autolensometro-digital-lm900",
         "reference":  "LM-900",
-        "image":  "/images/extracted_images/AO-LM900.jpg",
+        "image":  "/images/products/AO-LM900.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -1180,8 +1080,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LM900.jpg",
                        "/images/extracted_images/AO-LM900_2.jpg",
@@ -1193,7 +1091,7 @@
         "name":  "RANURADORA MANUAL",
         "slug":  "ranuradora-manual",
         "reference":  "LY-12A",
-        "image":  "/images/extracted_images/AO-LY12A.jpg",
+        "image":  "/images/products/AO-LY12A.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Ranuradoras Manuales",
@@ -1203,8 +1101,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY12A.jpg",
                        "/images/extracted_images/AO-LY12A_2.jpg",
@@ -1216,7 +1112,7 @@
         "name":  "CENTRADORA CON BRAZO PARA PEGATINA Y",
         "slug":  "centradora-con-brazo-para-pegatina-y",
         "reference":  "LY-2A",
-        "image":  "/images/extracted_images/AO-LY2A.jpg",
+        "image":  "/images/products/AO-LY2A.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Centradoras",
@@ -1226,8 +1122,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY2A.jpg",
                        "/images/extracted_images/AO-LY2A_2.jpg",
@@ -1240,7 +1134,7 @@
         "name":  "CALENTADOR DE MONTURA",
         "slug":  "calentador-de-montura",
         "reference":  "LY-6BT",
-        "image":  "/images/extracted_images/AO-LY6BT.jpg",
+        "image":  "/images/products/AO-LY6BT.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Calentadores",
@@ -1250,8 +1144,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY6BT.jpg",
                        "/images/extracted_images/AO-LY6BT_2.jpg",
@@ -1263,7 +1155,7 @@
         "name":  "CALENTADOR DE MONTURA",
         "slug":  "calentador-de-montura-ly6c",
         "reference":  "LY-6C",
-        "image":  "/images/extracted_images/AO-LY6C.jpg",
+        "image":  "/images/products/AO-LY6C.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Calentadores",
@@ -1273,8 +1165,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY6C.jpg",
                        "/images/extracted_images/AO-LY6C_2.jpg",
@@ -1286,7 +1176,7 @@
         "name":  "PROBADOR DE LENTES PHOTOCROMATICO",
         "slug":  "probador-de-lentes-photocromatico",
         "reference":  "LY-838-4",
-        "image":  "/images/extracted_images/AO-LY8384.jpg",
+        "image":  "/images/products/AO-LY8384.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Probadores de Fotocromatico",
@@ -1296,8 +1186,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY8384.jpg",
                        "/images/extracted_images/AO-LY8384_2.jpg",
@@ -1309,7 +1197,7 @@
         "name":  "PULIDORA SEMIAUTOMATICA",
         "slug":  "pulidora-semiautomatica",
         "reference":  "LY-900",
-        "image":  "/images/extracted_images/AO-LY900.jpg",
+        "image":  "/images/products/AO-LY900.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Semiautomaticas",
@@ -1319,8 +1207,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY900.jpg",
                        "/images/extracted_images/AO-LY900_2.jpg",
@@ -1332,7 +1218,7 @@
         "name":  "PUPILOMETRO DIGITAL",
         "slug":  "pupilometro-digital",
         "reference":  "LY-9C",
-        "image":  "/images/extracted_images/AO-LY9C.jpg",
+        "image":  "/images/products/AO-LY9C.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Pupilometros",
@@ -1342,8 +1228,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY9C.jpg",
                        "/images/extracted_images/AO-LY9C_2.jpg",
@@ -1355,7 +1239,7 @@
         "name":  "PERFORADORA PARA LENTES AL AIRE",
         "slug":  "perforadora-para-lentes-al-aire",
         "reference":  "LY988C",
-        "image":  "/images/extracted_images/AO-LY988C.jpg",
+        "image":  "/images/products/AO-LY988C.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Perforadoras al Aire",
@@ -1365,8 +1249,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-LY988C.jpg",
                        "/images/extracted_images/AO-LY988C_2.jpg",
@@ -1379,7 +1261,7 @@
         "name":  "PHACOEMULSIFICADOR",
         "slug":  "phacoemulsificador",
         "reference":  "MD-480",
-        "image":  "/images/extracted_images/AO-MD480.jpg",
+        "image":  "/images/products/AO-MD480.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Facoemulsificador",
@@ -1389,8 +1271,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-MD480.jpg",
                        "/images/extracted_images/AO-MD480_2.jpg",
@@ -1402,7 +1282,7 @@
         "name":  "BLANCO FOROPTERO",
         "slug":  "blanco-foroptero",
         "reference":  "ML-400",
-        "image":  "/images/extracted_images/AO-ML400.jpg",
+        "image":  "/images/products/AO-ML400.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Foropteros Manuales",
@@ -1412,8 +1292,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ML400.jpg",
                        "/images/extracted_images/AO-ML400_2.jpg",
@@ -1425,7 +1303,7 @@
         "name":  "LAMPARA DE HENDIDURA PORTATIL",
         "slug":  "lampara-de-hendidura-portatil",
         "reference":  "ML-5S1",
-        "image":  "/images/extracted_images/AO-ML5S1.jpg",
+        "image":  "/images/products/AO-ML5S1.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lamparas Portatiles",
@@ -1435,8 +1313,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ML5S1.jpg",
                        "/images/extracted_images/AO-ML5S1_2.jpg",
@@ -1448,7 +1324,7 @@
         "name":  "PERFORADORA AUTOMTICA PARA LENTES AL",
         "slug":  "perforadora-automtica-para-lentes-al",
         "reference":  "NH-3GS",
-        "image":  "/images/extracted_images/AO-NH3GS.jpg",
+        "image":  "/images/products/AO-NH3GS.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Otros Laboratorio",
@@ -1458,8 +1334,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-NH3GS.jpg",
                        "/images/extracted_images/AO-NH3GS_2.jpg",
@@ -1472,7 +1346,7 @@
         "name":  "LENSOMETRO MANUAL",
         "slug":  "lensometro-manual",
         "reference":  "NJC-6",
-        "image":  "/images/extracted_images/AO-NJC6.jpg",
+        "image":  "/images/products/AO-NJC6.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Analisis de Gafas",
@@ -1482,8 +1356,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-NJC6.jpg",
                        "/images/extracted_images/AO-NJC6_2.jpg",
@@ -1495,7 +1367,7 @@
         "name":  "TOMOGRAFO DE COHERENCIA OPTICA (OCT)",
         "slug":  "tomografo-de-coherencia-optica-oct",
         "reference":  "OCT-500",
-        "image":  "/images/extracted_images/AO-OCT500.jpg",
+        "image":  "/images/products/AO-OCT500.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "OCT",
@@ -1505,8 +1377,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-OCT500.jpg",
                        "/images/extracted_images/AO-OCT500_2.jpg",
@@ -1518,7 +1388,7 @@
         "name":  "CAJA DE PRISMAS",
         "slug":  "caja-de-prismas",
         "reference":  "PS-22",
-        "image":  "/images/extracted_images/AO-PS22.jpg",
+        "image":  "/images/products/AO-PS22.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Cajas de Prisma",
@@ -1528,8 +1398,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-PS22.jpg",
                        "/images/extracted_images/AO-PS22_2.jpg",
@@ -1541,7 +1409,7 @@
         "name":  "REPUESTO DE BISELADORA DE 3 PIEDRAS",
         "slug":  "repuesto-de-biseladora-de-3-piedras",
         "reference":  "R-NH316",
-        "image":  "/images/extracted_images/AO-RNH316.jpg",
+        "image":  "/images/products/AO-RNH316.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Repuestos",
@@ -1551,8 +1419,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-RNH316.jpg",
                        "/images/extracted_images/AO-RNH316_2.jpg",
@@ -1564,7 +1430,7 @@
         "name":  "ESCANER ULTRASONICO A-B",
         "slug":  "escaner-ultrasonico-a-b",
         "reference":  "RETIWAVE-1000",
-        "image":  "/images/extracted_images/AO-RETIWAVE1000.jpg",
+        "image":  "/images/products/AO-RETIWAVE1000.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Limpiadores Ultrasonicos",
@@ -1574,8 +1440,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-RETIWAVE1000.jpg",
                        "/images/extracted_images/AO-RETIWAVE1000_2.jpg",
@@ -1587,7 +1451,7 @@
         "name":  "PINZA PARA TINTURADO DE LUNAS OPTICAS",
         "slug":  "pinza-para-tinturado-de-lunas-opticas",
         "reference":  "RM-3",
-        "image":  "/images/extracted_images/AO-RM3.jpg",
+        "image":  "/images/products/AO-RM3.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Repuestos",
@@ -1597,8 +1461,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-RM3.jpg",
                        "/images/extracted_images/AO-RM3_2.jpg"
@@ -1609,7 +1471,7 @@
         "name":  "LAMPARA DE HENDIDURA PORTATIL",
         "slug":  "lampara-de-hendidura-portatil-s150",
         "reference":  "S-150",
-        "image":  "/images/extracted_images/AO-S150.jpg",
+        "image":  "/images/products/AO-S150.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lamparas Portatiles",
@@ -1619,10 +1481,12 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
-                       "/images/extracted_images/AO-S150.jpg"
+                       "/images/extracted_images/AO-S150.jpg",
+                       "/images/extracted_images/AO-S150_2.jpg",
+                       "/images/extracted_images/AO-S150_3.jpg",
+                       "/images/extracted_images/AO-S150_4.jpg",
+                       "/images/extracted_images/AO-S150_5.jpg"
                    ]
     },
     {
@@ -1630,7 +1494,7 @@
         "name":  "YZ-30RR LAMPARA DE HENDIDURA 5",
         "slug":  "yz-30rr-lampara-de-hendidura-5",
         "reference":  "S-J350",
-        "image":  "/images/extracted_images/AO-SJ350.jpg",
+        "image":  "/images/products/AO-SJ350.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lamparas de Hendidura",
@@ -1640,10 +1504,8 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
-                       "/images/extracted_images/AO-SJ350.jpg"
+
                    ]
     },
     {
@@ -1651,7 +1513,7 @@
         "name":  "MONITOR LCD 23.8",
         "slug":  "monitor-lcd-238",
         "reference":  "SC-800",
-        "image":  "/images/extracted_images/AO-SC800.jpg",
+        "image":  "/images/products/AO-SC800.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Monitores Estandar",
@@ -1661,8 +1523,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-SC800.jpg",
                        "/images/extracted_images/AO-SC800_2.jpg",
@@ -1674,7 +1534,7 @@
         "name":  "LUPA BINOCULAR",
         "slug":  "lupa-binocular",
         "reference":  "SJ-989",
-        "image":  "/images/extracted_images/AO-SJ989.jpg",
+        "image":  "/images/products/AO-SJ989.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lente de Aumento",
@@ -1684,8 +1544,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-SJ989.jpg",
                        "/images/extracted_images/AO-SJ989_2.jpg",
@@ -1697,7 +1555,7 @@
         "name":  "BISELADORA SEMIAUTOMTICA",
         "slug":  "biseladora-semiautomtica",
         "reference":  "SJG-7100",
-        "image":  "/images/extracted_images/AO-SJG7100.jpg",
+        "image":  "/images/products/AO-SJG7100.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Otros Laboratorio",
@@ -1707,8 +1565,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-SJG7100.jpg",
                        "/images/extracted_images/AO-SJG7100_2.jpg"
@@ -1719,7 +1575,7 @@
         "name":  "TONOMETRO",
         "slug":  "tonometro",
         "reference":  "SK-5500A",
-        "image":  "/images/extracted_images/AO-SK5500A.jpg",
+        "image":  "/images/products/AO-SK5500A.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Tonometros de Contacto",
@@ -1729,8 +1585,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-SK5500A.jpg"
                    ]
@@ -1740,7 +1594,7 @@
         "name":  "LAMPARA DE HENDIDURA PORTATIL",
         "slug":  "lampara-de-hendidura-portatil-st150",
         "reference":  "ST-150",
-        "image":  "/images/extracted_images/AO-ST150.jpg",
+        "image":  "/images/products/AO-ST150.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lamparas Portatiles",
@@ -1750,8 +1604,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-ST150.jpg",
                        "/images/extracted_images/AO-ST150_2.jpg"
@@ -1762,7 +1614,7 @@
         "name":  "PROBE PROBETA DESECHABLE",
         "slug":  "probe-probeta-desechable",
         "reference":  "SW-500",
-        "image":  "/images/extracted_images/AO-SW500.jpg",
+        "image":  "/images/products/AO-SW500.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Probetas Desechables",
@@ -1772,8 +1624,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-SW500.jpg"
                    ]
@@ -1783,7 +1633,7 @@
         "name":  "BISELADORA MANUAL DE UNA PIEDRA CON",
         "slug":  "biseladora-manual-de-una-piedra-con",
         "reference":  "TC-10A",
-        "image":  "/images/extracted_images/AO-TC10A.jpg",
+        "image":  "/images/products/AO-TC10A.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Biseladoras Manuales",
@@ -1793,8 +1643,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TC10A.jpg",
                        "/images/extracted_images/AO-TC10A_2.jpg"
@@ -1805,7 +1653,7 @@
         "name":  "MONTURA DE PRUEBA PREMIUM",
         "slug":  "montura-de-prueba-premium",
         "reference":  "TF-488A",
-        "image":  "/images/extracted_images/AO-TF488A.jpg",
+        "image":  "/images/products/AO-TF488A.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Monturas de Prueba",
@@ -1815,8 +1663,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TF488A.jpg"
                    ]
@@ -1826,7 +1672,7 @@
         "name":  "MONTURA DE PRUEBA PARA NIOS",
         "slug":  "montura-de-prueba-para-nios",
         "reference":  "TF-C",
-        "image":  "/images/extracted_images/AO-TFC.jpg",
+        "image":  "/images/products/AO-TFC.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Monturas de Prueba",
@@ -1836,8 +1682,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TFC.jpg"
                    ]
@@ -1847,7 +1691,7 @@
         "name":  "MONTURA DE PRUEBA TITANIUM",
         "slug":  "montura-de-prueba-titanium",
         "reference":  "TF5470",
-        "image":  "/images/extracted_images/AO-TF5470.jpg",
+        "image":  "/images/products/AO-TF5470.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Monturas de Prueba",
@@ -1857,8 +1701,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TF5470.jpg"
                    ]
@@ -1868,7 +1710,7 @@
         "name":  "ESFEROMETRO METALICO",
         "slug":  "esferometro-metalico",
         "reference":  "TM-001",
-        "image":  "/images/extracted_images/AO-TM001.jpg",
+        "image":  "/images/products/AO-TM001.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Esferometros",
@@ -1878,8 +1720,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TM001.jpg"
                    ]
@@ -1889,7 +1729,7 @@
         "name":  "TINTURADORA",
         "slug":  "tinturadora",
         "reference":  "TR-6",
-        "image":  "/images/extracted_images/AO-TR6.jpg",
+        "image":  "/images/products/AO-TR6.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Tinturadoras",
@@ -1899,8 +1739,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TR6.jpg"
                    ]
@@ -1910,7 +1748,7 @@
         "name":  "MONTURA DE PRUEBA ALUMINIO",
         "slug":  "montura-de-prueba-aluminio",
         "reference":  "TTF-08",
-        "image":  "/images/extracted_images/AO-TTF08.jpg",
+        "image":  "/images/products/AO-TTF08.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Monturas de Prueba",
@@ -1920,8 +1758,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-TTF08.jpg"
                    ]
@@ -1931,7 +1767,7 @@
         "name":  "CAJA DE PRISMAS",
         "slug":  "caja-de-prismas-vb15hb16",
         "reference":  "VB-15+HB-16",
-        "image":  "/images/extracted_images/AO-VB15HB16.jpg",
+        "image":  "/images/products/AO-VB15HB16.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Cajas de Prisma",
@@ -1941,8 +1777,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-VB15HB16.jpg"
                    ]
@@ -1952,7 +1786,7 @@
         "name":  "BOMBA PARA ALE1000 Y LE-420",
         "slug":  "bomba-para-ale1000-y-le-420",
         "reference":  "WATER PUMP",
-        "image":  "/images/extracted_images/AO-WATERPUMP.jpg",
+        "image":  "/images/products/AO-WATERPUMP.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Repuestos",
@@ -1962,8 +1796,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WATERPUMP.jpg"
                    ]
@@ -1973,7 +1805,7 @@
         "name":  "OPTOTIPO TABLET LCD",
         "slug":  "optotipo-tablet-lcd",
         "reference":  "WB-1112H",
-        "image":  "/images/extracted_images/AO-WB1112H.jpg",
+        "image":  "/images/products/AO-WB1112H.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Tablet LCD",
@@ -1983,8 +1815,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WB1112H.jpg"
                    ]
@@ -1994,7 +1824,7 @@
         "name":  "PROYECTOR GRAFICO DE MASCARAS",
         "slug":  "proyector-grafico-de-mascaras",
         "reference":  "WB-1117A",
-        "image":  "/images/extracted_images/AO-WB1117A.jpg",
+        "image":  "/images/products/AO-WB1117A.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Proyectores Graficos",
@@ -2004,8 +1834,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WB1117A.jpg"
                    ]
@@ -2015,7 +1843,7 @@
         "name":  "MESA DE ELEVACION",
         "slug":  "mesa-de-elevacion",
         "reference":  "WB-3AN",
-        "image":  "/images/extracted_images/AO-WB3AN.jpg",
+        "image":  "/images/products/AO-WB3AN.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Mesas de Elevacion",
@@ -2025,8 +1853,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WB3AN.jpg"
                    ]
@@ -2036,7 +1862,7 @@
         "name":  "CARTILLA DE LECTURA MANUAL PEQUEA",
         "slug":  "cartilla-de-lectura-manual-pequea",
         "reference":  "WZ-01",
-        "image":  "/images/extracted_images/AO-WZ01.jpg",
+        "image":  "/images/products/AO-WZ01.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Cartillas",
@@ -2046,8 +1872,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ01.jpg",
                        "/images/extracted_images/AO-WZ01_2.jpg"
@@ -2058,7 +1882,7 @@
         "name":  "CARTILLA DE EXAMEN VISUAL GRANDE",
         "slug":  "cartilla-de-examen-visual-grande",
         "reference":  "WZ-08",
-        "image":  "/images/extracted_images/AO-WZ08.jpg",
+        "image":  "/images/products/AO-WZ08.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Cartillas",
@@ -2068,8 +1892,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ08.jpg",
                        "/images/extracted_images/AO-WZ08_2.jpg"
@@ -2080,7 +1902,7 @@
         "name":  "CAMARA DE FONDO DE OJO PORTATIL",
         "slug":  "camara-de-fondo-de-ojo-portatil",
         "reference":  "WZ-1300",
-        "image":  "/images/extracted_images/AO-WZ1300.jpg",
+        "image":  "/images/products/AO-WZ1300.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Camara de Fondo",
@@ -2090,8 +1912,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ1300.jpg",
                        "/images/extracted_images/AO-WZ1300_2.jpg"
@@ -2102,7 +1922,7 @@
         "name":  "PROYECTOR GRAFICO DE MASCARAS",
         "slug":  "proyector-grafico-de-mascaras-wz3000b",
         "reference":  "WZ-3000B",
-        "image":  "/images/extracted_images/AO-WZ3000B.jpg",
+        "image":  "/images/products/AO-WZ3000B.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Proyectores Graficos",
@@ -2112,8 +1932,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ3000B.jpg",
                        "/images/extracted_images/AO-WZ3000B_2.jpg"
@@ -2124,7 +1942,7 @@
         "name":  "MESA DE ELEVACION",
         "slug":  "mesa-de-elevacion-wz3a",
         "reference":  "WZ-3A",
-        "image":  "/images/extracted_images/AO-WZ3A.jpg",
+        "image":  "/images/products/AO-WZ3A.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Mesas de Elevacion",
@@ -2134,8 +1952,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ3A.jpg"
                    ]
@@ -2145,7 +1961,7 @@
         "name":  "TRIAL MESA DE ELEVACION CON BANDEJA",
         "slug":  "trial-mesa-de-elevacion-con-bandeja",
         "reference":  "WZ-3AT",
-        "image":  "/images/extracted_images/AO-WZ3AT.jpg",
+        "image":  "/images/products/AO-WZ3AT.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Mesas de Elevacion",
@@ -2155,8 +1971,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ3AT.jpg"
                    ]
@@ -2166,7 +1980,7 @@
         "name":  "SILLA PARA OPTICA",
         "slug":  "silla-para-optica",
         "reference":  "WZ-5AT",
-        "image":  "/images/extracted_images/AO-WZ5AT.jpg",
+        "image":  "/images/products/AO-WZ5AT.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas para Optica",
@@ -2176,8 +1990,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZ5AT.jpg"
                    ]
@@ -2187,7 +1999,7 @@
         "name":  "SILLA CON PEDAL DE ELEVACION",
         "slug":  "silla-con-pedal-de-elevacion-wza",
         "reference":  "WZ-A",
-        "image":  "/images/extracted_images/AO-WZA.jpg",
+        "image":  "/images/products/AO-WZA.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas con Pedal",
@@ -2197,8 +2009,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZA.jpg"
                    ]
@@ -2208,7 +2018,7 @@
         "name":  "SILLA CON PEDAL DE ELEVACION Y",
         "slug":  "silla-con-pedal-de-elevacion-y",
         "reference":  "WZ-DT-1A",
-        "image":  "/images/extracted_images/AO-WZDT1A.jpg",
+        "image":  "/images/products/AO-WZDT1A.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas con Pedal",
@@ -2218,8 +2028,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZDT1A.jpg"
                    ]
@@ -2229,7 +2037,7 @@
         "name":  "LIMPIADOR DE LENTES ULTRASONICO",
         "slug":  "limpiador-de-lentes-ultrasonico-wzjp120",
         "reference":  "WZ-JP120",
-        "image":  "/images/extracted_images/AO-WZJP120.jpg",
+        "image":  "/images/products/AO-WZJP120.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Limpiadores Ultrasonicos",
@@ -2239,8 +2047,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZJP120.jpg"
                    ]
@@ -2250,7 +2056,7 @@
         "name":  "MEDIDOR DE ESPESOR",
         "slug":  "medidor-de-espesor",
         "reference":  "WZ-JP15A",
-        "image":  "/images/extracted_images/AO-WZJP15A.jpg",
+        "image":  "/images/products/AO-WZJP15A.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Medidores de Espesor",
@@ -2260,8 +2066,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZJP15A.jpg"
                    ]
@@ -2271,7 +2075,7 @@
         "name":  "MEDIDOR DE ESPESOR",
         "slug":  "medidor-de-espesor-wzjp15b",
         "reference":  "WZ-JP15B",
-        "image":  "/images/extracted_images/AO-WZJP15B.jpg",
+        "image":  "/images/products/AO-WZJP15B.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Medidores de Espesor",
@@ -2281,8 +2085,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZJP15B.jpg"
                    ]
@@ -2292,7 +2094,7 @@
         "name":  "PROBADOR DE LENTES PHOTOCROMATICO",
         "slug":  "probador-de-lentes-photocromatico-wzjp17b",
         "reference":  "WZ-JP17B",
-        "image":  "/images/extracted_images/AO-WZJP17B.jpg",
+        "image":  "/images/products/AO-WZJP17B.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Probadores de Fotocromatico",
@@ -2302,8 +2104,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZJP17B.jpg"
                    ]
@@ -2313,7 +2113,7 @@
         "name":  "RANURADORA MANUAL",
         "slug":  "ranuradora-manual-wzjp800c",
         "reference":  "WZ-JP800C",
-        "image":  "/images/extracted_images/AO-WZJP800C.jpg",
+        "image":  "/images/products/AO-WZJP800C.jpg",
         "category":  "Equipos de Laboratorio",
         "category_slug":  "equipos-laboratorio",
         "subcategory":  "Ranuradoras Manuales",
@@ -2323,8 +2123,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZJP800C.jpg"
                    ]
@@ -2334,7 +2132,7 @@
         "name":  "OPTOTIPO CON SOPORTE",
         "slug":  "optotipo-con-soporte",
         "reference":  "WZ-SLB-12",
-        "image":  "/images/extracted_images/AO-WZSLB12.jpg",
+        "image":  "/images/products/AO-WZSLB12.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Optotipos con Soporte",
@@ -2344,8 +2142,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZSLB12.jpg"
                    ]
@@ -2355,7 +2151,7 @@
         "name":  "OPTOTIPO ELECTRICO LUMINICO",
         "slug":  "optotipo-electrico-luminico-wzslb8",
         "reference":  "WZ-SLB-8",
-        "image":  "/images/extracted_images/AO-WZSLB8.jpg",
+        "image":  "/images/products/AO-WZSLB8.jpg",
         "category":  "Monitores y Optotipos",
         "category_slug":  "monitores-optotipos",
         "subcategory":  "Optotipos Electricos",
@@ -2365,8 +2161,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZSLB8.jpg"
                    ]
@@ -2376,7 +2170,7 @@
         "name":  "SILLA PARA OPTICA",
         "slug":  "silla-para-optica-wzy5a",
         "reference":  "WZ-Y5A",
-        "image":  "/images/extracted_images/AO-WZY5A.jpg",
+        "image":  "/images/products/AO-WZY5A.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas para Optica",
@@ -2386,8 +2180,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZY5A.jpg"
                    ]
@@ -2397,7 +2189,7 @@
         "name":  "SILLA PARA OPTICA",
         "slug":  "silla-para-optica-wzy5b",
         "reference":  "WZ-Y5B",
-        "image":  "/images/extracted_images/AO-WZY5B.jpg",
+        "image":  "/images/products/AO-WZY5B.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas para Optica",
@@ -2407,8 +2199,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZY5B.jpg"
                    ]
@@ -2418,7 +2208,7 @@
         "name":  "SILLA PARA OPTICA",
         "slug":  "silla-para-optica-wzy5c",
         "reference":  "WZ-Y5C",
-        "image":  "/images/extracted_images/AO-WZY5C.jpg",
+        "image":  "/images/products/AO-WZY5C.jpg",
         "category":  "Mobiliario",
         "category_slug":  "mobiliario",
         "subcategory":  "Sillas para Optica",
@@ -2428,8 +2218,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZY5C.jpg"
                    ]
@@ -2439,7 +2227,7 @@
         "name":  "BRAZO PARA FOROPTERO DE PARED",
         "slug":  "brazo-para-foroptero-de-pared",
         "reference":  "WZ-ZN",
-        "image":  "/images/extracted_images/AO-WZZN.jpg",
+        "image":  "/images/products/AO-WZZN.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Foropteros Manuales",
@@ -2449,8 +2237,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-WZZN.jpg"
                    ]
@@ -2460,7 +2246,7 @@
         "name":  "OFTALMOSCOPIO PORTATIL",
         "slug":  "oftalmoscopio-portatil",
         "reference":  "YZ-11",
-        "image":  "/images/extracted_images/AO-YZ11.jpg",
+        "image":  "/images/products/AO-YZ11.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Oftalmoscopios",
@@ -2470,8 +2256,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ11.jpg"
                    ]
@@ -2481,7 +2265,7 @@
         "name":  "LENTE DE 3 ESPEJOS",
         "slug":  "lente-de-3-espejos",
         "reference":  "YZ-13",
-        "image":  "/images/extracted_images/AO-YZ13.jpg",
+        "image":  "/images/products/AO-YZ13.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Lente de 3 Espejos",
@@ -2491,8 +2275,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ13.jpg"
                    ]
@@ -2502,7 +2284,7 @@
         "name":  "MICROSCOPIO QUIRURJICO PARA OFATLMOLOGIA",
         "slug":  "microscopio-quirurjico-para-ofatlmologia",
         "reference":  "YZ-20T4",
-        "image":  "/images/extracted_images/AO-YZ20T4.jpg",
+        "image":  "/images/products/AO-YZ20T4.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Microscopio Quirurgico",
@@ -2512,8 +2294,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ20T4.jpg"
                    ]
@@ -2523,7 +2303,7 @@
         "name":  "RETINOSCOPIO",
         "slug":  "retinoscopio",
         "reference":  "YZ-24",
-        "image":  "/images/extracted_images/AO-YZ24.jpg",
+        "image":  "/images/products/AO-YZ24.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Retinoscopios",
@@ -2533,8 +2313,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ24.jpg",
                        "/images/extracted_images/AO-YZ24_2.jpg"
@@ -2545,7 +2323,7 @@
         "name":  "RETINOSCOPIO CON OFTALMOSCOPIO",
         "slug":  "retinoscopio-con-oftalmoscopio-yz24byz11d",
         "reference":  "YZ-24B+YZ-11D",
-        "image":  "/images/extracted_images/AO-YZ24BYZ11D.jpg",
+        "image":  "/images/products/AO-YZ24BYZ11D.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Oftalmoscopios",
@@ -2555,8 +2333,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ24BYZ11D.jpg"
                    ]
@@ -2566,7 +2342,7 @@
         "name":  "OFTALMOSCOPIO INDIRECTO",
         "slug":  "oftalmoscopio-indirecto",
         "reference":  "YZ-25C",
-        "image":  "/images/extracted_images/AO-YZ25C.jpg",
+        "image":  "/images/products/AO-YZ25C.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Oftalmoscopios",
@@ -2576,8 +2352,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ25C.jpg",
                        "/images/extracted_images/AO-YZ25C_2.jpg"
@@ -2588,7 +2362,7 @@
         "name":  "TONOMETRO METALICO",
         "slug":  "tonometro-metalico",
         "reference":  "YZ-30R",
-        "image":  "/images/extracted_images/AO-YZ30R.jpg",
+        "image":  "/images/products/AO-YZ30R.jpg",
         "category":  "Equipos de Oftalmologia y Optica",
         "category_slug":  "equipos-oftalmologia-optica",
         "subcategory":  "Tonometros Metalicos",
@@ -2598,8 +2372,6 @@
         "specs":  {
 
                   },
-        "price_mxn":  null,
-        "compare_price_mxn":  null,
         "images":  [
                        "/images/extracted_images/AO-YZ30R.jpg"
                    ]
