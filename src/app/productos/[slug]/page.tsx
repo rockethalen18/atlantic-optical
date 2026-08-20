@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import products from '../../../../catalogos/products.json';
 import { Icons } from '@/components/ui/Icons';
 import ProductCard from '@/components/ui/ProductCard';
+import ProductGallery from '@/components/ui/ProductGallery';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://equipos.atlanticopticalgroup.com/backend/api';
 
@@ -102,37 +102,15 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14">
           {/* Image gallery */}
           <div className="relative">
-            <div className="sticky top-28">
-              <div className="relative aspect-square bg-[var(--bg-alt)] border border-[var(--border)] overflow-hidden group">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
-                {/* Category badge */}
-                <div className="absolute top-4 left-4 bg-[var(--green)] text-white text-[8px] font-bold px-2.5 py-1 uppercase tracking-[0.12em]">
-                  {product.subcategory}
-                </div>
-                {/* Discount badge */}
-                {product.price_mxn && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn && (
-                  <div className="absolute top-4 right-4 bg-[#dc2626] text-white text-[11px] font-black px-3 py-1.5 shadow-lg">
-                    -{Math.round(((product.compare_price_mxn - product.price_mxn) / product.compare_price_mxn) * 100)}% OFF
-                  </div>
-                )}
-              </div>
-
-              {/* Thumbnail strip */}
-              <div className="flex gap-2 mt-3">
-                {[product.image].map((img, i) => (
-                  <div key={i} className="w-16 h-16 bg-[var(--bg-alt)] border-2 border-[var(--green)] overflow-hidden cursor-pointer">
-                    <img src={img} alt={`Miniatura de ${product.name}`} className="w-full h-full object-contain p-1" />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <ProductGallery
+              images={product.images && product.images.length > 0 ? product.images : [product.image]}
+              name={product.name}
+              subcategory={product.subcategory}
+              hasDiscount={!!(product.price_mxn && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn)}
+              discountPercent={product.price_mxn && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn
+                ? Math.round(((product.compare_price_mxn - product.price_mxn) / product.compare_price_mxn) * 100)
+                : undefined}
+            />
           </div>
 
           {/* Product info */}
