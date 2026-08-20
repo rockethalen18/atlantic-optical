@@ -17,6 +17,7 @@ const navItems = [
     href: '/productos?category=equipos-oftalmologia-optica',
     mega: {
       type: 'products' as const,
+      categorySlug: 'equipos-oftalmologia-optica',
       categories: [
         { name: 'Auto Refractómetros', slug: 'auto-refractometros-con-keratometro' },
         { name: 'Forópteros', slug: 'foropteros-manuales' },
@@ -28,9 +29,6 @@ const navItems = [
         { name: 'Pupilómetros', slug: 'pupilometros' },
         { name: 'OCT', slug: 'oct' },
       ],
-      get products() {
-        return allProducts.filter(p => p.category_slug === 'equipos-oftalmologia-optica').slice(0, 6);
-      },
     },
   },
   {
@@ -38,6 +36,8 @@ const navItems = [
     href: '/productos?subcategory=monturas-de-prueba',
     mega: {
       type: 'products' as const,
+      categorySlug: '',
+      categorySlugs: ['monturas-de-prueba', 'cajas-de-prisma', 'lente-de-aumento', 'lente-de-3-espejos', 'equipos-de-fisioterapia', 'microscopio-quirurgico', 'facoemulsificador'],
       categories: [
         { name: 'Lentes de Aumento', slug: 'lente-de-aumento' },
         { name: 'Lente de 3 Espejos', slug: 'lente-de-3-espejos' },
@@ -48,11 +48,6 @@ const navItems = [
         { name: 'Microscopio Quirúrgico', slug: 'microscopio-quirurgico' },
         { name: 'Facoemulsificador', slug: 'facoemulsificador' },
       ],
-      get products() {
-        return allProducts.filter(p =>
-          ['monturas-de-prueba', 'cajas-de-prisma', 'lente-de-aumento', 'lente-de-3-espejos'].includes(p.subcategory_slug)
-        ).slice(0, 6);
-      },
     },
   },
   {
@@ -60,6 +55,7 @@ const navItems = [
     href: '/productos?category=equipos-laboratorio',
     mega: {
       type: 'products' as const,
+      categorySlug: 'equipos-laboratorio',
       categories: [
         { name: 'Biseladoras Automáticas', slug: 'biseladoras-automaticas' },
         { name: 'Biseladoras Manuales', slug: 'biseladoras-manuales' },
@@ -70,9 +66,6 @@ const navItems = [
         { name: 'Tinturadoras', slug: 'tinturadoras' },
         { name: 'Esferómetros', slug: 'esferometros' },
       ],
-      get products() {
-        return allProducts.filter(p => p.category_slug === 'equipos-laboratorio').slice(0, 6);
-      },
     },
   },
   {
@@ -80,6 +73,7 @@ const navItems = [
     href: '/productos?category=mobiliario',
     mega: {
       type: 'products' as const,
+      categorySlug: 'mobiliario',
       categories: [
         { name: 'Sillas con Pedal', slug: 'sillas-con-pedal' },
         { name: 'Sillas para Óptica', slug: 'sillas-para-optica' },
@@ -87,9 +81,6 @@ const navItems = [
         { name: 'Mesas Dobles', slug: 'mesas-dobles' },
         { name: 'Mesas Multifuncional', slug: 'mesas-multifuncional' },
       ],
-      get products() {
-        return allProducts.filter(p => p.category_slug === 'mobiliario').slice(0, 6);
-      },
     },
   },
 ];
@@ -298,11 +289,11 @@ export default function Header() {
                     <h4 className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.12em] mb-4">Categorías</h4>
                     <div className="space-y-0.5">
                       {item.mega.categories.map((cat) => (
-                        <Link key={cat.slug} href={`/productos?subcategory=${cat.slug}`}
-                          className={`block px-3 py-2.5 text-[13px] rounded-lg transition-all duration-200 ${activeCat === cat.slug ? 'bg-[var(--blue)] text-white font-medium shadow-md shadow-[var(--blue)]/20' : 'text-[var(--text-muted)] hover:bg-[var(--blue-light)]/60 hover:text-[var(--text)] hover:pl-4'}`}
-                          onClick={() => setActiveCat(cat.slug)}>
+                        <div key={cat.slug}
+                          className={`block px-3 py-2.5 text-[13px] rounded-lg transition-all duration-200 cursor-pointer ${activeCat === cat.slug ? 'bg-[var(--blue)] text-white font-medium shadow-md shadow-[var(--blue)]/20' : 'text-[var(--text-muted)] hover:bg-[var(--blue-light)]/60 hover:text-[var(--text)] hover:pl-4'}`}
+                          onMouseEnter={() => setActiveCat(cat.slug)}>
                           {cat.name}
-                        </Link>
+                        </div>
                       ))}
                     </div>
                     <Link href={item.href} className="mt-4 flex items-center gap-1.5 text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.08em] hover:gap-2.5 transition-all">
@@ -312,7 +303,20 @@ export default function Header() {
                   <div className="flex-1">
                     <h4 className="text-[11px] font-bold text-[var(--text-soft)] uppercase tracking-[0.12em] mb-4">Productos Destacados</h4>
                     <div className="grid grid-cols-3 gap-3">
-                      {item.mega.products.map((p) => (
+                      {(() => {
+                        const mega = item.mega;
+                        let filtered: typeof allProducts = [];
+                        if (activeCat) {
+                          filtered = allProducts.filter(p => p.subcategory_slug === activeCat).slice(0, 6);
+                        } else if (mega.type === 'products') {
+                          const m = mega as { type: 'products'; categorySlug?: string; categorySlugs?: string[] };
+                          if (m.categorySlug) {
+                            filtered = allProducts.filter(p => p.category_slug === m.categorySlug).slice(0, 6);
+                          } else if (m.categorySlugs) {
+                            filtered = allProducts.filter(p => m.categorySlugs!.includes(p.subcategory_slug)).slice(0, 6);
+                          }
+                        }
+                        return filtered.map((p) => (
                         <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-[var(--blue-light)]/40 transition-all duration-200">
                           <div className="w-14 h-14 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-xl border border-[var(--border-light)] group-hover:border-[var(--blue)]/20 transition-colors">
                             <img src={p.image} alt={p.name} className="w-full h-full object-contain p-1 group-hover:scale-110 transition-transform duration-500" />
@@ -322,7 +326,8 @@ export default function Header() {
                             <div className="text-[10px] text-[var(--text-muted)] truncate">{p.subcategory}</div>
                           </div>
                         </Link>
-                      ))}
+                        ));
+                      })()}
                     </div>
                   </div>
                 </div>

@@ -70,22 +70,22 @@ export default function HeroCarousel() {
         </div>
       ))}
 
-      {/* Light gradient overlay */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.15) 100%)' }} />
-      <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: 'linear-gradient(to top, white 0%, transparent 100%)' }} />
+      {/* Dark gradient overlay for text readability */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.1) 100%)' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-40" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%)' }} />
 
       <div className="relative z-10 max-w-[1680px] mx-auto px-6 md:px-10 h-full flex items-center">
         <div className="max-w-[620px]">
           <div key={`tag-${i}`} className="hero-tag inline-flex items-center gap-3 mb-6">
-            <div className="w-10 h-[2px] bg-[var(--blue)]" />
-            <span className="text-[11px] font-bold text-[var(--blue)] uppercase tracking-[0.2em]">{s.tag}</span>
+            <div className="w-10 h-[2px] bg-white/60" />
+            <span className="text-[11px] font-bold text-white/80 uppercase tracking-[0.2em]">{s.tag}</span>
           </div>
 
-          <h1 key={`title-${i}`} className="hero-title text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-black text-[var(--text)] leading-[1.05] tracking-[-0.03em] mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+          <h1 key={`title-${i}`} className="hero-title text-[36px] sm:text-[48px] md:text-[56px] lg:text-[64px] font-black text-white leading-[1.05] tracking-[-0.03em] mb-6" style={{ fontFamily: 'var(--font-display)', textShadow: '0 2px 20px rgba(0,0,0,0.3)' }}>
             {s.title}
           </h1>
 
-          <p key={`desc-${i}`} className="hero-desc text-[15px] md:text-[17px] text-[var(--text-muted)] leading-[1.7] mb-10 max-w-[460px]">
+          <p key={`desc-${i}`} className="hero-desc text-[15px] md:text-[17px] text-white/80 leading-[1.7] mb-10 max-w-[460px]">
             {s.desc}
           </p>
 
@@ -94,22 +94,22 @@ export default function HeroCarousel() {
               {s.cta.label}
               <Icons.ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/productos" className="hero-cta inline-flex items-center justify-center gap-2 bg-white/70 backdrop-blur-md text-[var(--text)] font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 border border-[var(--border)] hover:border-[var(--blue)]/30 hover:bg-white transition-all duration-300">
+            <Link href="/productos" className="hero-cta inline-flex items-center justify-center gap-2 bg-white/15 backdrop-blur-md text-white font-bold text-[13px] uppercase tracking-[0.1em] px-10 py-4 border border-white/25 hover:bg-white/25 transition-all duration-300">
               Ver Catálogo
             </Link>
           </div>
 
-          <div className="hero-cta flex flex-wrap items-center gap-6 md:gap-10 mt-12 pt-8 border-t border-[var(--border-light)]">
+          <div className="hero-cta flex flex-wrap items-center gap-6 md:gap-10 mt-12 pt-8 border-t border-white/20">
             {[
               { icon: Icons.ShieldCheck, label: 'Garantía 18 meses', sub: 'Soporte incluido' },
               { icon: Icons.Truck, label: 'Envío directo', sub: 'China → Latinoamérica' },
               { icon: Icons.Tag, label: 'Mejor precio', sub: 'Directo de fábrica' },
             ].map((t, idx) => (
               <div key={idx} className="flex items-center gap-3">
-                <t.icon size={18} className="text-[var(--blue)]" />
+                <t.icon size={18} className="text-white/80" />
                 <div>
-                  <div className="text-[12px] font-bold text-[var(--text)]">{t.label}</div>
-                  <div className="text-[10px] text-[var(--text-soft)]">{t.sub}</div>
+                  <div className="text-[12px] font-bold text-white">{t.label}</div>
+                  <div className="text-[10px] text-white/60">{t.sub}</div>
                 </div>
               </div>
             ))}
