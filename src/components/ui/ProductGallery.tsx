@@ -2,7 +2,6 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Image from 'next/image';
-import { Icons } from '@/components/ui/Icons';
 
 interface ProductGalleryProps {
   images: string[];
@@ -17,7 +16,9 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
   const [isZooming, setIsZooming] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
 
   const allImages = images && images.length > 0 ? images : ['/images/extracted_images/placeholder.jpg'];
 
@@ -29,16 +30,30 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
     setZoomPos({ x, y });
   }, []);
 
-  const openLightbox = () => setLightboxOpen(true);
-  const closeLightbox = () => setLightboxOpen(false);
+  const changeImage = useCallback((newIndex: number) => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setActiveIndex(newIndex);
+      setTimeout(() => setIsTransitioning(false), 50);
+    }, 150);
+  }, []);
 
   const prevImage = useCallback(() => {
-    setActiveIndex(i => (i === 0 ? allImages.length - 1 : i - 1));
-  }, [allImages.length]);
+    changeImage(activeIndex === 0 ? allImages.length - 1 : activeIndex - 1);
+  }, [activeIndex, allImages.length, changeImage]);
 
   const nextImage = useCallback(() => {
-    setActiveIndex(i => (i === allImages.length - 1 ? 0 : i + 1));
-  }, [allImages.length]);
+    changeImage(activeIndex === allImages.length - 1 ? 0 : activeIndex + 1);
+  }, [activeIndex, allImages.length, changeImage]);
+
+  const openLightbox = () => {
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = useCallback(() => {
+    setLightboxOpen(false);
+    setIsTransitioning(false);
+  }, []);
 
   useEffect(() => {
     if (!lightboxOpen) return;
@@ -53,7 +68,7 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
       document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = '';
     };
-  }, [lightboxOpen, prevImage, nextImage]);
+  }, [lightboxOpen, prevImage, nextImage, closeLightbox]);
 
   return (
     <div className="sticky top-28">
@@ -74,7 +89,6 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
         />
-        {/* Zoom lens overlay */}
         {isZooming && (
           <div
             className="absolute inset-0 pointer-events-none transition-opacity duration-200"
@@ -86,23 +100,19 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
             }}
           />
         )}
-        {/* Category badge */}
         <div className="absolute top-4 left-4 bg-[var(--green)] text-white text-[8px] font-bold px-2.5 py-1 uppercase tracking-[0.12em] z-10">
           {subcategory}
         </div>
-        {/* Discount badge */}
         {hasDiscount && discountPercent && (
           <div className="absolute top-4 right-4 bg-[#dc2626] text-white text-[11px] font-black px-3 py-1.5 shadow-lg z-10">
             -{discountPercent}% OFF
           </div>
         )}
-        {/* Image counter */}
         {allImages.length > 1 && (
           <div className="absolute bottom-4 right-4 bg-black/50 text-white text-[11px] font-medium px-2.5 py-1 backdrop-blur-sm z-10">
             {activeIndex + 1} / {allImages.length}
           </div>
         )}
-        {/* Click hint */}
         <div className="absolute bottom-4 left-4 bg-black/50 text-white text-[10px] font-medium px-2.5 py-1 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity z-10">
           Clic para ampliar
         </div>
@@ -114,18 +124,14 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
           {allImages.map((img, i) => (
             <button
               key={i}
-              onClick={() => setActiveIndex(i)}
+              onClick={() => changeImage(i)}
               className={`flex-shrink-0 w-16 h-16 bg-white border-2 overflow-hidden cursor-pointer transition-all ${
                 i === activeIndex
                   ? 'border-[var(--green)] shadow-md'
                   : 'border-[var(--border)] opacity-60 hover:opacity-100 hover:border-[var(--green)]/40'
               }`}
             >
-              <img
-                src={img}
-                alt={`Miniatura ${i + 1} de ${name}`}
-                className="w-full h-full object-contain p-1"
-              />
+              <img src={img} alt={`Miniatura ${i + 1} de ${name}`} className="w-full h-full object-contain p-1" />
             </button>
           ))}
         </div>
@@ -134,26 +140,36 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
       {/* Lightbox */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center"
+          ref={lightboxRef}
+          className="fixed inset-0 z-[99999] bg-black/90 backdrop-blur-sm flex flex-col items-center justify-center"
           onClick={closeLightbox}
+          style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, margin: 0, padding: 0 }}
         >
-          {/* Close button */}
-          <button
-            onClick={closeLightbox}
-            className="absolute top-4 right-4 z-[10001] w-10 h-10 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
+          {/* Top bar */}
+          <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-black/60 to-transparent flex items-center justify-between px-6 z-[10002]">
+            <div className="text-white/80 text-[13px] font-medium">
+              {name}
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="text-white/60 text-[13px]">{activeIndex + 1} / {allImages.length}</span>
+              <button
+                onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+                className="w-9 h-9 bg-white/10 hover:bg-white/25 flex items-center justify-center transition-colors rounded-full"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round">
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
 
           {/* Prev arrow */}
           {allImages.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); prevImage(); }}
-              className="absolute left-4 z-[10001] w-12 h-12 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-[10002] w-14 h-14 bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 rounded-full group/btn"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:-translate-x-0.5 transition-transform">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
@@ -163,51 +179,50 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
           {allImages.length > 1 && (
             <button
               onClick={(e) => { e.stopPropagation(); nextImage(); }}
-              className="absolute right-4 z-[10001] w-12 h-12 bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-[10002] w-14 h-14 bg-white/10 hover:bg-white/25 backdrop-blur-md flex items-center justify-center transition-all hover:scale-110 rounded-full group/btn"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/btn:translate-x-0.5 transition-transform">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
           )}
 
-          {/* Image */}
+          {/* Image container */}
           <div
-            className="relative w-[90vw] h-[85vh] max-w-[1200px]"
+            className="relative w-[85vw] h-[75vh] max-w-[1100px] flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
-              src={allImages[activeIndex]}
-              alt={`${name} - imagen ${activeIndex + 1}`}
-              fill
-              className="object-contain"
-              sizes="90vw"
-            />
+            <div className={`relative w-full h-full transition-opacity duration-200 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}>
+              <Image
+                src={allImages[activeIndex]}
+                alt={`${name} - imagen ${activeIndex + 1}`}
+                fill
+                className="object-contain"
+                sizes="85vw"
+              />
+            </div>
           </div>
 
           {/* Bottom thumbnails */}
           {allImages.length > 1 && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-[10001]">
-              {allImages.map((img, i) => (
-                <button
-                  key={i}
-                  onClick={(e) => { e.stopPropagation(); setActiveIndex(i); }}
-                  className={`w-12 h-12 border-2 overflow-hidden transition-all ${
-                    i === activeIndex
-                      ? 'border-white shadow-lg scale-110'
-                      : 'border-white/30 opacity-60 hover:opacity-100'
-                  }`}
-                >
-                  <img src={img} alt={`Mini ${i + 1}`} className="w-full h-full object-contain p-0.5" />
-                </button>
-              ))}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent pt-8 pb-4 z-[10002]">
+              <div className="flex gap-2.5 justify-center px-4">
+                {allImages.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={(e) => { e.stopPropagation(); changeImage(i); }}
+                    className={`w-14 h-14 border-2 overflow-hidden transition-all flex-shrink-0 ${
+                      i === activeIndex
+                        ? 'border-white shadow-[0_0_12px_rgba(255,255,255,0.3)] scale-110'
+                        : 'border-white/20 opacity-50 hover:opacity-90 hover:border-white/50'
+                    }`}
+                  >
+                    <img src={img} alt={`Mini ${i + 1}`} className="w-full h-full object-contain p-0.5" />
+                  </button>
+                ))}
+              </div>
             </div>
           )}
-
-          {/* Counter */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/50 text-white text-[13px] font-medium px-4 py-1.5 backdrop-blur-sm z-[10001]">
-            {activeIndex + 1} / {allImages.length}
-          </div>
         </div>
       )}
     </div>
