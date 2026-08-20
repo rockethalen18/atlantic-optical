@@ -78,10 +78,10 @@ export default function StatsCounter() {
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-3 mb-4">
             <div className="w-10 h-[2px] bg-gradient-to-r from-transparent to-white/40" />
-            <span className="text-[11px] font-bold text-white/60 uppercase tracking-[0.2em]">Números que Hablan</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.6)' }}>Números que Hablan</span>
             <div className="w-10 h-[2px] bg-gradient-to-l from-transparent to-white/40" />
           </div>
-          <h2 className="text-[36px] md:text-[48px] font-black text-white tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)' }}>
+          <h2 className="text-[36px] md:text-[48px] font-black tracking-[-0.04em]" style={{ fontFamily: 'var(--font-display)', color: '#ffffff' }}>
             Resultados que Inspiran Confianza
           </h2>
         </div>
