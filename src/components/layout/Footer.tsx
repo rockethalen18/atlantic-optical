@@ -15,6 +15,8 @@ const shopLinks = [
 
 const helpLinks = [
   { label: 'Seguimiento de Pedido', href: '/seguimiento' },
+  { label: 'Politica de Envio', href: '/politica-envio' },
+  { label: 'Pedidos al Mayoreo', href: '/pedidos-mayoreo' },
   { label: 'Garantía y Devoluciones', href: '/garantia' },
   { label: 'Preguntas Frecuentes', href: '/faq' },
   { label: 'Contáctanos', href: '/contacto' },

@@ -24,6 +24,7 @@ interface Product {
   description: string;
   barcode: string;
   reference: string;
+  badge?: string;
 }
 
 function SkeletonCard() {
@@ -182,6 +183,12 @@ export default function ProductsPage() {
                         }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      {product.badge === 'HOT' && (
+                        <span className="absolute top-2 left-2 bg-red-500 text-white text-[8px] font-bold px-2 py-0.5 uppercase tracking-[0.1em] z-10">HOT</span>
+                      )}
+                      {product.badge === 'NEW' && (
+                        <span className="absolute top-2 left-2 bg-[var(--blue)] text-white text-[8px] font-bold px-2 py-0.5 uppercase tracking-[0.1em] z-10">NEW</span>
+                      )}
                       <span className="absolute top-2 left-2 bg-[var(--green)] text-white text-[8px] font-bold px-2 py-0.5 uppercase tracking-[0.1em]">
                         {product.category.replace('Equipos de ', '')}
                       </span>
@@ -208,7 +215,13 @@ export default function ProductsPage() {
                     href={`/productos/${product.slug}/`}
                     className="group flex items-center gap-5 bg-white border border-[var(--border)] hover:border-[var(--green)]/30 p-4 transition-all duration-300 hover:shadow-md"
                   >
-                    <div className="w-20 h-20 bg-[var(--bg-alt)] overflow-hidden flex-shrink-0">
+                    <div className="w-20 h-20 bg-[var(--bg-alt)] overflow-hidden flex-shrink-0 relative">
+                      {product.badge === 'HOT' && (
+                        <span className="absolute top-1 left-1 bg-red-500 text-white text-[7px] font-bold px-1.5 py-px uppercase tracking-[0.1em] z-10">HOT</span>
+                      )}
+                      {product.badge === 'NEW' && (
+                        <span className="absolute top-1 left-1 bg-[var(--blue)] text-white text-[7px] font-bold px-1.5 py-px uppercase tracking-[0.1em] z-10">NEW</span>
+                      )}
                       <img src={`/images/extracted_images/${product.sku}.jpg`} alt={product.name} className="w-full h-full object-contain p-2" />
                     </div>
                     <div className="flex-1 min-w-0">

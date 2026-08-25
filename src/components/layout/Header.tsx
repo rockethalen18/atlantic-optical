@@ -4,12 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { gsap } from '@/lib/gsap';
 import Icons from '@/components/ui/Icons';
-import productsData from '../../../catalogos/products.json';
-
-const allProducts = productsData as Array<{
-  sku: string; name: string; slug: string; category: string; category_slug: string;
-  subcategory: string; subcategory_slug: string; image: string;
-}>;
+import SearchOverlay from '@/components/ui/SearchOverlay';
+import AuthModal from '@/components/ui/AuthModal';
 
 const navItems = [
   {
@@ -153,11 +149,9 @@ export default function Header() {
   const [activeMega, setActiveMega] = useState<string | null>(null);
   const [activeCat, setActiveCat] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState<typeof allProducts>([]);
+  const [authOpen, setAuthOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const megaTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const h = () => setScrolled(window.scrollY > 20);
@@ -173,18 +167,6 @@ export default function Header() {
       duration: 0.3,
     });
   }, [scrolled]);
-
-  useEffect(() => {
-    if (searchOpen && searchInputRef.current) searchInputRef.current.focus();
-  }, [searchOpen]);
-
-  useEffect(() => {
-    if (searchQuery.length < 2) { setSearchResults([]); return; }
-    const term = searchQuery.toLowerCase();
-    setSearchResults(allProducts.filter(p =>
-      p.name.toLowerCase().includes(term) || p.sku.toLowerCase().includes(term) || p.subcategory.toLowerCase().includes(term)
-    ).slice(0, 8));
-  }, [searchQuery]);
 
   const openMega = useCallback((label: string) => {
     if (megaTimerRef.current) clearTimeout(megaTimerRef.current);
@@ -224,42 +206,19 @@ export default function Header() {
               aria-label="Buscar">
               <Icons.Search size={20} />
             </button>
+            <button
+              onClick={() => setAuthOpen(true)}
+              className="w-12 h-12 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text)] transition-colors rounded-lg hover:bg-black/5"
+              aria-label="Mi cuenta"
+            >
+              <Icons.User size={20} />
+            </button>
             <Link href="/carrito" className="w-12 h-12 flex items-center justify-center text-[var(--text-muted)] hover:text-[var(--text)] transition-colors relative rounded-lg hover:bg-black/5">
               <Icons.ShoppingCart size={20} />
               <span className="absolute top-1.5 right-1.5 w-[18px] h-[18px] bg-[var(--blue)] text-[9px] font-bold text-white rounded-full flex items-center justify-center">0</span>
             </Link>
           </div>
         </div>
-
-        {searchOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white/90 backdrop-blur-2xl border-b border-[var(--border-light)] shadow-[0_20px_60px_rgba(0,0,0,0.08)] z-50">
-            <div className="max-w-[1680px] mx-auto px-6 md:px-10 py-4">
-              <div className="relative max-w-2xl mx-auto">
-                <Icons.Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />
-                <input ref={searchInputRef} type="text" placeholder="Buscar productos..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-12 py-3.5 bg-white/80 border border-[var(--border)] rounded-xl text-[15px] text-[var(--text)] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)] transition-colors" />
-                <button onClick={() => { setSearchOpen(false); setSearchQuery(''); }} className="absolute right-4 top-1/2 -translate-y-1/2 text-[var(--text-soft)] hover:text-[var(--text)]"><Icons.X size={18} /></button>
-              </div>
-              {searchResults.length > 0 && (
-                <div className="max-w-2xl mx-auto mt-3 border border-[var(--border)] bg-white/95 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.1)] rounded-xl max-h-[400px] overflow-y-auto">
-                  {searchResults.map(p => (
-                    <Link key={p.sku} href={`/productos/${p.slug}/`} onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
-                      className="flex items-center gap-4 px-4 py-3 hover:bg-[var(--blue-light)]/40 transition-colors border-b border-[var(--border-light)] last:border-0 first:rounded-t-xl last:rounded-b-xl">
-                      <div className="w-12 h-12 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-lg">
-                        <img src={p.image} alt={p.name} className="w-full h-full object-contain p-1" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="text-[13px] font-bold text-[var(--text)] truncate">{p.name}</div>
-                        <div className="text-[11px] text-[var(--text-muted)]">{p.sku} · {p.subcategory}</div>
-                      </div>
-                      <Icons.ArrowRight size={14} className="text-[var(--text-soft)] flex-shrink-0" />
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-        )}
 
         <nav className="hidden lg:block border-t border-[var(--border-light)]" style={{ backgroundColor: scrolled ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0)' }}>
           <div className="max-w-[1680px] mx-auto px-6 md:px-10 flex items-center h-[48px]">
@@ -316,17 +275,20 @@ export default function Header() {
                             filtered = allProducts.filter(p => m.categorySlugs!.includes(p.subcategory_slug)).slice(0, 6);
                           }
                         }
-                        return filtered.map((p) => (
-                        <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-[var(--blue-light)]/40 transition-all duration-200">
-                          <div className="w-14 h-14 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-xl border border-[var(--border-light)] group-hover:border-[var(--blue)]/20 transition-colors">
-                            <img src={p.image} alt={p.name} className="w-full h-full object-contain p-1 group-hover:scale-110 transition-transform duration-500" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-[12px] font-bold text-[var(--text)] truncate group-hover:text-[var(--blue)] transition-colors">{p.name}</div>
-                            <div className="text-[10px] text-[var(--text-muted)] truncate">{p.subcategory}</div>
-                          </div>
-                        </Link>
-                        ));
+                        return filtered.map((p) => {
+                          const imgSrc = `/images/extracted_images/AO-${p.name.replace(/[-+]/g, '')}.jpg`;
+                          return (
+                          <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-[var(--blue-light)]/40 transition-all duration-200">
+                            <div className="w-10 h-10 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-lg border border-[var(--border-light)] group-hover:border-[var(--blue)]/20 transition-colors">
+                              <img src={imgSrc} alt={p.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="text-[12px] font-bold text-[var(--text)] truncate group-hover:text-[var(--blue)] transition-colors">{p.name}</div>
+                              <div className="text-[10px] text-[var(--text-muted)] truncate">{p.subcategory}</div>
+                            </div>
+                          </Link>
+                          );
+                        });
                       })()}
                     </div>
                   </div>
@@ -351,6 +313,9 @@ export default function Header() {
         ))}
       </header>
 
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <AuthModal open={authOpen} onClose={() => setAuthOpen(false)} />
+
       {mobileOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
@@ -359,11 +324,11 @@ export default function Header() {
               <div className="mb-6">
                 <img src="/images/logos/logo-dark.png" alt="Atlantic Optical Internacional" width={240} height={300} className="h-[60px] w-auto object-contain" />
               </div>
-              <div className="relative mb-6">
-                <Icons.Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--text-soft)]" />
-                <input type="text" placeholder="Buscar productos..."
-                  className="w-full pl-10 pr-4 py-3 min-h-[44px] bg-white/80 border border-[var(--border)] rounded-xl text-[14px] text-[var(--text)] placeholder-[var(--text-soft)] focus:outline-none focus:border-[var(--blue)]" />
-              </div>
+              <button onClick={() => { setMobileOpen(false); setSearchOpen(true); }}
+                className="w-full flex items-center gap-3 mb-6 px-4 py-3 min-h-[44px] bg-white/80 border border-[var(--border)] rounded-xl text-[14px] text-[var(--text-muted)] hover:border-[var(--blue)] transition-colors">
+                <Icons.Search size={16} />
+                <span>Buscar productos...</span>
+              </button>
               {[...navItems, ...rightNavItems].map((item) => (
                 <div key={item.label} className="border-b border-[var(--border-light)]">
                   <Link href={item.href} className="block py-3.5 min-h-[44px] flex items-center text-[14px] font-bold text-[var(--text)] hover:text-[var(--blue)] transition-colors" onClick={() => setMobileOpen(false)}>{item.label}</Link>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Montserrat } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -23,18 +24,38 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
-  description: "Atlantic Optical Internacional S.A. — Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a toda Latinoamérica.",
-  keywords: "foróptero, lentómetro, equipo oftálmico, auto refractómetro, lámpara de hendidura, tonómetro, equipo optométrico, monturas, lentes de sol, Atlantic Optical, Panamá, México",
-  robots: { index: true, follow: true },
-  alternates: { canonical: 'https://atlanticoptical.com.mx' },
-  icons: { icon: '/favicon.png' },
+  metadataBase: new URL('https://equipos.atlanticopticalgroup.com'),
+  title: {
+    default: 'Atlantic Optical International Limited — Equipamiento Oftálmico Profesional',
+    template: '%s | Atlantic Optical',
+  },
+  description: 'Distribuidor directo de equipos oftálmicos: phorópteros, auto refractómetros, lámparas de hendidura, tonómetros y más. Envío directo desde China a toda Latinoamérica.',
+  keywords: ['phoropter', 'lensometer', 'auto refractometer', 'slit lamp', 'ophthalmic equipment', 'equipos oftálmicos', 'equipo oftalmológico', 'lentes de prueba'],
   openGraph: {
-    title: "Atlantic Optical Internacional — Equipamiento Óptico Profesional",
-    description: "Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias.",
-    type: "website",
-    locale: "es_MX",
-    siteName: "Atlantic Optical Internacional S.A.",
+    type: 'website',
+    locale: 'es_MX',
+    url: 'https://equipos.atlanticopticalgroup.com',
+    siteName: 'Atlantic Optical International',
+    title: 'Atlantic Optical International Limited — Equipamiento Oftálmico Profesional',
+    description: 'Distribuidor directo de equipos oftálmicos. Envío directo desde China a toda Latinoamérica.',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Atlantic Optical International',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Atlantic Optical International Limited',
+    description: 'Distribuidor directo de equipos oftálmicos. Envío directo desde China a toda Latinoamérica.',
+    images: ['/images/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -46,6 +67,27 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${inter.variable} ${montserrat.variable}`}>
       <body className="min-h-screen flex flex-col antialiased">
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-XXXXX');
+            `,
+          }}
+        />
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXX"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <AuthProvider>
           <LoadingScreen />
           <ScrollRevealProvider>
