@@ -5,10 +5,9 @@ import ScrollExpandMedia from '@/components/ui/ScrollExpandMedia';
 export default function ScrollExpandSection() {
   return (
     <ScrollExpandMedia
-      mediaType="video"
-      mediaSrc="/images/hero/ophthalmic-machine.mp4"
-      posterSrc="/images/hero/eye-exam-machine.jpg"
-      bgImageSrc="/images/hero/eye-exam-machine.jpg"
+      mediaType="image"
+      mediaSrc="/images/hero-3.jpg"
+      bgImageSrc="/images/hero-2.jpg"
       title="Equipo Profesional de Última Generación"
       date="Innovación en Óptica"
       scrollToExpand="Desplaza para explorar"

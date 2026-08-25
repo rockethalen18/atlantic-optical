@@ -38,7 +38,7 @@ export default function ContactoPage() {
                 <Icons.Phone size={18} className="text-[var(--green)]" />
               </div>
               <h3 className="text-[14px] font-bold text-[var(--text)] mb-1">Telefono</h3>
-              <p className="text-[13px] text-[var(--text-muted)]">+52 (55) 1234-5678</p>
+              <p className="text-[13px] text-[var(--text-muted)]">+86 134 0559 5150</p>
               <p className="text-[11px] text-[var(--text-soft)] mt-1">Lun - Vie, 9:00 - 18:00</p>
             </div>
             <div className="p-6 bg-[var(--bg-alt)] border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
@@ -46,7 +46,7 @@ export default function ContactoPage() {
                 <Icons.Mail size={18} className="text-[var(--green)]" />
               </div>
               <h3 className="text-[14px] font-bold text-[var(--text)] mb-1">Email</h3>
-              <p className="text-[13px] text-[var(--text-muted)]">ventas@atlanticoptical.mx</p>
+              <p className="text-[13px] text-[var(--text-muted)]">contacto@atlanticopticalgroup.com</p>
               <p className="text-[11px] text-[var(--text-soft)] mt-1">Respuesta en 24 horas</p>
             </div>
             <div className="p-6 bg-[var(--bg-alt)] border border-[var(--border)] hover:border-[var(--green)]/20 transition-colors">
@@ -54,12 +54,12 @@ export default function ContactoPage() {
                 <Icons.MapPin size={18} className="text-[var(--green)]" />
               </div>
               <h3 className="text-[14px] font-bold text-[var(--text)] mb-1">Ubicacion</h3>
-              <p className="text-[13px] text-[var(--text-muted)]">Ciudad de Mexico, Mexico</p>
-              <p className="text-[11px] text-[var(--text-soft)] mt-1">Envio a toda la republica</p>
+              <p className="text-[13px] text-[var(--text-muted)]">RM D5, 5/F, King Yip Factory Building, No. 59 King Yip Street, Kwun Tong, Hong Kong</p>
+              <p className="text-[11px] text-[var(--text-soft)] mt-1">Envio internacional</p>
             </div>
             <div className="p-6 bg-[var(--green)] text-center">
               <p className="text-[13px] font-bold text-white mb-2">¿Necesitas ayuda urgente?</p>
-              <a href="https://wa.me/5215512345678" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[11px] uppercase tracking-[0.08em] px-6 py-2.5 hover:bg-white/90 transition-colors">
+              <a href="https://wa.me/8613405595150" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-white text-[var(--green)] font-bold text-[11px] uppercase tracking-[0.08em] px-6 py-2.5 hover:bg-white/90 transition-colors">
                 WhatsApp <Icons.ArrowRight size={10} />
               </a>
             </div>

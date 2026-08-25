@@ -88,6 +88,20 @@ export default function Footer() {
             <p className="text-[14px] text-[var(--text-muted)] leading-[1.7] max-w-[320px] mb-6">
               Empresa dedicada a la comercialización internacional de productos ópticos generales y marcas propias. Envío directo desde China a toda Latinoamérica.
             </p>
+            <div className="space-y-2 mb-6">
+              <p className="text-[12px] text-[var(--text-muted)] flex items-start gap-2">
+                <Icons.MapPin size={13} className="mt-0.5 flex-shrink-0" />
+                RM D5, 5/F, King Yip Factory Building, No. 59 King Yip Street, Kwun Tong, Hong Kong
+              </p>
+              <p className="text-[12px] text-[var(--text-muted)] flex items-start gap-2">
+                <Icons.Phone size={13} className="mt-0.5 flex-shrink-0" />
+                +86 134 0559 5150
+              </p>
+              <p className="text-[12px] text-[var(--text-muted)] flex items-start gap-2">
+                <Icons.Mail size={13} className="mt-0.5 flex-shrink-0" />
+                contacto@atlanticopticalgroup.com
+              </p>
+            </div>
             <div className="flex gap-3">
               {social.map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
