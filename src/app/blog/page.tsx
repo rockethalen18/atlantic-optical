@@ -151,7 +151,7 @@ export default function BlogPage() {
 
                 {/* Date */}
                 <p className="text-[11px] text-[var(--text-soft)] mb-3 flex items-center gap-1.5">
-                  <Icons.Calendar size={11} className="text-[var(--text-soft)]" />
+                  <Icons.Clock size={11} className="text-[var(--text-soft)]" />
                   {post.date}
                 </p>
 
