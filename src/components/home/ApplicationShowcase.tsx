@@ -3,7 +3,7 @@ import { Icons } from '@/components/ui/Icons';
 
 interface ApplicationCard {
   title: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: React.ComponentType<{ size?: number; className?: string }>;
   count: string;
   href: string;
   gradient: string;
