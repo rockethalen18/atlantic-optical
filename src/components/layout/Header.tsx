@@ -6,6 +6,9 @@ import { gsap } from '@/lib/gsap';
 import Icons from '@/components/ui/Icons';
 import SearchOverlay from '@/components/ui/SearchOverlay';
 import AuthModal from '@/components/ui/AuthModal';
+import productsData from '../../../catalogos/products.json';
+
+const allProducts = productsData as Array<{ name: string; slug: string; sku: string; category_slug: string; subcategory_slug: string; subcategory: string; }>;
 
 const navItems = [
   {
