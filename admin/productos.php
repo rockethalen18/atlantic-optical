@@ -446,7 +446,14 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                         <div class="crm-card-body">
                             <div style="display:flex;gap:20px;align-items:flex-start">
                                 <div>
-                                    <?php $editImg = !empty($product['image']) ? $product['image'] : '/images/extracted_images/' . $product['sku'] . '.jpg'; ?>
+                                    <?php
+                                    $editImg = !empty($product['image']) ? $product['image'] : '';
+                                    $editFallback = '/images/extracted_images/' . strtoupper($product['sku']) . '.jpg';
+                                    if ($editImg && !file_exists($_SERVER['DOCUMENT_ROOT'] . $editImg)) {
+                                        $editImg = file_exists($_SERVER['DOCUMENT_ROOT'] . $editFallback) ? $editFallback : $editImg;
+                                    }
+                                    if (!$editImg) $editImg = $editFallback;
+                                    ?>
                                     <div style="width:180px;height:180px;background:#1f2937;border:2px solid #374151;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center">
                                         <img src="<?php echo htmlspecialchars($editImg); ?>" alt="" style="max-width:100%;max-height:100%;object-fit:contain" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;color:#6b7280;font-size:13px;text-align:center;padding:16px&quot;>Sin imagen</div>'">
                                     </div>
@@ -610,7 +617,14 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 <?php foreach ($products as $p): ?>
                                 <tr>
                                     <td>
-                                        <?php $imgSrc = !empty($p['image']) ? $p['image'] : '/images/extracted_images/' . htmlspecialchars($p['sku']) . '.jpg'; ?>
+                                        <?php
+                                        $imgSrc = !empty($p['image']) ? $p['image'] : '';
+                                        $fallback = '/images/extracted_images/' . strtoupper(htmlspecialchars($p['sku'])) . '.jpg';
+                                        if ($imgSrc && !file_exists($_SERVER['DOCUMENT_ROOT'] . $imgSrc)) {
+                                            $imgSrc = file_exists($_SERVER['DOCUMENT_ROOT'] . $fallback) ? $fallback : $imgSrc;
+                                        }
+                                        if (!$imgSrc) $imgSrc = $fallback;
+                                        ?>
                                         <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
                                         <img src="<?php echo $imgSrc; ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                                         <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>

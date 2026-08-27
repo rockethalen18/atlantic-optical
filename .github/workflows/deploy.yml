@@ -51,3 +51,8 @@ jobs:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
+
+      - name: Sync product images to database
+        run: |
+          sleep 10
+          curl -sk --max-time 60 "https://equipos.atlanticopticalgroup.com/admin/sync-images.php?key=atlantic-sync-2026" || echo "Sync images failed (non-critical)"
