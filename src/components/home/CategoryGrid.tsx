@@ -92,7 +92,7 @@ export default function CategoryGrid() {
                 <div className="absolute bottom-0 left-0 right-0 p-5" style={{ color: '#ffffff' }}>
                   <div className="flex items-center gap-2 mb-2">
                     <div className="w-8 h-8 flex items-center justify-center rounded-lg" style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}>
-                      <c.Icon size={14} style={{ color: '#ffffff' }} />
+                      <c.Icon size={14} className="text-white" />
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.1em]" style={{ color: 'rgba(255,255,255,0.8)' }}>{c.count} productos</span>
                   </div>

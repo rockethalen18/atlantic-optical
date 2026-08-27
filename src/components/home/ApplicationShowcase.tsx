@@ -158,8 +158,8 @@ export default function ApplicationShowcase() {
                   }}
                 >
                   <IconComponent
-                    className=""
-                    style={{ width: '24px', height: '24px', color: 'var(--blue)' } as React.CSSProperties}
+                    size={24}
+                    className="text-[var(--blue)]"
                   />
                 </div>
 
