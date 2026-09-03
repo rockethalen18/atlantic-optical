@@ -7,7 +7,7 @@ export default function ScrollExpandSection() {
     <ScrollExpandMedia
       mediaType="image"
       mediaSrc="/images/hero-3.jpg"
-      bgImageSrc="/images/hero-2.jpg"
+      bgImageSrc="/images/hero-optical-equipment.jpg"
       title="Equipo Profesional de Última Generación"
       date="Innovación en Óptica"
       scrollToExpand="Desplaza para explorar"
