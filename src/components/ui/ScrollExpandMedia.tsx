@@ -170,14 +170,14 @@ const ScrollExpandMedia = ({
             }`}
           >
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white transition-transform duration-100"
-              style={{ fontFamily: 'var(--font-display)', transform: `translateX(-${textTranslateX}vw)`, textShadow: '0 2px 8px rgba(0,0,0,0.7), 0 4px 20px rgba(0,0,0,0.4)' }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold transition-transform duration-100"
+              style={{ fontFamily: 'var(--font-display)', transform: `translateX(-${textTranslateX}vw)`, color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.7), 0 4px 20px rgba(0,0,0,0.4)' }}
             >
               {firstWord}
             </h2>
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-white transition-transform duration-100"
-              style={{ fontFamily: 'var(--font-display)', transform: `translateX(${textTranslateX}vw)`, textShadow: '0 2px 8px rgba(0,0,0,0.7), 0 4px 20px rgba(0,0,0,0.4)' }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-center transition-transform duration-100"
+              style={{ fontFamily: 'var(--font-display)', transform: `translateX(${textTranslateX}vw)`, color: '#ffffff', textShadow: '0 2px 8px rgba(0,0,0,0.7), 0 4px 20px rgba(0,0,0,0.4)' }}
             >
               {restOfTitle}
             </h2>
