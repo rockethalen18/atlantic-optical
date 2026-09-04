@@ -31,7 +31,7 @@ jobs:
       - name: Deploy frontend
         run: |
           find ./out/ -type f -exec touch {} +
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --delete --verbose --parallel=5 ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --parallel=5 ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
