@@ -28,32 +28,47 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
+      - name: Verify FTP deployment path
+        run: |
+          lftp -e "set ssl:verify-certificate no; pwd; cls -la; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+
       - name: Deploy frontend
         run: |
           find ./out/ -type f -exec touch {} +
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --parallel=5 ./out/ /equipos.atlanticopticalgroup.com/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --parallel=5 ./out/ \"$TARGET_DIR\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
+          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
 
       - name: Deploy backend
         run: |
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./backend/ /equipos.atlanticopticalgroup.com/backend/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./backend/ \"${TARGET_DIR}backend/\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
+          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
 
       - name: Deploy admin
         run: |
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./admin/ /equipos.atlanticopticalgroup.com/admin/; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./admin/ \"${TARGET_DIR}admin/\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
+          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
 
       - name: Sync product images to database
         run: |
           sleep 10
           curl -sk --max-time 60 "https://equipos.atlanticopticalgroup.com/admin/sync-images.php?key=atlantic-sync-2026" || echo "Sync images failed (non-critical)"
+
+      - name: Verify published catalog
+        run: |
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/productos/" | grep -q '/images/extracted_images/AO-104.jpg'
