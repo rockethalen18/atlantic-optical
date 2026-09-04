@@ -286,6 +286,18 @@ try {
 }
 $totalPages = max(1, ceil($total / $perPage));
 
+// Load products.json for gallery images (frontend source of truth)
+$catalogProducts = [];
+$jsonPath = __DIR__ . '/../catalogos/products.json';
+if (file_exists($jsonPath)) {
+    $catalogProducts = json_decode(file_get_contents($jsonPath), true) ?: [];
+}
+// Index by SKU for quick lookup
+$catalogBySku = [];
+foreach ($catalogProducts as $cp) {
+    if (!empty($cp['sku'])) $catalogBySku[strtoupper($cp['sku'])] = $cp;
+}
+
 function build_filter_url($overrides = []) {
     $base = '/admin/productos';
     $params = [];
@@ -624,10 +636,26 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                             $imgSrc = file_exists($_SERVER['DOCUMENT_ROOT'] . $fallback) ? $fallback : $imgSrc;
                                         }
                                         if (!$imgSrc) $imgSrc = $fallback;
+                                        // Get gallery images from products.json (frontend source of truth)
+                                        $skuUpper = strtoupper($p['sku']);
+                                        $catalogEntry = $catalogBySku[$skuUpper] ?? null;
+                                        $gImages = $catalogEntry['images'] ?? [];
                                         ?>
-                                        <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
-                                        <img src="<?php echo $imgSrc; ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                                        <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
+                                        <div style="display:flex;align-items:center;gap:8px">
+                                            <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
+                                            <img src="<?php echo $imgSrc; ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                            <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
+                                            </div>
+                                            <?php if (!empty($gImages)): ?>
+                                            <div style="display:flex;gap:3px;flex-wrap:wrap;max-width:160px">
+                                                <?php foreach (array_slice($gImages, 0, 5) as $gImg): ?>
+                                                <img src="<?php echo htmlspecialchars($gImg); ?>" alt="" style="width:28px;height:28px;border-radius:4px;object-fit:cover;border:1px solid #374151;">
+                                                <?php endforeach; ?>
+                                                <?php if (count($gImages) > 5): ?>
+                                                <span style="width:28px;height:28px;border-radius:4px;background:#1e3a5f;display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:10px;font-weight:700">+<?php echo count($gImages) - 5; ?></span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <?php endif; ?>
                                         </div>
                                     </td>
                                     <td><code><?php echo htmlspecialchars($p['sku']); ?></code></td>
