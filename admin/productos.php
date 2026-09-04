@@ -202,6 +202,17 @@ function resolveParentCategory($catId, $categoriesById) {
 }
 $productImages = [];
 
+// Load products.json for gallery images (frontend source of truth)
+$catalogProducts = [];
+$jsonPath = __DIR__ . '/../catalogos/products.json';
+if (file_exists($jsonPath)) {
+    $catalogProducts = json_decode(file_get_contents($jsonPath), true) ?: [];
+}
+$catalogBySku = [];
+foreach ($catalogProducts as $cp) {
+    if (!empty($cp['sku'])) $catalogBySku[strtoupper($cp['sku'])] = $cp;
+}
+
 if ($editId > 0) {
     $stmt = db()->prepare('SELECT * FROM products WHERE id = ?');
     $stmt->execute([$editId]);
@@ -210,6 +221,24 @@ if ($editId > 0) {
     $imgStmt = db()->prepare('SELECT * FROM product_images WHERE product_id = ? ORDER BY is_primary DESC, sort_order ASC');
     $imgStmt->execute([$editId]);
     $productImages = $imgStmt->fetchAll();
+    // Also load gallery from products.json (frontend source of truth)
+    $skuUpper = strtoupper($product['sku'] ?? '');
+    $catalogEntry = $catalogBySku[$skuUpper] ?? null;
+    $catalogImages = $catalogEntry['images'] ?? [];
+    // Merge: catalog images first, then MySQL product_images (avoid duplicates)
+    $mergedImages = [];
+    $seenUrls = [];
+    foreach ($catalogImages as $imgUrl) {
+        $mergedImages[] = ['url' => $imgUrl, 'alt_text' => '', 'is_primary' => empty($mergedImages), 'source' => 'catalog'];
+        $seenUrls[strtolower($imgUrl)] = true;
+    }
+    foreach ($productImages as $pImg) {
+        if (!isset($seenUrls[strtolower($pImg['url'])])) {
+            $mergedImages[] = $pImg;
+            $seenUrls[strtolower($pImg['url'])] = true;
+        }
+    }
+    $productImages = $mergedImages;
 }
 
 $search = trim($_GET['q'] ?? '');
@@ -285,18 +314,6 @@ try {
     $products = [];
 }
 $totalPages = max(1, ceil($total / $perPage));
-
-// Load products.json for gallery images (frontend source of truth)
-$catalogProducts = [];
-$jsonPath = __DIR__ . '/../catalogos/products.json';
-if (file_exists($jsonPath)) {
-    $catalogProducts = json_decode(file_get_contents($jsonPath), true) ?: [];
-}
-// Index by SKU for quick lookup
-$catalogBySku = [];
-foreach ($catalogProducts as $cp) {
-    if (!empty($cp['sku'])) $catalogBySku[strtoupper($cp['sku'])] = $cp;
-}
 
 function build_filter_url($overrides = []) {
     $base = '/admin/productos';
