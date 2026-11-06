@@ -43,7 +43,8 @@ jobs:
 
       - name: Verify FTP deployment path
         run: |
-          lftp -e "set ssl:verify-certificate no; pwd; cls -la; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          source .github/ftp-helper.sh
+          ftp_run "pwd"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -51,8 +52,9 @@ jobs:
 
       - name: Deploy frontend
         run: |
+          source .github/ftp-helper.sh
           find ./out/ -type f -exec touch {} +
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --parallel=5 ./out/ \"$TARGET_DIR\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          ftp_run "mirror -R --verbose --parallel=5 ./out/ \"$TARGET_DIR\""
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -61,7 +63,8 @@ jobs:
 
       - name: Deploy backend
         run: |
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./backend/ \"${TARGET_DIR}backend/\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          source .github/ftp-helper.sh
+          ftp_run "mirror -R --verbose ./backend/ \"${TARGET_DIR}backend/\""
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -70,7 +73,8 @@ jobs:
 
       - name: Deploy admin
         run: |
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose ./admin/ \"${TARGET_DIR}admin/\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          source .github/ftp-helper.sh
+          ftp_run "mirror -R --verbose ./admin/ \"${TARGET_DIR}admin/\""
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
@@ -79,7 +83,8 @@ jobs:
 
       - name: Deploy catalog (products.json)
         run: |
-          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --include=products.json ./catalogos/ \"${TARGET_DIR}catalogos/\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+          source .github/ftp-helper.sh
+          ftp_run "mirror -R --verbose --include=products.json ./catalogos/ \"${TARGET_DIR}catalogos/\""
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
