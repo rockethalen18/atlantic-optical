@@ -21,7 +21,20 @@ jobs:
         run: npm install --force
 
       - name: Build
-        run: npm run build
+        run: |
+          # next/font/google fetches the font files from Google at build time.
+          # That fetch occasionally fails on CI, so retry a couple of times.
+          for attempt in 1 2 3; do
+            if npm run build; then
+              echo "Build succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "Build failed on attempt $attempt - retrying in 20s"
+            rm -rf .next
+            sleep 20
+          done
+          echo "Build failed after 3 attempts"
+          exit 1
         env:
           NEXT_PUBLIC_API_URL: https://equipos.atlanticopticalgroup.com/backend/api
 
@@ -76,12 +89,13 @@ jobs:
       - name: Sync product images to database
         run: |
           sleep 10
-          curl -sk --max-time 60 "https://equipos.atlanticopticalgroup.com/admin/sync-images.php?key=atlantic-sync-2026" || echo "Sync images failed (non-critical)"
+          # The server redirects /admin/*.php to the extension-less URL, so follow it.
+          curl -skL --max-time 60 "https://equipos.atlanticopticalgroup.com/admin/sync-images?key=atlantic-sync-2026" || echo "Sync images failed (non-critical)"
 
       - name: Sync product gallery to database
         run: |
           sleep 5
-          curl -sk --max-time 120 "https://equipos.atlanticopticalgroup.com/admin/sync-gallery.php?key=atlantic-sync-2026" || echo "Sync gallery failed (non-critical)"
+          curl -skL --max-time 120 "https://equipos.atlanticopticalgroup.com/admin/sync-gallery?key=atlantic-sync-2026" || echo "Sync gallery failed (non-critical)"
 
       - name: Verify published catalog
         run: |
