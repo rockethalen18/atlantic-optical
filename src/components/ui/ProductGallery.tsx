@@ -2,16 +2,18 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import Image from 'next/image';
+import { useProductImages } from '@/lib/useProductImages';
 
 interface ProductGalleryProps {
   images: string[];
+  sku?: string;
   name: string;
   subcategory: string;
   hasDiscount: boolean;
   discountPercent?: number;
 }
 
-export default function ProductGallery({ images, name, subcategory, hasDiscount, discountPercent }: ProductGalleryProps) {
+export default function ProductGallery({ images, sku, name, subcategory, hasDiscount, discountPercent }: ProductGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [zoomPos, setZoomPos] = useState({ x: 50, y: 50 });
@@ -20,7 +22,14 @@ export default function ProductGallery({ images, name, subcategory, hasDiscount,
   const mainRef = useRef<HTMLDivElement>(null);
   const lightboxRef = useRef<HTMLDivElement>(null);
 
-  const allImages = images && images.length > 0 ? images : ['/images/extracted_images/placeholder.jpg'];
+  // Live gallery from the API (falls back to the build-time list)
+  const liveImages = useProductImages(sku || '', images);
+  const allImages = liveImages && liveImages.length > 0 ? liveImages : ['/images/extracted_images/placeholder.jpg'];
+
+  // Keep the active index valid when the gallery changes
+  useEffect(() => {
+    if (activeIndex > allImages.length - 1) setActiveIndex(0);
+  }, [allImages.length, activeIndex]);
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     if (!mainRef.current) return;

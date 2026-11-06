@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Icons } from './Icons';
+import { useProductGalleryMap } from '@/lib/useProductGalleryMap';
 
 interface ProductCardProps {
   product: {
@@ -31,6 +32,11 @@ export default function ProductCard({ product }: ProductCardProps) {
   const hasPromo = hasPrice && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn!;
   const discountPct = hasPromo ? Math.round(((product.compare_price_mxn! - product.price_mxn!) / product.compare_price_mxn!) * 100) : 0;
 
+  // Live thumbnail: the first photo of the current (admin-managed) gallery
+  const galleryMap = useProductGalleryMap();
+  const liveImages = product.sku ? galleryMap[product.sku.toUpperCase()] : undefined;
+  const thumbnail = liveImages && liveImages.length > 0 ? liveImages[0] : product.image;
+
   return (
     <Link
       href={`/productos/${product.slug}/`}
@@ -39,7 +45,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Image */}
       <div className="relative aspect-square bg-[var(--bg-alt)] overflow-hidden flex items-center justify-center p-5">
         <Image
-          src={product.image}
+          src={thumbnail}
           alt={product.name}
           fill
           className="object-contain p-5 transition-transform duration-700 group-hover:scale-110"

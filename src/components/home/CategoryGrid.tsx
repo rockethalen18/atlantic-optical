@@ -11,7 +11,7 @@ const categories = [
     slug: 'equipos-oftalmologia-optica',
     desc: 'Diagnóstico y tratamiento visual profesional',
     Icon: Icons.EyeRefractometer,
-    count: 55,
+    count: 60,
     image: '/images/hero/hero-optical-equipment.jpg',
   },
   {

@@ -64,11 +64,27 @@ jobs:
           FTP_PASS: ${{ secrets.FTP_PASS }}
           TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
 
+      - name: Deploy catalog (products.json)
+        run: |
+          lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; mirror -R --verbose --include=products.json ./catalogos/ \"${TARGET_DIR}catalogos/\"; bye" -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASS: ${{ secrets.FTP_PASS }}
+          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
+
       - name: Sync product images to database
         run: |
           sleep 10
           curl -sk --max-time 60 "https://equipos.atlanticopticalgroup.com/admin/sync-images.php?key=atlantic-sync-2026" || echo "Sync images failed (non-critical)"
 
+      - name: Sync product gallery to database
+        run: |
+          sleep 5
+          curl -sk --max-time 120 "https://equipos.atlanticopticalgroup.com/admin/sync-gallery.php?key=atlantic-sync-2026" || echo "Sync gallery failed (non-critical)"
+
       - name: Verify published catalog
         run: |
           curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/productos/" | grep -q '/images/extracted_images/AO-104.jpg'
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/catalogos/products.json" | grep -q '/images/extracted_images/AO-104.jpg'
+          echo "Frontend and catalog verified."

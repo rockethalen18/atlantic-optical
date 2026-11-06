@@ -104,6 +104,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
           <div className="relative">
             <ProductGallery
               images={product.images && product.images.length > 0 ? product.images : [product.image]}
+              sku={product.sku}
               name={product.name}
               subcategory={product.subcategory}
               hasDiscount={!!(product.price_mxn && product.compare_price_mxn && product.compare_price_mxn > product.price_mxn)}

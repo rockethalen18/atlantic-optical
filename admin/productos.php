@@ -5,11 +5,32 @@ require_once __DIR__ . '/includes/icons.php';
 require_once __DIR__ . '/includes/auth.php';
 require_once __DIR__ . '/includes/security.php';
 require_once __DIR__ . '/includes/exchange.php';
+require_once __DIR__ . '/includes/gallery.php';
 require_login();
 security_headers();
 
 $uploadDir = __DIR__ . '/uploads/';
 if (!is_dir($uploadDir)) { @mkdir($uploadDir, 0755, true); }
+
+// Ensure the gallery table exists and has the `hidden` column
+try {
+    db()->exec("CREATE TABLE IF NOT EXISTS product_images (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        product_id INT NOT NULL,
+        url VARCHAR(500) NOT NULL,
+        alt_text VARCHAR(255) DEFAULT NULL,
+        sort_order INT DEFAULT 0,
+        is_primary TINYINT(1) DEFAULT 0,
+        hidden TINYINT(1) NOT NULL DEFAULT 0,
+        INDEX idx_pi_product (product_id)
+    )");
+} catch (Throwable $e) {}
+try {
+    $cols = db()->query("SHOW COLUMNS FROM product_images LIKE 'hidden'")->fetchAll();
+    if (empty($cols)) {
+        db()->exec("ALTER TABLE product_images ADD COLUMN hidden TINYINT(1) NOT NULL DEFAULT 0 AFTER is_primary");
+    }
+} catch (Throwable $e) {}
 
 function do_upload_image($file, $dir) {
     $allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
@@ -19,6 +40,28 @@ function do_upload_image($file, $dir) {
     $name = 'prod_' . time() . '_' . bin2hex(random_bytes(4)) . '.' . $ext;
     if (move_uploaded_file($file['tmp_name'], $dir . $name)) return $name;
     return null;
+}
+
+/**
+ * Public URL for a file uploaded through the admin panel.
+ * It must be absolute so the frontend (which lives outside /admin) can load it.
+ */
+function admin_upload_url($filename) {
+    return '/admin/uploads/' . ltrim($filename, '/');
+}
+
+/** True when the given gallery URL points to an admin-uploaded file. */
+function is_admin_upload_url($url) {
+    $url = (string)$url;
+    return strpos($url, '/admin/uploads/') === 0 || strpos($url, 'uploads/') === 0;
+}
+
+/** Absolute filesystem path of an admin-uploaded file, or null. */
+function admin_upload_path($url) {
+    if (!is_admin_upload_url($url)) return null;
+    $name = basename((string)$url);
+    $path = __DIR__ . '/uploads/' . $name;
+    return file_exists($path) ? $path : null;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -66,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!empty($_FILES['main_image']['name'])) {
             $uploaded = do_upload_image($_FILES['main_image'], $uploadDir);
-            if ($uploaded) db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute(["uploads/$uploaded", $id]);
+            if ($uploaded) db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute([admin_upload_url($uploaded), $id]);
         } elseif (!empty($_POST['image_url'])) {
             $imgUrl = trim($_POST['image_url']);
             db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute([$imgUrl, $id]);
@@ -79,22 +122,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'add_photo') {
         $pid = sanitize_int($_POST['product_id'] ?? 0);
         if ($pid > 0) {
-            $cnt = db()->prepare('SELECT COUNT(*) FROM product_images WHERE product_id = ?');
-            $cnt->execute([$pid]);
-            if ($cnt->fetchColumn() < 9) {
-                $url = trim($_POST['photo_url'] ?? '');
-                $alt = trim($_POST['photo_alt'] ?? '');
-                $isPri = isset($_POST['is_primary']) ? 1 : 0;
-                if (!empty($_FILES['photo_file']['name'])) {
-                    $up = do_upload_image($_FILES['photo_file'], $uploadDir);
-                    if ($up) $url = "uploads/$up";
-                }
-                if ($url !== '') {
+            $url = trim($_POST['photo_url'] ?? '');
+            $alt = trim($_POST['photo_alt'] ?? '');
+            $isPri = isset($_POST['is_primary']) ? 1 : 0;
+            if (!empty($_FILES['photo_file']['name'])) {
+                $up = do_upload_image($_FILES['photo_file'], $uploadDir);
+                if ($up) $url = admin_upload_url($up);
+            }
+            if ($url !== '') {
+                // Count existing visible photos (DB + catalog) to honour the 9 limit
+                $pStmt = db()->prepare('SELECT * FROM products WHERE id = ?');
+                $pStmt->execute([$pid]);
+                $prod = $pStmt->fetch();
+                $visible = $prod ? count(admin_product_gallery(db(), $prod)) : 0;
+                if ($visible < 9) {
                     if ($isPri) db()->prepare('UPDATE product_images SET is_primary = 0 WHERE product_id = ?')->execute([$pid]);
                     $srt = db()->prepare('SELECT COALESCE(MAX(sort_order),0)+1 FROM product_images WHERE product_id = ?');
                     $srt->execute([$pid]);
-                    db()->prepare('INSERT INTO product_images (product_id, url, alt_text, sort_order, is_primary) VALUES (?,?,?,?,?)')
-                        ->execute([$pid, $url, $alt, $srt->fetchColumn(), $isPri]);
+                    // If this photo already exists in the gallery, just unhide + order it
+                    $dup = db()->prepare('SELECT id FROM product_images WHERE product_id = ? AND url = ?');
+                    $dup->execute([$pid, $url]);
+                    $dupId = $dup->fetchColumn();
+                    if ($dupId) {
+                        db()->prepare('UPDATE product_images SET hidden = 0, sort_order = ?, is_primary = ?, alt_text = ? WHERE id = ?')
+                            ->execute([$srt->fetchColumn(), $isPri, $alt, $dupId]);
+                    } else {
+                        db()->prepare('INSERT INTO product_images (product_id, url, alt_text, sort_order, is_primary, hidden) VALUES (?,?,?,?,?,0)')
+                            ->execute([$pid, $url, $alt, $srt->fetchColumn(), $isPri]);
+                    }
+                    if ($isPri) db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute([$url, $pid]);
                 }
             }
         }
@@ -105,9 +161,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'set_primary') {
         $phId = sanitize_int($_POST['photo_id'] ?? 0);
         $pId = sanitize_int($_POST['product_id'] ?? 0);
-        if ($phId > 0 && $pId > 0) {
+        $photoUrl = trim($_POST['photo_url'] ?? '');
+        if ($pId > 0) {
             db()->prepare('UPDATE product_images SET is_primary = 0 WHERE product_id = ?')->execute([$pId]);
-            db()->prepare('UPDATE product_images SET is_primary = 1 WHERE id = ?')->execute([$phId]);
+            if ($phId > 0) {
+                db()->prepare('UPDATE product_images SET is_primary = 1, hidden = 0 WHERE id = ?')->execute([$phId]);
+            } elseif ($photoUrl !== '') {
+                // Catalog photo (no DB row yet): create the row, then flag it
+                $exists = db()->prepare('SELECT id FROM product_images WHERE product_id = ? AND url = ?');
+                $exists->execute([$pId, $photoUrl]);
+                $rowId = $exists->fetchColumn();
+                if ($rowId) {
+                    db()->prepare('UPDATE product_images SET is_primary = 1, hidden = 0 WHERE id = ?')->execute([$rowId]);
+                } else {
+                    db()->prepare('INSERT INTO product_images (product_id, url, alt_text, sort_order, is_primary, hidden) VALUES (?,?,?,?,1,0)')
+                        ->execute([$pId, $photoUrl, '', 0]);
+                }
+            }
+            // Keep the main image column in sync
+            $prim = db()->prepare('SELECT url FROM product_images WHERE product_id = ? AND is_primary = 1 AND hidden = 0 LIMIT 1');
+            $prim->execute([$pId]);
+            $primUrl = $prim->fetchColumn();
+            if ($primUrl) db()->prepare('UPDATE products SET image = ? WHERE id = ?')->execute([$primUrl, $pId]);
         }
         header('Location: /admin/productos?edit=' . $pId);
         exit;
@@ -116,15 +191,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($action === 'delete_photo') {
         $phId = sanitize_int($_POST['photo_id'] ?? 0);
         $pId = sanitize_int($_POST['product_id'] ?? 0);
+        $photoUrl = trim($_POST['photo_url'] ?? '');
         if ($phId > 0) {
             $row = db()->prepare('SELECT url FROM product_images WHERE id = ?');
             $row->execute([$phId]);
             $img = $row->fetch();
-            if ($img && strpos($img['url'], 'uploads/') === 0) {
-                $f = __DIR__ . '/' . $img['url'];
-                if (file_exists($f)) @unlink($f);
+            $url = $img['url'] ?? $photoUrl;
+            if ($img && is_admin_upload_url($img['url'])) {
+                // Admin upload -> remove the file and the row
+                $f = admin_upload_path($img['url']);
+                if ($f) @unlink($f);
+                db()->prepare('DELETE FROM product_images WHERE id = ?')->execute([$phId]);
+            } else {
+                // Catalog photo -> hide it so the frontend stops showing it too
+                db()->prepare('UPDATE product_images SET hidden = 1, is_primary = 0 WHERE id = ?')->execute([$phId]);
             }
-            db()->prepare('DELETE FROM product_images WHERE id = ?')->execute([$phId]);
+        } elseif ($pId > 0 && $photoUrl !== '') {
+            // Catalog photo without a row: record it as hidden
+            $exists = db()->prepare('SELECT id FROM product_images WHERE product_id = ? AND url = ?');
+            $exists->execute([$pId, $photoUrl]);
+            $rowId = $exists->fetchColumn();
+            if ($rowId) {
+                db()->prepare('UPDATE product_images SET hidden = 1, is_primary = 0 WHERE id = ?')->execute([$rowId]);
+            } else {
+                db()->prepare('INSERT INTO product_images (product_id, url, alt_text, sort_order, is_primary, hidden) VALUES (?,?,?,?,0,1)')
+                    ->execute([$pId, $photoUrl, '', 0]);
+            }
         }
         header('Location: /admin/productos?edit=' . $pId);
         exit;
@@ -136,7 +228,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $imgs = db()->prepare('SELECT url FROM product_images WHERE product_id = ?');
             $imgs->execute([$dId]);
             foreach ($imgs->fetchAll() as $im) {
-                if (strpos($im['url'], 'uploads/') === 0) { $f = __DIR__ . '/' . $im['url']; if (file_exists($f)) @unlink($f); }
+                if (is_admin_upload_url($im['url'])) { $f = admin_upload_path($im['url']); if ($f) @unlink($f); }
             }
             db()->prepare('DELETE FROM product_images WHERE product_id = ?')->execute([$dId]);
             db()->prepare('DELETE FROM products WHERE id = ?')->execute([$dId]);
@@ -202,17 +294,7 @@ function resolveParentCategory($catId, $categoriesById) {
 }
 $productImages = [];
 
-// Load products.json for gallery images (frontend source of truth)
-$catalogProducts = [];
-$jsonPath = __DIR__ . '/../catalogos/products.json';
-if (file_exists($jsonPath)) {
-    $catalogProducts = json_decode(file_get_contents($jsonPath), true) ?: [];
-}
-$catalogBySku = [];
-foreach ($catalogProducts as $cp) {
-    if (!empty($cp['sku'])) $catalogBySku[strtoupper($cp['sku'])] = $cp;
-}
-
+// Gallery source of truth shared with the frontend (see includes/gallery.php)
 if ($editId > 0) {
     $stmt = db()->prepare('SELECT * FROM products WHERE id = ?');
     $stmt->execute([$editId]);
@@ -220,25 +302,7 @@ if ($editId > 0) {
     if (!$product) { header('Location: /admin/productos'); exit; }
     $imgStmt = db()->prepare('SELECT * FROM product_images WHERE product_id = ? ORDER BY is_primary DESC, sort_order ASC');
     $imgStmt->execute([$editId]);
-    $productImages = $imgStmt->fetchAll();
-    // Also load gallery from products.json (frontend source of truth)
-    $skuUpper = strtoupper($product['sku'] ?? '');
-    $catalogEntry = $catalogBySku[$skuUpper] ?? null;
-    $catalogImages = $catalogEntry['images'] ?? [];
-    // Merge: catalog images first, then MySQL product_images (avoid duplicates)
-    $mergedImages = [];
-    $seenUrls = [];
-    foreach ($catalogImages as $imgUrl) {
-        $mergedImages[] = ['url' => $imgUrl, 'alt_text' => '', 'is_primary' => empty($mergedImages), 'source' => 'catalog'];
-        $seenUrls[strtolower($imgUrl)] = true;
-    }
-    foreach ($productImages as $pImg) {
-        if (!isset($seenUrls[strtolower($pImg['url'])])) {
-            $mergedImages[] = $pImg;
-            $seenUrls[strtolower($pImg['url'])] = true;
-        }
-    }
-    $productImages = $mergedImages;
+    $productImages = admin_product_gallery(db(), $product);
 }
 
 $search = trim($_GET['q'] ?? '');
@@ -314,6 +378,9 @@ try {
     $products = [];
 }
 $totalPages = max(1, ceil($total / $perPage));
+
+// Gallery for every product on this page (same source as the frontend)
+$galleryMap = admin_gallery_map(db(), $products);
 
 function build_filter_url($overrides = []) {
     $base = '/admin/productos';
@@ -522,6 +589,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                     <form method="POST" style="display:inline"><?php echo csrf_field(); ?>
                                         <input type="hidden" name="action" value="set_primary">
                                         <input type="hidden" name="photo_id" value="<?php echo intval($img['id']); ?>">
+                                        <input type="hidden" name="photo_url" value="<?php echo htmlspecialchars($img['url']); ?>">
                                         <input type="hidden" name="product_id" value="<?php echo intval($product['id']); ?>">
                                         <button type="submit" title="Principal" style="background:#2563eb;color:#fff"><?php echo crm_icon('star'); ?></button>
                                     </form>
@@ -529,6 +597,7 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                     <form method="POST" style="display:inline"><?php echo csrf_field(); ?>
                                         <input type="hidden" name="action" value="delete_photo">
                                         <input type="hidden" name="photo_id" value="<?php echo intval($img['id']); ?>">
+                                        <input type="hidden" name="photo_url" value="<?php echo htmlspecialchars($img['url']); ?>">
                                         <input type="hidden" name="product_id" value="<?php echo intval($product['id']); ?>">
                                         <button type="submit" title="Eliminar" style="background:#dc2626;color:#fff" onclick="return confirm('Eliminar foto?')"><?php echo crm_icon('trash'); ?></button>
                                     </form>
@@ -647,29 +716,26 @@ $hasFilters = ($search !== '' || $fCategory > 0 || $fStatus !== '' || $fPriceMin
                                 <tr>
                                     <td>
                                         <?php
-                                        $imgSrc = !empty($p['image']) ? $p['image'] : '';
+                                        $gRows = $galleryMap[$p['id']] ?? [];
+                                        $imgSrc = !empty($gRows) ? $gRows[0]['url'] : (!empty($p['image']) ? $p['image'] : '');
                                         $fallback = '/images/extracted_images/' . strtoupper(htmlspecialchars($p['sku'])) . '.jpg';
                                         if ($imgSrc && !file_exists($_SERVER['DOCUMENT_ROOT'] . $imgSrc)) {
                                             $imgSrc = file_exists($_SERVER['DOCUMENT_ROOT'] . $fallback) ? $fallback : $imgSrc;
                                         }
                                         if (!$imgSrc) $imgSrc = $fallback;
-                                        // Get gallery images from products.json (frontend source of truth)
-                                        $skuUpper = strtoupper($p['sku']);
-                                        $catalogEntry = $catalogBySku[$skuUpper] ?? null;
-                                        $gImages = $catalogEntry['images'] ?? [];
                                         ?>
                                         <div style="display:flex;align-items:center;gap:8px">
                                             <div class="product-thumb-container" data-sku="<?php echo htmlspecialchars($p['sku']); ?>">
-                                            <img src="<?php echo $imgSrc; ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                                            <img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="" class="product-thumb" onload="this.parentElement.classList.add('has-img')" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                                             <div class="product-thumb-placeholder" style="display:none"><?php echo strtoupper(substr($p['sku'], -2)); ?></div>
                                             </div>
-                                            <?php if (!empty($gImages)): ?>
-                                            <div style="display:flex;gap:3px;flex-wrap:wrap;max-width:160px">
-                                                <?php foreach (array_slice($gImages, 0, 5) as $gImg): ?>
-                                                <img src="<?php echo htmlspecialchars($gImg); ?>" alt="" style="width:28px;height:28px;border-radius:4px;object-fit:cover;border:1px solid #374151;">
+                                            <?php if (count($gRows) > 1): ?>
+                                            <div style="display:flex;gap:3px;flex-wrap:wrap;max-width:170px">
+                                                <?php foreach (array_slice($gRows, 1, 5) as $gImg): ?>
+                                                <img src="<?php echo htmlspecialchars($gImg['url']); ?>" alt="" title="<?php echo htmlspecialchars($gImg['url']); ?>" style="width:28px;height:28px;border-radius:4px;object-fit:cover;border:1px solid #374151;">
                                                 <?php endforeach; ?>
-                                                <?php if (count($gImages) > 5): ?>
-                                                <span style="width:28px;height:28px;border-radius:4px;background:#1e3a5f;display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:10px;font-weight:700">+<?php echo count($gImages) - 5; ?></span>
+                                                <?php if (count($gRows) > 6): ?>
+                                                <span style="width:28px;height:28px;border-radius:4px;background:#1e3a5f;display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:10px;font-weight:700">+<?php echo count($gRows) - 6; ?></span>
                                                 <?php endif; ?>
                                             </div>
                                             <?php endif; ?>

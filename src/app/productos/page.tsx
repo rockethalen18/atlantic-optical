@@ -4,10 +4,11 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Icons from '@/components/ui/Icons';
 import productsData from '../../../catalogos/products.json';
+import { useProductGalleryMap } from '@/lib/useProductGalleryMap';
 
 const categories = [
-  { name: 'Todos', slug: '', count: 116 },
-  { name: 'Equipos Oftálmicos', slug: 'equipos-oftalmologia-optica', count: 55 },
+  { name: 'Todos', slug: '', count: 121 },
+  { name: 'Equipos Oftálmicos', slug: 'equipos-oftalmologia-optica', count: 60 },
   { name: 'Equipos de Laboratorio', slug: 'equipos-laboratorio', count: 34 },
   { name: 'Mobiliario', slug: 'mobiliario', count: 12 },
   { name: 'Monitores y Optotipos', slug: 'monitores-optotipos', count: 15 },
@@ -61,6 +62,11 @@ export default function ProductsPage() {
   }, [selectedCategory, searchTerm, sortBy]);
 
   const products = productsData as Product[];
+
+  // Live gallery (admin-managed) so thumbnails stay in sync without a redeploy
+  const galleryMap = useProductGalleryMap();
+  const thumbFor = (sku: string) =>
+    galleryMap[sku.toUpperCase()]?.[0] || `/images/extracted_images/${sku}.jpg`;
 
   const filtered = useMemo(() => {
     let result = products;
@@ -174,7 +180,7 @@ export default function ProductsPage() {
                   >
                     <div className="relative aspect-square bg-[var(--bg-alt)] overflow-hidden">
                       <img
-                        src={`/images/extracted_images/${product.sku}.jpg`}
+                        src={thumbFor(product.sku)}
                         alt={product.name}
                         className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                         onError={(e) => {
@@ -222,7 +228,7 @@ export default function ProductsPage() {
                       {product.badge === 'NEW' && (
                         <span className="absolute top-1 left-1 bg-[var(--blue)] text-white text-[7px] font-bold px-1.5 py-px uppercase tracking-[0.1em] z-10">NEW</span>
                       )}
-                      <img src={`/images/extracted_images/${product.sku}.jpg`} alt={product.name} className="w-full h-full object-contain p-2" />
+                      <img src={thumbFor(product.sku)} alt={product.name} className="w-full h-full object-contain p-2" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[9px] font-bold text-[var(--green)] uppercase tracking-[0.14em]">{product.subcategory}</span>

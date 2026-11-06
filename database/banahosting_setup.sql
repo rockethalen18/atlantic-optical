@@ -83,6 +83,8 @@ CREATE TABLE IF NOT EXISTS product_images (
     alt_text VARCHAR(255) DEFAULT NULL,
     sort_order INT DEFAULT 0,
     is_primary TINYINT(1) DEFAULT 0,
+    hidden TINYINT(1) NOT NULL DEFAULT 0,
+    INDEX idx_pi_product (product_id),
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
 

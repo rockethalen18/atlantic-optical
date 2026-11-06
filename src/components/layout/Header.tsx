@@ -7,8 +7,9 @@ import Icons from '@/components/ui/Icons';
 import SearchOverlay from '@/components/ui/SearchOverlay';
 import AuthModal from '@/components/ui/AuthModal';
 import productsData from '../../../catalogos/products.json';
+import { useProductGalleryMap } from '@/lib/useProductGalleryMap';
 
-const allProducts = productsData as Array<{ name: string; slug: string; sku: string; category_slug: string; subcategory_slug: string; subcategory: string; }>;
+const allProducts = productsData as Array<{ name: string; slug: string; sku: string; category_slug: string; subcategory_slug: string; subcategory: string; image: string; }>;
 
 const navItems = [
   {
@@ -153,6 +154,9 @@ export default function Header() {
   const [activeCat, setActiveCat] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
+
+  // Live gallery (admin-managed) so mega-menu thumbnails stay in sync
+  const galleryMap = useProductGalleryMap();
   const headerRef = useRef<HTMLElement>(null);
   const megaTimerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -279,7 +283,8 @@ export default function Header() {
                           }
                         }
                         return filtered.map((p) => {
-                          const imgSrc = `/images/extracted_images/AO-${p.name.replace(/[-+]/g, '')}.jpg`;
+                          const liveImages = galleryMap[p.sku.toUpperCase()];
+                          const imgSrc = (liveImages && liveImages[0]) || p.image || `/images/extracted_images/${p.sku}.jpg`;
                           return (
                           <Link key={p.sku} href={`/productos/${p.slug}/`} className="group flex items-center gap-3 p-3 rounded-xl hover:bg-[var(--blue-light)]/40 transition-all duration-200">
                             <div className="w-10 h-10 bg-[var(--bg-alt)] flex-shrink-0 overflow-hidden rounded-lg border border-[var(--border-light)] group-hover:border-[var(--blue)]/20 transition-colors">
