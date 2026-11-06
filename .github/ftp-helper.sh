@@ -11,13 +11,15 @@
 # ftp_run "<lftp commands>"
 # Uses $FTP_USER, $FTP_PASS, $FTP_HOST from the environment.
 ftp_run() {
-  local attempts="${FTP_ATTEMPTS:-6}"
+  local attempts="${FTP_ATTEMPTS:-20}"
   local delay="${FTP_RETRY_DELAY:-45}"
   local command="$1"
   local i=1
 
   while [ "$i" -le "$attempts" ]; do
-    if lftp -e "set ssl:verify-certificate no; set net:max-retries 30; set net:retry-delay 15; set net:timeout 60; set xfer:clobber true; ${command}; bye" \
+    # Keep lftp's own retry count low so a rejected login fails quickly and
+    # the outer loop can try again instead of hanging for minutes.
+    if lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:retry-delay 10; set net:timeout 30; set xfer:clobber true; ${command}; bye" \
              -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"; then
       echo "FTP operation succeeded on attempt ${i}/${attempts}"
       return 0
