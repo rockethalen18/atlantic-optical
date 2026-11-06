@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 # Helper for the deploy workflow: runs an lftp command and retries on
-# transient FTP failures (shared hosting occasionally rejects a login or
-# drops the control connection).
+# transient FTP failures.
+#
+# The shared host only accepts a limited number of FTP sessions at a time and
+# occasionally drops the control connection during a long transfer, so the
+# whole deployment is sent through a SINGLE lftp session (see deploy.yml) and
+# retried as a whole. lftp's mirror is incremental, so a retry only re-sends
+# what is still missing.
 
 # ftp_run "<lftp commands>"
 # Uses $FTP_USER, $FTP_PASS, $FTP_HOST from the environment.
 ftp_run() {
-  local attempts="${FTP_ATTEMPTS:-5}"
-  local delay="${FTP_RETRY_DELAY:-30}"
+  local attempts="${FTP_ATTEMPTS:-6}"
+  local delay="${FTP_RETRY_DELAY:-45}"
   local command="$1"
   local i=1
 
   while [ "$i" -le "$attempts" ]; do
-    if lftp -e "set ssl:verify-certificate no; set net:max-retries 3; set net:timeout 30; ${command}; bye" \
+    if lftp -e "set ssl:verify-certificate no; set net:max-retries 30; set net:retry-delay 15; set net:timeout 60; set xfer:clobber true; ${command}; bye" \
              -u "$FTP_USER,$FTP_PASS" "$FTP_HOST"; then
       echo "FTP operation succeeded on attempt ${i}/${attempts}"
       return 0

@@ -41,50 +41,28 @@ jobs:
       - name: Install lftp
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      - name: Verify FTP deployment path
-        run: |
-          source .github/ftp-helper.sh
-          ftp_run "pwd"
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-
-      - name: Deploy frontend
+      # Everything is uploaded through ONE FTP session. The host only accepts a
+      # limited number of sessions at the same time, so opening a new session
+      # for every folder makes the deploy fail with "530 Login authentication
+      # failed". The mirrors are incremental, so retrying is cheap.
+      #
+      # "mirror -R" changes lftp's working directory to the target, so each
+      # mirror is preceded by a "cd" back to the site root.
+      - name: Deploy to Banahosting
         run: |
           source .github/ftp-helper.sh
           find ./out/ -type f -exec touch {} +
-          ftp_run "mirror -R --verbose --parallel=5 ./out/ \"$TARGET_DIR\""
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
 
-      - name: Deploy backend
-        run: |
-          source .github/ftp-helper.sh
-          ftp_run "mirror -R --verbose ./backend/ \"${TARGET_DIR}backend/\""
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
+          CMD="cd '${TARGET_DIR}';"
+          CMD="${CMD} mirror -R --verbose --parallel=3 '${GITHUB_WORKSPACE}/out/' '${TARGET_DIR}';"
+          CMD="${CMD} cd '${TARGET_DIR}';"
+          CMD="${CMD} mirror -R --verbose '${GITHUB_WORKSPACE}/backend/' '${TARGET_DIR}backend/';"
+          CMD="${CMD} cd '${TARGET_DIR}';"
+          CMD="${CMD} mirror -R --verbose '${GITHUB_WORKSPACE}/admin/' '${TARGET_DIR}admin/';"
+          CMD="${CMD} cd '${TARGET_DIR}';"
+          CMD="${CMD} mirror -R --verbose --include=products.json '${GITHUB_WORKSPACE}/catalogos/' '${TARGET_DIR}catalogos/';"
 
-      - name: Deploy admin
-        run: |
-          source .github/ftp-helper.sh
-          ftp_run "mirror -R --verbose ./admin/ \"${TARGET_DIR}admin/\""
-        env:
-          FTP_HOST: ${{ secrets.FTP_HOST }}
-          FTP_USER: ${{ secrets.FTP_USER }}
-          FTP_PASS: ${{ secrets.FTP_PASS }}
-          TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
-
-      - name: Deploy catalog (products.json)
-        run: |
-          source .github/ftp-helper.sh
-          ftp_run "mirror -R --verbose --include=products.json ./catalogos/ \"${TARGET_DIR}catalogos/\""
+          ftp_run "$CMD"
         env:
           FTP_HOST: ${{ secrets.FTP_HOST }}
           FTP_USER: ${{ secrets.FTP_USER }}
