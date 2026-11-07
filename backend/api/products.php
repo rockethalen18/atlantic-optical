@@ -2,104 +2,48 @@
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../config/helpers.php';
 
+// The gallery resolver is shared with the admin panel so both always show
+// exactly the same photos. See admin/includes/gallery.php.
+$galleryHelper = dirname(dirname(__DIR__)) . '/admin/includes/gallery.php';
+if (is_file($galleryHelper)) require_once $galleryHelper;
+
 $method = $_SERVER['REQUEST_METHOD'];
 $db = (new Database())->connect();
 
 /**
- * Load and cache catalogos/products.json indexed by SKU.
- * The catalog is the source of truth for the static frontend gallery.
- */
-function loadCatalogIndex(): array {
-    static $catalogCache = null;
-    if ($catalogCache !== null) return $catalogCache;
-
-    $catalogCache = [];
-    $docRoot = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/');
-    $candidates = [
-        $docRoot . '/catalogos/products.json',
-        dirname(dirname(__DIR__)) . '/catalogos/products.json',
-        dirname(dirname(dirname(__DIR__))) . '/catalogos/products.json',
-    ];
-    foreach ($candidates as $cf) {
-        if (!is_file($cf)) continue;
-        $raw = @file_get_contents($cf);
-        if ($raw === false) continue;
-        $decoded = json_decode($raw, true);
-        if (!is_array($decoded)) continue;
-        foreach ($decoded as $cp) {
-            if (!empty($cp['sku'])) $catalogCache[strtoupper(trim((string)$cp['sku']))] = $cp;
-        }
-        break;
-    }
-    return $catalogCache;
-}
-
-/**
  * Build the product gallery (array of image URLs).
  *
- * Priority:
- *  1. Admin-managed rows in `product_images` (uploads + manual additions).
- *  2. Catalog gallery from `catalogos/products.json` (the `images[]` array),
- *     which is exactly what the static frontend renders.
- *  3. The single `image` column as last resort.
- *
- * Both sources are merged so the admin panel and the public site always agree.
+ * Uses the SAME resolver as the admin panel:
+ *   1. Admin-managed rows in `product_images` (uploads + manual additions).
+ *   2. Catalog gallery from `catalogos/products.json` (the `images[]` array),
+ *      which is exactly what the static frontend renders.
+ *   3. The single `image` column as last resort.
  */
 function fetchProductImages(PDO $db, array $product): array {
-    $images = [];
-    $hidden = [];
+    if (function_exists('admin_product_gallery')) {
+        $rows = admin_product_gallery($db, $product);
+        $out = [];
+        foreach ($rows as $r) {
+            $url = trim((string)$r['url']);
+            if ($url !== '') $out[] = $url;
+        }
+        return $out;
+    }
 
-    // 1) Admin-managed gallery rows
+    // Fallback (shared helper not deployed yet)
+    $out = [];
     try {
         $stmt = $db->prepare('SELECT url, hidden FROM product_images WHERE product_id = ? ORDER BY is_primary DESC, sort_order ASC, id ASC');
         $stmt->execute([$product['id']]);
         foreach ($stmt->fetchAll() as $r) {
+            if ((int)($r['hidden'] ?? 0) === 1) continue;
             $url = trim((string)$r['url']);
-            if ($url === '') continue;
-            if ((int)($r['hidden'] ?? 0) === 1) { $hidden[$url] = true; continue; }
-            $images[] = $url;
+            if ($url !== '') $out[] = $url;
         }
     } catch (Throwable $e) {
-        try {
-            $stmt = $db->prepare('SELECT url FROM product_images WHERE product_id = ? ORDER BY is_primary DESC, sort_order ASC, id ASC');
-            $stmt->execute([$product['id']]);
-            foreach ($stmt->fetchAll(PDO::FETCH_COLUMN) as $url) {
-                $url = trim((string)$url);
-                if ($url !== '') $images[] = $url;
-            }
-        } catch (Throwable $e2) {
-            // table missing - fall through to catalog
-        }
+        // table missing
     }
-
-    // 2) Catalog gallery (source of truth for the static frontend)
-    $catalog = loadCatalogIndex();
-    $sku = strtoupper(trim((string)($product['sku'] ?? '')));
-    if ($sku !== '' && isset($catalog[$sku])) {
-        $catImgs = $catalog[$sku]['images'] ?? [];
-        if (is_array($catImgs)) {
-            foreach ($catImgs as $img) {
-                $img = trim((string)$img);
-                if ($img === '' || isset($hidden[$img])) continue;
-                $images[] = $img;
-            }
-        }
-    }
-
-    // 3) Fallback: single image column
-    if (empty($images) && !empty($product['image'])) {
-        $images[] = $product['image'];
-    }
-
-    // Deduplicate, preserve order
-    $seen = [];
-    $out = [];
-    foreach ($images as $img) {
-        if (!isset($seen[$img])) {
-            $seen[$img] = true;
-            $out[] = $img;
-        }
-    }
+    if (empty($out) && !empty($product['image'])) $out[] = $product['image'];
     return $out;
 }
 
@@ -111,61 +55,23 @@ function fetchProductImagesBulk(PDO $db, array $products): array {
     $result = [];
     if (empty($products)) return $result;
 
-    // One query for every gallery row of every product in this page
-    $byProduct = [];
-    try {
-        $ids = array_map(fn($p) => (int)$p['id'], $products);
-        $ph = implode(',', array_fill(0, count($ids), '?'));
-        $stmt = $db->prepare("SELECT product_id, url, hidden FROM product_images WHERE product_id IN ($ph) ORDER BY is_primary DESC, sort_order ASC, id ASC");
-        $stmt->execute($ids);
-        foreach ($stmt->fetchAll() as $r) {
-            $byProduct[(int)$r['product_id']][] = $r;
+    if (function_exists('admin_gallery_map')) {
+        $map = admin_gallery_map($db, $products);
+        foreach ($products as $p) {
+            $pid = (int)$p['id'];
+            $urls = [];
+            foreach (($map[$pid] ?? []) as $r) {
+                $url = trim((string)$r['url']);
+                if ($url !== '') $urls[] = $url;
+            }
+            $result[$pid] = $urls;
         }
-    } catch (Throwable $e) {
-        $byProduct = [];
+        return $result;
     }
-
-    $catalog = loadCatalogIndex();
 
     foreach ($products as $p) {
-        $pid = (int)$p['id'];
-        $images = [];
-        $hidden = [];
-
-        foreach (($byProduct[$pid] ?? []) as $r) {
-            $url = trim((string)$r['url']);
-            if ($url === '') continue;
-            if ((int)($r['hidden'] ?? 0) === 1) { $hidden[$url] = true; continue; }
-            $images[] = $url;
-        }
-
-        $sku = strtoupper(trim((string)($p['sku'] ?? '')));
-        if ($sku !== '' && isset($catalog[$sku])) {
-            $catImgs = $catalog[$sku]['images'] ?? [];
-            if (is_array($catImgs)) {
-                foreach ($catImgs as $img) {
-                    $img = trim((string)$img);
-                    if ($img === '' || isset($hidden[$img])) continue;
-                    $images[] = $img;
-                }
-            }
-        }
-
-        if (empty($images) && !empty($p['image'])) {
-            $images[] = $p['image'];
-        }
-
-        $seen = [];
-        $out = [];
-        foreach ($images as $img) {
-            if (!isset($seen[$img])) {
-                $seen[$img] = true;
-                $out[] = $img;
-            }
-        }
-        $result[$pid] = $out;
+        $result[(int)$p['id']] = fetchProductImages($db, $p);
     }
-
     return $result;
 }
 

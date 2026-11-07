@@ -69,6 +69,13 @@ jobs:
           FTP_PASS: ${{ secrets.FTP_PASS }}
           TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
 
+      - name: Sync product list to database
+        run: |
+          sleep 5
+          # Makes sure the admin panel lists exactly the products the public
+          # catalog has (creates missing rows, hides broken leftover rows).
+          curl -skL --max-time 180 "https://equipos.atlanticopticalgroup.com/admin/sync-products?key=atlantic-sync-2026" || echo "Sync products failed (non-critical)"
+
       - name: Sync product images to database
         run: |
           sleep 10
@@ -84,4 +91,5 @@ jobs:
         run: |
           curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/productos/" | grep -q '/images/extracted_images/AO-104.jpg'
           curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/catalogos/products.json" | grep -q '/images/extracted_images/AO-104.jpg'
-          echo "Frontend and catalog verified."
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/backend/api/products?limit=1" | grep -q 'AO-104'
+          echo "Frontend, catalog and API verified."

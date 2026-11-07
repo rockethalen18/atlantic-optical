@@ -9,6 +9,25 @@
  *   3. The single `image` column as fallback
  */
 
+/**
+ * Normalise an image URL so it resolves from any page of the site.
+ *
+ * Older admin uploads were stored as "uploads/photo.jpg" (relative to
+ * /admin). The public frontend lives outside /admin, so those URLs would
+ * break there. They are rewritten to "/admin/uploads/photo.jpg".
+ *
+ * This is also what the API uses, so both always show the same photos.
+ */
+function ao_normalize_image_url($url) {
+    $url = trim((string)$url);
+    if ($url === '') return '';
+    if (strpos($url, 'uploads/') === 0) return '/admin/' . $url;
+    if (strpos($url, '/admin/uploads/') === 0) return $url;
+    if (preg_match('#^https?://#i', $url)) return $url;
+    if ($url[0] !== '/') return '/' . $url;
+    return $url;
+}
+
 /** Locate and decode catalogos/products.json (cached per request). */
 function admin_catalog_index() {
     static $index = null;
@@ -62,7 +81,7 @@ function admin_product_gallery(PDO $db, array $product) {
     $seen = [];
     $hidden = [];
     foreach ($dbRows as $r) {
-        $url = trim((string)$r['url']);
+        $url = ao_normalize_image_url($r['url']);
         if ($url === '') continue;
         if ((int)($r['hidden'] ?? 0) === 1) {
             $hidden[$url] = true;   // explicitly removed in the admin panel
@@ -84,7 +103,7 @@ function admin_product_gallery(PDO $db, array $product) {
     $sku = strtoupper(trim((string)($product['sku'] ?? '')));
     if ($sku !== '' && isset($index[$sku])) {
         foreach (($index[$sku]['images'] ?? []) as $img) {
-            $img = trim((string)$img);
+            $img = ao_normalize_image_url($img);
             if ($img === '' || isset($seen[$img]) || isset($hidden[$img])) continue;
             $seen[$img] = true;
             $rows[] = [
@@ -101,7 +120,7 @@ function admin_product_gallery(PDO $db, array $product) {
     if (empty($rows) && !empty($product['image'])) {
         $rows[] = [
             'id' => null,
-            'url' => $product['image'],
+            'url' => ao_normalize_image_url($product['image']),
             'alt_text' => '',
             'is_primary' => true,
             'source' => 'column',
@@ -159,7 +178,7 @@ function admin_gallery_map(PDO $db, array $products) {
         $hidden = [];
 
         foreach (($byProduct[$pid] ?? []) as $r) {
-            $url = trim((string)$r['url']);
+            $url = ao_normalize_image_url($r['url']);
             if ($url === '') continue;
             if ((int)($r['hidden'] ?? 0) === 1) {
                 $hidden[$url] = true;
@@ -179,7 +198,7 @@ function admin_gallery_map(PDO $db, array $products) {
         $sku = strtoupper(trim((string)($p['sku'] ?? '')));
         if ($sku !== '' && isset($index[$sku])) {
             foreach (($index[$sku]['images'] ?? []) as $img) {
-                $img = trim((string)$img);
+                $img = ao_normalize_image_url($img);
                 if ($img === '' || isset($seen[$img]) || isset($hidden[$img])) continue;
                 $seen[$img] = true;
                 $out[] = ['id' => null, 'url' => $img, 'alt_text' => '', 'is_primary' => false, 'source' => 'catalog'];
@@ -187,7 +206,7 @@ function admin_gallery_map(PDO $db, array $products) {
         }
 
         if (empty($out) && !empty($p['image'])) {
-            $out[] = ['id' => null, 'url' => $p['image'], 'alt_text' => '', 'is_primary' => true, 'source' => 'column'];
+            $out[] = ['id' => null, 'url' => ao_normalize_image_url($p['image']), 'alt_text' => '', 'is_primary' => true, 'source' => 'column'];
         }
 
         $hasPrimary = false;

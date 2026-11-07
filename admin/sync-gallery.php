@@ -26,6 +26,7 @@ if (!hash_equals($expected, (string)$secret)) {
 }
 
 require_once __DIR__ . '/includes/db.php';
+require_once __DIR__ . '/includes/gallery.php';
 $db = db();
 
 // Locate the catalog file. It lives next to the deployed site root.
@@ -87,7 +88,7 @@ foreach ($db->query('SELECT id, sku, image FROM products') as $p) {
 $existing = [];   // product_id => [url => ['id' => int, 'hidden' => int]]
 foreach ($db->query('SELECT id, product_id, url, hidden FROM product_images') as $r) {
     $pid = (int)$r['product_id'];
-    $url = trim((string)$r['url']);
+    $url = ao_normalize_image_url($r['url']);
     if ($url === '') continue;
     $existing[$pid][$url] = [
         'id'     => (int)$r['id'],
@@ -110,7 +111,7 @@ foreach ($catalog as $cp) {
 
     $catalogImgs = [];
     foreach (($cp['images'] ?? []) as $img) {
-        $img = trim((string)$img);
+        $img = ao_normalize_image_url($img);
         if ($img !== '' && !in_array($img, $catalogImgs, true)) $catalogImgs[] = $img;
     }
 
@@ -149,8 +150,8 @@ foreach ($catalog as $cp) {
     // 3) Keep products.image pointing at the gallery's primary photo
     $primStmt = $db->prepare('SELECT url FROM product_images WHERE product_id = ? AND hidden = 0 ORDER BY is_primary DESC, sort_order ASC, id ASC LIMIT 1');
     $primStmt->execute([$pid]);
-    $primary = $primStmt->fetchColumn();
-    if ($primary && ((string)$product['image']) !== (string)$primary) {
+    $primary = ao_normalize_image_url($primStmt->fetchColumn());
+    if ($primary && ((string)$product['image']) !== $primary) {
         $db->prepare('UPDATE products SET image = ? WHERE id = ?')->execute([$primary, $pid]);
     }
 }

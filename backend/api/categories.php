@@ -25,7 +25,7 @@ switch ($method) {
             $stmtSub = $db->prepare("
                 SELECT s.*, 
                 (SELECT COUNT(*) FROM products WHERE subcategory_id = s.id AND is_active = 1) as product_count
-                FROM subcategories s WHERE s.category_id = ? AND s.is_active = 1 ORDER BY s.name
+                FROM subcategories s WHERE s.category_id = ? ORDER BY s.name
             ");
             $stmtSub->execute([$category['id']]);
             $category['children'] = $stmtSub->fetchAll();
@@ -44,7 +44,7 @@ switch ($method) {
             $stmtSub = $db->prepare("
                 SELECT s.*,
                 (SELECT COUNT(*) FROM products WHERE subcategory_id = s.id AND is_active = 1) as product_count
-                FROM subcategories s WHERE s.category_id = ? AND s.is_active = 1 ORDER BY s.name
+                FROM subcategories s WHERE s.category_id = ? ORDER BY s.name
             ");
             $stmtSub->execute([$cat['id']]);
             $cat['children'] = $stmtSub->fetchAll();

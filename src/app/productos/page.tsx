@@ -25,6 +25,7 @@ interface Product {
   description: string;
   barcode: string;
   reference: string;
+  image?: string;
   badge?: string;
 }
 
@@ -65,8 +66,12 @@ export default function ProductsPage() {
 
   // Live gallery (admin-managed) so thumbnails stay in sync without a redeploy
   const galleryMap = useProductGalleryMap();
-  const thumbFor = (sku: string) =>
-    galleryMap[sku.toUpperCase()]?.[0] || `/images/extracted_images/${sku}.jpg`;
+  // Fallback to the photo the catalog ships with (not every product lives in
+  // /images/extracted_images/ - some use /images/products/).
+  const thumbFor = (product: Product) =>
+    galleryMap[product.sku.toUpperCase()]?.[0] ||
+    product.image ||
+    `/images/extracted_images/${product.sku}.jpg`;
 
   const filtered = useMemo(() => {
     let result = products;
@@ -180,7 +185,7 @@ export default function ProductsPage() {
                   >
                     <div className="relative aspect-square bg-[var(--bg-alt)] overflow-hidden">
                       <img
-                        src={thumbFor(product.sku)}
+                        src={thumbFor(product)}
                         alt={product.name}
                         className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-110"
                         onError={(e) => {
@@ -228,7 +233,7 @@ export default function ProductsPage() {
                       {product.badge === 'NEW' && (
                         <span className="absolute top-1 left-1 bg-[var(--blue)] text-white text-[7px] font-bold px-1.5 py-px uppercase tracking-[0.1em] z-10">NEW</span>
                       )}
-                      <img src={thumbFor(product.sku)} alt={product.name} className="w-full h-full object-contain p-2" />
+                      <img src={thumbFor(product)} alt={product.name} className="w-full h-full object-contain p-2" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <span className="text-[9px] font-bold text-[var(--green)] uppercase tracking-[0.14em]">{product.subcategory}</span>
