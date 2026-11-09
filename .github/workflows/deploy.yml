@@ -138,7 +138,16 @@ jobs:
 
       - name: Verify published catalog
         run: |
-          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/productos/" | grep -q '/images/extracted_images/AO-104.jpg'
-          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/catalogos/products.json" | grep -q '/images/extracted_images/AO-104.jpg'
-          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/backend/api/products?limit=1" | grep -q 'AO-104'
+          set -e
+          # The storefront, the catalog and the API have to agree.
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/productos/" \
+            | grep -q '/images/extracted_images/AO-104.jpg'
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/catalogos/products.json" \
+            | grep -q '/images/extracted_images/AO-104.jpg'
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/backend/api/products?sku=AO-104" \
+            | grep -q '"sku":"AO-104"'
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/productos/caja-de-prueba-de-104-lentillas/" \
+            | grep -q '/images/extracted_images/AO-104_9.jpg'
+          curl --fail --silent --show-error --max-time 60 "https://equipos.atlanticopticalgroup.com/backend/api/categories" \
+            | grep -q '"success":true'
           echo "Frontend, catalog and API verified."
