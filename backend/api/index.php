@@ -45,6 +45,11 @@ $routes = [
     'POST /auth/login'     => ['file' => 'api/auth.php', 'action' => 'login'],
     'POST /auth/logout'    => ['file' => 'api/auth.php', 'action' => 'logout'],
     'GET /auth/me'         => ['file' => 'api/auth.php', 'action' => 'me'],
+    // The storefront calls /auth?action=login (and register, update, me),
+    // so the action in the query string has to reach the endpoint.
+    'GET /auth'            => ['file' => 'api/auth.php'],
+    'POST /auth'           => ['file' => 'api/auth.php'],
+    'PUT /auth'            => ['file' => 'api/auth.php'],
     
     'POST /import'         => ['file' => 'api/import.php'],
     'GET /export'          => ['file' => 'api/export.php'],

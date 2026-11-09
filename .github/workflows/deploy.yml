@@ -69,6 +69,8 @@ jobs:
                "https://equipos.atlanticopticalgroup.com/admin/deploy-package"
           echo
           echo "Deployed over HTTPS."
+        env:
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
 
       # Fallback for the rare case where the HTTPS upload is not possible.
       # Everything is uploaded through ONE FTP session: the host only accepts a
@@ -97,6 +99,9 @@ jobs:
           FTP_USER: ${{ secrets.FTP_USER }}
           FTP_PASS: ${{ secrets.FTP_PASS }}
           TARGET_DIR: ${{ secrets.FTP_TARGET_DIR || '/equipos.atlanticopticalgroup.com/' }}
+          # Keep the fallback short: the HTTPS deploy is the normal path.
+          FTP_ATTEMPTS: 6
+          FTP_RETRY_DELAY: 30
 
       - name: Sync product list to database
         run: |

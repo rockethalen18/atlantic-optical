@@ -25,7 +25,7 @@ export default function FeaturedProducts() {
 
   const products = (productsData as Array<{
     sku: string; name: string; slug: string; category: string; category_slug: string;
-    subcategory: string; description: string; reference: string;
+    subcategory: string; description: string; reference: string; image: string;
   }>).filter(p => featuredSkus.includes(p.sku));
 
   return (
@@ -51,7 +51,7 @@ export default function FeaturedProducts() {
             <Link key={p.sku} href={`/productos/${p.slug}/`}
               className="fp-card group block glass-premium overflow-hidden">
               <div className="glass-img relative h-[300px] flex items-center justify-center p-8">
-                <img src={`/images/extracted_images/${p.sku}.jpg`} alt={p.name}
+                <img src={p.image} alt={p.name}
                   className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute top-4 left-4 glass-chip text-[10px] font-bold text-[var(--blue)] px-3 py-1.5 uppercase tracking-[0.12em]">
                   Destacado

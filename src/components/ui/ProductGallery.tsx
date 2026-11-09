@@ -24,7 +24,7 @@ export default function ProductGallery({ images, sku, name, subcategory, hasDisc
 
   // Live gallery from the API (falls back to the build-time list)
   const liveImages = useProductImages(sku || '', images);
-  const allImages = liveImages && liveImages.length > 0 ? liveImages : ['/images/extracted_images/placeholder.jpg'];
+  const allImages = liveImages && liveImages.length > 0 ? liveImages : ['/images/placeholder.png'];
 
   // Keep the active index valid when the gallery changes
   useEffect(() => {
