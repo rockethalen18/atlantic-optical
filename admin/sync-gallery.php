@@ -16,8 +16,18 @@
  */
 header('Content-Type: application/json; charset=utf-8');
 
+require_once __DIR__ . '/includes/secrets.php';
+
 $secret = $_GET['key'] ?? $_SERVER['HTTP_X_SYNC_KEY'] ?? '';
-$expected = getenv('IMAGE_SYNC_SECRET') ?: 'atlantic-sync-2026';
+// The key is read from the secrets file next to the site (never from the
+// repository, which is public).
+$expected = ao_secret('IMAGE_SYNC_SECRET');
+
+if ($expected === '') {
+    http_response_code(403);
+    echo json_encode(['ok' => false, 'error' => 'Sync secret is not configured']);
+    exit;
+}
 
 if (!hash_equals($expected, (string)$secret)) {
     http_response_code(403);

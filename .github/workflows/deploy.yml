@@ -38,18 +38,47 @@ jobs:
         env:
           NEXT_PUBLIC_API_URL: https://equipos.atlanticopticalgroup.com/backend/api
 
-      - name: Install lftp
-        run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-
-      # Everything is uploaded through ONE FTP session. The host only accepts a
-      # limited number of sessions at the same time, so opening a new session
-      # for every folder makes the deploy fail with "530 Login authentication
-      # failed". The mirrors are incremental, so retrying is cheap.
+      # The build is packaged as one ZIP and uploaded over HTTPS. The shared
+      # host rejects FTP logins coming from the GitHub runner pool with
+      # "530 Login authentication failed", so FTP is only kept as a fallback.
       #
-      # "mirror -R" changes lftp's working directory to the target, so each
-      # mirror is preceded by a "cd" back to the site root.
-      - name: Deploy to Banahosting
+      # The package mirrors the layout of the site:
+      #   site/...           the static export (the site root)
+      #   site/admin/...     the admin panel
+      #   site/backend/...   the API
+      #   site/catalogos/... the product catalog
+      - name: Package the build
         run: |
+          rm -rf .deploy
+          mkdir -p .deploy/site/admin .deploy/site/backend .deploy/site/catalogos
+          cp -r out/. .deploy/site/
+          cp -r admin/. .deploy/site/admin/
+          cp -r backend/. .deploy/site/backend/
+          cp catalogos/products.json .deploy/site/catalogos/products.json
+          cd .deploy
+          zip -qr ../deploy-package.zip site
+          cd ..
+          ls -lh deploy-package.zip
+
+      - name: Deploy over HTTPS
+        run: |
+          curl --fail --silent --show-error --max-time 900 \
+               -X POST \
+               -H "X-Deploy-Key: ${DEPLOY_KEY}" \
+               -F "package=@deploy-package.zip" \
+               "https://equipos.atlanticopticalgroup.com/admin/deploy-package"
+          echo
+          echo "Deployed over HTTPS."
+
+      # Fallback for the rare case where the HTTPS upload is not possible.
+      # Everything is uploaded through ONE FTP session: the host only accepts a
+      # limited number of sessions at the same time, so opening a new session
+      # for every folder makes the deploy fail. "mirror -R" changes lftp's
+      # working directory, so each mirror is preceded by a "cd" to the root.
+      - name: Fallback - deploy over FTP
+        if: failure()
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
           source .github/ftp-helper.sh
           find ./out/ -type f -exec touch {} +
 
@@ -74,18 +103,33 @@ jobs:
           sleep 5
           # Makes sure the admin panel lists exactly the products the public
           # catalog has (creates missing rows, hides broken leftover rows).
-          curl -skL --max-time 180 "https://equipos.atlanticopticalgroup.com/admin/sync-products?key=atlantic-sync-2026" || echo "Sync products failed (non-critical)"
+          curl -skG --fail --silent --show-error --max-time 180 \
+               --data-urlencode "key=${IMAGE_SYNC_SECRET}" \
+               "https://equipos.atlanticopticalgroup.com/admin/sync-products" \
+            || echo "Sync products failed (non-critical)"
+        env:
+          IMAGE_SYNC_SECRET: ${{ secrets.IMAGE_SYNC_SECRET }}
 
       - name: Sync product images to database
         run: |
           sleep 10
           # The server redirects /admin/*.php to the extension-less URL, so follow it.
-          curl -skL --max-time 60 "https://equipos.atlanticopticalgroup.com/admin/sync-images?key=atlantic-sync-2026" || echo "Sync images failed (non-critical)"
+          curl -skG --fail --silent --show-error --max-time 60 \
+               --data-urlencode "key=${IMAGE_SYNC_SECRET}" \
+               "https://equipos.atlanticopticalgroup.com/admin/sync-images" \
+            || echo "Sync images failed (non-critical)"
+        env:
+          IMAGE_SYNC_SECRET: ${{ secrets.IMAGE_SYNC_SECRET }}
 
       - name: Sync product gallery to database
         run: |
           sleep 5
-          curl -skL --max-time 120 "https://equipos.atlanticopticalgroup.com/admin/sync-gallery?key=atlantic-sync-2026" || echo "Sync gallery failed (non-critical)"
+          curl -skG --fail --silent --show-error --max-time 120 \
+               --data-urlencode "key=${IMAGE_SYNC_SECRET}" \
+               "https://equipos.atlanticopticalgroup.com/admin/sync-gallery" \
+            || echo "Sync gallery failed (non-critical)"
+        env:
+          IMAGE_SYNC_SECRET: ${{ secrets.IMAGE_SYNC_SECRET }}
 
       - name: Verify published catalog
         run: |

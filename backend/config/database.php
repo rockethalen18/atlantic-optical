@@ -1,10 +1,21 @@
 <?php
+require_once __DIR__ . '/secrets.php';
+
 class Database {
-    private $host = "localhost";
-    private $db_name = "azjnptoj_atlantic";
-    private $username = "azjnptoj_user";
-    private $password = "nyvfuc-cizwe4-watfoK";
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
     private $conn;
+
+    public function __construct() {
+        // The credentials live in the secrets file next to the site, never in
+        // the repository (which is public).
+        $this->host     = ao_secret('DB_HOST', 'localhost');
+        $this->db_name  = ao_secret('DB_NAME');
+        $this->username = ao_secret('DB_USER');
+        $this->password = ao_secret('DB_PASS');
+    }
 
     public function connect() {
         $this->conn = null;
@@ -21,7 +32,7 @@ class Database {
             );
         } catch (PDOException $e) {
             http_response_code(500);
-            echo json_encode(["error" => $e->getMessage()]);
+            echo json_encode(["error" => "Database connection failed"]);
             exit;
         }
         return $this->conn;
